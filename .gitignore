@@ -174,3 +174,4 @@ buildNumber.properties
 **/.DS_STORE
 .idea/modules.xml
 .idea/recycloud-main.iml
+*.iml
