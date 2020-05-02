@@ -9,6 +9,8 @@ Este es el sistema principal de RecyCloud.
   - [Lombok](#lombok)
   - [Thymeleaf](#thymeleaf)
 - [Estructura](#estructura)
+- [Git Flow](#git-flow)
+
 
 
 ## Instalar
@@ -65,3 +67,22 @@ Aquí están las configuraciones de Spring como el motor de template.
 Aquí está la parte visual del proyecto. Tenemos páginas y componentes. Las páginas son los sitios donde se podrá navegar. Componentes son los elementos consumidos por las páginas (como puede ser un header, footer, o elementos visuales).
 
 Es importante distinguir qué cosa le "importa" a cada feature. Por ejemplo: a la página "Mapa" no le interesa cómo se obtiene la información que dibuja en el mapa. Eso es tarea de la api. Entonces podemos tener dos features "mapa". Uno en la web, que es lo que se ve, y otro en api que es lo que se hace.
+
+## Git Flow
+Para organizar el trabajo usar la secuencia de git flow. Esta divide al proyecto en dos grandes ramas: develop y master que van en paralelo.
+
+### Secuencia normal
+1. Develop -> feature/cosa inicio del feature
+2. feature/cosa -> develop completado del feature
+3. Backport: develop -> features/existentes se mergean los cambios desde develop hacia los otros features activos
+4. Release: develop -> release/1.0.0 una vez que se suman todos los features esperados, se lanza un release desde develop
+5. Prueba del release
+6. Salida a producción: release -> master
+7. Backport: master -> develop
+
+### Hotfix
+Si surgen cuestiones a arreglar en producción (master) o en la beta (release), se generar hotfixes desde la rama
+1. master -> hotfix/1.0.1 se crea branch del hotfix
+2. hotfix/1.0.1 -> master se lleva el hotfix hacia producción
+
+![Git flow chart](https://leanpub.com/site_images/git-flow/git-flow-nvie.png "Git Flow Chart")
