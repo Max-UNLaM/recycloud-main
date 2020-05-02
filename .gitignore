@@ -169,6 +169,8 @@ buildNumber.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 
-./idea
+.idea
 
 **/.DS_STORE
+.idea/modules.xml
+.idea/recycloud-main.iml
