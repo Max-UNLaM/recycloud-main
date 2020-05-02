@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="baseHead(title, links)">
+
+    <title th:replace="${title}">Recycloud</title>
+
+    <!-- default styles and scripts
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}">
+    -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/fonts.css}">
+    <link rel="stylesheet" th:href="@{/css/theme.css}">
+    <link rel="stylesheet" th:href="@{/css/retina.css}">
+    <link rel="stylesheet" th:href="@{/css/settings.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- placeholder for additional links -->
+    <th:block th:replace="${links}"/>
+
+</head>
+
+<body>
+</body>
+</html>
