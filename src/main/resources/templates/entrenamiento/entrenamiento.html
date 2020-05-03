@@ -18,8 +18,7 @@
         <div class="col-md-12 text-center"style="margin-left: 1%;"><span style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
 
         <form action="#" th:action="@{/entrenamiento/guardarEntrenamiento}" th:object="${entrenamientoModel}" method="post">
-            <input type="json" name="path" id="path" />
-            <input type="text" name="nombres" id="nombres" />
+            <input type="text" name="path" id="path" />
             <div class="col-md-12 text-center"style="margin-left: 1%;"><button type="submit" class="btn btn-danger col-md-12" id="botonGuardar">Guardar Entrenamiento</button></div><br>
         </form>
     </div>
@@ -70,11 +69,10 @@
             //nombre objetos
             //console.log(clasificador.mapStringToIndex);
             let path = document.getElementById("path");
-            let nombres = document.getElementById("nombres");
-            nombres.value=clasificador.mapStringToIndex;
-            path.value=clasificador.mobilenet.path;
+            path.value=clasificador;
+            console.log(clasificador);
             //path json
-           // console.log(clasificador.mobilenet.path);
+           // console.log(1clasificador.mobilenet.path);
 
         }
 
