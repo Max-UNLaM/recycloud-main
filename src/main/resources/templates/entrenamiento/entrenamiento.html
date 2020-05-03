@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
+    <meta charset="UTF-8">
+    <title>Entrenamiento</title>
+    <link rel="stylesheet" th:href="@{/css/jquery-ui.css}">
+</head>
+<body>
+<style>video{width: 300px; height: 200px;}</style>
+<header th:replace="fragments/header"></header>
+<div class="text-center" id="contenedorVideo"></div><br>
+<div style="width: 40%; height: 300px;margin: 0 auto;">
+    <div class="row col-md-12 text-center">
+        <div class="col-md-12 text-center" style="margin-left: 1%;"> <button class="btn btn-warning col-md-12" id="botonBotella">Agregar imagen de una Botella <span id="sumaDeImagenesBotella">0</span></button></div><br>
+            <div class="col-md-12 text-center"style="margin-left: 1%;"> <button class="btn btn-warning col-md-12" id="botonTapaDeBotella">Agregar imagen de Tapa de Botella <span id="sumaDeImagenesTapaDeBotella">0</span></button></div><br>
+            <div class="col-md-12 text-center"style="margin-left: 1%;"><button class="btn btn-success col-md-12" id="botonEntrenamiento">Entrenamiento</button></div><br>
+            <div class="col-md-12 text-center"style="margin-left: 1%;"><button class="btn btn-info col-md-12" id="botonPredecir">Iniciar la prediccion!</button></div><br>
+        <div class="col-md-12 text-center"style="margin-left: 1%;"><span style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
+        </div>
+    </div>
+<script>
+    let video;
+    let featureExtractor;
+    let clasificador;
+    let botellaImagenes=0;
+    let tapaDeBotellaImagenes=0;
+    let perdida=0;
+    function setup(){
+        noCanvas();
+        video=createCapture(VIDEO);
+        video.parent('contenedorVideo');
+        featureExtractor=ml5.featureExtractor('MobileNet');
+        clasificador=featureExtractor.classification(video);
+        configuraBotones();
+    }
+    function  configuraBotones(){
+        botonA=select('#botonBotella');
+        botonA.mousePressed(function (){
+            clasificador.addImage('Botella');
+            select('#sumaDeImagenesBotella').html(botellaImagenes++);
+        });
+        botonB=select('#botonTapaDeBotella');
+        botonB.mousePressed(function (){
+            clasificador.addImage('TapaDeBotella');
+            select('#sumaDeImagenesTapaDeBotella').html(tapaDeBotellaImagenes++);
+        });
+        botonEntrenamiento=select('#botonEntrenamiento');
+        botonEntrenamiento.mousePressed(function (){
+            clasificador.train(function (valorPerdida){
+                    perdida=valorPerdida;
+            });
+        });
+
+        botonPredecir=select('#botonPredecir');
+        botonPredecir.mousePressed(function (){
+            clasificador.classify(muestraResultado);
+        });
+    }
+    function muestraResultado(err,res){
+        clasificador.classify(muestraResultado);
+        select("#result").html(res[0].label);
+        select("#confidence").html(res[0].confidence);
+    }
+
+</script>
+
+</body>
+</html>
