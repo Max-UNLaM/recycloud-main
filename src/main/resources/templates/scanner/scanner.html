@@ -12,18 +12,18 @@
 <div style="width: 40%; height: 300px;margin: 0 auto;">
     <div class="row col-md-12 text-center">
         <div class="col-md-12 text-center" style="margin-left: 1%;"> <button class="btn btn-warning col-md-12" id="botonBotella">Agregar imagen de una Botella <span id="sumaDeImagenesBotella">0</span></button></div><br>
-            <div class="col-md-12 text-center"style="margin-left: 1%;"> <button class="btn btn-warning col-md-12" id="botonTapaDeBotella">Agregar imagen de Tapa de Botella <span id="sumaDeImagenesTapaDeBotella">0</span></button></div><br>
-            <div class="col-md-12 text-center"style="margin-left: 1%;"><button class="btn btn-success col-md-12" id="botonEntrenamiento">Entrenamiento</button></div><br>
-         <div class="col-md-12 text-center"style="margin-left: 1%;"><button class="btn btn-info col-md-12" id="botonPredecir">Iniciar la prediccion</button></div><br>
+        <div class="col-md-12 text-center"style="margin-left: 1%;"> <button class="btn btn-warning col-md-12" id="botonTapaDeBotella">Agregar imagen de Tapa de Botella <span id="sumaDeImagenesTapaDeBotella">0</span></button></div><br>
+        <div class="col-md-12 text-center"style="margin-left: 1%;"><button class="btn btn-success col-md-12" id="botonEntrenamiento">Entrenamiento</button></div><br>
+        <div class="col-md-12 text-center"style="margin-left: 1%;"><button class="btn btn-info col-md-12" id="botonPredecir">Iniciar la prediccion</button></div><br>
         <div class="col-md-12 text-center"style="margin-left: 1%;"><span style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
 
-        <form action="#" th:action="@{/entrenamiento/guardarEntrenamiento}" th:object="${entrenamientoModel}" method="post">
-            <input type="json" name="path" id="path" />
-            <input type="text" name="nombres" id="nombres" />
-            <div class="col-md-12 text-center"style="margin-left: 1%;"><button type="submit" class="btn btn-danger col-md-12" id="botonGuardar">Guardar Entrenamiento</button></div><br>
-        </form>
+        <tr th:each="temp : ${clasificador}">
+            <td th:text="${temp.nombres}"></td>
+
+            <td th:text="${temp.path}" id="path"></td>
+        </tr>
     </div>
-    </div>
+</div>
 
 <script>
     let video;
@@ -54,7 +54,8 @@
         botonEntrenamiento=select('#botonEntrenamiento');
         botonEntrenamiento.mousePressed(function (){
             clasificador.train(function (valorPerdida){
-                    perdida=valorPerdida;
+                perdida=valorPerdida;
+                console.log(clasificador);
             });
         });
 
@@ -64,18 +65,10 @@
         });
     }
     function muestraResultado(err,res){
+
         clasificador.classify(muestraResultado);
         if(res[0].confidence > 0.95){
             select("#result").html(res[0].label);
-            //nombre objetos
-            //console.log(clasificador.mapStringToIndex);
-            let path = document.getElementById("path");
-            let nombres = document.getElementById("nombres");
-            nombres.value=clasificador.mapStringToIndex;
-            path.value=clasificador.mobilenet.path;
-            //path json
-           // console.log(clasificador.mobilenet.path);
-
         }
 
     }
