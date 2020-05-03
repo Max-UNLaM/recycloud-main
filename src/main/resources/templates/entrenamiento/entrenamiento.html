@@ -14,10 +14,15 @@
         <div class="col-md-12 text-center" style="margin-left: 1%;"> <button class="btn btn-warning col-md-12" id="botonBotella">Agregar imagen de una Botella <span id="sumaDeImagenesBotella">0</span></button></div><br>
             <div class="col-md-12 text-center"style="margin-left: 1%;"> <button class="btn btn-warning col-md-12" id="botonTapaDeBotella">Agregar imagen de Tapa de Botella <span id="sumaDeImagenesTapaDeBotella">0</span></button></div><br>
             <div class="col-md-12 text-center"style="margin-left: 1%;"><button class="btn btn-success col-md-12" id="botonEntrenamiento">Entrenamiento</button></div><br>
-            <div class="col-md-12 text-center"style="margin-left: 1%;"><button class="btn btn-info col-md-12" id="botonPredecir">Iniciar la prediccion!</button></div><br>
+         <div class="col-md-12 text-center"style="margin-left: 1%;"><button class="btn btn-info col-md-12" id="botonPredecir">Iniciar la prediccion</button></div><br>
         <div class="col-md-12 text-center"style="margin-left: 1%;"><span style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
-        </div>
+        <form method="Post" action="/entrenamiento/guardarEntrenamiento">
+            <input id="enviar" hidden value="clasificador">
+            <div class="col-md-12 text-center"style="margin-left: 1%;"><button type="submit" class="btn btn-danger col-md-12" id="botonGuardar">Guardar Entrenamiento</button></div><br>
+        </form>
     </div>
+    </div>
+
 <script>
     let video;
     let featureExtractor;
@@ -58,8 +63,11 @@
     }
     function muestraResultado(err,res){
         clasificador.classify(muestraResultado);
-        select("#result").html(res[0].label);
-        select("#confidence").html(res[0].confidence);
+        if(res[0].confidence > 0.90){
+            select("#result").html(res[0].label);
+
+        }
+
     }
 
 </script>
