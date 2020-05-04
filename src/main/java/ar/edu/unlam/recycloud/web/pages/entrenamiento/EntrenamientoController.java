@@ -1,6 +1,7 @@
 package ar.edu.unlam.recycloud.web.pages.entrenamiento;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,8 +23,7 @@ public class EntrenamientoController {
 
     @RequestMapping(path = "/entrenamiento/guardarEntrenamiento", method = RequestMethod.POST)
     public ModelAndView guardarEntrenamiento (@ModelAttribute Object clasificador) {
-        //la idea es que llegue aca
-        this.en.guardarClasificador(clasificador);
-        return new ModelAndView("redirect:/Scanner/scanner");
+            this.en.guardarClasificador(clasificador);
+            return new ModelAndView("redirect:/Scanner/scanner");
     }
 }

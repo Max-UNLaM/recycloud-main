@@ -6,7 +6,10 @@
     <link rel="stylesheet" th:href="@{/css/jquery-ui.css}">
 </head>
 <body>
-<style>video{width: 300px; height: 200px;}</style>
+<style>video {
+    width: 300px;
+    height: 200px;
+}</style>
 <header th:replace="fragments/header"></header>
 <div class="text-center" id="contenedorVideo"></div><br>
 <div style="width: 40%; height: 300px;margin: 0 auto;">
@@ -14,11 +17,8 @@
         <div class="col-md-12 text-center"style="margin-left: 1%;"><button class="btn btn-info col-md-12" id="botonPredecir">Iniciar la prediccion</button></div><br>
         <div class="col-md-12 text-center"style="margin-left: 1%;"><span style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
 
-        <tr th:each="temp : ${clasificador}">
-            <td th:text="${temp.nombres}"></td>
+        <div></div>
 
-            <td th:text="${temp.path}" id="path"></td>
-        </tr>
     </div>
 </div>
 
@@ -38,23 +38,6 @@
         configuraBotones();
     }
     function  configuraBotones(){
-        botonA=select('#botonBotella');
-        botonA.mousePressed(function (){
-            clasificador.addImage('Botella');
-            select('#sumaDeImagenesBotella').html(botellaImagenes++);
-        });
-        botonB=select('#botonTapaDeBotella');
-        botonB.mousePressed(function (){
-            clasificador.addImage('TapaDeBotella');
-            select('#sumaDeImagenesTapaDeBotella').html(tapaDeBotellaImagenes++);
-        });
-        botonEntrenamiento=select('#botonEntrenamiento');
-        botonEntrenamiento.mousePressed(function (){
-            clasificador.train(function (valorPerdida){
-                perdida=valorPerdida;
-                console.log(clasificador);
-            });
-        });
 
         botonPredecir=select('#botonPredecir');
         botonPredecir.mousePressed(function (){
@@ -62,15 +45,12 @@
         });
     }
     function muestraResultado(err,res){
-
         clasificador.classify(muestraResultado);
         if(res[0].confidence > 0.95){
             select("#result").html(res[0].label);
         }
 
     }
-
 </script>
-
 </body>
 </html>

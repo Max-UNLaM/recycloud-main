@@ -35,10 +35,13 @@
         <br>
         <div class="col-md-12 text-center" style="margin-left: 1%;"><span
                 style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
-
+        <div class="col-md-12 text-center" style="margin-left: 1%;">
+            <button class="btn btn-danger col-md-12" id="botonGuardar">Guardar Entrenamiento</button>
+        </div>
+        <br>
     </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     let video;
     let featureExtractor;
@@ -78,26 +81,37 @@
         botonPredecir.mousePressed(function () {
             clasificador.classify(muestraResultado);
         });
+        botonGuardar = select('#botonGuardar');
+        botonGuardar.mousePressed(function () {
+            guardaResultado(clasificador);
+        });
+
     }
 
     function muestraResultado(err, res) {
         clasificador.classify(muestraResultado);
         if (res[0].confidence > 0.95) {
             select("#result").html(res[0].label);
-            //nombre objetos
-            //console.log(clasificador.mapStringToIndex);
-            $.ajax({
-                url: '/entrenamiento/guardarEntrenamiento',
-                type: 'POST',
-                headers: {
-                    "Content-type":"application/json"
-                },
-                success: function(clasificador) {
-                    console.log(clasificador);
-                }
-            });
         }
+    }
 
+    function guardaResultado(clasificadorLocal) {
+        console.log("Mando el clasificador");
+        $.ajax({
+            //este manda un http://localhost:8080/entrenamiento/guardarEntrenamiento/[object%20Object]
+            url: '/entrenamiento/guardarEntrenamiento',
+            type: 'POST',
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: clasificadorLocal,
+            success: function (res) {
+                console.log(res);
+            },
+            error: (err) => {
+                console.error(err);
+            }
+        });
     }
 
 </script>

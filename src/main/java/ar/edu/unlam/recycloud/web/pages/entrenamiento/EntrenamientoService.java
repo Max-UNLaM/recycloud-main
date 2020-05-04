@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EntrenamientoService {
 
-    static Object lista = new EntrenamientoModel();
+    static Object lista = new Object();
 
     public void guardarClasificador(Object a){
         this.lista=a;

@@ -1,6 +1,7 @@
 package ar.edu.unlam.recycloud.web.pages.Scanner;
 
 import ar.edu.unlam.recycloud.web.pages.entrenamiento.EntrenamientoModel;
+import ar.edu.unlam.recycloud.web.pages.entrenamiento.EntrenamientoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,15 +13,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ScannerController {
 
-    @Autowired
-    public ar.edu.unlam.recycloud.web.pages.entrenamiento.EntrenamientoService entrenamientoService;
+    private final EntrenamientoService entrenamientoService;
 
-    @RequestMapping(path = "/Scanner/scanner", method = RequestMethod.GET)
-    public ModelAndView recibir (@ModelAttribute EntrenamientoModel clasificador) {
+    ScannerController(EntrenamientoService entrenamientoService) {
+        this.entrenamientoService = entrenamientoService;
+    }
 
-
-        ModelMap model = new ModelMap();
-        model.put("clasificador",entrenamientoService.traerClasificador());
-        return new ModelAndView("/scanner/scanner",model);
+    @RequestMapping(path = "/Scanner/scanner", method = RequestMethod.POST)
+    public ModelAndView recibir () {
+        ModelMap m= new ModelMap();
+        m.put("clasif",entrenamientoService.traerClasificador());
+        return new ModelAndView("scanner/scanner", m);
     }
 }
