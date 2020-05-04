@@ -21,7 +21,8 @@ public class EntrenamientoController {
     }
 
     @RequestMapping(path = "/entrenamiento/guardarEntrenamiento", method = RequestMethod.POST)
-    public ModelAndView guardar (@ModelAttribute Map clasificador) {
+    public ModelAndView guardarEntrenamiento (@ModelAttribute Object clasificador) {
+        //la idea es que llegue aca
         this.en.guardarClasificador(clasificador);
         return new ModelAndView("redirect:/Scanner/scanner");
     }
