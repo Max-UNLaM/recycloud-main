@@ -8,15 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
-public class entrenamientoModel {
+public class EntrenamientoModel {
 
-    private String path;
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
+    private Object clasificador;
 }
