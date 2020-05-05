@@ -26,8 +26,8 @@
 </div>
 <script>
     let video;
-    let featureExtractor;
-    let clasificador;
+    let clasificador = ("[[${clasif.entreno}]]");
+    clasificador=clasificador.replace(/&quot;/g, '"');
 
 
 
@@ -35,9 +35,6 @@
         noCanvas();
         video = createCapture(VIDEO);
         video.parent('contenedorVideo');
-        let message = JSON.parse("[[${clasif.entreno}]]");
-        clasificador=message;
-        console.log(message);
         configuraBotones();
     }
 
