@@ -16,24 +16,20 @@
 <div style="width: 40%; height: 300px;margin: 0 auto;">
     <div class="row col-md-12 text-center">
         <div class="col-md-12 text-center" style="margin-left: 1%;">
-            <button class="btn btn-info col-md-12" id="botonPredecir">Iniciar la prediccion</button>
+            <button class="btn btn-info col-md-12" id="botonPredecir">Iniciar</button>
         </div>
         <br>
         <div class="col-md-12 text-center" style="margin-left: 1%;"><span
                 style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
 
-        <div></div>
-
     </div>
 </div>
+
 
 <script>
     let video;
     let featureExtractor;
     let clasificador;
-    let botellaImagenes = 0;
-    let tapaDeBotellaImagenes = 0;
-    let perdida = 0;
 
     function setup() {
         noCanvas();
@@ -48,6 +44,7 @@
 
         botonPredecir = select('#botonPredecir');
         botonPredecir.mousePressed(function () {
+            clasificador=document.getElementById("entreno").value = JSON.parse(clasificador);
             clasificador.classify(muestraResultado);
         });
     }
@@ -60,5 +57,6 @@
 
     }
 </script>
+<h1 th:text="{$clasif}" id="entrenamiento" >
 </body>
 </html>
