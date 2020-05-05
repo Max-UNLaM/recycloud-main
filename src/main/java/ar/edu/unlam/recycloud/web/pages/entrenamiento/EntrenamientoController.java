@@ -1,11 +1,10 @@
 package ar.edu.unlam.recycloud.web.pages.entrenamiento;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class EntrenamientoController {
@@ -21,9 +20,10 @@ public class EntrenamientoController {
         return "/entrenamiento/entrenamiento";
     }
 
+
     @RequestMapping(path = "/entrenamiento/guardarEntrenamiento", method = RequestMethod.POST)
-    public ModelAndView guardarEntrenamiento (@ModelAttribute Object clasificador) {
+    public String guardarEntrenamiento (@ModelAttribute EntrenamientoModel clasificador) {
             this.en.guardarClasificador(clasificador);
-            return new ModelAndView("redirect:/Scanner/scanner");
+            return "/entrenamiento/entrenamiento";
     }
 }

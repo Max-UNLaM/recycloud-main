@@ -36,11 +36,15 @@
         <div class="col-md-12 text-center" style="margin-left: 1%;"><span
                 style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
         <div class="col-md-12 text-center" style="margin-left: 1%;">
-            <button class="btn btn-danger col-md-12" id="botonGuardar">Guardar Entrenamiento</button>
+            <form action="/entrenamiento/guardarEntrenamiento" method="POST" id="main-form" enctype="multipart/form-data">
+                <input type="hidden" name="entreno" id="entreno">
+                <input type="submit" class="btn btn-danger col-md-12" id="botonGuardar" value="GUARDARRR">
+            </form>
         </div>
         <br>
     </div>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     let video;
@@ -76,13 +80,15 @@
                 perdida = valorPerdida;
             });
         });
-
         botonPredecir = select('#botonPredecir');
         botonPredecir.mousePressed(function () {
             clasificador.classify(muestraResultado);
         });
-        botonGuardar = select('#botonGuardar');
-        botonGuardar.mousePressed(function () {
+
+        let botonGuardar = $('#botonGuardar');
+        botonGuardar.click(function () {
+            let formu = document.getElementById("main-form")
+            formu.setAttribute("entreno", JSON.stringify(clasificador));
             guardaResultado(clasificador);
         });
 
@@ -90,28 +96,24 @@
 
     function muestraResultado(err, res) {
         clasificador.classify(muestraResultado);
+        if (res == null) {
+            console.error("No hay res");
+            return;
+        }
         if (res[0].confidence > 0.95) {
             select("#result").html(res[0].label);
         }
     }
 
     function guardaResultado(clasificadorLocal) {
-        console.log("Mando el clasificador");
-        $.ajax({
-            //este manda un http://localhost:8080/entrenamiento/guardarEntrenamiento/[object%20Object]
-            url: '/entrenamiento/guardarEntrenamiento',
-            type: 'POST',
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: clasificadorLocal,
-            success: function (res) {
-                console.log(res);
-            },
-            error: (err) => {
-                console.error(err);
-            }
-        });
+        function reqListener() {
+            console.log(this.responseText);
+        }
+
+        let oReq = new XMLHttpRequest();
+        oReq.addEventListener("load", reqListener);
+        oReq.open("POST", "/entrenamiento/guardarEntrenamiento");
+        oReq.send(clasificadorLocal)
     }
 
 </script>

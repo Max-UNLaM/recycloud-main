@@ -47,7 +47,7 @@ public class ThymeleafConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index.jsp");
+        registry.addViewController("/").setViewName("index");
     }
 }
 

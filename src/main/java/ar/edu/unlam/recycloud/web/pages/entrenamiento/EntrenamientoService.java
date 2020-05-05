@@ -7,11 +7,11 @@ public class EntrenamientoService {
 
     static Object lista = new Object();
 
-    public void guardarClasificador(Object a){
-        this.lista=a;
+    public void guardarClasificador(Object a) {
+        this.lista = a;
     }
 
-    public Object traerClasificador(){
+    public Object traerClasificador() {
         return this.lista;
     }
 
