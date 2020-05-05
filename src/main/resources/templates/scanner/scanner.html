@@ -11,11 +11,16 @@
     height: 200px;
 }</style>
 <header th:replace="fragments/header"></header>
-<div class="text-center" id="contenedorVideo"></div><br>
+<div class="text-center" id="contenedorVideo"></div>
+<br>
 <div style="width: 40%; height: 300px;margin: 0 auto;">
     <div class="row col-md-12 text-center">
-        <div class="col-md-12 text-center"style="margin-left: 1%;"><button class="btn btn-info col-md-12" id="botonPredecir">Iniciar la prediccion</button></div><br>
-        <div class="col-md-12 text-center"style="margin-left: 1%;"><span style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
+        <div class="col-md-12 text-center" style="margin-left: 1%;">
+            <button class="btn btn-info col-md-12" id="botonPredecir">Iniciar la prediccion</button>
+        </div>
+        <br>
+        <div class="col-md-12 text-center" style="margin-left: 1%;"><span
+                style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
 
         <div></div>
 
@@ -26,27 +31,30 @@
     let video;
     let featureExtractor;
     let clasificador;
-    let botellaImagenes=0;
-    let tapaDeBotellaImagenes=0;
-    let perdida=0;
-    function setup(){
+    let botellaImagenes = 0;
+    let tapaDeBotellaImagenes = 0;
+    let perdida = 0;
+
+    function setup() {
         noCanvas();
-        video=createCapture(VIDEO);
+        video = createCapture(VIDEO);
         video.parent('contenedorVideo');
-        featureExtractor=ml5.featureExtractor('MobileNet');
-        clasificador=featureExtractor.classification(video);
+        featureExtractor = ml5.featureExtractor('MobileNet');
+        clasificador = featureExtractor.classification(video);
         configuraBotones();
     }
-    function  configuraBotones(){
 
-        botonPredecir=select('#botonPredecir');
-        botonPredecir.mousePressed(function (){
+    function configuraBotones() {
+
+        botonPredecir = select('#botonPredecir');
+        botonPredecir.mousePressed(function () {
             clasificador.classify(muestraResultado);
         });
     }
-    function muestraResultado(err,res){
+
+    function muestraResultado(err, res) {
         clasificador.classify(muestraResultado);
-        if(res[0].confidence > 0.95){
+        if (res[0].confidence > 0.95) {
             select("#result").html(res[0].label);
         }
 
