@@ -24,18 +24,20 @@
 
     </div>
 </div>
-<input th:value="${clasif}" id="entrenamiento" >
 <script>
     let video;
     let featureExtractor;
     let clasificador;
 
+
+
     function setup() {
         noCanvas();
         video = createCapture(VIDEO);
         video.parent('contenedorVideo');
-        featureExtractor = ml5.featureExtractor('MobileNet');
-        clasificador = featureExtractor.classification(video);
+        let message = JSON.parse("[[${clasif.entreno}]]");
+        clasificador=message;
+        console.log(message);
         configuraBotones();
     }
 
@@ -43,7 +45,6 @@
 
         botonPredecir = select('#botonPredecir');
         botonPredecir.mousePressed(function () {
-            clasificador=JSON.parse(document.getElementById("entrenamiento").value);
             clasificador.classify(muestraResultado);
         });
     }
@@ -53,7 +54,6 @@
         if (res[0].confidence > 0.95) {
             select("#result").html(res[0].label);
         }
-
     }
 </script>
 
