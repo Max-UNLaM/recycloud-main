@@ -23,7 +23,7 @@ public class EntrenamientoController {
 
     @RequestMapping(path = "/entrenamiento/guardarEntrenamiento", method = RequestMethod.POST)
     public String guardarEntrenamiento (@ModelAttribute EntrenamientoModel clasificador) {
-            this.en.guardarClasificador(clasificador);
+            this.en.guardarClasificador(clasificador.getEntreno());
             return "/entrenamiento/entrenamiento";
     }
 }

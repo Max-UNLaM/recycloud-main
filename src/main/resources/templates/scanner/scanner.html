@@ -19,28 +19,26 @@
             <button class="btn btn-info col-md-12" id="botonPredecir">Iniciar</button>
         </div>
         <br>
+        <textarea id="ree"></textarea>
         <div class="col-md-12 text-center" style="margin-left: 1%;"><span
-                style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
+                style="font: bold 20px Arial; color: #0f81bb;" id="result"></span></div>
 
     </div>
 </div>
 <script>
     let video;
-    let clasificador = ("[[${clasif.entreno}]]");
-    clasificador=clasificador.replace(/&quot;/g, '"');
-
-
+    let clasificador = ("[[${clasif}]]");
+    document.getElementById("ree").value=("[[${clasif}]]");
+    clasificador=clasificador.replace(/retraso123/g, '"');
+    clasificador=clasificador.replace(/locura123/g, '\\');
 
     function setup() {
         noCanvas();
-        video = createCapture(VIDEO);
-        video.parent('contenedorVideo');
         configuraBotones();
     }
-
     function configuraBotones() {
 
-        botonPredecir = select('#botonPredecir');
+        let botonPredecir = select('#botonPredecir');
         botonPredecir.mousePressed(function () {
             clasificador.classify(muestraResultado);
         });

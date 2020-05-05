@@ -7,5 +7,13 @@ import javax.persistence.Entity;
 @Data
 @Entity
 public class EntrenamientoModel {
+    public Object getEntreno() {
+        return entreno;
+    }
+
+    public void setEntreno(Object entreno) {
+        this.entreno = entreno;
+    }
+
     private Object entreno;
 }

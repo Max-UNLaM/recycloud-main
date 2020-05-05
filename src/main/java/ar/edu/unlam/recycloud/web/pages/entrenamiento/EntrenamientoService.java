@@ -8,7 +8,11 @@ public class EntrenamientoService {
     static Object lista = new Object();
 
     public void guardarClasificador(Object a) {
-        this.lista = a;
+
+        String aux = a.toString();
+        aux=aux.replaceAll("\\\\","locura123");
+        aux= aux.replaceAll("\"","retraso123");
+        this.lista=aux;
     }
 
     public Object traerClasificador() {
