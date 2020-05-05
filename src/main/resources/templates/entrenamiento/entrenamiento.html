@@ -87,8 +87,9 @@
 
         let botonGuardar = $('#botonGuardar');
         botonGuardar.click(function () {
-            let formu = document.getElementById("main-form")
-            formu.setAttribute("entreno", JSON.stringify(clasificador));
+            //let formu = document.getElementById("main-form")
+            //formu.setAttribute("entreno", JSON.stringify(clasificador));
+            document.getElementById("entreno").value = JSON.stringify(clasificador);
         });
 
     }
