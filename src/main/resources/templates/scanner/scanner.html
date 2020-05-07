@@ -21,7 +21,6 @@
             <button class="btn btn-success col-md-12" id="botonPredecir">Iniciar</button>
         </div>
         <br>
-        <textarea id="ree"></textarea>
         <div class="col-md-12 text-center" style="margin-left: 1%;"><span
                 style="font: bold 20px Arial; color: #0f81bb;" id="result"></span></div>
     </div>
@@ -31,10 +30,6 @@
     let featureExtractor;
     let clasificador;
 
-    let modelInfo ={
-        model: 'https://cdn.jsdelivr.net/gh/ibarrionuevo50/proyecto-base-spring/model.json',
-        weights: 'https://cdn.jsdelivr.net/gh/ibarrionuevo50/proyecto-base-spring/model.weights.bin'
-    }
     function setup() {
         noCanvas();
         video = createCapture(VIDEO);
@@ -54,17 +49,14 @@
 
     function muestraResultado(err, res) {
         clasificador.classify(muestraResultado);
-        if (res[0].confidence > 0.95) {
+        if (res[0].confidence > 0.90) {
             select("#result").html(res[0].label);
         }
     }
     function modelReady() {
-        console.log("Cargando....")
-        clasificador.load(modelInfo,exito);
+        clasificador.load('https://cdn.jsdelivr.net/gh/ibarrionuevo50/plantaleon/m.json');
     }
-    function exito() {
-        console.log("Cargadoo con exito");
-    }
+
 </script>
 
     </body>

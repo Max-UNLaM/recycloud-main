@@ -26,17 +26,13 @@
                     id="sumaDeImagenesTapaDeBotella">0</span></button>
         </div>
         <br>
-        <div class="col-md-5 text-center mt-2">
-            <button class="btn btn-success col-md-12" id="botonEntrenamiento">Entrenamiento</button>
-        </div>
-        <br>
-        <div class="col-md-5 text-center mt-2">
+        <div class="col-md-10 text-center mt-2">
             <button class="btn btn-success col-md-12" id="botonPredecir">Iniciar</button>
         </div>
         <br>
         <div class="col-md-12 text-center mt-2" ><span
                 style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
-        <div class="col-md-10 text-center mt-2">
+        <div class="col-md-10 text-center">
                 <button type="submit" class="btn btn-success col-md-12" id="botonGuardar" value="GUARDARRR">Guardar</button>
         </div>
         <br>
@@ -71,14 +67,9 @@
             clasificador.addImage('TapaDeBotella');
             select('#sumaDeImagenesTapaDeBotella').html(tapaDeBotellaImagenes++);
         });
-        botonEntrenamiento = select('#botonEntrenamiento');
-        botonEntrenamiento.mousePressed(function () {
-            clasificador.train(function (valorPerdida) {
-                perdida = valorPerdida;
-            });
-        });
         botonPredecir = select('#botonPredecir');
         botonPredecir.mousePressed(function () {
+            clasificador.train();
             clasificador.classify(muestraResultado);
         });
 
@@ -95,7 +86,7 @@
             console.error("No hay res");
             return;
         }
-        if (res[0].confidence > 0.95) {
+        if (res[0].confidence > 0.90) {
             select("#result").html(res[0].label);
         }
     }
