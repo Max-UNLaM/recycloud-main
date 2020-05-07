@@ -17,8 +17,6 @@ public class ScannerController {
 
     @RequestMapping(path = "/scanner/scanner")
     public ModelAndView read() {
-        ModelMap m = new ModelMap();
-        m.put("clasif", entrenamientoService.traerClasificador());
-        return new ModelAndView("scanner/scanner", m);
+        return new ModelAndView("scanner/scanner");
     }
 }

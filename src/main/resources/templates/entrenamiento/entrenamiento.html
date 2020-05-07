@@ -7,45 +7,42 @@
 </head>
 <body>
 <style>video {
-    width: 300px;
-    height: 200px;
+    width: 100%;
+    height: 250px;
+    background: black;
 }</style>
 <header th:replace="fragments/header"></header>
 <div class="text-center" id="contenedorVideo"></div>
 <br>
-<div style="width: 40%; height: 300px;margin: 0 auto;">
-    <div class="row col-md-12 text-center">
-        <div class="col-md-12 text-center" style="margin-left: 1%;">
-            <button class="btn btn-warning col-md-12" id="botonBotella">Botella <span
+<div style="height: auto;margin: 0 auto;">
+    <div class="row col-md-12 justify-content-md-center">
+        <div class="col-md-5 text-center mt-2">
+            <button class="btn btn-success col-md-12" id="botonBotella">Botella <span
                     id="sumaDeImagenesBotella">0</span></button>
         </div>
         <br>
-        <div class="col-md-12 text-center" style="margin-left: 1%;">
-            <button class="btn btn-warning col-md-12" id="botonTapaDeBotella">Tapa de Botella <span
+        <div class="col-md-5 text-center mt-2">
+            <button class="btn btn-success col-md-12" id="botonTapaDeBotella">Tapa de Botella <span
                     id="sumaDeImagenesTapaDeBotella">0</span></button>
         </div>
         <br>
-        <div class="col-md-12 text-center" style="margin-left: 1%;">
+        <div class="col-md-5 text-center mt-2">
             <button class="btn btn-success col-md-12" id="botonEntrenamiento">Entrenamiento</button>
         </div>
         <br>
-        <div class="col-md-12 text-center" style="margin-left: 1%;">
-            <button class="btn btn-info col-md-12" id="botonPredecir">Iniciar</button>
+        <div class="col-md-5 text-center mt-2">
+            <button class="btn btn-success col-md-12" id="botonPredecir">Iniciar</button>
         </div>
         <br>
-        <div class="col-md-12 text-center" style="margin-left: 1%;"><span
+        <div class="col-md-12 text-center mt-2" ><span
                 style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
-        <div class="col-md-12 text-center" style="margin-left: 1%;">
-            <form action="/entrenamiento/guardarEntrenamiento" method="POST" id="main-form" enctype="multipart/form-data">
-                <textarea type="hidden" name="entreno" id="entreno"></textarea>
-                <input type="submit" class="btn btn-danger col-md-12" id="botonGuardar" value="GUARDARRR">
-            </form>
+        <div class="col-md-10 text-center mt-2">
+                <button type="submit" class="btn btn-success col-md-12" id="botonGuardar" value="GUARDARRR">Guardar</button>
         </div>
         <br>
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     let video;
     let featureExtractor;
@@ -87,9 +84,7 @@
 
         let botonGuardar = $('#botonGuardar');
         botonGuardar.click(function () {
-            //let formu = document.getElementById("main-form")
-            //formu.setAttribute("entreno", JSON.stringify(clasificador));
-            document.getElementById("entreno").value = JSON.stringify(clasificador);
+        clasificador.save('modelo')
         });
 
     }

@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <title>Entrenamiento</title>
     <link rel="stylesheet" th:href="@{/css/jquery-ui.css}">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
 </head>
 <body>
 <style>video {
-    width: 300px;
-    height: 200px;
+    width: 100%;
+    height: 250px;
+    background: black;
 }</style>
 <header th:replace="fragments/header"></header>
 <div class="text-center" id="contenedorVideo"></div>
@@ -16,25 +18,31 @@
 <div style="width: 40%; height: 300px;margin: 0 auto;">
     <div class="row col-md-12 text-center">
         <div class="col-md-12 text-center" style="margin-left: 1%;">
-            <button class="btn btn-info col-md-12" id="botonPredecir">Iniciar</button>
+            <button class="btn btn-success col-md-12" id="botonPredecir">Iniciar</button>
         </div>
         <br>
         <textarea id="ree"></textarea>
         <div class="col-md-12 text-center" style="margin-left: 1%;"><span
                 style="font: bold 20px Arial; color: #0f81bb;" id="result"></span></div>
-
     </div>
 </div>
 <script>
     let video;
-    let clasificador = ("[[${clasif}]]");
-    document.getElementById("ree").value=("[[${clasif}]]");
-    clasificador=clasificador.replace(/retraso123/g, '"');
-    clasificador=clasificador.replace(/locura123/g, '\\');
+    let featureExtractor;
+    let clasificador;
 
+    let modelInfo ={
+        model: 'https://cdn.jsdelivr.net/gh/ibarrionuevo50/proyecto-base-spring/model.json',
+        weights: 'https://cdn.jsdelivr.net/gh/ibarrionuevo50/proyecto-base-spring/model.weights.bin'
+    }
     function setup() {
         noCanvas();
+        video = createCapture(VIDEO);
+        video.parent('contenedorVideo');
+        featureExtractor = ml5.featureExtractor('MobileNet',modelReady);
+        clasificador = featureExtractor.classification(video);
         configuraBotones();
+
     }
     function configuraBotones() {
 
@@ -49,6 +57,13 @@
         if (res[0].confidence > 0.95) {
             select("#result").html(res[0].label);
         }
+    }
+    function modelReady() {
+        console.log("Cargando....")
+        clasificador.load(modelInfo,exito);
+    }
+    function exito() {
+        console.log("Cargadoo con exito");
     }
 </script>
 
