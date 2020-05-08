@@ -16,13 +16,14 @@
 <div class="text-center" id="contenedorVideo"></div>
 <br>
 <div style="width: 40%; height: 300px;margin: 0 auto;">
-    <div class="row col-md-12 text-center">
-        <div class="col-md-12 text-center" style="margin-left: 1%;">
+    <div class="row col-md-12 justify-content-md-center">
+        <div class="col-md-8 text-center mt-2" >
+            <span style="font: bold 20px Araial; color: #0f81bb;" id="result"></span>
+        </div>
+        <br><br>
+        <div class="col-md-5 text-center" style="margin-left: 1%;">
             <button class="btn btn-success col-md-12" id="botonPredecir">Iniciar</button>
         </div>
-        <br>
-        <div class="col-md-12 text-center" style="margin-left: 1%;"><span
-                style="font: bold 20px Arial; color: #0f81bb;" id="result"></span></div>
     </div>
 </div>
 <script>
@@ -49,12 +50,12 @@
 
     function muestraResultado(err, res) {
         clasificador.classify(muestraResultado);
-        if (res[0].confidence > 0.90) {
+        if (res[0].confidence > 0.75) {
             select("#result").html(res[0].label);
         }
     }
     function modelReady() {
-        clasificador.load('https://cdn.jsdelivr.net/gh/ibarrionuevo50/plantaleon/m.json');
+        clasificador.load('https://cdn.jsdelivr.net/gh/ibarrionuevo50/plantaleon/mode.json');
     }
 
 </script>

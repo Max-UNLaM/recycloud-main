@@ -15,27 +15,35 @@
 <div class="text-center" id="contenedorVideo"></div>
 <br>
 <div style="height: auto;margin: 0 auto;">
+
     <div class="row col-md-12 justify-content-md-center">
-        <div class="col-md-5 text-center mt-2">
-            <button class="btn btn-success col-md-12" id="botonBotella">Botella <span
-                    id="sumaDeImagenesBotella">0</span></button>
+        <div class="col-md-8 text-center mt-2" >
+            <span style="font: bold 20px Araial; color: #0f81bb;" id="result"></span>
+        </div>
+        <br><br>
+        <div class="col-md-8 text-center mt-2">
+            <input style="height: 36px!important;" type="text" class="form-control" placeholder="Nombre" id="basura">
         </div>
         <br>
-        <div class="col-md-5 text-center mt-2">
-            <button class="btn btn-success col-md-12" id="botonTapaDeBotella">Tapa de Botella <span
+    </div>
+    <div class="row col-md-12 justify-content-md-center">
+        <div class="col-md-2 text-center mt-2">
+            <button class="btn btn-success col-md-12" id="botonTapaDeBotella">Agregar <span
                     id="sumaDeImagenesTapaDeBotella">0</span></button>
         </div>
-        <br>
-        <div class="col-md-10 text-center mt-2">
+        <br><br>
+        <div class="col-md-2 text-center mt-2">
             <button class="btn btn-success col-md-12" id="botonPredecir">Iniciar</button>
         </div>
         <br>
-        <div class="col-md-12 text-center mt-2" ><span
-                style="font: bold 20px Araial; color: #0f81bb;" id="result"></span></div>
-        <div class="col-md-10 text-center">
+
+        <div class="col-md-2 text-center mt-2">
                 <button type="submit" class="btn btn-success col-md-12" id="botonGuardar" value="GUARDARRR">Guardar</button>
         </div>
-        <br>
+
+        <div class="col-md-2 text-center mt-2">
+            <button type="submit" class="btn btn-success col-md-12" id="cargar" value="GUARDARRR">Cargar</button>
+        </div>
     </div>
 </div>
 
@@ -43,9 +51,9 @@
     let video;
     let featureExtractor;
     let clasificador;
-    let botellaImagenes = 0;
     let tapaDeBotellaImagenes = 0;
-    let perdida = 0;
+    let basuraAux='';
+    let basura='';
 
     function setup() {
         noCanvas();
@@ -57,15 +65,22 @@
     }
 
     function configuraBotones() {
-        botonA = select('#botonBotella');
-        botonA.mousePressed(function () {
-            clasificador.addImage('Botella');
-            select('#sumaDeImagenesBotella').html(botellaImagenes++);
-        });
         botonB = select('#botonTapaDeBotella');
         botonB.mousePressed(function () {
-            clasificador.addImage('TapaDeBotella');
+            basura =  document.getElementById("basura").value;
+            clasificador.addImage(basura);
+            if(basuraAux == ''){
             select('#sumaDeImagenesTapaDeBotella').html(tapaDeBotellaImagenes++);
+            basuraAux=document.getElementById("basura").value;
+            }
+            else if(basuraAux != basura){
+                select('#sumaDeImagenesTapaDeBotella').html(tapaDeBotellaImagenes=0);
+                basuraAux=document.getElementById("basura").value;
+            }
+            else if(basura == basuraAux) {
+                select('#sumaDeImagenesTapaDeBotella').html(tapaDeBotellaImagenes++);
+                basuraAux=document.getElementById("basura").value;
+            }
         });
         botonPredecir = select('#botonPredecir');
         botonPredecir.mousePressed(function () {
@@ -73,9 +88,14 @@
             clasificador.classify(muestraResultado);
         });
 
-        let botonGuardar = $('#botonGuardar');
-        botonGuardar.click(function () {
-        clasificador.save('modelo')
+        let botonGuardar = select('#botonGuardar');
+        botonGuardar.mousePressed(function () {
+        clasificador.save('modelo');
+        });
+
+        botonCargar = select('#cargar');
+        botonCargar.mousePressed(function () {
+            clasificador.load('https://cdn.jsdelivr.net/gh/ibarrionuevo50/plantaleon/mode.json');
         });
 
     }
@@ -86,7 +106,7 @@
             console.error("No hay res");
             return;
         }
-        if (res[0].confidence > 0.90) {
+        if (res[0].confidence > 0.75) {
             select("#result").html(res[0].label);
         }
     }
