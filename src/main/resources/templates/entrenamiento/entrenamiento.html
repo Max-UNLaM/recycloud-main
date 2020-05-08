@@ -61,7 +61,7 @@
         noCanvas();
         video = createCapture(VIDEO);
         video.parent('contenedorVideo');
-        featureExtractor = ml5.featureExtractor('MobileNet');
+        featureExtractor = ml5.featureExtractor('Mobilenet');
         clasificador = featureExtractor.classification(video);
         configuraBotones();
     }
