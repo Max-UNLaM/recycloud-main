@@ -11,8 +11,6 @@ Este es el sistema principal de RecyCloud.
 - [Estructura](#estructura)
 - [Git Flow](#git-flow)
 
-
-
 ## Instalar
 
 En unix
@@ -29,6 +27,8 @@ En windows
 
 ### Mongo
 
+### Ubuntu
+
 ```shell script
 sudo apt update
 ```
@@ -40,6 +40,12 @@ sudo apt install -y mongodb
 Si se necesita acceder:
 
 https://www.shellhacks.com/mongodb-install-client-mongo-shell-ubuntu-centos/
+
+
+### Windows
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
+
 
 ## Ejecutar
 
