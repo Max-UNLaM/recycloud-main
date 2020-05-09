@@ -17,7 +17,7 @@ class MongoFactory {
 
     MongoFactory() {
         this.connectionString = new ConnectionString(
-                "mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority"
+                "mongodb://localhost"
         );
     }
 

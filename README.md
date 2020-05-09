@@ -25,6 +25,22 @@ En windows
 ./mvnw.cmd clean install
 ```
 
+## Instalar Dependencias
+
+### Mongo
+
+```shell script
+sudo apt update
+```
+
+```shell script
+sudo apt install -y mongodb
+```
+
+Si se necesita acceder:
+
+https://www.shellhacks.com/mongodb-install-client-mongo-shell-ubuntu-centos/
+
 ## Ejecutar
 
 En unix
