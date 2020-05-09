@@ -97,7 +97,7 @@
 
         botonCargar = select('#cargar');
         botonCargar.mousePressed(function () {
-            clasificador.load('https://cdn.jsdelivr.net/gh/ibarrionuevo50/plantaleon/mode.json')
+            clasificador.load('https://cdn.jsdelivr.net/gh/Nicolasemanuelmorales/prueba/model%20(8).json')
         });
 
     }
@@ -107,10 +107,6 @@
         if (res[0].confidence > 0.75) {
             select("#result").html(res[0].label);
         }
-    }
-
-    function modelReady() {
-        clasificador.load('https://cdn.jsdelivr.net/gh/ibarrionuevo50/plantaleon/mode.json');
     }
 </script>
 

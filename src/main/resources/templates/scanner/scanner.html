@@ -25,12 +25,13 @@
             <button class="btn btn-success col-md-12" id="botonPredecir">Iniciar</button>
         </div>
     </div>
+    <textarea type="text" id="asd" hidden th:text="${categorias}"></textarea>
 </div>
-<script>
+<script th:inline="javascript">
     let video;
     let featureExtractor;
     let clasificador;
-
+    let categorias;
     function setup() {
         noCanvas();
         video = createCapture(VIDEO);
@@ -44,18 +45,27 @@
 
         let botonPredecir = select('#botonPredecir');
         botonPredecir.mousePressed(function () {
+            clasificador.train();
             clasificador.classify(muestraResultado);
         });
     }
 
     function muestraResultado(err, res) {
         clasificador.classify(muestraResultado);
+        /*<![CDATA[*/
+        var myVariable= /*[[${categorias}]]*/ 'value';
+        /*]]>*/
         if (res[0].confidence > 0.75) {
-            select("#result").html(res[0].label);
-        }
+            myVariable.forEach(function (value) {
+                if (res[0].label == value.imagen){
+                let cate = value.categoria;
+                select("#result").html(cate);
+                }
+            });
+        }else{}
     }
     function modelReady() {
-        clasificador.load('https://cdn.jsdelivr.net/gh/ibarrionuevo50/plantaleon/mode.json');
+        clasificador.load('https://cdn.jsdelivr.net/gh/Nicolasemanuelmorales/prueba/model%20(8).json');
     }
 
 </script>
