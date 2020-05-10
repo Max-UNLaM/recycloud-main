@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class loginController {
@@ -23,7 +24,7 @@ public class loginController {
     }
 
     @RequestMapping(path = "/login/confirmar", method = RequestMethod.POST )
-    public String confirmar (@ModelAttribute loginModel usuario, HttpServletRequest request) {
+    public String confirmar (@ModelAttribute loginModel usuario, HttpSession session) {
         loginModel log = new loginModel();
             log = loginService.confirmarUsuario(usuario.getPass(),usuario.getUsuario());
             log.setRol(1);
@@ -31,7 +32,7 @@ public class loginController {
             return "redirect:/login/login";
         }
         else{
-            request.getSession().setAttribute("usuario",log);
+            session.setAttribute("usuario",log);
             return "/index";
         }
     }
