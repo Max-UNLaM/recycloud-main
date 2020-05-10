@@ -17,7 +17,8 @@ public class loginController {
     }
 
     @RequestMapping(path = "/login")
-    public String pantallaLogin () {
+    public String pantallaLogin (HttpServletRequest request) {
+        request.getSession().setAttribute("usuario",null);
         return "/login/login";
     }
 
