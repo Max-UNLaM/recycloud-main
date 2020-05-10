@@ -36,4 +36,9 @@ public class loginController {
         }
     }
 
+    @RequestMapping(path = "/login/cerrarSession")
+    public String cerrarSession ( HttpServletRequest request) {
+            request.getSession().setAttribute("usuario",null);
+            return "/index";
+    }
 }

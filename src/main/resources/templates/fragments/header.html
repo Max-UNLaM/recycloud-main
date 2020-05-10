@@ -246,9 +246,10 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li>
-                                    <li th:if="${#session.getAttribute('usuario')} != null" th:unless="${#session.getAttribute('usuario').rol} == 1" id="menu-item-2206"
+                            </li>   //${#session.getAttribute('usuario').rol} == 1
+                                    <li th:if="${#session.getAttribute('usuario')} != null" id="menu-item-2206"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2206">
+
                                         <a href="#"><span
                                                 class="nav_bg_clr"></span><span>Admin</span></a>
                                         <ul class="sub-menu">
@@ -282,7 +283,7 @@
                                             class="nav_bg_clr"></span><span>Perfil</span></a></li>
                                     <li id="menu-item-2544"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2507"><a
-                                            href="/entrenamiento"><span
+                                            href="/login/cerrarSession"><span
                                             class="nav_bg_clr"></span><span>Cerrar Session</span></a></li>
 
                                 </ul>
