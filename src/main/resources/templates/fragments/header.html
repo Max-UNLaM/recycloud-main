@@ -246,10 +246,10 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li>   //${#session.getAttribute('usuario').rol} == 1
-                                    <li th:if="${#session.getAttribute('usuario')} != null" id="menu-item-2206"
+                            </li>
+                                    <li th:if="${session.usuario} != null" id="menu-item-2206"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2206">
-
+                                        <span th:if="${session.usuario.rol} == 1">
                                         <a href="#"><span
                                                 class="nav_bg_clr"></span><span>Admin</span></a>
                                         <ul class="sub-menu">
@@ -262,20 +262,21 @@
                                                     href="/entrenamiento"><span
                                                     class="nav_bg_clr"></span><span>Entrenamiento</span></a></li>
                                         </ul>
+                                    </span>
                                     </li>
-                            <li th:if="${#session.getAttribute('usuario')} == null" id="menu-item-2509"
+                            <li th:if="${session.usuario} == null" id="menu-item-2509"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2507"><a
                                     href="/login"><span
                                     class="nav_bg_clr"></span><span>Iniciar Sesion</span></a></li>
-                            <li th:if="${#session.getAttribute('usuario')} == null" id="menu-item-2522"
+                            <li th:if="${session.usuario} == null" id="menu-item-2522"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2507"><a
                                     href="/registrar"><span
                                     class="nav_bg_clr"></span><span>Registrar</span></a></li>
 
-                            <li th:if="${#session.getAttribute('usuario')} != null" id="menu-item-2236"
+                            <li th:if="${session.usuario} != null" id="menu-item-2236"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2206">
                                 <a href="#"><span
-                                        class="nav_bg_clr"></span><span th:text="${#session.getAttribute('usuario').usuario}" id="aaa"></span></a>
+                                        class="nav_bg_clr"></span><span th:text="${session.usuario.usuario}" id="aaa"></span></a>
                                 <ul class="sub-menu">
                                     <li id="menu-item-254"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a
