@@ -247,19 +247,44 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li id="menu-item-2206"
+                                    <li th:if="${#session.getAttribute('usuario')} != null" th:unless="${#session.getAttribute('usuario').rol} == q" id="menu-item-2206"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2206">
+                                        <a href="#"><span
+                                                class="nav_bg_clr"></span><span>Admin</span></a>
+                                        <ul class="sub-menu">
+                                            <li id="menu-item-25"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a
+                                                    href="/categoria/categoria"><span
+                                                    class="nav_bg_clr"></span><span>Categoria</span></a></li>
+                                            <li id="menu-item-2507"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2507"><a
+                                                    href="/entrenamiento"><span
+                                                    class="nav_bg_clr"></span><span>Entrenamiento</span></a></li>
+                                        </ul>
+                                    </li>
+                            <li th:if="${#session.getAttribute('usuario')} == null" id="menu-item-2509"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2507"><a
+                                    href="/login"><span
+                                    class="nav_bg_clr"></span><span>Iniciar Sesion</span></a></li>
+                            <li th:if="${#session.getAttribute('usuario')} == null" id="menu-item-2522"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2507"><a
+                                    href="/registrar"><span
+                                    class="nav_bg_clr"></span><span>Registrar</span></a></li>
+
+                            <li th:if="${#session.getAttribute('usuario')} != null" id="menu-item-2236"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2206">
-                                <a href="https://eco-nature.cmsmasters.net/blog-2/"><span
-                                        class="nav_bg_clr"></span><span>Admin</span></a>
+                                <a href="#"><span
+                                        class="nav_bg_clr"></span><span th:text="${#session.getAttribute('usuario').usuario}" id="aaa"></span></a>
                                 <ul class="sub-menu">
-                                    <li id="menu-item-25"
+                                    <li id="menu-item-254"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a
                                             href="/categoria/categoria"><span
-                                            class="nav_bg_clr"></span><span>Categoria</span></a></li>
-                                    <li id="menu-item-2507"
+                                            class="nav_bg_clr"></span><span>Perfil</span></a></li>
+                                    <li id="menu-item-2544"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2507"><a
                                             href="/entrenamiento"><span
-                                            class="nav_bg_clr"></span><span>Entrenamiento</span></a></li>
+                                            class="nav_bg_clr"></span><span>Cerrar Session</span></a></li>
+
                                 </ul>
                             </li>
                         </ul>
