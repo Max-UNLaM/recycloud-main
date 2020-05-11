@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Registrarse</title>
     <link rel="stylesheet" type="text/css" th:href="@{/js/jquery-ui.css}">
 </head>
 <body>
@@ -14,19 +14,25 @@
             <div class="card card-signin my-5">
                 <div class="card-body">
                     <h5 class="card-title text-center">Registro</h5>
-                    <form class="form-signin"  method="post" action="/login/registrar" ModelAttribute="usuario">
-                        <div class="form-label-group">
-                            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required autofocus>
+                        <form action="#" th:action="@{/login/registrar}" th:object="${registrarModel}" method="post">
+                            <div class="form-label-group">
+                            <input type="text" id="nombre" th:field="*{nombre}" class="form-control" placeholder="Nombre"  autofocus>
+                                <span class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+                            </div>
+                        <div class="form-label-group mt-3">
+                            <input type="text" id="apellido" th:field="*{apellido}" class="form-control" placeholder="Apellido">
+                            <span class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
+
                         </div>
                         <div class="form-label-group mt-3">
-                            <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Apellido" required autofocus>
-                        </div>
-                        <div class="form-label-group mt-3">
-                            <input type="text" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
+                            <input type="text" id="email" th:field="*{email}" class="form-control" placeholder="Email">
+                            <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
                         </div>
 
                         <div class="form-label-group mt-3">
-                            <input type="password" id="pass" name="pass" class="form-control" placeholder="Contraseña" required>
+                            <input type="password" id="pass" th:field="*{pass}" name="pass" class="form-control" placeholder="Contraseña">
+                            <span class="text-danger" th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}"></span>
+
                         </div>
 
                         <button class="btn btn-lg btn-primary btn-block text-uppercase mt-3" id="iniciar" type="submit">Iniciar Sesion</button>

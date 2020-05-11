@@ -17,20 +17,12 @@ public class loginController {
     public loginController(loginService loginService) {
         this.loginService = loginService;
     }
-//    @GetMapping("/")
-//    public String showForm(PersonForm personForm) {
-//        return "form";
-//    }
-//
-//    @PostMapping("/")
-//    public String checkPersonInfo(@Valid PersonForm personForm, BindingResult bindingResult) {
-//
-//        if (bindingResult.hasErrors()) {
-//            return "form";
-//        }
-//
-//        return "redirect:/results";
-//    }
+
+    @RequestMapping(path = "/login/cerrarSession")
+    public String cerrarSession ( HttpSession session) {
+        session.setAttribute("usuario",null);
+        return "/index";
+    }
     @GetMapping(path = "/login")
     public String pantallaLogin (loginModel loginModel) {
 
@@ -51,25 +43,22 @@ public class loginController {
             return "/index";
         }
     }
-
-    @RequestMapping(path = "/login/cerrarSession")
-    public String cerrarSession ( HttpSession session) {
-            session.setAttribute("usuario",null);
-            return "/index";
-    }
-    @RequestMapping(path = "/login/registrar", method = RequestMethod.POST )
-    public String registrarConfirmar ( registrarModel reg, HttpSession session) {
-        if(false){
-            return "/login/registrar";
-        }
-        loginModel log = loginService.confirmarUsuario(reg.getPass(),reg.getNombre());
-        log.setRol(1);
-        session.setAttribute("usuario",log);
-        return "/index";
-    }
-    @RequestMapping(path = "/login/registrar")
-    public String registrar (HttpSession session) {
-        session.setAttribute("usuario",null);
+    @GetMapping(path = "/login/registrar")
+    public String registrar (registrarModel registrarModel) {
         return "/login/registrar";
     }
+    @PostMapping(path = "/login/registrar")
+    public String registrarConfirmar (HttpSession session,@Valid registrarModel registrarModel, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()){
+            return "/login/registrar";
+        }
+        else {
+            loginModel log = loginService.confirmarUsuario(registrarModel.getPass(), registrarModel.getNombre());
+            log.setRol(1);
+            session.setAttribute("usuario", log);
+            return "/index";
+        }
+    }
+
 }

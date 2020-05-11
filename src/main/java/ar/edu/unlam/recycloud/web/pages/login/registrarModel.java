@@ -1,9 +1,30 @@
 package ar.edu.unlam.recycloud.web.pages.login;
 
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.validation.constraints.*;
+
+@Data
+@Entity
 public class registrarModel {
+    @NotEmpty(message="Campo requerido")
+    @Size(min = 2, max = 20, message
+            = "Debe ser entre 2 y 20 caracteres")
     private String nombre;
+
+    @Size(min = 2, max = 50, message
+            = "Debe ser entre 2 y 50 caracteres")
+    @NotEmpty(message="Campo requerido")
     private String apellido;
+
+    @NotEmpty(message="Campo requerido")
+    @Email(message="Email Invalido")
     private String email;
+
+    @Size(min = 8, max = 50, message
+            = "Debe ser entre 8 y 50 caracteres")
+    @NotEmpty(message="Campo requerido")
     private String pass;
 
     public String getPass() {

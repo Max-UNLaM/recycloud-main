@@ -16,10 +16,10 @@ import javax.validation.constraints.Size;
 @Entity
 public class loginModel {
 
-
     @NotNull(message="Debe ingresar un nombre de usuario")
     @NotEmpty(message="Debe ingresar un nombre de usuario")
     private String usuario;
+
     @NotNull(message="Debe ingresar una clave")
     @NotEmpty(message="Debe ingresar una clave")
     private String pass;
