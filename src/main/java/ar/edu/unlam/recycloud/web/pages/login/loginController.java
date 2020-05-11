@@ -38,8 +38,8 @@ public class loginController {
     }
 
     @RequestMapping(path = "/login/cerrarSession")
-    public String cerrarSession ( HttpServletRequest request) {
-            request.getSession().setAttribute("usuario",null);
+    public String cerrarSession ( HttpSession session) {
+            session.setAttribute("usuario",null);
             return "/index";
     }
     @RequestMapping(path = "/login/registrar", method = RequestMethod.POST )
