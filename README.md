@@ -41,11 +41,9 @@ Si se necesita acceder:
 
 https://www.shellhacks.com/mongodb-install-client-mongo-shell-ubuntu-centos/
 
-
 ### Windows
 
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
-
 
 ## Ejecutar
 
