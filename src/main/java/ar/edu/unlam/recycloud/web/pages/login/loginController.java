@@ -18,8 +18,8 @@ public class loginController {
     }
 
     @RequestMapping(path = "/login")
-    public String pantallaLogin (HttpServletRequest request) {
-        request.getSession().setAttribute("usuario",null);
+    public String pantallaLogin (HttpSession session) {
+        session.setAttribute("usuario",null);
         return "/login/login";
     }
 
@@ -41,5 +41,20 @@ public class loginController {
     public String cerrarSession ( HttpServletRequest request) {
             request.getSession().setAttribute("usuario",null);
             return "/index";
+    }
+    @RequestMapping(path = "/login/registrar", method = RequestMethod.POST )
+    public String registrarConfirmar ( registrarModel reg, HttpSession session) {
+        if(false){
+            return "/login/registrar";
+        }
+        loginModel log = loginService.confirmarUsuario(reg.getPass(),reg.getNombre());
+        log.setRol(1);
+        session.setAttribute("usuario",log);
+        return "/index";
+    }
+    @RequestMapping(path = "/login/registrar")
+    public String registrar (HttpSession session) {
+        session.setAttribute("usuario",null);
+        return "/login/registrar";
     }
 }
