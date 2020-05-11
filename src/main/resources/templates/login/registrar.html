@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/js/jquery-ui.css}">
+</head>
+<body>
+<header th:replace="fragments/header"></header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Registro</h5>
+                    <form class="form-signin"  method="post" action="/login/registrar" ModelAttribute="usuario">
+                        <div class="form-label-group">
+                            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required autofocus>
+                        </div>
+                        <div class="form-label-group">
+                            <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Apellido" required autofocus>
+                        </div>
+                        <div class="form-label-group mt-3">
+                            <input type="text" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
+                        </div>
+
+                        <div class="form-label-group mt-3">
+                            <input type="password" id="pass" name="pass" class="form-control" placeholder="Contraseña" required>
+                        </div>
+
+                        <div class="custom-control custom-checkbox mb-3 mt-3">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Recordar Contraseña</label>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" id="iniciar" type="submit">Iniciar Sesion</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
