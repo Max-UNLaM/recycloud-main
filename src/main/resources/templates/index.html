@@ -3,6 +3,7 @@
 <head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
     <title>RecyCloud</title>
+    <link rel="stylesheet" th:href="@{/css/pages/index.css}">
     <link rel="stylesheet" th:href="@{/js/jquery-ui.css}">
 </head>
 <body>
@@ -10,8 +11,7 @@
 <div class="mt-3 " style="width: 100%; height: 450px;">
 <img style="width: 100%; height: auto;" src="/css/banner.png">
 </div>
-<br><br><br><br><br><br><br><br><br>
-    <div class="container">
+    <div class="container" id="quienes-somos">
         <div class="row">
             <div class="d-sm-none d-md-block col-md-5 p-md-5  d-flex justify-content-center align-items-center">
                     <span class="icon-play"><img style="height: auto;width: 80%;" src="/css/descarga.jpeg"></span>
