@@ -17,21 +17,26 @@
 <br>
 <div style="width: 40%; height: 300px;margin: 0 auto;">
     <div class="row col-md-12 justify-content-md-center">
-        <div class="col-md-8 text-center mt-2" >
+        <div class="col-md-8 text-center mt-2 mb-4" >
             <span style="font: bold 20px Araial; color: #3B6E36;" id="result"></span>
         </div>
-        <br><br>
         <div class="col-md-5 text-center" style="margin-left: 1%;">
             <button class="btn col-md-12" style="background: #3B6E36!important;color: white;" id="botonPredecir">Iniciar</button>
         </div>
+        <div class="col-md-5 text-center" style="margin-left: 1%;">
+            <a onclick="masInfo()"><button class="btn col-md-12" style="background: darkorange!important;color: white;" id="info">Mas Información.</button></a>
+        </div>
     </div>
+
     <textarea type="text" id="asd" hidden th:text="${categorias}"></textarea>
+
 </div>
 <script th:inline="javascript">
     let video;
     let featureExtractor;
     let clasificador;
     let categorias;
+    let cate
     function setup() {
         noCanvas();
         video = createCapture(VIDEO);
@@ -58,7 +63,7 @@
         if (res[0].confidence > 0.75) {
             myVariable.forEach(function (value) {
                 if (res[0].label == value.imagen){
-                let cate = value.categoria;
+                cate = value.categoria;
                 select("#result").html(cate);
                 }
             });
@@ -66,6 +71,10 @@
     }
     function modelReady() {
         clasificador.load('https://cdn.jsdelivr.net/gh/Nicolasemanuelmorales/prueba/model%20(8).json');
+    }
+
+    function masInfo() {
+        window.location.replace("masinfo/"+cate);
     }
 
 </script>
