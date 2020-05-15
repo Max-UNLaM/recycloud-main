@@ -13,43 +13,37 @@
         <div class="row">
             <div class="list-group col-md-3 mt-5" style="color: red!important;">
                 <a href="#" class="list-group-item active" style="background: #3B6E36;border-color: #E7E7E7!important; color: white!important;font-weight: 600;">CATEGORIAS</a>
-                <a href="#" class="list-group-item " style="border-color: #E7E7E7!important;color: black!important;">Vidrio</a>
-                <a href="#" class="list-group-item" style="border-color: #E7E7E7!important;color: black!important;">Plastico</a>
-                <a href="#" class="list-group-item" style="border-color: #E7E7E7!important;color: black!important;">Carton</a>
-                <a href="#" class="list-group-item" style="border-color: #E7E7E7!important;color: black!important;">Second item</a>
-                <a href="#" class="list-group-item" style="border-color: #E7E7E7!important;color: black!important;">Third item</a>
-                <a href="#" class="list-group-item" style="border-color: #E7E7E7!important;color: black!important;">Second item</a>
-                <a href="#" class="list-group-item" style="border-color: #E7E7E7!important;color: black!important;">Third item</a>
+                <span th:each="allcategoria : ${allcategoria}" >
+                    <a href="#" class="list-group-item " style="border-color: #E7E7E7!important;color: black!important;">
+                        <span th:text="${allcategoria.categoria}"></span>
+                    </a>
+                <span/>
             </div>
             <div class="list-group col-md-9 mt-5">
                 <div class="card text-center">
                     <div class="card-header" style="background: #3B6E36!important; color: white!important;font-weight: 600;">
-                        CARTÓN
+                        <span style="text-transform: uppercase;color: darkorange;" th:text="${categoria.categoria}">CARTÓN</span>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text" th:text="${categoria.descripcion}"></p>
                     </div>
                     <div class="card-header" style="background: #3B6E36!important; color: white!important;font-weight: 600;">
                         TIPOS
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text" th:text="${categoria.tipos}"></p>
                     </div>
                     <div class="card-header" style="background: #3B6E36!important; color: white!important;font-weight: 600;">
                         ¿ COMO RECICLAR ?
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text" th:text="${categoria.como}"></p>
                     </div>
                     <div class="card-header" style="background: #3B6E36!important; color: white!important;font-weight: 600;">
                         ¿ DONDE RECICLAR ?
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text" th:text="${categoria.donde}"></p>
                     </div>
                 </div>
             </div>

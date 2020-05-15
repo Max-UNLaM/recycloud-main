@@ -33,4 +33,15 @@ public class categoriaService {
     public List<informacionModel> getListaDeInformacion(){
         return listaDeInformacion;
     }
+
+    public informacionModel getListaDeInformacionFiltrada( String x){
+        for (informacionModel i : listaDeInformacion) {
+            if (i.getCategoria().equals(x)) {
+                informacionModel info=i;
+                return info;
+            }
+        }
+         return null;
+    }
+
 }

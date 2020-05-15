@@ -5,7 +5,9 @@ import ar.edu.unlam.recycloud.web.pages.login.loginModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -73,5 +75,13 @@ public class categoriaController {
         }
         categoriaService.setListaDeCategoria(categoria);
         return"redirect:/categoria/categoria";
+    }
+
+    @GetMapping(path = "/categoria/redirect/{categoria}")
+    public ModelAndView llevarAPantalla(@PathVariable String categoria) {
+        ModelMap model = new ModelMap();
+        model.put("allcategoria",categoriaService.getListaDeInformacion());
+        model.put("categoria",categoriaService.getListaDeInformacionFiltrada(categoria));
+        return new ModelAndView ("/categoria/descripcion",model);
     }
 }
