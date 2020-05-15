@@ -21,6 +21,32 @@ public class categoriaController {
         this.categoriaService = categoriaService;
     }
 
+    @RequestMapping(path = "/categoria/informacion")
+    public ModelAndView info(HttpSession session) {
+        loginModel l= (loginModel) session.getAttribute("usuario");
+        if(l == null){
+            return new ModelAndView("/index");
+        }
+        if(l.getRol() != 1){
+            return new ModelAndView("/index");
+        }
+        ModelMap mod = new ModelMap();
+        mod.put("informacion",this.categoriaService.getListaDeInformacion());
+        return new ModelAndView ("/categoria/informacion",mod);
+    }
+    @RequestMapping(path = "/categoria/guardarinformacion")
+    public String infodos(@ModelAttribute informacionModel informacion, HttpSession session) {
+        loginModel l= (loginModel) session.getAttribute("usuario");
+        if(l == null){
+            return ("/index");
+        }
+        if(l.getRol() != 1){
+            return ("/index");
+        }
+        categoriaService.setListaDeInformacion(informacion);
+        return"redirect:/categoria/informacion";
+    }
+
     @RequestMapping(path = "/categoria/categoria")
     public ModelAndView read(HttpSession session) {
         loginModel l= (loginModel) session.getAttribute("usuario");

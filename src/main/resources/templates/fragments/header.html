@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
-    <title>Header</title>
+    <title>RecyCloud</title>
 </head>
 <body>
 <header id="header" th:fragment="header">
@@ -17,58 +17,60 @@
                     </div>
                     <div class="col-md pr-4 text-center mt-1">
                         <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
-                        <span class="text">atencion.al.publico@recycloud.com.ar</span>
+                        <span class="text">ATENCION-AL-PUBLICO@RECYCLOUD.COM.AR</span>
                     </div>
                     <div class="col-md pr-4 text-center mt-1">
-                        <span class="text">Siempre disponibles a consultas!</span>
+                        <span class="text">SIEMPRE DISPUESTO A CONSULTAS!</span>
                     </div>
                 </div>
             </div>
         </div>
-    </divcl>
     </div>
     <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-light " >
+                <nav class="navbar navbar-expand-lg navbar-light" >
                     <a style="width: 25%!important;" class="navbar-brand mt-3" href="/"><img style="height: auto; width: 22%;" src="/css/fotito.png"> <span style="font-size: 20px; font-weight: 600;"><span style="color: darkorange !important;">RᴇᴄʏCʟᴏᴜᴅ</span></span></a>
-                    <button type="button" class="mt-4 navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <button type="button" class="mt-4 navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" >
                         <span class="navbar-toggler-icon "></span>
                     </button>
                     <div class="mt-3 collapse navbar-collapse" id="navbarCollapse" style="width: 100%!important;font-weight: 600;">
-                        <ul id="navigation" class="ml-auto" >
-                            <li>
-                                <a href="/"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">HOME</span></a>
+                        <ul id="navigation" class="ml-auto navbar-nav" >
+                            <li class="nav-item">
+                                <a class="nav-link" href="/"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">HOME</span></a>
                             </li>
-                            <li>
-                                <a href="/scanner/scanner"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">SCANNER</span></a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/scanner/scanner"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">SCANNER</span></a>
                             </li>
 
-                            <li th:if="${session.usuario} != null and ${session.usuario.rol} == 1 " id="menu-item-2206">
-                                <a href="#"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">ADMIN</span></a>
+                            <li class="nav-item" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 " id="menu-item-2206">
+                                <a class="nav-link" href="#"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">ADMIN</span></a>
                                 <ul class="sub-menu">
-                                    <li>
-                                        <a href="/categoria/categoria"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">CATEGORIA</span></a>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/categoria/categoria"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">CATEGORIA</span></a>
                                     </li>
-                                    <li>
-                                        <a href="/entrenamiento"></span><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">ENTRENAMIENTO</span></a>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/categoria/descripcionadmin"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">INFOMACIÓN</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/entrenamiento"></span><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">ENTRENAMIENTO</span></a>
                                     </li>
                                 </ul>
                             </li>
 
-                            <li th:if="${session.usuario} == null">
-                                <a href="/login"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">INICIAR SESION</span></a>
+                            <li class="nav-item" th:if="${session.usuario} == null">
+                                <a class="nav-link" href="/login"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">INICIAR SESION</span></a>
                             </li>
-                            <li th:if="${session.usuario} == null">
-                                <a href="/login/registrar"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600; color:darkorange;">REGISTRAR</span></a>
+                            <li class="nav-item" th:if="${session.usuario} == null">
+                                <a class="nav-link" href="/login/registrar"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600; color:darkorange;">REGISTRAR</span></a>
                             </li>
 
-                            <li th:if="${session.usuario} != null">
-                                <a href="#"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600; color:darkorange!important;text-transform: uppercase;" th:text="${session.usuario.usuario}"></span></a>
+                            <li class="nav-item" th:if="${session.usuario} != null">
+                                <a class="nav-link" href="#"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600; color:darkorange!important;text-transform: uppercase;" th:text="${session.usuario.usuario}"></span></a>
                                 <ul>
-                                    <li>
-                                        <a href="/categoria/categoria"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">PERFIL</span></a>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/categoria/categoria"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">PERFIL</span></a>
                                     </li>
-                                    <li>
-                                        <a href="/login/cerrarSession"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">CERRAR SESION</span></a>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/login/cerrarSession"><span style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600;color: #3B6E36 !important;">CERRAR SESION</span></a>
                                     </li>
 
                                 </ul>
