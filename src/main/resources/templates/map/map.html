@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link})">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
     <title>RecicCloud ♻️</title>
 
@@ -9,14 +9,20 @@
 
 </head>
 <body>
+<header th:replace="fragments/header"></header>
 <div class="container" th:fragment="main()">
-    <div class="jumbotron">
-        <h1 class="display-4">ReciCloud!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <div class="card">
+        <div id="map"></div>
+        <div class="card-body">
+            <h5 class="card-title">Puntos de Reciclaje</h5>
+            <p class="card-text">Encontrá dónde dejar tus reciclajes por categoría!</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
     </div>
 </div>
+<script th:src="@{/js/pages/map.js}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0lJoUoC-kiNyutxVB9ay4Oycbs35KjEg&callback=initMap"
+async defer></script>
+<script th:src="@{/js/lib/richmarker.js}" async defer></script>
 </body>
 </html>
