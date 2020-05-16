@@ -44,4 +44,12 @@ public class categoriaService {
          return null;
     }
 
+    public informacionModel getListaDeInformacionFiltrada2(){
+        for (informacionModel i : listaDeInformacion) {
+                   informacionModel info = i;
+                   return info;
+        }
+        return new informacionModel("Vacio","Vacio","Vacio","Vacio","Vacio");
+    }
+
 }

@@ -84,4 +84,12 @@ public class categoriaController {
         model.put("categoria",categoriaService.getListaDeInformacionFiltrada(categoria));
         return new ModelAndView ("/categoria/descripcion",model);
     }
+
+    @GetMapping(path = "/categoria/all")
+    public ModelAndView llevarAPantallaTodo() {
+        ModelMap model = new ModelMap();
+        model.put("allcategoria",categoriaService.getListaDeInformacion());
+        model.put("categoria",categoriaService.getListaDeInformacionFiltrada2());
+        return new ModelAndView ("/categoria/descripcion",model);
+    }
 }
