@@ -10,6 +10,7 @@ import java.util.List;
 public class categoriaService {
 
     public static List<ScannerModel> listaDeCategorias = new ArrayList<>();
+    public static List<informacionModel> listaDeInformacion = new ArrayList<>();
 
     public void setListaDeCategoria(ScannerModel x){
 
@@ -21,4 +22,34 @@ public class categoriaService {
     public List<ScannerModel> getListaDeCategoria(){
         return listaDeCategorias;
     }
+
+    public void setListaDeInformacion(informacionModel x){
+
+        if(x.getCategoria() == "" | x.getComo() == ""| x.getDescripcion() == "" | x.getDonde() == "" | x.getTipos() == ""){
+
+        }else{listaDeInformacion.add(x);}
+    }
+
+    public List<informacionModel> getListaDeInformacion(){
+        return listaDeInformacion;
+    }
+
+    public informacionModel getListaDeInformacionFiltrada( String x){
+        for (informacionModel i : listaDeInformacion) {
+            if (i.getCategoria().equals(x)) {
+                informacionModel info=i;
+                return info;
+            }
+        }
+         return null;
+    }
+
+    public informacionModel getListaDeInformacionFiltrada2(){
+        for (informacionModel i : listaDeInformacion) {
+                   informacionModel info = i;
+                   return info;
+        }
+        return new informacionModel("Vacio","Vacio","Vacio","Vacio","Vacio");
+    }
+
 }

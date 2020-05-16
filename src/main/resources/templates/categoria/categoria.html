@@ -8,21 +8,23 @@
 </head>
 <body>
 <header th:replace="fragments/header"></header>
-        <form class="form-horizontal" style="margin: 0 auto;" method="post" action="/categoria/guardar" ModelAttribute="categoria">
-            <div class="row col-md-12 justify-content-md-center"  style="margin: 0 auto;">
-                <div class="col-md-8 text-center mt-4">
-                    <input style="height: 36px!importan " type="text" class="form-control" placeholder="Objeto" name="imagen" id="imagen">
+<div class="container">
+    <div class="row col-md-12 justify-content-md-center mt-5">
+        <form class="form-horizontal col-md-6" style="margin: 0 auto;" method="post" action="/categoria/guardar" ModelAttribute="categoria">
+            <div class="  text-center"  style="margin: 0 auto;">
+                <div class="col-md-12 text-center mt-4">
+                    <input style="height: 36px!important" type="text" class="form-control col-md-12" placeholder="Objeto" name="imagen" id="imagen">
                 </div>
-                <div class="col-md-8 text-center mt-2">
-                    <input style="height: 36px!important;" type="text" class="form-control" placeholder="Categoria" name="categoria" id="categoria">
+                <div class="col-md-12 text-center mt-2">
+                    <input style="height: 36px!important;" type="text" class="form-control col-md-12" placeholder="Categoria" name="categoria" id="categoria">
                 </div>
-                <div class="col-md-8 text-center mt-2">
-                    <button style="height: 36px!important; background: #3B6E36!important;color: white;" type="submit" class="btn btn-success form-control" id="guardar">Guardar</button>
+                <div class="col-md-12 text-center mt-2">
+                    <button  style="height: 36px!important; background: #3B6E36!important;color: white;" type="submit" class="btn btn-success form-control col-md-12" id="guardar">Guardar</button>
                 </div>
             </div>
         </form>
-<br><br><br>
-        <div class="table-responsive" style="width: 63%; margin: 0 auto;">
+
+        <div class="col-md-6 mt-4 table-responsive" style="width: 63%; margin: 0 auto;">
             <table class="table">
                 <thead>
                 <tr>
@@ -38,5 +40,8 @@
                 </tbody>
             </table>
         </div>
+
+</div>
+</div>
 </body>
 </html>
