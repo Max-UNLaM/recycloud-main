@@ -24,7 +24,7 @@
             <button class="btn col-md-12" style="background: #3B6E36!important;color: white;" id="botonPredecir">Iniciar</button>
         </div>
         <div class="col-md-5 text-center" style="margin-left: 1%;">
-            <a onclick="masInfo()"><button class="btn col-md-12" style="background: darkorange!important;color: white;" id="info">Mas Información.</button></a>
+            <button onclick="masInfo()" class="btn col-md-12" style="background: darkorange!important;color: white;" id="info">Mas Información.</button>
         </div>
     </div>
 
@@ -74,7 +74,13 @@
     }
 
     function masInfo() {
-        window.location.replace("masinfo/"+cate);
+        if(cate == null)
+        {
+        }
+        else
+        {
+            window.location.replace("masinfo/"+cate);
+        }
     }
 
 </script>
