@@ -1,13 +1,20 @@
-const initialZoom = 16;
-const paddleIcons = "http://maps.google.com/mapfiles/kml/paddle";
+const initialZoom = 15;
 const mapId = "map";
+
+const iconTemplate = (categories) => {
+    return `
+    <div class="no-background pin-tooltip">${badgeTemplate(categories, 'primary margin-1')}</div>
+    <div class="pin-container flex">
+        <img class="pin-image" alt="pin" src="img/map/map_ping_green.svg">    
+    </div>   
+    `;
+}
 
 const badgeTemplate = (days, badgeType) => {
     return days.map(function (day) {
         return '<span class="badge badge-' + badgeType + '">' + day + '</span>'
     }).join(" ");
 }
-
 
 const baseTemplate = (dialog) => {
     return `
@@ -27,6 +34,7 @@ const baseTemplate = (dialog) => {
 class Icon {
     name = "";
     location = "";
+    size = {width: 10, height: 10};
 }
 
 class Coords {
@@ -49,42 +57,6 @@ class Feature {
     dialog = new Dialog();
 }
 
-const icons = [{
-    bronze: {
-        icon: paddleIcons + "/red_blank.png"
-    },
-    plastic: {
-        icon: paddleIcons + "/purple_blank.png"
-    },
-    top: {
-        icon: paddleIcons + "/purple_star.png"
-    },
-    metal: {
-        icon: paddleIcons + "/blue_blank.png"
-    },
-    bottles: {
-        icon: paddleIcons + "/tlblu_diamond.png"
-    },
-    bateries: {
-        icon: paddleIcons + "/yellow_blank.png"
-    },
-    paperboard: {
-        icon: paddleIcons + "/white_diamond.png"
-    },
-    electronic: {
-        icon: paddleIcons + "/yellow_diamond.png"
-    },
-    glass: {
-        icon: paddleIcons + "/tlblu_blank.png"
-    },
-    textiles: {
-        icon: paddleIcons + "/orange_blank.png"
-    },
-    other: {
-        icon: paddleIcons + "/blue_blank.png"
-    }
-}]
-
 let features = [{
     title: "Tu Vieja",
     coords: {
@@ -92,8 +64,11 @@ let features = [{
         lng: -58.604702
     },
     icon: {
-        name: "Alfajor",
-        location: "img/"
+        url: "img/map/map_ping_green.svg",
+        scaledSize: {
+            width: 47,
+            height: 64
+        }
     },
     dialog: {
         categories: ["CARTÓN", "FALOPA"],
@@ -105,11 +80,10 @@ let features = [{
     }
 }]
 
-let map;
 let ignite = (location) => {
     let browserLat = location.coords.latitude;
     let browserLong = location.coords.longitude;
-    map = new google.maps.Map(document.getElementById(mapId), {
+    let map = new google.maps.Map(document.getElementById(mapId), {
         center: {lat: browserLat, lng: browserLong},
         zoom: initialZoom
     });
@@ -118,15 +92,19 @@ let ignite = (location) => {
             content: baseTemplate(feature.dialog)
         });
 
-        let marker = new google.maps.Marker({
-            position: feature.coords,
+        let marker = new RichMarker({
+            position: new google.maps.LatLng(feature.coords.lat, feature.coords.lng),
             map: map,
-            icon: feature.icon.location,
-            title: feature.title
+            content: iconTemplate(feature.dialog.categories),
+            title: feature.title,
+            shadow: 0
         });
         marker.addListener('click', function () {
             infoWindow.open(map, marker);
         });
     });
 }
-let geolocation = navigator.geolocation.getCurrentPosition(ignite);
+
+function initMap() {
+    navigator.geolocation.getCurrentPosition(ignite);
+}

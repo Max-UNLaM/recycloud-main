@@ -5,3 +5,31 @@
 #map {
     height: 500px;
 }
+
+.margin-1 {
+    margin: 1px;
+}
+
+.pin-tooltip {
+    width: 120px;
+    display: flex;
+    transform: translateY(-10px);
+    flex-wrap: wrap;
+}
+
+.pin-container {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pin-image {
+    margin: auto;
+    width: 47px;
+    height: 64px;
+    bottom: 0;
+}
+
+.no-background {
+    background-color: rgba(255, 255, 255, 0);
+}
