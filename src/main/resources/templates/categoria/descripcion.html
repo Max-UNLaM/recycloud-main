@@ -14,7 +14,7 @@
             <div class="list-group col-md-3 mt-5" style="color: red!important;">
                 <a href="#" class="list-group-item active" style="background: #3B6E36;border-color: #E7E7E7!important; color: white!important;font-weight: 600;">CATEGORIAS</a>
                 <span th:each="allcategoria : ${allcategoria}" >
-                    <a href="#" class="list-group-item " style="border-color: #E7E7E7!important;color: black!important;">
+                    <a th:href="@{'/scanner/masinfo/'+${allcategoria.categoria}}" class="list-group-item " style="border-color: #E7E7E7!important;color: black!important;">
                         <span th:text="${allcategoria.categoria}"></span>
                     </a>
                 <span/>
