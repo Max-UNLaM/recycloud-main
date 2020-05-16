@@ -58,7 +58,7 @@ class Feature {
 }
 
 let features = [{
-    title: "Tu Vieja",
+    title: "Dummie",
     coords: {
         lat: -34.695922,
         lng: -58.604702
@@ -71,12 +71,12 @@ let features = [{
         }
     },
     dialog: {
-        categories: ["CARTÓN", "FALOPA"],
-        firstHeading: "Tu Vieja",
-        bodyContent: "La farmacia que le gust a tu vieja",
+        categories: ["CARTÓN", "VIDRIO"],
+        firstHeading: "DUMMIE",
+        bodyContent: "Este es un pin de prueba",
         days: ["lunes", "martes", "tu vieja"],
         schedule: "De 0 a 2am",
-        link: "tuvieja.com"
+        link: "www.prueba.com"
     }
 }]
 
