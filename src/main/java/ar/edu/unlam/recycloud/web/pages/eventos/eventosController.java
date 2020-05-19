@@ -10,4 +10,8 @@ public class eventosController {
     public String read() {
         return "/eventos/eventos";
     }
+    @GetMapping(path = "/eventos/crear")
+    public String read2() {
+        return "/eventos/crearevento";
+    }
 }

@@ -30,19 +30,19 @@
                                             th:text="${session.usuario.usuario}"></span></a>
                                     <ul style="color: white!important;">
                                         <li class="nav-item " style="background: #3D3D3D!important;">
-                                            <a class="nav-link" href="/categoria/categoria"><span style="color:white;">PERFIL</span></a>
+                                            <a class="nav-link" href="/eventos/crear"><span style="color:white;font-size: 12.5px!important;">+ Crear Evento</span></a>
                                         </li>
                                         <li class="nav-item" style="background: #3D3D3D!important;" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">
-                                            <a class="nav-link" href="/categoria/categoria"><span style="color:white;">CATEGORIA</span></a>
+                                            <a class="nav-link" href="/categoria/categoria"><span style="color:white;font-size: 12.5px!important;">CATEGORIA</span></a>
                                         </li>
                                         <li class="nav-item" style="background: #3D3D3D!important;" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">
-                                            <a class="nav-link" href="/categoria/informacion"><span style="color:white;">INFOMACIÓN</span></a>
+                                            <a class="nav-link" href="/categoria/informacion"><span style="color:white;font-size: 12.5px!important;">INFOMACIÓN</span></a>
                                         </li>
                                         <li class="nav-item" style="background: #3D3D3D!important;" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">
-                                            <a class="nav-link" href="/entrenamiento"><span style="color:white;">ENTRENAMIENTO</span></a>
+                                            <a class="nav-link" href="/entrenamiento"><span style="color:white;font-size: 12.5px!important;">ENTRENAMIENTO</span></a>
                                         </li>
                                         <li class="nav-item" style="background: #3D3D3D!important;">
-                                            <a class="nav-link" href="/login/cerrarSession"><span style="color:white;">CERRAR SESION</span></a>
+                                            <a class="nav-link" href="/login/cerrarSession"><span style="color:white;font-size: 12.5px!important;">CERRAR SESION</span></a>
                                         </li>
 
                                     </ul>
