@@ -21,9 +21,12 @@
 
 .pin-image {
     margin: auto;
-    width: 47px;
-    height: 64px;
     bottom: 0;
+}
+/*  47 * 64 */
+.pin-image-size {
+    width: 28px;
+    height: 40px;
 }
 
 .no-background {
