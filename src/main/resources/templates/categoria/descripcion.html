@@ -14,7 +14,7 @@
             <div class="list-group col-md-3 mt-5" style="color: red!important;">
                 <a href="#" class="list-group-item active" style="background: #3D3D3D;border-color: #ececec!important; color: white!important;font-weight: 600;">CATEGORIAS</a>
                 <span th:each="allcategoria : ${allcategoria}" >
-                    <a href="#" class="list-group-item " style="border-color: #ececec!important;color: black!important;">
+                    <a th:href="@{'/scanner/masinfo/'+${allcategoria.categoria}}" class="list-group-item " style="border-color: #ececec!important;color: black!important;">
                         <span th:text="${allcategoria.categoria}"></span>
                     </a>
                 <span/>
@@ -43,6 +43,7 @@
                         ¿ DONDE RECICLAR ?
                     </div>
                     <div class="card-body">
+                        <button class="btn col-md-12" style="background: #3B6E36!important;color: white;" id="botonPredecir">Ver Mapa</button>
                         <p class="card-text" th:text="${categoria.donde}"></p>
                     </div>
                 </div>
