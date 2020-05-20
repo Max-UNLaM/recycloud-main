@@ -108,14 +108,18 @@
             <version>1.4.2</version>
         </dependency>
     </dependencies>
-
+    <pluginRepositories>
+        <pluginRepository>
+            <id>typescript-maven-plugin</id>
+            <url>https://raw.github.com/ppedregal/typescript-maven-plugin/master/repo</url>
+        </pluginRepository>
+    </pluginRepositories>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -146,5 +150,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>
