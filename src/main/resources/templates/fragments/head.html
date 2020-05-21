@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:fragment="baseHead(title, links)">
+<head th:fragment="baseHead(title, links , script)">
 
     <title th:replace="${title}">Recycloud</title>
 
@@ -8,14 +8,19 @@
     <link rel="shortcut icon" th:href="@{/images/favicon.ico}">
     -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{/css/fonts.css}">
-    <link rel="stylesheet" th:href="@{/css/theme.css}">
-    <link rel="stylesheet" th:href="@{/css/retina.css}">
-    <link rel="stylesheet" th:href="@{/css/settings.css}">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!-- placeholder for additional links -->
+    <link rel="stylesheet" th:href="@{/css/lib/fonts.css}">
+    <link rel="stylesheet" th:href="@{/css/lib/theme.css}">
+    <link rel="stylesheet" th:href="@{/css/lib/retina.css}">
+    <link rel="stylesheet" th:href="@{/css/lib/settings.css}">
+    <link rel="stylesheet" th:href="@{/css/pages/general.css}">
+    <link rel="stylesheet" th:href="@{/js/jquery-ui.css}">
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
     <th:block th:replace="${links}"/>
 
 </head>

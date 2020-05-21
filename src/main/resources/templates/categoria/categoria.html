@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
+    <meta charset="UTF-8">
+    <title>Entrenamiento</title>
+    <link rel="stylesheet" th:href="@{/js/jquery-ui.css}">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+</head>
+<body>
+<header th:replace="fragments/header"></header>
+<div class="container">
+    <div class="row col-md-12 justify-content-md-center mt-5">
+        <form class="form-horizontal col-md-6" style="margin: 0 auto;" method="post" action="/categoria/guardar" ModelAttribute="categoria">
+            <div class="  text-center"  style="margin: 0 auto;">
+                <div class="col-md-12 text-center mt-4">
+                    <input style="height: 36px!important" type="text" class="form-control col-md-12" placeholder="Objeto" name="imagen" id="imagen">
+                </div>
+                <div class="col-md-12 text-center mt-2">
+                    <input style="height: 36px!important;" type="text" class="form-control col-md-12" placeholder="Categoria" name="categoria" id="categoria">
+                </div>
+                <div class="col-md-12 text-center mt-2">
+                    <button  style="height: 36px!important; background: #3B6E36!important;color: white;" type="submit" class="btn btn-success form-control col-md-12" id="guardar">Guardar</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="col-md-6 mt-4 table-responsive" style="width: 63%; margin: 0 auto;">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th style="color: #3B6E36">Objeto</th>
+                    <th style="color: #3B6E36">Categoria</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="categorias : ${categorias}">
+                    <td th:text="${categorias.imagen}"></td>
+                    <td th:text="${categorias.categoria}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+</div>
+</div>
+</body>
+</html>

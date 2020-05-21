@@ -1,11 +1,108 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link})">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
-    <title>Holis</title>
-    <link rel="stylesheet" th:href="@{/css/jquery-ui.css}">
+    <title>RecyCloud</title>
+    <link rel="stylesheet" th:href="@{/css/pages/index.css}">
+    <link rel="stylesheet" th:href="@{/js/jquery-ui.css}">
 </head>
 <body>
 <header th:replace="fragments/header"></header>
+<div class="mt-3 " style="width: 100%; height: 450px;">
+<img style="width: 100%; height: auto;" src="/css/banner.png">
+</div>
+    <div class="container" id="quienes-somos">
+        <div class="row">
+            <div class="d-sm-none d-md-block col-md-5 p-md-5  d-flex justify-content-center align-items-center">
+                    <span class="icon-play"><img style="height: auto;width: 80%; border-radius: 150px" src="/css/descarga.jpeg"></span>
+            </div>
+            <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
+                <div class="heading-section-bold mb-4 ">
+                    <div class="ml-md-0">
+                        <h2 class="mb-4" style="color:#3B6E36;font-weight: 800;font-size: 30px;">¿QUIENES SOMOS?</h2>
+                    </div>
+                </div>
+                <div class="pb-md-5" style="font-size: 19px;">
+                    <p>Es un proyecto en el cual se creó para ayudar a la comunidad con información sobre las distintas opciones de reciclaje y ocuparnos de la verificación y publicación de éste.</p>
+                    <p>Somos un equipo de desarrollo que trabaja promoviendo una correcta gestión de residuos mediante: identificación de productos mediante inteligencia artificial, información del producto y localización de centros de reciclaje.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<section class="" id="services" style="background: #E2EEE1;margin-top: -100px;">
+    <br>
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase" style="color: darkorange;font-weight: 800;font-size: 30px;">SERVICIOS</h2>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3 text-center">
+                <span class="fa-stack fa-4x"><img style="width: 48%; height: auto;" src="/css/scan.svg"></span>
+                <h4 class="my-3" style="color: darkorange; font-weight: 600;">SCANNER</h4>
+                <p class="text-muted">Sacá o cargá una foto del producto que quieras reciclar para recibir información de como, donde y por que hacerlo.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <span class="fa-stack fa-4x"><img style="width: 70%; height: auto;" src="/css/map-location.svg"></span>
+                <h4 class="my-3" style="color: darkorange; font-weight: 600;">MAPA</h4>
+                <p class="text-muted">Buscá en el mapa los puntos mas cercanos para poder llevar tus productos reciclables, como tambien la forma en la que necesitan que los presentes.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <span class="fa-stack fa-4x"><img style="width: 70%; height: auto;" src="/css/laptop.svg"></span>
+                <h4 class="my-3" style="color: darkorange; font-weight: 600;">TIENDA</h4>
+                <p class="text-muted">Utilizá la tienda para comprar o vender tus productos echos con reciclaje.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <span class="fa-stack fa-4x"><img style="width: 70%; height: auto;" src="/css/calendar-interface-symbol-tool.svg"></span>
+                <h4 class="my-3" style="color: darkorange; font-weight: 600;">CALENDARIO</h4>
+                <p class="text-muted">Mira los proximos eventos de recoleccion o de charlas informativas.</p>
+            </div>
+        </div>
+    </div>
+    <br>
+</section>
+<footer class="page-footer font-small indigo " style="background:#3D3D3D;border-top: solid 0.0px darkorange;">
+    <div class="container">
+        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="#!"><span style="color: white!important;">HOME</span></a>
+                </h6>
+            </div>
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="/"><span style="color: white!important;">TIENDA</span></a>
+                </h6>
+            </div>
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="/scanner/scanner"><span style="color: white!important;">SCANNER</span></a>
+                </h6>
+            </div>
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="#"><span style="color: white!important;">CALENDARIO</span></a>
+                </h6>
+            </div>
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="#"><span style="color: white!important;">MAPA</span></a>
+                </h6>
+            </div>
+        </div>
+        <hr class="rgba-white-light" style="margin: 0 auto;">
+        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+            <div class="col-md-8 col-12 mt-5 text-center">
+                <p style=" font-weight: 600;font-size: 16px; color: white!important;">LO ÚNICO QUE NO PODEMOS RECICLAR ES EL TIEMPO QUE MALGASTAMOS.</p>
+            </div>
+
+        </div>
+        <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+
+    </div>
+    <div class=" text-center py-3" style="color: white!important;">© 2020 Copyright:
+ RecyClud.com
+    </div>
+</footer>
 </body>
 </html>

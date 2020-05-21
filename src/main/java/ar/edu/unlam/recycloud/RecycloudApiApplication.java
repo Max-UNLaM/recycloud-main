@@ -17,8 +17,6 @@ public class RecycloudApiApplication {
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
-
-
         };
     }
 }
