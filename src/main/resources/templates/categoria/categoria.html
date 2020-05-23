@@ -33,9 +33,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="categorias : ${categorias}">
-                    <td th:text="${categorias.imagen}"></td>
-                    <td th:text="${categorias.categoria}"></td>
+                <tr th:each="categoria : ${categorias}">
+                    <td th:text="${categoria.nombre}"></td>
+                    <td th:text="${categoria.descripcion}"></td>
                 </tr>
                 </tbody>
             </table>

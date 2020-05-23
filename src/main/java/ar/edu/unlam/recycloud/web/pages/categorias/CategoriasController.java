@@ -25,11 +25,18 @@ public class CategoriasController {
     }
 
     @GetMapping(path = "/categoria/{categoria}")
-    public ModelAndView llevarAPantallaTodo(@PathVariable Long categoria) {
+    public ModelAndView leerCategoria(@PathVariable Long categoria) {
         ModelMap viewModel = new ModelMap();
         viewModel.put("categoria", categoriasPageService.getCategoriaById(categoria));
         viewModel.put("nombresCategorias", categoriasPageService.getAllCategorias());
         return new ModelAndView("/categoria/descripcion", viewModel);
+    }
+
+    @GetMapping(path = "/categoria")
+    public ModelAndView verTodasCategorias() {
+        ModelMap viewModel = new ModelMap();
+        viewModel.put("categorias", categoriasPageService.getAllCategorias());
+        return new ModelAndView("/categoria/categoria", viewModel);
     }
 
     @RequestMapping(path = "/categoria/guardarinformacion")
