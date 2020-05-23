@@ -45,6 +45,44 @@ https://www.shellhacks.com/mongodb-install-client-mongo-shell-ubuntu-centos/
 
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
 
+## Configurar
+
+### Bases de datos
+
+Primero es necesario cerar una base de datos a usar para nuestro proyecto.
+
+```mysql
+CREATE SCHEMA recycloud;
+```
+
+Crearle un usuario o modificar permisos
+
+```mysql
+CREATE USER 'sa'@'localhost' IDENTIFIED BY '1234';
+```
+
+Darle privilegios a ese usuario
+
+```mysql
+GRANT ALL PRIVILEGES ON * . * TO 'sa'@'localhost';
+```
+
+Para conectarse a las bases de datos, el proyecto necesita que se le pasen ciertas variables de entorno. Para esto, editar el archivo .bashrc o .zshrc y agregar:
+
+```shell script
+export MONGO_CONNECTION_STRING="mongodb://localhost"
+export RECY_SQL_HOST="localhost:3306"
+export RECY_SQL_DB="recycloud"
+export RECY_SQL_USER="sa"
+export RECY_SQL_PASSWORD="1234"
+export RECY_ENV="PROD"
+```
+
+#### Poblar bases de datos
+
+Hibernate generará las tablase necesarias en la primera ejecución. Pero estas no van a contar con información. Sumarle esa información usando los .sql que hay en /resources/sql.
+Basta con ejecutarlos para poblar las bases de datos.
+
 ## Ejecutar
 
 En unix
