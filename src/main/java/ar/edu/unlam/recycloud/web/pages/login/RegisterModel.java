@@ -2,12 +2,10 @@ package ar.edu.unlam.recycloud.web.pages.login;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
 import javax.validation.constraints.*;
 
 @Data
-@Entity
-public class registrarModel {
+public class RegisterModel {
     @NotEmpty(message="Campo requerido")
     @Size(min = 2, max = 20, message
             = "Debe ser entre 2 y 20 caracteres")

@@ -36,7 +36,7 @@
                                             <a class="nav-link" href="/categoria/categoria"><span style="color:white;font-size: 12.5px!important;">CATEGORIA</span></a>
                                         </li>
                                         <li class="nav-item" style="background: #3D3D3D!important;" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">
-                                            <a class="nav-link" href="/categoria/informacion"><span style="color:white;font-size: 12.5px!important;">INFOMACIÓN</span></a>
+                                            <a class="nav-link" href="/categoria/categoria"><span style="color:white;font-size: 12.5px!important;">INFOMACIÓN</span></a>
                                         </li>
                                         <li class="nav-item" style="background: #3D3D3D!important;" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">
                                             <a class="nav-link" href="/entrenamiento"><span style="color:white;font-size: 12.5px!important;">ENTRENAMIENTO</span></a>
@@ -87,7 +87,7 @@
                         <a class="nav-link" href="/eventos"><span>EVENTOS</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/categoria/all"><span>INFORMACIÓN</span></a>
+                        <a class="nav-link" href="/categoria"><span>INFORMACIÓN</span></a>
                     </li>
                 </ul>
             </div>

@@ -1,6 +1,6 @@
 package ar.edu.unlam.recycloud.web.pages.Scanner;
 
-import ar.edu.unlam.recycloud.web.pages.categorias.categoriaService;
+import ar.edu.unlam.recycloud.web.pages.categorias.CategoriasPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,23 +13,23 @@ import org.springframework.web.servlet.ModelAndView;
 public class ScannerController {
 
     @Autowired
-    private final categoriaService categoriaService;
+    private final CategoriasPageService categoriasPageService;
 
-    public ScannerController( categoriaService categoriaService) {
-        this.categoriaService = categoriaService;
+    public ScannerController(CategoriasPageService categoriasPageService) {
+        this.categoriasPageService = categoriasPageService;
     }
 
     @RequestMapping(path = "/scanner/scanner")
     public ModelAndView read() {
         ModelMap mod = new ModelMap();
-        mod.put("categorias",this.categoriaService.getListaDeCategoria());
+        mod.put("categorias",this.categoriasPageService.getAllScannerModels());
         return new ModelAndView("scanner/scanner", mod);
     }
     @GetMapping(path = "/scanner/masinfo/{categoria}")
     public ModelAndView llevarAPantalla(@PathVariable String categoria) {
         ModelMap model = new ModelMap();
-        model.put("allcategoria",categoriaService.getListaDeInformacion());
-        model.put("categoria",categoriaService.getListaDeInformacionFiltrada(categoria));
+        model.put("allcategoria", categoriasPageService.getListaDeInformacion());
+        model.put("categoria", categoriasPageService.getCategoriaByName(categoria));
         return new ModelAndView ("/categoria/descripcion",model);
     }
 }

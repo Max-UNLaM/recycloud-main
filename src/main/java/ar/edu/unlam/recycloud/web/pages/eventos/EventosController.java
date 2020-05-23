@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class eventosController {
+public class EventosController {
 
     @GetMapping(path = "/eventos")
     public String read() {

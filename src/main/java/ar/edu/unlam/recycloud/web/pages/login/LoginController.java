@@ -2,19 +2,17 @@ package ar.edu.unlam.recycloud.web.pages.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
-public class loginController {
+public class LoginController {
 
-    private final loginService loginService;
+    private final LoginService loginService;
 
-    public loginController(loginService loginService) {
+    public LoginController(LoginService loginService) {
         this.loginService = loginService;
     }
 
@@ -24,15 +22,15 @@ public class loginController {
         return "/index";
     }
     @GetMapping(path = "/login")
-    public String pantallaLogin (loginModel loginModel) {
+    public String pantallaLogin (LoginModel loginModel) {
 
             return "/login/login";
 
     }
 
     @PostMapping(path = "/login")
-    public String confirmar ( HttpSession session,@Valid loginModel loginModel, BindingResult bindingResult) {
-        loginModel log = loginService.confirmarUsuario(loginModel.getPass(),loginModel.getUsuario());
+    public String confirmar (HttpSession session, @Valid LoginModel loginModel, BindingResult bindingResult) {
+        LoginModel log = loginService.confirmarUsuario(loginModel.getPass(),loginModel.getUsuario());
 
         if (bindingResult.hasErrors()){
             return "/login/login";
@@ -44,17 +42,17 @@ public class loginController {
         }
     }
     @GetMapping(path = "/login/registrar")
-    public String registrar (registrarModel registrarModel) {
+    public String registrar (RegisterModel RegisterModel) {
         return "/login/registrar";
     }
     @PostMapping(path = "/login/registrar")
-    public String registrarConfirmar (HttpSession session,@Valid registrarModel registrarModel, BindingResult bindingResult) {
+    public String registrarConfirmar (HttpSession session, @Valid RegisterModel RegisterModel, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()){
             return "/login/registrar";
         }
         else {
-            loginModel log = loginService.confirmarUsuario(registrarModel.getPass(), registrarModel.getNombre());
+            LoginModel log = loginService.confirmarUsuario(RegisterModel.getPass(), RegisterModel.getNombre());
             log.setRol(1);
             session.setAttribute("usuario", log);
             return "/index";
