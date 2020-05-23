@@ -98,7 +98,6 @@ En windows
 ## Tecnologías
 
 ### Spring Framework
-
 Es la base del proyecto conecta a todos los componentes Spring y mete su magia.
 
 ### Spring Boot
@@ -109,6 +108,9 @@ Provee annotations para generar modelos más fácilmente: https://projectlombok.
 
 ### Thymeleaf
 Es nuestro motor de templates. La configuración se encuentra en /conf/ThymeleafConfig. Ahí seteamos una carpeta raíz para los templates, y le decimos a Spring quién está va a resolver los templates.
+
+### Mysql 8
+Usar versión 8 por las dudas, pero cualquier está bien.
 
 ## Estructura
 Los paquetes están organizados por "feature" (características). Cada característica del sistema tiene un paquete propio. Esta característica puede ser: calcular un mapa, mostrar una página web, etc. Cada feature implementará las capas necesarias. Por ejemplo: si un elemento es accesible por el navegador, tendrá un Controller, si accede a una base de datos, un DAO y así.
