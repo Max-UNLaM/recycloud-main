@@ -1,6 +1,6 @@
 package ar.edu.unlam.recycloud.web.pages.categorias;
 
-import ar.edu.unlam.recycloud.web.pages.Scanner.ScannerModel;
+import ar.edu.unlam.recycloud.web.pages.scanner.ScannerModel;
 import ar.edu.unlam.recycloud.web.pages.login.loginModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +17,9 @@ import javax.servlet.http.HttpSession;
 public class categoriaController {
 
     @Autowired
-    private final categoriaService categoriaService;
+    private final CategoriaService categoriaService;
 
-    public categoriaController(categoriaService categoriaService) {
+    public categoriaController(CategoriaService categoriaService) {
         this.categoriaService = categoriaService;
     }
 

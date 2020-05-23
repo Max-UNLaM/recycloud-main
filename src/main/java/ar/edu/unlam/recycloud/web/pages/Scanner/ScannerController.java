@@ -1,6 +1,6 @@
 package ar.edu.unlam.recycloud.web.pages.Scanner;
 
-import ar.edu.unlam.recycloud.web.pages.categorias.categoriaService;
+import ar.edu.unlam.recycloud.web.pages.categorias.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,9 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class ScannerController {
 
     @Autowired
-    private final categoriaService categoriaService;
+    private final CategoriaService categoriaService;
 
-    public ScannerController( categoriaService categoriaService) {
+    public ScannerController(CategoriaService categoriaService) {
         this.categoriaService = categoriaService;
     }
 

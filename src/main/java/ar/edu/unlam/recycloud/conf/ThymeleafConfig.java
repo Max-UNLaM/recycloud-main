@@ -50,4 +50,3 @@ public class ThymeleafConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("index");
     }
 }
-

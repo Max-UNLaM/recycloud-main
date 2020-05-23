@@ -2,11 +2,9 @@ package ar.edu.unlam.recycloud.web.pages.login;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
 import javax.validation.constraints.*;
 
 @Data
-@Entity
 public class registrarModel {
     @NotEmpty(message="Campo requerido")
     @Size(min = 2, max = 20, message
