@@ -1,6 +1,6 @@
 package ar.edu.unlam.recycloud.web.pages.entrenamiento;
 
-import ar.edu.unlam.recycloud.web.pages.login.loginModel;
+import ar.edu.unlam.recycloud.web.pages.login.LoginModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -17,7 +17,7 @@ public class EntrenamientoController {
 
     @GetMapping("/entrenamiento")
     public String scanner( HttpSession session) {
-        loginModel l= (loginModel) session.getAttribute("usuario");
+        LoginModel l= (LoginModel) session.getAttribute("usuario");
         if(l == null){
             return ("/index");
         }

@@ -1,4 +1,4 @@
-package ar.edu.unlam.recycloud.api.mongo;
+package ar.edu.unlam.recycloud.app.mongo;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;

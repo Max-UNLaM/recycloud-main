@@ -6,7 +6,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class loginModel {
+public class LoginModel {
 
     @NotNull(message = "Debe ingresar un nombre de usuario")
     @NotEmpty(message = "Debe ingresar un nombre de usuario")

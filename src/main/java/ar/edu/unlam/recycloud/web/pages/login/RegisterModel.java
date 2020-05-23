@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.validation.constraints.*;
 
 @Data
-public class registrarModel {
+public class RegisterModel {
     @NotEmpty(message="Campo requerido")
     @Size(min = 2, max = 20, message
             = "Debe ser entre 2 y 20 caracteres")

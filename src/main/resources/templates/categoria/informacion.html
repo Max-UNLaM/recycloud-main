@@ -9,7 +9,7 @@
 <header th:replace="fragments/header"></header>
 <div class="container">
     <div class="row col-md-12 justify-content-md-center mt-5">
-        <form class="form-horizontal col-md-12" style="margin: 0 auto;" method="post" action="/categoria/guardarinformacion" ModelAttribute="informacion">
+        <form class="form-horizontal col-md-12" style="margin: 0 auto;" method="post" action="/categoria/guardarinformacion" ModelAttribute="categoria">
             <div class="  text-center"  style="margin: 0 auto;">
                 <div class="col-md-12 text-center mt-4">
                     <input style="height: 50px!important" type="text" class="form-control col-md-12" placeholder="Categoria" name="categoria" id="categoria">
@@ -48,12 +48,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="informacion : ${informacion}">
-                    <td th:text="${informacion.categoria}"></td>
-                    <td th:text="${informacion.descripcion}"></td>
-                    <td th:text="${informacion.tipos}"></td>
-                    <td th:text="${informacion.como}"></td>
-                    <td th:text="${informacion.donde}"></td>
+                <tr th:each="categoria : ${categoria}">
+                    <td th:text="${categoria.categoria}"></td>
+                    <td th:text="${categoria.descripcion}"></td>
+                    <td th:text="${categoria.tipos}"></td>
+                    <td th:text="${categoria.como}"></td>
+                    <td th:text="${categoria.donde}"></td>
                 </tr>
                 </tbody>
             </table>
