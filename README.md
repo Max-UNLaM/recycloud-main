@@ -69,6 +69,9 @@ GRANT ALL PRIVILEGES ON * . * TO 'sa'@'localhost';
 
 Para conectarse a las bases de datos, el proyecto necesita que se le pasen ciertas variables de entorno. Para esto, editar el archivo .bashrc o .zshrc:
 
+### Variables de Entorno
+#### Terminal
+
 ```shell script
 nano ~/.bashrc
 ```
@@ -90,7 +93,12 @@ Puede que sea necesario reiniciar el IntelliJ para que reconozca las variables o
 source ~/.bashrc
 ```
 
-#### Poblar bases de datos
+#### IntelliJ
+
+Se puede incluir las variables en el mismo IDE. 
+https://www.jetbrains.com/help/objc/add-environment-variables-and-program-arguments.html#
+
+### Poblar bases de datos
 
 Hibernate generará las tablase necesarias en la primera ejecución. Pero estas no van a contar con información. Sumarle esa información usando los .sql que hay en /resources/sql.
 Basta con ejecutarlos para poblar las bases de datos.
