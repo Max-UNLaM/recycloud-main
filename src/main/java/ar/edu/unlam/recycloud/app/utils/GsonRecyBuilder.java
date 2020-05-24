@@ -8,7 +8,7 @@ import javax.inject.Singleton;
 
 @Singleton
 @Component
-public class GsonBuilder {
+public class GsonRecyBuilder {
 
     private static final Gson GSON;
 

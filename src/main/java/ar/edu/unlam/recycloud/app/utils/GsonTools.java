@@ -14,8 +14,8 @@ public class GsonTools implements JsonTools {
 
     private final Gson gson;
 
-    GsonTools(GsonBuilder gsonBuilder) {
-        this.gson = gsonBuilder.getGson();
+    GsonTools(GsonRecyBuilder gsonRecyBuilder) {
+        this.gson = gsonRecyBuilder.getGson();
     }
 
     @Override
@@ -37,6 +37,7 @@ public class GsonTools implements JsonTools {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public String loadJsonString(String filepath, Class clazz) throws IOException {
         return gson.toJson(loadFile(filepath, clazz), clazz);
     }
