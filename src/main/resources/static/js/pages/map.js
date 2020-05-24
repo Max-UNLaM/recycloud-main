@@ -59,6 +59,7 @@ let features = [
             lat: -34.0717139,
             lng: -60.1096311
         },
+        categories: ["ECO BOTELLAS, PLÁSTICO"],
         dialog: {
             address: 'Av. Dr. Carlos Merlassino 1099, Arrecifes',
             categories: ["ECO BOTELLAS, PLÁSTICO"],
