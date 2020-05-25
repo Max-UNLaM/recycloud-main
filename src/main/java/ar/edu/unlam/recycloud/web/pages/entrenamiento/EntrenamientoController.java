@@ -9,12 +9,6 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class EntrenamientoController {
 
-    private final EntrenamientoService en;
-
-    EntrenamientoController(EntrenamientoService en) {
-        this.en = en;
-    }
-
     @GetMapping("/entrenamiento")
     public String scanner( HttpSession session) {
         LoginModel l= (LoginModel) session.getAttribute("usuario");
