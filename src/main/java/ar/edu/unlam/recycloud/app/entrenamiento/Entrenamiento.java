@@ -1,4 +1,4 @@
-package ar.edu.unlam.recycloud.app.categoria;
+package ar.edu.unlam.recycloud.app.entrenamiento;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,12 +12,12 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Getter
 @Setter
 @Entity
-public class Categoria {
+public class Entrenamiento {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-    private String nombre;
+    private String entreno;
 
     public Long getId() {
         return id;
@@ -27,11 +27,11 @@ public class Categoria {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Object getEntreno() {
+        return entreno;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setEntreno(String entreno) {
+        this.entreno = entreno;
     }
 }
