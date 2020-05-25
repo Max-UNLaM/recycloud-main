@@ -13,7 +13,7 @@ import static ar.edu.unlam.recycloud.conf.ProjectConstants.MOCK_PATH;
 @Component
 public class DialogMockRepository implements DialogRepository {
 
-    private static final String DIALOG_MOCK = "/pines.json";
+    private static final String DIALOG_MOCK = "/dialogs.json";
     JsonTools jsonTools;
 
     DialogMockRepository(GsonTools gsonTools) {

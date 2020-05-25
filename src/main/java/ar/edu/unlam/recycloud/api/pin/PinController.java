@@ -30,7 +30,7 @@ public class PinController {
         return gson.toJson(pinApiService.getAllPines());
     }
 
-    @GetMapping(value = API_PATH + PIN_PATH + "/{coords}" + DIALOG_PATH)
+    @GetMapping(value = API_PATH + PIN_PATH + "/{coords}" + DIALOG_PATH, produces = MediaType.APPLICATION_JSON_VALUE)
     public String getDialogFromPin(@PathVariable(name = "coords") double[] coords) {
         return gson.toJson(dialogService.getDialogFromDouble(coords));
     }

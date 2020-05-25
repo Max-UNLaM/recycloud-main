@@ -5,7 +5,6 @@ import lombok.Data;
 
 @Data
 public class Pin {
-    String coordId;
     String title;
     String[] categories;
     Location location;

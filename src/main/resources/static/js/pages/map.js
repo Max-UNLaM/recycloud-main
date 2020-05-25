@@ -21,6 +21,11 @@ const request = obj => {
     });
 };
 
+/**
+ *
+ * @param {string[]} categories
+ * @returns {string}
+ */
 const iconTemplate = (categories) => {
     return `
     <div class="no-background pin-tooltip">${badgeTemplate(categories, 'primary margin-1')}</div>
@@ -36,13 +41,18 @@ const badgeTemplate = (days, badgeType) => {
     }).join(" ");
 }
 
+/**
+ *
+ * @param {Dialog} dialog
+ * @returns {string}
+ */
 const dialogTemplate = (dialog) => {
     return `
 <div id="content">
     <div id="siteNotice">${badgeTemplate(dialog.categories, 'primary')}</div>
-    <h1 id="firstHeading" class="firstHeading">${dialog.firstHeading}</h1>
+    <h1 id="firstHeading" class="firstHeading">${dialog.first_heading}</h1>
     <div id="bodyContent">
-        <p>${dialog.bodyContent}</p>
+        <p>${dialog.body_content}</p>
         <p>${dialog.address}</p>
         <p><a href="${dialog.link}">Site</a></p>
         <p>${badgeTemplate(dialog.days, 'secondary')}</p>
@@ -52,28 +62,36 @@ const dialogTemplate = (dialog) => {
 `;
 };
 
-class Coords {
-    latitude;
-    longitude;
+class Location {
+    type = "";
+    coordinates = [];
 }
 
 class Dialog {
-    firstHeading = "";
-    bodyContent = "";
+    first_heading = "";
+    body_content = "";
     days = [];
     schedule = "";
     link = "";
 }
 
-class Feature {
+class Pin {
     title = "";
-    coords = new Coords();
+    categories = [];
+    location = new Location();
     icon = new Icon();
     dialog = new Dialog();
 }
 
+/**
+ *
+ * @param {float[]} coords
+ * @returns {Promise<google.maps.InfoWindow>}
+ */
 const buildInfoWindow = (coords) => {
-    return request({url: `/api/dialog/coords/${coords}`})
+    console.log(coords);
+    const queryCoords = `${coords[0]},${coords[1]}`;
+    return request({url: `/api/pin/${queryCoords}/dialog`})
         .then(data => {
             return new google.maps.InfoWindow({
                 content: dialogTemplate(JSON.parse(data))
@@ -81,17 +99,23 @@ const buildInfoWindow = (coords) => {
         });
 }
 
-function buildFeatures(features, map) {
-    features.forEach((feature) => {
+/**
+ *
+ * @param {Pin[]} pines
+ * @param map
+ */
+function buildPines(pines, map) {
+    pines.forEach((pin) => {
         let marker = new RichMarker({
-            position: new google.maps.LatLng(feature.coords.lat, feature.coords.lng),
+            position: new google.maps.LatLng(pin.location.coordinates[0], pin.location.coordinates[1]),
             map: map,
-            content: iconTemplate(feature.dialog.categories),
-            title: feature.title,
+            content: iconTemplate(pin.categories),
+            title: pin.title,
             shadow: 0
         });
         marker.addListener('click', async function () {
-            const infoWindow = await buildInfoWindow(feature.coords);
+            console.log(pin);
+            const infoWindow = await buildInfoWindow(pin.location.coordinates);
             infoWindow.open(map, marker);
         });
     });
@@ -109,13 +133,12 @@ let ignite = (location) => {
     });
     request({url: '/api/pin'})
         .then(data => {
-            dialogTemplate(JSON.parse(data), map)
+            buildPines(JSON.parse(data), map);
         })
     map.addListener('zoom_changed', () => {
         let pinImageClass = $('.pin-image-size');
         let pinContainer = $('.pin-container');
         let pinTooltip = $('.pin-tooltip');
-        console.log(map.zoom);
         if (map.zoom <= 22) {
             changeClassSize(pinImageClass, '28px', '40px');
         }
