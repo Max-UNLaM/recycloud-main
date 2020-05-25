@@ -67,7 +67,16 @@ Darle privilegios a ese usuario
 GRANT ALL PRIVILEGES ON * . * TO 'sa'@'localhost';
 ```
 
-Para conectarse a las bases de datos, el proyecto necesita que se le pasen ciertas variables de entorno. Para esto, editar el archivo .bashrc o .zshrc y agregar:
+Para conectarse a las bases de datos, el proyecto necesita que se le pasen ciertas variables de entorno. Para esto, editar el archivo .bashrc o .zshrc:
+
+### Variables de Entorno
+#### Terminal
+
+```shell script
+nano ~/.bashrc
+```
+
+Y añadir al final de todo:
 
 ```shell script
 export MONGO_CONNECTION_STRING="mongodb://localhost"
@@ -78,7 +87,18 @@ export RECY_SQL_PASSWORD="1234"
 export RECY_ENV="PROD"
 ```
 
-#### Poblar bases de datos
+Puede que sea necesario reiniciar el IntelliJ para que reconozca las variables o, si se lo ejecuta desde la terminal:
+
+```shell script
+source ~/.bashrc
+```
+
+#### IntelliJ
+
+Se puede incluir las variables en el mismo IDE. 
+https://www.jetbrains.com/help/objc/add-environment-variables-and-program-arguments.html#
+
+### Poblar bases de datos
 
 Hibernate generará las tablase necesarias en la primera ejecución. Pero estas no van a contar con información. Sumarle esa información usando los .sql que hay en /resources/sql.
 Basta con ejecutarlos para poblar las bases de datos.

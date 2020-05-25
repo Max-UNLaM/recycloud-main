@@ -1,0 +1,133 @@
+[
+  {
+    "title": "Eco Botellas",
+    "coords": {
+      "lat": -34.0717139,
+      "lng": -60.1096311
+    },
+    "categories": [
+      "ECO BOTELLAS",
+      "PLÁSTICO"
+    ]
+  },
+  {
+    "title": "Llená tu botella",
+    "coords": {
+      "lat": -34.6510276,
+      "lng": -58.6238583
+    },
+    "categories": [
+      "ECO BOTELLAS",
+      "PLÁSTICO"
+    ]
+  },
+  {
+    "title": "Padua Recicla",
+    "coords": {
+      "lat": -34.6801923,
+      "lng": -58.719233
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PAPELES",
+      "TAPITAS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "coords": {
+      "lat": -34.6475677,
+      "lng": -58.6208252
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "coords": {
+      "lat": -34.6475677,
+      "lng": -58.6208252
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "coords": {
+      "lat": -34.6064186,
+      "lng": -58.5988777
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "coords": {
+      "lat": -34.6532363,
+      "lng": -58.6434944
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "coords": {
+      "lat": -34.6835629,
+      "lng": -58.6627587
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "coords": {
+      "lat": -34.6532363,
+      "lng": -58.6434944
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "coords": {
+      "lat": -34.689439,
+      "lng": -58.6383319
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "coords": {
+      "lat": -34.6379719,
+      "lng": -58.5700491
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  }
+]
