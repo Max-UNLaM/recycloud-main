@@ -1,11 +1,11 @@
-package ar.edu.unlam.recycloud.app.dialogs;
+package ar.edu.unlam.recycloud.app.map.dialog;
 
-import ar.edu.unlam.recycloud.app.geolocation.Coords;
+import ar.edu.unlam.recycloud.app.geolocation.Location;
 import lombok.Data;
 
 @Data
-public class Dialogs {
-    Coords coords;
+public class Dialog {
+    Location location;
     String address;
     String[] categories;
     String firstHeading;

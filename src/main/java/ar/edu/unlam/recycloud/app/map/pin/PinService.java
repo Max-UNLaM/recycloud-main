@@ -1,4 +1,4 @@
-package ar.edu.unlam.recycloud.app.pines;
+package ar.edu.unlam.recycloud.app.map.pin;
 
 import org.springframework.stereotype.Service;
 

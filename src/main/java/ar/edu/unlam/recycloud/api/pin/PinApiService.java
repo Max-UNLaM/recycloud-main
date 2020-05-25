@@ -1,7 +1,7 @@
 package ar.edu.unlam.recycloud.api.pin;
 
-import ar.edu.unlam.recycloud.app.pines.Pin;
-import ar.edu.unlam.recycloud.app.pines.PinService;
+import ar.edu.unlam.recycloud.app.map.pin.Pin;
+import ar.edu.unlam.recycloud.app.map.pin.PinService;
 import org.springframework.stereotype.Service;
 
 @Service
