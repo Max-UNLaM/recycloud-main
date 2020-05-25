@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -101,7 +102,7 @@ public class CategoriasController {
         }
         ModelMap mod = new ModelMap();
         mod.put("informacion",this.categoriaInformacionRepository.findAll());
-        mod.put("categorias",this.categoriaService.findAll());
+        mod.put("categorias",this.categoriaService.findAllFiltrada());
         return new ModelAndView ("/categoria/informacion",mod);
     }
 
@@ -112,45 +113,19 @@ public class CategoriasController {
         model.put("informacion",this.categoriaService.findFirstBy());
         return new ModelAndView ("/categoria/descripcion",model);
     }
-    /*
+
     @GetMapping(path = "/categoria/{categoria}")
-    public ModelAndView leerCategoria(@PathVariable Long categoria) {
+    public ModelAndView leerCategoria(@PathVariable String categoria) {
         ModelMap viewModel = new ModelMap();
-        viewModel.put("categoria", categoriaService.getCategoriaById(categoria));
-        viewModel.put("nombresCategorias", categoriaService.getAllCategorias());
+        viewModel.put("informacion", categoriaService.getCategoriaById(categoria));
+        viewModel.put("allcategoria",this.categoriaRepository.findAll());
         return new ModelAndView("/categoria/descripcion", viewModel);
     }
-
-    @GetMapping(path = "/categoria")
-    public ModelAndView verTodasCategorias() {
-        ModelMap viewModel = new ModelMap();
-        viewModel.put("categorias", categoriaService.getAllCategorias());
-        return new ModelAndView("/categoria/categoria", viewModel);
-    }
-
-
-
-
-
-
-
-
     @GetMapping(path = "/categoria/redirect/{categoria}")
     public ModelAndView llevarAPantalla(@PathVariable String categoria) {
         ModelMap model = new ModelMap();
-        model.put("allcategoria", categoriaService.getAllCategorias());
-        model.put("categoria", categoriaService.getCategoriaByName(categoria));
-
+        model.put("informacion", categoriaService.getCategoriaById(categoria));
+        model.put("allcategoria",this.categoriaRepository.findAll());
         return new ModelAndView("/categoria/descripcion", model);
     }
-
-    @GetMapping(path = "/categoria/all")
-    public ModelAndView llevarAPantallaTodo() {
-        ModelMap model = new ModelMap();
-        model.put("allcategoria", categoriaService.getListaDeInformacion());
-        model.put("categoria", categoriaService.getListaDeInformacionFiltrada2());
-        return new ModelAndView ("/categoria/descripcion",model);
-    }
-
-     */
 }

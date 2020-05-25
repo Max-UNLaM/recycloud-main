@@ -25,6 +25,23 @@ public class CategoriaService {
       return categoriaRepository.findAll();
     }
 
+    public List<Categoria> findAllFiltrada(){
+        List<Categoria> categoria = categoriaRepository.findAll();
+        List<CategoriaInformacion> categoriainfo = categoriaInformacionRepository.findAll();
+        List<Categoria> cate =categoriaRepository.findAll();
+
+        for (Categoria c : categoria){
+            for (CategoriaInformacion ci : categoriainfo){
+
+                if (c.getNombre().equals(ci.getCategoria().getNombre()))
+                {
+                    cate.remove(c);
+                }
+            }
+        }
+        return cate;
+    }
+
     public void guardarCategoriaEntrenada(CategoriaEntrenada categoriaEntrenada){
 
         List<Categoria> categoria = categoriaRepository.findAll();
@@ -67,5 +84,15 @@ public class CategoriaService {
         return ci;
         }
         return categoriaInformacionRepository.findFirstBy();
+    }
+
+    public CategoriaInformacion getCategoriaById(String cate){
+        List<CategoriaInformacion> categoria = categoriaInformacionRepository.findAll();
+        for (CategoriaInformacion ca : categoria) {
+            if(ca.getCategoria().getNombre().equals(cate)) {
+                return ca;
+            }
+        }
+        return null;
     }
 }

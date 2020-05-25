@@ -64,7 +64,7 @@
         if (res[0].confidence > 0.75) {
             myVariable.forEach(function (value) {
                 if (res[0].label == value.imagen){
-                cate = value.categoria;
+                cate = value.categoria.nombre;
                 select("#result").html(cate);
                 }
             });
