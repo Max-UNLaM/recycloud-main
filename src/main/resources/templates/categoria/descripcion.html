@@ -14,7 +14,7 @@
             <div class="list-group col-md-3 mt-5" style="color: red!important;">
                 <a href="#" class="list-group-item active" style="background: #3D3D3D;border-color: #ececec!important; color: white!important;font-weight: 600;">CATEGORIAS</a>
                 <span th:each="categoria : ${allcategoria}">
-                    <a th:href="@{'/categoria/'+${categoria.nombre}}" class="list-group-item " style="border-color: #ececec!important;color: black!important;">
+                    <a th:href="@{'/categoria/'+${categoria.id}}" class="list-group-item " style="border-color: #ececec!important;color: black!important;">
                         <span th:text="${categoria.nombre}"></span>
                     </a>
                 <span/>
@@ -22,7 +22,7 @@
             <div class="list-group col-md-9 mt-5">
                 <div class="card text-center">
                     <div class="card-header" style="background: #3D3D3D!important; color: white!important;font-weight: 600;">
-                        <span style="text-transform: uppercase;color: darkorange;" th:text="${informacion.categoria.nombre}">CARTÓN</span>
+                        <span style="text-transform: uppercase;color: darkorange;" th:text="${informacion.nombre}">CARTÓN</span>
                     </div>
                     <div class="card-body">
                         <p class="card-text" th:text="${informacion.descripcion}"></p>

@@ -2,17 +2,19 @@ package ar.edu.unlam.recycloud.app.map.pin;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PinService {
 
-    private final PinesRepository pinesRepository;
+    private final PinRepository<Pin> pinRepository;
 
-    PinService(PinesMockRepository pinesRepository) {
-        this.pinesRepository = pinesRepository;
+    PinService(PinMockRepository pinesRepository) {
+        this.pinRepository = pinesRepository;
     }
 
-    public Pin[] getAll() {
-        return this.pinesRepository.findAll();
+    public List<Pin> getAll() {
+        return this.pinRepository.findAll();
     }
 
 }

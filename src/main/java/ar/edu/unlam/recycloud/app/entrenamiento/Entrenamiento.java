@@ -18,20 +18,4 @@ public class Entrenamiento {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private String entreno;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Object getEntreno() {
-        return entreno;
-    }
-
-    public void setEntreno(String entreno) {
-        this.entreno = entreno;
-    }
 }
