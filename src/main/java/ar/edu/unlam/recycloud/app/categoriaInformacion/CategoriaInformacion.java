@@ -1,77 +1,30 @@
 package ar.edu.unlam.recycloud.app.categoriaInformacion;
 
 import ar.edu.unlam.recycloud.app.categoria.Categoria;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
-@Getter
-@Setter
+@Data
 @Entity
 public class CategoriaInformacion {
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
     private Long id;
+
+    @Column(columnDefinition = "TEXT")
     private String descripcion;
+
+    @Column(columnDefinition = "TEXT")
     private String tipos;
+
+    @Column(columnDefinition = "TEXT")
     private String como;
+
     private String donde;
 
     @OneToOne
+    @JoinColumn
+    @MapsId
     private Categoria categoria;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getTipos() {
-        return tipos;
-    }
-
-    public void setTipos(String tipos) {
-        this.tipos = tipos;
-    }
-
-    public String getComo() {
-        return como;
-    }
-
-    public void setComo(String como) {
-        this.como = como;
-    }
-
-    public String getDonde() {
-        return donde;
-    }
-
-    public void setDonde(String donde) {
-        this.donde = donde;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
 }

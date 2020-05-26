@@ -31,10 +31,10 @@ public class ScannerController {
     }
 
     @GetMapping (path = "/scanner/masinfo/{categoria}")
-    public ModelAndView llevarAPantalla(@PathVariable String categoria) {
+    public ModelAndView llevarAPantalla(@PathVariable Long categoria) {
         ModelMap model = new ModelMap();
         model.put("informacion", categoriaService.getCategoriaById(categoria));
-        model.put("allcategoria",this.categoriaService.findAll());
+        model.put("allcategoria",this.categoriaService.findAllCategoria());
         return new ModelAndView ("/categoria/descripcion",model);
     }
 }
