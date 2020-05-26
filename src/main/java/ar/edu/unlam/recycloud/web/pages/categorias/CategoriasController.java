@@ -50,7 +50,7 @@ public class CategoriasController {
 
         ModelMap mod = new ModelMap();
         mod.put("categoriasEntrenada", this.categoriaEntrenadaService.findAll());
-        mod.put("categorias", this.categoriaService.findAll());
+        mod.put("categorias", this.categoriaService.findAllCategoria());
         return new ModelAndView("categoria/categoria", mod);
     }
 
@@ -66,6 +66,7 @@ public class CategoriasController {
         categoriaService.guardarCategoriaEntrenada(categoria);
         return "redirect:/categoria/categoria";
     }
+
     @RequestMapping(path = "/categoria/guardarCategoria")
     public String read(@ModelAttribute Categoria categoria, HttpSession session) {
         LoginModel l = (LoginModel) session.getAttribute("usuario");
@@ -91,41 +92,42 @@ public class CategoriasController {
         categoriaService.guardarCategoriaInformacion(categoria);
         return "redirect:/categoria/informacion";
     }
+
     @RequestMapping(path = "/categoria/informacion")
     public ModelAndView info(HttpSession session) {
-        LoginModel l= (LoginModel) session.getAttribute("usuario");
-        if(l == null){
+        LoginModel l = (LoginModel) session.getAttribute("usuario");
+        if (l == null) {
             return new ModelAndView("/index");
         }
-        if(l.getRol() != 1){
+        if (l.getRol() != 1) {
             return new ModelAndView("/index");
         }
         ModelMap mod = new ModelMap();
-        mod.put("informacion",this.categoriaInformacionRepository.findAll());
-        mod.put("categorias",this.categoriaService.findAllFiltrada());
-        return new ModelAndView ("/categoria/informacion",mod);
+        mod.put("informacion", this.categoriaInformacionRepository.findAll());
+        mod.put("categorias", this.categoriaService.findAllFiltrada());
+        return new ModelAndView("/categoria/informacion", mod);
     }
 
     @GetMapping(path = "/categoria/all")
     public ModelAndView llevarAPantallaTodo() {
         ModelMap model = new ModelMap();
-        model.put("allcategoria",this.categoriaRepository.findAll());
-        model.put("informacion",this.categoriaService.findFirstBy());
-        return new ModelAndView ("/categoria/descripcion",model);
+        model.put("categorias", this.categoriaRepository.findAll());
+        return new ModelAndView("/categoria/lista", model);
     }
 
     @GetMapping(path = "/categoria/{categoria}")
-    public ModelAndView leerCategoria(@PathVariable String categoria) {
+    public ModelAndView leerCategoria(@PathVariable Long categoria) {
         ModelMap viewModel = new ModelMap();
-        viewModel.put("informacion", categoriaService.getCategoriaById(categoria));
-        viewModel.put("allcategoria",this.categoriaRepository.findAll());
+        viewModel.put("informacion", categoriaService.getCategoriaInfoByCategoriaId(categoria));
+        viewModel.put("allcategoria", this.categoriaRepository.findAll());
         return new ModelAndView("/categoria/descripcion", viewModel);
     }
+
     @GetMapping(path = "/categoria/redirect/{categoria}")
-    public ModelAndView llevarAPantalla(@PathVariable String categoria) {
+    public ModelAndView llevarAPantalla(@PathVariable Long categoria) {
         ModelMap model = new ModelMap();
         model.put("informacion", categoriaService.getCategoriaById(categoria));
-        model.put("allcategoria",this.categoriaRepository.findAll());
+        model.put("allcategoria", this.categoriaRepository.findAll());
         return new ModelAndView("/categoria/descripcion", model);
     }
 }

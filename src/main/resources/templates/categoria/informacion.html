@@ -52,7 +52,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="informacion : ${informacion}">
+                <tr>
                     <td th:text="${informacion.categoria.nombre}"></td>
                     <td th:text="${informacion.descripcion}"></td>
                     <td th:text="${informacion.tipos}"></td>
@@ -65,7 +65,50 @@
     </div>
 </div>
 
+<footer class="page-footer font-small indigo mt-5" style="background:#3D3D3D;border-top: solid 0.0px darkorange;">
+    <div class="container">
+        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="#!"><span style="color: white!important;">HOME</span></a>
+                </h6>
+            </div>
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="/"><span style="color: white!important;">TIENDA</span></a>
+                </h6>
+            </div>
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="/scanner/scanner"><span style="color: white!important;">SCANNER</span></a>
+                </h6>
+            </div>
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="#"><span style="color: white!important;">CALENDARIO</span></a>
+                </h6>
+            </div>
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="#"><span style="color: white!important;">MAPA</span></a>
+                </h6>
+            </div>
+        </div>
+        <hr class="rgba-white-light" style="margin: 0 auto;">
+        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+            <div class="col-md-8 col-12 mt-5 text-center">
+                <p style=" font-weight: 600;font-size: 16px; color: white!important;">LO ÚNICO QUE NO PODEMOS RECICLAR ES EL TIEMPO QUE MALGASTAMOS.</p>
+            </div>
 
+        </div>
+        <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+
+    </div>
+    <div class=" text-center py-3" style="color: white!important;">© 2020 Copyright:
+        RecyClud.com
+    </div>
+</footer>
 
 
 

@@ -4,6 +4,10 @@
     display: flex;
 }
 
+.flex-column {
+    flex-direction: column;
+}
+
 .align-content-center {
     align-content: center;
 }
@@ -30,6 +34,20 @@
 
 .active {
     color: #ff9d00
+}
+
+.card-img-side-container {
+    align-content: space-between;
+    justify-content: space-between;
+    display: flex;
+}
+
+.card-img-side {
+    margin: auto 3px !important;
+}
+
+.full-height {
+    height: 100%
 }
 
 #header_top_meta {
