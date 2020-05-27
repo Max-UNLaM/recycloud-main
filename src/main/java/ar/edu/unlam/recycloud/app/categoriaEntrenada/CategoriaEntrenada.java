@@ -20,31 +20,6 @@ public class CategoriaEntrenada {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private String imagen;
-
     @OneToOne
     private Categoria categoria;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
 }

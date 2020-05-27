@@ -12,7 +12,11 @@ public class CategoriaEntrenadaService {
         this.categoriaEntrenadaRepository = categoriaEntrenadaRepository;
     }
 
-    public List<CategoriaEntrenada> findAll(){
+    public CategoriaEntrenada save(CategoriaEntrenada categoriaEntrenada) {
+        return categoriaEntrenadaRepository.save(categoriaEntrenada);
+    }
+
+    public List<CategoriaEntrenada> findAll() {
         return categoriaEntrenadaRepository.findAll();
     }
 }
