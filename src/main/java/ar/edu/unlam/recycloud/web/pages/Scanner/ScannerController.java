@@ -34,7 +34,7 @@ public class ScannerController {
     public ModelAndView llevarAPantalla(@PathVariable Long categoria) {
         ModelMap model = new ModelMap();
         model.put("informacion", categoriaService.getCategoriaById(categoria));
-        model.put("allcategoria",this.categoriaService.findAllCategoria());
+        model.put("allcategoria",this.categoriaService.findAll());
         return new ModelAndView ("/categoria/descripcion",model);
     }
 }

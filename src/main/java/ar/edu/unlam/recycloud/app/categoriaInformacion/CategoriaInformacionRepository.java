@@ -8,5 +8,7 @@ import java.util.List;
 public interface CategoriaInformacionRepository extends CrudRepository<CategoriaInformacion, Long> {
     List<CategoriaInformacion> findAll();
 
-    CategoriaInformacion findByCategoria(Categoria categoria);
+    CategoriaInformacion getByCategoria(Categoria categoria);
+
+    CategoriaInformacion getById(Long id);
 }

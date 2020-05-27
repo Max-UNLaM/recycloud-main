@@ -9,59 +9,42 @@
 <header th:replace="fragments/header"></header>
 <div class="container">
     <div class="row col-md-12 justify-content-md-center mt-5">
-        <form class="form-horizontal col-md-12" style="margin: 0 auto;" method="post" action="/categoria/guardarinformacion" ModelAttribute="categoria">
-            <div class="  text-center"  style="margin: 0 auto;">
+        <form class="form-horizontal col-md-12" style="margin: 0 auto;" method="post"
+              action="/admin/categoria/informacion" ModelAttribute="categoria">
+            <div class="  text-center" style="margin: 0 auto;">
                 <div class="col-md-12  mt-2">
                     <div class="form-group">
-                        <select class="browser-default custom-select custom-select-lg" id="categoria.nombre" name="categoria.nombre" >
-                            <option th:each="categoria : ${categorias}" th:value="${categoria.nombre}" th:text="${categoria.nombre}"></option>
+                        <select class="browser-default custom-select custom-select-lg"
+                                id="categoria.nombre"
+                                name="categoria.nombre">
+                            <option th:each="categoria : ${categorias}" th:value="${categoria.id}"
+                                    th:text="${categoria.nombre}"></option>
                         </select>
                     </div>
                 </div>
                 <div class="col-md-12 text-center mt-4">
-                    <TEXTAREA style="height: 50px!important" type="text" class="form-control col-md-12" placeholder="Descripcion" name="descripcion" id="descripcion"></TEXTAREA>
+                    <textarea style="height: 50px!important" type="text" class="form-control col-md-12"
+                              placeholder="Descripcion" name="descripcion" id="descripcion"></textarea>
                 </div>
                 <div class="col-md-12 text-center mt-2">
-                    <TEXTAREA style="height: 50px!important;" type="text" class="form-control col-md-12" placeholder="Tipos" name="tipos" id="tipos"></textarea>
+                    <textarea style="height: 50px!important;" type="text" class="form-control col-md-12"
+                              placeholder="Tipos" name="tipos" id="tipos"></textarea>
                 </div>
                 <div class="col-md-12 text-center mt-2">
-                    <TEXTAREA style="height: 50px!important;" type="text" class="form-control col-md-12" placeholder="¿Como reciclar?" name="como" id="como"></textarea>
+                    <textarea style="height: 50px!important;" type="text" class="form-control col-md-12"
+                              placeholder="¿Como reciclar?" name="como" id="como"></textarea>
                 </div>
                 <div class="col-md-12 text-center mt-2">
-                    <TEXTAREA style="height: 50px!important;" type="text" class="form-control col-md-12" placeholder="¿Donde reciclar?" name="donde" id="donde"></textarea>
+                    <textarea style="height: 50px!important;" type="text" class="form-control col-md-12"
+                              placeholder="¿Donde reciclar?" name="donde" id="donde"></textarea>
                 </div>
                 <div class="col-md-12 text-center mt-2">
-                    <button  style="height: 36px!important; background: #3B6E36!important;color: white;" type="submit" class="btn btn-success form-control col-md-12" id="guardar">Guardar</button>
+                    <button style="height: 36px!important; background: #3B6E36!important;color: white;" type="submit"
+                            class="btn btn-success form-control col-md-12" id="guardar">Guardar
+                    </button>
                 </div>
             </div>
         </form>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row col-md-12 justify-content-md-center mt-5">
-        <div class="col-md-12 mt-4 table-responsive" style="width: 63%; margin: 0 auto;">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th width="10%" class="text-center" style="color: #3B6E36">Categoria</th>
-                    <th width="22%" class="text-center" style="color: #3B6E36">Descripción</th>
-                    <th width="22%" class="text-center" style="color: #3B6E36">Tipos</th>
-                    <th width="22%" class="text-center" style="color: #3B6E36">¿Como reciclar?</th>
-                    <th width="22%" class="text-center" style="color: #3B6E36">¿Donde reciclar?</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td th:text="${informacion.categoria.nombre}"></td>
-                    <td th:text="${informacion.descripcion}"></td>
-                    <td th:text="${informacion.tipos}"></td>
-                    <td th:text="${informacion.como}"></td>
-                    <td th:text="${informacion.donde}"></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 </div>
 
@@ -75,7 +58,7 @@
             </div>
             <div class="col-md-2 mb-3 text-center">
                 <h6 class="text-uppercase font-weight-bold">
-                    <a href="/"><span style="color: white!important;">TIENDA</span></a>
+                    <a href="/static"><span style="color: white!important;">TIENDA</span></a>
                 </h6>
             </div>
             <div class="col-md-2 mb-3 text-center">
@@ -97,7 +80,8 @@
         <hr class="rgba-white-light" style="margin: 0 auto;">
         <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
             <div class="col-md-8 col-12 mt-5 text-center">
-                <p style=" font-weight: 600;font-size: 16px; color: white!important;">LO ÚNICO QUE NO PODEMOS RECICLAR ES EL TIEMPO QUE MALGASTAMOS.</p>
+                <p style=" font-weight: 600;font-size: 16px; color: white!important;">LO ÚNICO QUE NO PODEMOS RECICLAR
+                    ES EL TIEMPO QUE MALGASTAMOS.</p>
             </div>
 
         </div>
@@ -109,7 +93,6 @@
         RecyClud.com
     </div>
 </footer>
-
 
 
 </body>
