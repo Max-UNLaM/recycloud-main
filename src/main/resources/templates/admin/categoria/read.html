@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
+    <meta charset="UTF-8">
+    <title>Entrenamiento</title>
+    <link rel="stylesheet" th:href="@{/js/jquery-ui.css}">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+</head>
+<body>
+<header th:replace="fragments/header"></header>
+<div class="container">
+    <div class="row col-md-12 justify-content-md-center mt-5">
+        <form class="form-horizontal col-md-12 " method="post" action="/admin/categoria"
+              ModelAttribute="categoria">
+            <h3 CLASS="mt-5">CATEGORIA</h3>
+            <div class="col-md-6  mt-4 mt-2">
+                <input style="height: 36px!important; width: 97%!important;" type="text" class="form-control col-md-12"
+                       placeholder="Objeto" name="nombre" id="nombre">
+            </div>
+            <div class="col-md-6 mt-2">
+                <button style="height: 36px!important;width: 97%!important; background: #3B6E36!important;color: white;"
+                        type="submit" class="btn btn-success form-control col-md-12" id="guardar2">Guardar
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+</body>
+</html>
