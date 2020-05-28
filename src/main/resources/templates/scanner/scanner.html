@@ -15,8 +15,8 @@
             <div class="text-center" style="" id="contenedorVideo"></div>
         </div>
 
-        <div onclick="cargarImagen()" id="avatarImage" class="col-md-4 margin-auto" style="background: #E4E4E4; width: 320px;height: 240px;border: dashed 3px #C6C6C6;">
-            <div style="margin-top: 23%;" class="col-md-12 text-center vertical-center"><span class="fa fa-plus"  style="font-size: 80px;color: #6e6e6e;"></span></div>
+        <div id="avatarImage" class="col-md-4 margin-auto" style="background: #E4E4E4; width: 320px;height: 240px;border: dashed 3px #C6C6C6;">
+            <div  class="col-md-12 text-center vertical-center"><img style="margin-left: -31px;position:absolute;right: 0;left: 14px;" id="imagenn" src="css/adjun.png" width="377" height="234"></div>
         </div>
     </div>
 </div>
@@ -36,7 +36,8 @@
     </div>
 
 </div>
-<input type="file" hidden name="imagen" id="avatarInput" />
+<input onchange="previewFile()" type="file" hidden name="avatarInput" id="avatarInput" />
+
 <script th:inline="javascript">
     let video;
     let featureExtractor;
@@ -99,6 +100,22 @@
             })
         })
     });
+
+    function previewFile() {
+        const preview = document.querySelector('#imagenn');
+        const di = document.querySelector('#avatarInput');
+        const file = document.querySelector('input[type=file]').files[0];
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+            // convert image file to base64 string
+            preview.src = reader.result;
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
 </script>
 <footer class="page-footer font-small indigo mt-5" style="background:#3D3D3D;border-top: solid 0.0px darkorange;">
     <div class="container">
