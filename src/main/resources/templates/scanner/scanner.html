@@ -7,13 +7,20 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
 </head>
 <body>
-<style>video {
-    width: 100%;
-    height: 250px;
-    background: black;
-}</style>
+
 <header th:replace="fragments/header"></header>
-<div class="text-center" id="contenedorVideo"></div>
+<div class="container mt-5">
+    <div class="row ">
+        <div class="col-md-4 margin-auto" style="background: black; ">
+            <div class="text-center" style="" id="contenedorVideo"></div>
+        </div>
+
+        <div onclick="cargarImagen()" id="avatarImage" class="col-md-4 margin-auto" style="background: #E4E4E4; width: 320px;height: 240px;border: dashed 3px #C6C6C6;">
+            <div style="margin-top: 30%;" class="col-md-12 text-center vertical-center"><span class="fa fa-plus"  style="font-size: 100px;color: #6e6e6e;"></span></div>
+        </div>
+    </div>
+</div>
+
 <br>
 <div style="width: 40%; height: 300px;margin: 0 auto;">
     <div class="row col-md-12 justify-content-md-center">
@@ -28,10 +35,8 @@
         </div>
     </div>
 
-    <textarea type="text" id="asd" hidden th:text="${categorias}"></textarea>
-
 </div>
-
+<input type="file" hidden name="imagen" id="avatarInput" />
 <script th:inline="javascript">
     let video;
     let featureExtractor;
@@ -41,6 +46,7 @@
     function setup() {
         noCanvas();
         video = createCapture(VIDEO);
+        video.size(320,240);
         video.parent('contenedorVideo');
         featureExtractor = ml5.featureExtractor('MobileNet',modelReady);
         clasificador = featureExtractor.classification(video);
@@ -83,7 +89,16 @@
             window.location.replace("masinfo/"+cate);
         }
     }
-
+    $(document).ready(function () {
+        var $avatarInput, $avatarImage;
+        $(function () {
+            $avatarInput = $('#avatarInput');
+            $avatarImage = $('#avatarImage');
+            $avatarImage.on('click', function () {
+                $avatarInput.click();
+            })
+        })
+    });
 </script>
 <footer class="page-footer font-small indigo mt-5" style="background:#3D3D3D;border-top: solid 0.0px darkorange;">
     <div class="container">
