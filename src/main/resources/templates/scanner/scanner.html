@@ -5,43 +5,45 @@
     <title>Scanner</title>
     <link rel="stylesheet" th:href="@{/css/scanner.css}">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <script th:href="@{/js/scanner.js}"></script>
 </head>
 <body>
 
 <header th:replace="fragments/header"></header>
 <div class="container mt-5">
     <div class="row ">
-        <div class="col-md-4 margin-auto" style="background: black;">
-            <div class="text-center" style="width: 350px;height: 240px; " id="contenedorVideo"></div>
+        <div class="col-md-4 margin-auto text-center divcontenedorVideo">
+            <div class="text-center"id="contenedorVideo"></div>
         </div>
-        <div class="col-md-3 text-center">
-            <br><br><br><button onclick="cambiaramodovideo()" class="btn col-md-12" style="background: darkorange!important;color: white;" id="cambiaravideo"><span class="fas fa-arrow-circle-left"></span> Video en tiempo real</button><br><br><br>
-            <button class="btn col-md-12 mb-4" style="background: darkorange!important;color: white;" id="cambiaraimagen">Adjunar imagen <span class="fas fa-arrow-circle-right"></span></button>
+        <div class="col-md-4 text-center ">
+            <div class="col-md-12 ajuste">
+                <button class="btn col-md-12 mt-5 mb-4 naranja-blanco" id="cambiaravideo"><span class="fas fa-arrow-circle-left"></span> Video en tiempo real</button>
+            </div>
+            <div class="col-md-12 ajuste">
+                <button class="btn col-md-12 mt-5 mb-4 naranja-blanco"  id="cambiaraimagen">Adjunar imagen <span class="fas fa-arrow-circle-right"></span></button>
+            </div>
         </div>
-        <div id="avatarImage" class="col-sm-12 col-md-4 margin-auto text-center" style="background: #E4E4E4; width: 320px;height: 240px;border: dashed 3px #C6C6C6;">
-            <div  class="col-md-12 text-center vertical-center"><img style="margin-left: -31px;position:absolute;right: 0;left: 16px;" id="imagenn" src="/css/adjun.png" width="374" height="234"></div>
+        <div id="avatarImage" class="col-md-4 margin-auto text-center ">
+            <div class="col-md-12 text-center vertical-center"><img id="imagenn" class="bordes-adjun" src="/css/adjun.png" width="374" height="234"></div>
         </div>
     </div>
 </div>
-
-<br>
-<div style="width: 40%; height: 300px;margin: 0 auto;">
-    <div class="row col-md-12 justify-content-md-center">
-        <div class="col-md-12 text-center mt-2 mb-4" >
-            <span style="font: bold 20px Araial; color: #3B6E36;" id="result"></span>
-        </div>
-        <div class="col-md-4 text-center" >
-            <button class="btn col-md-12" style="background: #3B6E36!important;color: white;" id="botonPredecir">Iniciar</button>
-        </div>
-        <div class="col-md-4 text-center" >
-            <button onclick="masInfo()" class="btn col-md-12" style="background: #3B6E36!important;color: white;" id="info">Mas Información</button>
-        </div>
-        <div class="col-md-4 text-center" >
-            <button class="btn col-md-12" style="background: #3B6E36!important;color: white;" id="mapita">Ver Mapa</button>
+    <div class="row mt-2 asd2 text-center">
+        <div class="col-md-12 mt-2 mb-4 text-center">
+            <span class="col-md-12 " id="result"></span>
         </div>
     </div>
-
-</div>
+    <div class="row asd">
+            <div class="col-md-4 mb-2">
+                <button class="btn col-md-12 verde-blanco" id="botonPredecir">Iniciar</button>
+            </div>
+            <div class="col-md-4 mb-2">
+                <button class="btn col-md-12 verde-blanco" onclick="masInfo()" id="info">Mas Información</button>
+            </div>
+            <div class="col-md-4 mb-2">
+                <button class="btn col-md-12 verde-blanco" id="mapita">Ver Mapa</button>
+            </div>
+    </div>
 <input onchange="previewFile()" type="file" hidden name="avatarInput" id="avatarInput" />
 
 <script th:inline="javascript">
