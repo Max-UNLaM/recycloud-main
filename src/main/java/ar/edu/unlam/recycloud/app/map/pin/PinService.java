@@ -9,7 +9,7 @@ public class PinService {
 
     private final PinRepository<Pin> pinRepository;
 
-    PinService(PinMockRepository pinesRepository) {
+    PinService(PinMongoRepository pinesRepository) {
         this.pinRepository = pinesRepository;
     }
 

@@ -11,6 +11,7 @@ const request = obj => {
         }
         xhr.onload = () => {
             if (xhr.status >= 200 && xhr.status < 300) {
+                console.log(xhr.response);
                 resolve(xhr.response);
             } else {
                 reject(xhr.statusText);

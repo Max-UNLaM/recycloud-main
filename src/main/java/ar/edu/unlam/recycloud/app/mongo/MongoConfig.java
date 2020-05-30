@@ -17,19 +17,18 @@ public class MongoConfig {
     private static final String CONNECTION_STRING_CONFIG_KEY = "mongo.connection-string";
     private static final String CONNECTION_STRING_DEFAULT = "mongodb://localhost";
     private static final String DATABASE_NAME_KEY = "mongo.database";
-    private static final String DATABASE_NAME_DEFAULT = "test";
-    private final ConnectionString connectionString;
+    private static final String DATABASE_NAME_DEFAULT = "recycloud";
     private final MongoClient mongoClient;
     private String databaseName;
 
     MongoConfig(Environment environment) {
-        this.connectionString = new ConnectionString(
+        ConnectionString connectionString = new ConnectionString(
                 environment.getProperty(CONNECTION_STRING_CONFIG_KEY, CONNECTION_STRING_DEFAULT)
         );
         this.databaseName = environment.getProperty(DATABASE_NAME_KEY, DATABASE_NAME_DEFAULT);
         MongoClientSettings settings = MongoClientSettings.builder()
                 .codecRegistry(buildPojoCodecRegistry())
-                .applyConnectionString(this.connectionString)
+                .applyConnectionString(connectionString)
                 .retryWrites(true)
                 .build();
         mongoClient = MongoClients.create(settings);

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+
 import static ar.edu.unlam.recycloud.api.conf.ApiConstants.API_PATH;
 
 @RestController
@@ -31,7 +33,12 @@ public class PinController {
     }
 
     @GetMapping(value = API_PATH + PIN_PATH + "/{coords}" + DIALOG_PATH, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getDialogFromPin(@PathVariable(name = "coords") double[] coords) {
-        return gson.toJson(dialogService.getDialogFromDouble(coords));
+    public String getDialogFromPin(@PathVariable(name = "coords") Double[] coords) {
+        return gson.toJson(dialogService.getDialogFromDouble(new ArrayList<Double>() {
+            {
+                add(coords[0]);
+                add(coords[1]);
+            }
+        }));
     }
 }

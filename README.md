@@ -49,6 +49,8 @@ https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
 
 ### Bases de datos
 
+#### MYSQL
+
 Primero es necesario cerar una base de datos a usar para nuestro proyecto.
 
 ```mysql
@@ -68,6 +70,30 @@ GRANT ALL PRIVILEGES ON * . * TO 'sa'@'localhost';
 ```
 
 Para conectarse a las bases de datos, el proyecto necesita que se le pasen ciertas variables de entorno. Para esto, editar el archivo .bashrc o .zshrc:
+
+#### Mongo
+
+Para poder poblar a mongo con datos, primero generar las collections y asignarles un índice de tipo 2dsphere a location.
+
+Conectarse a la base recycloud, si no existe, la va a crear
+
+```mongojs
+use recycloud
+```
+
+
+Agregarle los índices a las collections. Si no existe, las va a crear.
+```mongojs
+db.dialog.createIndex( {location : "2dsphere"});
+db.pin.createIndex( {location : "2dsphere"});
+```
+
+Cargar los datos a las collections, dentro de la carpeta de resources:
+```shell script
+mongoimport --jsonArray --db recycloud --collection pin --file pines.json   
+mongoimport --jsonArray --db recycloud --collection dialog --file dialogs.json                                                                                                               1 ↵
+```
+
 
 ### Variables de Entorno
 #### Terminal
