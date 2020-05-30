@@ -54,12 +54,12 @@
     let cate
     function setup() {
         noCanvas();
-        video = createImg(document.getElementById("imagenn").src);
-        featureExtractor = ml5.featureExtractor('MobileNet',modelReady);
-        clasificador = featureExtractor.classification();
-        clasificador.addImage(video);
+        clasificador = ml5.imageClassifier('MobileNet');
+        clasificador = ml5.imageClassifier('https://cdn.jsdelivr.net/gh/Nicolasemanuelmorales/prueba/mvp1.json');
+        clasificador.predict(document.getElementById('imagenn'), function(err, results) {
+            console.log(results);
+        });
         configuraBotones();
-
     }
     function configuraBotones() {
 
@@ -84,9 +84,9 @@
             });
         }else{}
     }
-    function modelReady() {
-        clasificador.load('https://cdn.jsdelivr.net/gh/Nicolasemanuelmorales/prueba/mvp1.json');
-    }
+    // function modelReady() {
+    //     clasificador.load('https://cdn.jsdelivr.net/gh/Nicolasemanuelmorales/prueba/mvp1.json');
+    // }
 
     function masInfo() {
         if(cate == null)
