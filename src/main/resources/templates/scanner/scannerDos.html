@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
+    <meta charset="UTF-8">
+    <title>Scanner</title>
+    <link rel="stylesheet" th:href="@{/css/scanner.css}">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <script th:href="@{/js/scanner.js}"></script>
+</head>
+<body>
+
+<header th:replace="fragments/header"></header>
+<div class="container mt-5">
+    <div class="row ">
+        <div class="col-md-4 margin-auto text-center divcontenedorVideo">
+            <div class="text-center"id="contenedorVideo"></div>
+        </div>
+        <div class="col-md-4 text-center ">
+            <div class="col-md-12 ajuste">
+                <button class="btn col-md-12 mt-5 mb-4 naranja-blanco" id="cambiaravideo"><span class="fas fa-arrow-circle-left"></span> Video en tiempo real</button>
+            </div>
+            <div class="col-md-12 ajuste">
+                <button class="btn col-md-12 mt-5 mb-4 naranja-blanco"  id="cambiaraimagen">Adjunar imagen <span class="fas fa-arrow-circle-right"></span></button>
+            </div>
+        </div>
+        <div id="avatarImage" class="col-md-4 margin-auto text-center ">
+            <div class="col-md-12 text-center vertical-center"><img id="imagenn" class="bordes-adjun" src="/css/adjun.png" width="374" height="234"></div>
+        </div>
+    </div>
+</div>
+    <div class="row mt-2 asd2 text-center">
+        <div class="col-md-12 mt-2 mb-4 text-center">
+            <span class="col-md-12 " id="result"></span>
+        </div>
+    </div>
+    <div class="row asd">
+            <div class="col-md-4 mb-2">
+                <button class="btn col-md-12 verde-blanco" id="botonPredecir">Iniciar</button>
+            </div>
+            <div class="col-md-4 mb-2">
+                <button class="btn col-md-12 verde-blanco" onclick="masInfo()" id="info">Mas Información</button>
+            </div>
+            <div class="col-md-4 mb-2">
+                <button class="btn col-md-12 verde-blanco" id="mapita">Ver Mapa</button>
+            </div>
+    </div>
+<input onchange="previewFile()" type="file" hidden name="avatarInput" id="avatarInput" />
+
+<script th:inline="javascript">
+    let video;
+    let featureExtractor;
+    let clasificador;
+    let categorias;
+    let cate
+    function setup() {
+        noCanvas();
+        video = createImg(document.getElementById("imagenn").src);
+        featureExtractor = ml5.featureExtractor('MobileNet',modelReady);
+        clasificador = featureExtractor.classification();
+        clasificador.addImage(video);
+        configuraBotones();
+
+    }
+    function configuraBotones() {
+
+        let botonPredecir = select('#botonPredecir');
+        botonPredecir.mousePressed(function () {
+            clasificador.train();
+            clasificador.classify(muestraResultado);
+        });
+    }
+
+    function muestraResultado(err, res) {
+        clasificador.classify(muestraResultado);
+        /*<![CDATA[*/
+        var myVariable= /*[[${categorias}]]*/ 'value';
+        /*]]>*/
+        if (res[0].confidence > 0.75) {
+            myVariable.forEach(function (value) {
+                if (res[0].label == value.imagen){
+                cate = value.categoria.nombre;
+                select("#result").html(cate);
+                }
+            });
+        }else{}
+    }
+    function modelReady() {
+        clasificador.load('https://cdn.jsdelivr.net/gh/Nicolasemanuelmorales/prueba/mvp1.json');
+    }
+
+    function masInfo() {
+        if(cate == null)
+        {
+        }
+        else
+        {
+            window.location.replace("masinfo/"+cate);
+        }
+    }
+    $(document).ready(function () {
+        var $avatarInput, $avatarImage;
+        $(function () {
+            $avatarInput = $('#avatarInput');
+            $avatarImage = $('#avatarImage');
+            $avatarImage.on('click', function () {
+                $avatarInput.click();
+            })
+        })
+    });
+
+    function previewFile() {
+        const preview = document.querySelector('#imagenn');
+        const di = document.querySelector('#avatarInput');
+        const file = document.querySelector('input[type=file]').files[0];
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+            // convert image file to base64 string
+            preview.src = reader.result;
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+<footer class="page-footer font-small indigo mt-5" style="background:#3D3D3D;border-top: solid 0.0px darkorange;">
+    <div class="container">
+        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="#!"><span style="color: white!important;">HOME</span></a>
+                </h6>
+            </div>
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="/"><span style="color: white!important;">TIENDA</span></a>
+                </h6>
+            </div>
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="/scanner/scanner"><span style="color: white!important;">SCANNER</span></a>
+                </h6>
+            </div>
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="#"><span style="color: white!important;">CALENDARIO</span></a>
+                </h6>
+            </div>
+            <div class="col-md-2 mb-3 text-center">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="#"><span style="color: white!important;">MAPA</span></a>
+                </h6>
+            </div>
+        </div>
+        <hr class="rgba-white-light" style="margin: 0 auto;">
+        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+            <div class="col-md-8 col-12 mt-5 text-center">
+                <p style=" font-weight: 600;font-size: 16px; color: white!important;">LO ÚNICO QUE NO PODEMOS RECICLAR ES EL TIEMPO QUE MALGASTAMOS.</p>
+            </div>
+
+        </div>
+        <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+
+    </div>
+    <div class=" text-center py-3" style="color: white!important;">© 2020 Copyright:
+        RecyClud.com
+    </div>
+</footer>
+
+    </body>
+</html>
