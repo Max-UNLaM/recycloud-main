@@ -10,10 +10,10 @@ import javax.inject.Singleton;
 @Component
 public class GsonRecyBuilder {
 
-    private static final Gson GSON;
+    private final Gson GSON;
 
-    static {
-        GSON = new com.google.gson.GsonBuilder()
+    GsonRecyBuilder() {
+        this.GSON = new com.google.gson.GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .serializeNulls()
                 .create();
