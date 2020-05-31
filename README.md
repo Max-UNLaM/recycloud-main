@@ -47,6 +47,36 @@ https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
 
 ## Configurar
 
+### Variables de Entorno
+#### Terminal
+
+```shell script
+nano ~/.bashrc
+```
+
+Y añadir al final de todo:
+
+```shell script
+export MONGO_CONNECTION_STRING="mongodb://localhost"
+export MONGO_DATABASE="recycloud"
+export RECY_SQL_HOST="localhost:3306"
+export RECY_SQL_DB="recycloud"
+export RECY_SQL_USER="sa"
+export RECY_SQL_PASSWORD="1234"
+export RECY_ENV="PROD"
+```
+
+Puede que sea necesario reiniciar el IntelliJ para que reconozca las variables o, si se lo ejecuta desde la terminal:
+
+```shell script
+source ~/.bashrc
+```
+
+#### IntelliJ
+
+Se puede incluir las variables en el mismo IDE. 
+https://www.jetbrains.com/help/objc/add-environment-variables-and-program-arguments.html#
+
 ### Bases de datos
 
 #### MYSQL
@@ -77,10 +107,15 @@ Para poder poblar a mongo con datos, primero generar las collections y asignarle
 
 Conectarse a la base recycloud, si no existe, la va a crear
 
+Primero abrir mongo
+```shell script
+mongo
+```
+
+Usar la base de datos, si no existe la va a crear
 ```mongojs
 use recycloud
 ```
-
 
 Agregarle los índices a las collections. Si no existe, las va a crear.
 ```mongojs
@@ -88,41 +123,21 @@ db.dialog.createIndex( {location : "2dsphere"});
 db.pin.createIndex( {location : "2dsphere"});
 ```
 
+Salir de mongo
+```shell script
+exit
+```
+
+Ir hacia la carpeta de mocks de resources
+
+```shell script
+cd ./src/main/resources/mocks
+```
 Cargar los datos a las collections, dentro de la carpeta de resources:
 ```shell script
 mongoimport --jsonArray --db recycloud --collection pin --file pines.json   
 mongoimport --jsonArray --db recycloud --collection dialog --file dialogs.json                                                                                                               1 ↵
 ```
-
-
-### Variables de Entorno
-#### Terminal
-
-```shell script
-nano ~/.bashrc
-```
-
-Y añadir al final de todo:
-
-```shell script
-export MONGO_CONNECTION_STRING="mongodb://localhost"
-export RECY_SQL_HOST="localhost:3306"
-export RECY_SQL_DB="recycloud"
-export RECY_SQL_USER="sa"
-export RECY_SQL_PASSWORD="1234"
-export RECY_ENV="PROD"
-```
-
-Puede que sea necesario reiniciar el IntelliJ para que reconozca las variables o, si se lo ejecuta desde la terminal:
-
-```shell script
-source ~/.bashrc
-```
-
-#### IntelliJ
-
-Se puede incluir las variables en el mismo IDE. 
-https://www.jetbrains.com/help/objc/add-environment-variables-and-program-arguments.html#
 
 ### Poblar bases de datos
 
