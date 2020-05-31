@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import static ar.edu.unlam.recycloud.conf.ProjectConstants.MOCK_PATH;
 
@@ -28,5 +29,10 @@ public class PinMockRepository implements PinRepository<Pin> {
             e.printStackTrace();
             return Lists.newArrayList(new Pin());
         }
+    }
+
+    @Override
+    public List<Pin> find(Map<String, String> filters) {
+        return null;
     }
 }

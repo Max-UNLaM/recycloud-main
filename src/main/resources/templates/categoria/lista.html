@@ -26,7 +26,7 @@
                         <h4 class="card-title" th:text="${categoria.nombre}"></h4>
                         <p class="card-text" th:text="${categoria.shortDesc}"></p>
                         <a th:href="@{/categoria/__${categoria.id}__}" class="card-link">Más Info</a>
-                        <a th:href="@{/map}" class="card-link">Encontrar donde reciclar</a>
+                        <a th:href="@{/map?categories=__${#strings.toUpperCase(categoria.nombre)}__}" class="card-link">Encontrar donde reciclar</a>
                     </div>
                 </div>
             </div>

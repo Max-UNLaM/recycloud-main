@@ -50,9 +50,11 @@
                     ¿ DONDE RECICLAR ?
                 </div>
                 <div class="card-body">
-                    <button class="btn col-md-12" style="background: #3B6E36!important;color: white;"
-                            id="botonPredecir">Ver Mapa
-                    </button>
+                    <a th:href="@{/map?categories=__${#strings.toUpperCase(informacion.categoria.nombre)}__}">
+                        <button class="btn col-md-12" style="background: #3B6E36!important;color: white;"
+                                id="">Ver Mapa
+                        </button>
+                    </a>
                     <p class="card-text" th:text="${informacion.donde}"></p>
                 </div>
             </div>

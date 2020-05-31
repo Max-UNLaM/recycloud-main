@@ -1,5 +1,7 @@
 const initialZoom = 15;
 const mapId = "map";
+const pinBaseUrl = "/api/pin";
+const pinFilterUrl = `${pinBaseUrl}${window.location.search}`
 const request = obj => {
     return new Promise((resolve, reject) => {
         let xhr = new XMLHttpRequest();
@@ -11,7 +13,6 @@ const request = obj => {
         }
         xhr.onload = () => {
             if (xhr.status >= 200 && xhr.status < 300) {
-                console.log(xhr.response);
                 resolve(xhr.response);
             } else {
                 reject(xhr.statusText);
@@ -90,7 +91,6 @@ class Pin {
  * @returns {Promise<google.maps.InfoWindow>}
  */
 const buildInfoWindow = (coords) => {
-    console.log(coords);
     const queryCoords = `${coords[0]},${coords[1]}`;
     return request({url: `/api/pin/${queryCoords}/dialog`})
         .then(data => {
@@ -115,7 +115,6 @@ function buildPines(pines, map) {
             shadow: 0
         });
         marker.addListener('click', async function () {
-            console.log(pin);
             const infoWindow = await buildInfoWindow(pin.location.coordinates);
             infoWindow.open(map, marker);
         });
@@ -132,7 +131,7 @@ let ignite = (location) => {
         },
         zoom: initialZoom
     });
-    request({url: '/api/pin'})
+    request({url: pinFilterUrl})
         .then(data => {
             buildPines(JSON.parse(data), map);
         })

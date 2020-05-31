@@ -5,6 +5,7 @@ import ar.edu.unlam.recycloud.app.map.pin.PinService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 class PinApiService {
@@ -15,8 +16,13 @@ class PinApiService {
         this.pinService = pinService;
     }
 
-    public List<Pin> getAllPines() {
-        return pinService.getAll();
+    public List<Pin> getAllPines(Map<String, String> filter) {
+        if (filter.size() == 0) {
+            return pinService.get();
+        } else {
+            return pinService.get(filter);
+        }
+
     }
 
 }
