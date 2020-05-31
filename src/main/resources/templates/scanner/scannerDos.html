@@ -62,9 +62,12 @@
 
         let botonPredecir = select('#botonPredecir');
         botonPredecir.mousePressed(function () {
+            if(document.getElementById('imagenn').src === window.location.protocol + "//" + window.location.host + "/" + 'css/adjun.png'){
+                select("#result").html("Agregue una imagen por favor.");
+            }else {
             clasificador.predict(document.getElementById('imagenn'), function(err, results) {
                 muestraResultado(err,results)
-            });
+            });}
         });
     }
 
