@@ -6,9 +6,11 @@ import com.google.gson.Gson;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import static ar.edu.unlam.recycloud.api.conf.ApiConstants.API_PATH;
 
@@ -28,8 +30,8 @@ public class PinController {
     }
 
     @GetMapping(value = API_PATH + PIN_PATH, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getAllPines() {
-        return gson.toJson(pinApiService.getAllPines());
+    public String findPines(@RequestParam Map<String,String> allFilters) {
+        return gson.toJson(pinApiService.getAllPines(allFilters));
     }
 
     @GetMapping(value = API_PATH + PIN_PATH + "/{coords}" + DIALOG_PATH, produces = MediaType.APPLICATION_JSON_VALUE)
