@@ -30,127 +30,54 @@
         </div>
     </div>
 <div class="row mt-2">
-    <div class="col-md-6 mt-4">
+    <div th:each="evento : ${eventos}" class="col-md-6 mt-4">
         <table class="table" >
             <thead class="table-active">
             <tr>
-                <th class="row" style="padding: 15px; border: none;">
-                    <div class="col-md-2 text-center" style="color: darkorange">24/5</div>
-                    <div class="col-md-6 text-center" style="font-size: 13px; font-weight: 800;">Recoleccion de carton  </div>
-                    <div class="col-md-4 text-right" style="color: darkorange"> RecyStreet </div>
+                <th class="row text-capitalize" style="padding: 15px; border: none;">
+                    <div class="col-md-2 text-center" style="color: darkorange" th:text="${#dates.format(evento.fechaInicio, 'dd-MM')}"></div>
+                    <div class="col-md-6 text-center" style="font-size: 13px; font-weight: 800;" th:text="${evento.titulo}"></div>
+                    <div class="col-md-4 text-right" style="color: darkorange" th:text="${evento.nombreEmpresa}"></div>
                 </th>
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr class="">
                 <td class="text-center" style="padding: 15px;border: none; background: #F7F7F7">
-                    <span style="color: #3B6E36">13,0Km</span> - <a>Arieta 3561</a> - San Justo - <span style="color: #3B6E36">18:00Hs</span> a <span style="color: #3B6E36">24:00Hs</span>
+                   <!-- <span style="color: #3B6E36">13,0Km</span> - <a th:text="${evento.nombreEmpresa}">Arieta 3561</a> - San Justo - <span style="color: #3B6E36">18:00Hs</span> a <span style="color: #3B6E36">24:00Hs</span>-->
+                    <a class="text-capitalize" th:text="${evento.direccion}"></a> - <span class="text-capitalize" style="color: #3B6E36"th:text="${evento.localidad}"></span> a las <span style="color: #3B6E36" th:text="${#dates.format(evento.fechaFin, ' HH:mm')}"></span>
                 </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="col-md-6 mt-4">
-        <table class="table" >
-            <thead class="table-active">
-            <tr>
-                <th class="row" style="padding: 15px; border: none;">
-                    <div class="col-md-2 text-center" style="color: darkorange">24/5</div>
-                    <div class="col-md-6 text-center" style="font-size: 13px; font-weight: 800;">Recoleccion de carton  </div>
-                    <div class="col-md-4 text-right" style="color: darkorange"> RecyStreet </div>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="text-center" style="padding: 15px;border: none; background: #F7F7F7">
-                    <span style="color: #3B6E36">13,0Km</span> - <a>Arieta 3561</a> - San Justo - <span style="color: #3B6E36">18:00Hs</span> a <span style="color: #3B6E36">24:00Hs</span>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="col-md-6 mt-4">
-        <table class="table" >
-            <thead class="table-active">
-            <tr>
-                <th class="row" style="padding: 15px; border: none;">
-                    <div class="col-md-2 text-center" style="color: darkorange">24/5</div>
-                    <div class="col-md-6 text-center" style="font-size: 13px; font-weight: 800;">Recoleccion de carton  </div>
-                    <div class="col-md-4 text-right" style="color: darkorange"> RecyStreet </div>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="text-center" style="padding: 15px;border: none; background: #F7F7F7">
-                    <span style="color: #3B6E36">13,0Km</span> - <a>Arieta 3561</a> - San Justo - <span style="color: #3B6E36">18:00Hs</span> a <span style="color: #3B6E36">24:00Hs</span>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="col-md-6 mt-4">
-        <table class="table" >
-            <thead class="table-active">
-            <tr>
-                <th class="row" style="padding: 15px; border: none;">
-                    <div class="col-md-2 text-center" style="color: darkorange">24/5</div>
-                    <div class="col-md-6 text-center" style="font-size: 13px; font-weight: 800;">Recoleccion de carton  </div>
-                    <div class="col-md-4 text-right" style="color: darkorange"> RecyStreet </div>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="text-center" style="padding: 15px;border: none; background: #F7F7F7">
-                    <span style="color: #3B6E36">13,0Km</span> - <a>Arieta 3561</a> - San Justo - <span style="color: #3B6E36">18:00Hs</span> a <span style="color: #3B6E36">24:00Hs</span>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="col-md-6 mt-4">
-        <table class="table" >
-            <thead class="table-active">
-            <tr>
-                <th class="row" style="padding: 15px; border: none;">
-                    <div class="col-md-2 text-center" style="color: darkorange">24/5</div>
-                    <div class="col-md-6 text-center" style="font-size: 13px; font-weight: 800;">Recoleccion de carton  </div>
-                    <div class="col-md-4 text-right" style="color: darkorange"> RecyStreet </div>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="text-center" style="padding: 15px;border: none; background: #F7F7F7">
-                    <span style="color: #3B6E36">13,0Km</span> - <a>Arieta 3561</a> - San Justo - <span style="color: #3B6E36">18:00Hs</span> a <span style="color: #3B6E36">24:00Hs</span>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="col-md-6 mt-4">
-        <table class="table" >
-            <thead class="table-active">
-            <tr>
-                <th class="row" style="padding: 15px; border: none;">
-                    <div class="col-md-2 text-center" style="color: darkorange">24/5</div>
-                    <div class="col-md-6 text-center" style="font-size: 13px; font-weight: 800;">Recoleccion de carton  </div>
-                    <div class="col-md-4 text-right" style="color: darkorange"> RecyStreet </div>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="text-center" style="padding: 15px;border: none; background: #F7F7F7">
-                    <span style="color: #3B6E36">13,0Km</span> - <a>Arieta 3561</a> - San Justo - <span style="color: #3B6E36">18:00Hs</span> a <span style="color: #3B6E36">24:00Hs</span>
-                </td>
+                <div>
+                    <span class="text-capitalize" style="color: #3B6E36">Fecha de Fin: </span><span style="color: #3B6E36" th:text="${#dates.format(evento.fechaFin, 'dd-MM HH:mm')}"></span> 
+                </div>
+
+
             </tr>
             </tbody>
         </table>
     </div>
  </div>
+    <div class="col-md-6 mt-4">
+        <table class="table" >
+            <thead class="table-active">
+            <tr>
+                <th class="row" style="padding: 15px; border: none;">
+                    <div class="col-md-2 text-center" style="color: darkorange">24/5</div>
+                    <div class="col-md-6 text-center" style="font-size: 13px; font-weight: 800;">Recoleccion de carton  </div>
+                    <div class="col-md-4 text-right" style="color: darkorange"> RecyStreet </div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="text-center" style="padding: 15px;border: none; background: #F7F7F7">
+                    <span style="color: #3B6E36">13,0Km</span> - <a>Arieta 3561</a> - San Justo - <span style="color: #3B6E36">18:00Hs</span> a <span style="color: #3B6E36">24:00Hs</span>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <footer class="page-footer font-small indigo mt-5" style="background:#3D3D3D;border-top: solid 0.0px darkorange;">
     <div class="container">

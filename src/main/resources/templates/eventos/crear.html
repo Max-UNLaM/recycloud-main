@@ -10,28 +10,37 @@
 <header th:replace="fragments/header"></header>
 <div class="container">
     <div class="row col-md-12 justify-content-md-center mt-5">
-        <form class="form-horizontal col-md-6" style="margin: 0 auto;" method="post" action="/categoria/guardar" ModelAttribute="categoria">
+            <form action="#" th:action="@{/eventos/crear}" th:object="${evento}" method="post">
             <div class="  text-center"  style="margin: 0 auto;">
                 <div class="col-md-12 text-center mt-4">
-                    <input style="height: 36px!important" type="date" class="form-control col-md-12" placeholder="Fecha" name="imagen" id="imagen">
+                    <input style="height: 36px!important" type="date" th:field="*{fechaInicio}" class="form-control col-md-12" placeholder="Fecha" name="fechaInicio" id="fechaInicio">
+                </div>
+                <div class="col-md-12 text-center mt-4">
+                    <input style="height: 36px!important" type="date" th:field="*{fechaFin}" class="form-control col-md-12" placeholder="Fecha" name="fechaFin" id="fechaFin">
                 </div>
                 <div class="col-md-12 text-center mt-2">
-                    <input style="height: 36px!important" type="text" class="form-control col-md-12" placeholder="Titulo" name="imagen" id="imagen">
+                    <input th:field="*{titulo}" style="height: 36px!important" type="text" class="form-control col-md-12" placeholder="Titulo" name="titulo" id="titulo">
+                    <span class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></span>
                 </div>
                 <div class="col-md-12 text-center mt-2">
-                    <input style="height: 36px!important" type="text" class="form-control col-md-12" placeholder="Direccion" name="imagen" id="imagen">
+                    <input th:field="*{direccion}" style="height: 36px!important" type="text" class="form-control col-md-12" placeholder="Direccion" name="direccion" id="direccion">
+                    <span class="text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></span>
+                </div>
+                <div class="col-md-12 text-center mt-2">
+                    <input th:field="*{localidad}" style="height: 36px!important" type="text" class="form-control col-md-12" placeholder="Localidad" name="localidad" id="localidad">
+                    <span class="text-danger" th:if="${#fields.hasErrors('localidad')}" th:errors="*{localidad}"></span>
                 </div>
                 <div class="col-md-12 text-center mt-2">
                     <input style="height: 36px!important" type="text" class="form-control col-md-12" placeholder="Localidad" name="imagen" id="imagen">
                 </div>
-                <div class="row mt-2 justify-content-space-around ">
-                    <div class="col-md-3  mt-2">Fecha Inicio</div>
+              <!--  <div class="row mt-2 justify-content-space-around ">
+                    <div class="col-md-3  mt-2">Hora Inicio Inicio</div>
                     <input style="height: 36px!important" type="time" class="form-control col-md-3 m" placeholder="Objeto" name="imagen" id="imagen">
                 </div>
                 <div class="row mt-2 justify-content-space-around ">
                     <div class="col-md-3  mt-2">Fecha Fin</div>
                     <input style="height: 36px!important" type="time" class="form-control col-md-3 m" placeholder="Objeto" name="imagen" id="imagen">
-                </div>
+                </div> -->
                 <div class="col-md-12 text-center mt-2">
                     <button  style="height: 36px!important; background: #3B6E36!important;color: white;" type="submit" class="btn btn-success form-control col-md-12" id="guardar">Guardar</button>
                 </div>
