@@ -1,0 +1,43 @@
+.divcontenedorVideo{
+    background: black;
+    height: 240px!important;
+}
+.naranja-blanco{
+    background: darkorange!important;
+    color: white;
+}
+.bordes-adjun{
+    border: dashed 3px #C6C6C6;
+}
+.botonera{
+    margin: 0 auto;
+}
+#result{
+    font: bold 20px Araial;
+    color: #3B6E36;
+}
+.verde-blanco{
+    background: #3B6E36!important;
+    color: white;
+}
+.asd{
+    width: 50%;
+    margin: 0 auto !important;
+}
+.asd2{
+    width: 100%;
+    margin: 0 auto !important;
+}
+#imagenn{
+    width:100%!important;
+    height:240px!important;
+}
+#avatarImage{
+padding: 0!important;
+}
+#cambiaravideo {
+    margin-left: 5px!important;;
+}
+#cambiaraimagen {
+    margin-left: 5px!important;;
+}

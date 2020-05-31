@@ -29,6 +29,12 @@ public class ScannerController {
         mod.put("categorias",this.categoriaEntrenadaService.findAll());
         return new ModelAndView("scanner/scanner", mod);
     }
+    @RequestMapping(path = "/scanner/scannerdos")
+    public ModelAndView rasdead() {
+        ModelMap mod = new ModelMap();
+        mod.put("categorias",this.categoriaEntrenadaService.findAll());
+        return new ModelAndView("scanner/scannerDos", mod);
+    }
 
     @GetMapping (path = "/scanner/masinfo/{categoria}")
     public ModelAndView llevarAPantalla(@PathVariable Long categoria) {

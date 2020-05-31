@@ -4,6 +4,9 @@ INSERT INTO categoria(background_color, color, icon, nombre, short_desc) VALUES
 ('rgba(43,155,14,0.35)', '#0d380d', 'fa-recycle', 'Plásticos', 'Los plásticos abarcan una gran familia de materiales que se pueden
                             clasificar en varios tipos y reciclar de distintas manera'),
 ('rgba(232,208,0,0.35)', '#9b7e06', 'fa-box', 'Cartón', 'Material formado por la superposición de papeles');
+INSERT INTO recycloud.categoria_entrenada(imagen, categoria_id)
+VALUES('Tapa', 1),('CajaDeCigarrillos',2);
+
 INSERT INTO categoria_informacion(como, descripcion, donde, tipos, categoria_id) VALUES
 ('Alguna de las propiedades de los materiales plásticos que pueden hacer variar su precio son las siguientes:\n
 

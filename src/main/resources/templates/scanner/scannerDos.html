@@ -16,15 +16,15 @@
             <div class="text-center"id="contenedorVideo"></div>
         </div>
         <div class="col-md-4 text-center ">
-            <div class="col-md-12 ajuste">
-                <button class="btn col-md-12 mt-5 mb-4 naranja-blanco disabled" disabled id="cambiaravideo"><span class="fas fa-arrow-circle-left"></span> Video en tiempo real</button>
+            <div class="col-md-12">
+                <a href="/scanner/scanner"><button class="btn col-md-12 mt-5 mb-4 naranja-blanco "  id="cambiaravideo"><span class="fas fa-arrow-circle-left"></span> Video en tiempo real</button></a>
             </div>
-            <div class="col-md-12 ajuste">
-                <a href="/scanner/scannerdos"><button class="btn col-md-12 mt-5 mb-4 naranja-blanco"  id="cambiaraimagen">Adjunar imagen <span class="fas fa-arrow-circle-right"></span></button></a>
+            <div class="col-md-12">
+                <button class="btn col-md-12 mt-5 mb-4 naranja-blanco disabled" disabled  id="cambiaraimagen">Adjunar imagen <span class="fas fa-arrow-circle-right"></span></button>
             </div>
         </div>
-        <div id="avatarImage" class="col-md-4 margin-auto text-center ">
-            <div class="col-md-12 text-center vertical-center"><img id="imagenn" class="bordes-adjun" src="/css/adjun.png" width="374" height="234"></div>
+        <div id="avatarImage" class="col-md-4 margin-auto text-center s2">
+            <div class="col-md-12 "><img id="imagenn" class="bordes-adjun" src="/css/adjun.png"></div>
         </div>
     </div>
 </div>
@@ -44,52 +44,88 @@
                 <button class="btn col-md-12 verde-blanco" id="mapita">Ver Mapa</button>
             </div>
     </div>
+<input onchange="previewFile()" type="file" hidden name="avatarInput" id="avatarInput" />
+
 <script th:inline="javascript">
     let video;
     let featureExtractor;
     let clasificador;
-    let categorias;
-    let cate;
     let info;
+    let cate
     function setup() {
         noCanvas();
-        video = createCapture(VIDEO);
-        video.size(320,240);
-        video.parent('contenedorVideo');
-        featureExtractor = ml5.featureExtractor('MobileNet',modelReady);
-        clasificador = featureExtractor.classification(video);
+        clasificador = ml5.imageClassifier('MobileNet',modelReady);
+        clasificador = ml5.imageClassifier('https://cdn.jsdelivr.net/gh/Nicolasemanuelmorales/prueba/mvp1.json',modelReady);
         configuraBotones();
-
     }
     function configuraBotones() {
 
         let botonPredecir = select('#botonPredecir');
         botonPredecir.mousePressed(function () {
-            clasificador.train();
-            clasificador.classify(muestraResultado);
+            if(document.getElementById('imagenn').src === window.location.protocol + "//" + window.location.host + "/" + 'css/adjun.png'){
+                select("#result").html("Agregue una imagen por favor.");
+            }else {
+            clasificador.predict(document.getElementById('imagenn'), function(err, results) {
+                muestraResultado(err,results)
+            });}
         });
     }
 
     function muestraResultado(err, res) {
-        clasificador.classify(muestraResultado);
         /*<![CDATA[*/
         var myVariable= /*[[${categorias}]]*/ 'value';
         /*]]>*/
-        if (res[0].confidence > 0.75) {
+        let auxi =0;
+        let resu;
+        for (var x=0;x < res.length;x++){
+            if(res[x].confidence > auxi){
+                auxi=res[x].confidence;
+                resu=res[x];
+            }
+        }
             myVariable.forEach(function (value) {
-                if (res[0].label == value.imagen){
+                if (resu.label == value.imagen){
                 cate = value.categoria.nombre;
-                select("#result").html(cate);
+                    info=value.categoria.id;
+                    select("#result").html(cate);
                 }
             });
-        }else{}
+
     }
     function modelReady() {
-        clasificador.load('https://cdn.jsdelivr.net/gh/Nicolasemanuelmorales/prueba/mvp1.json');
+        //clasificador.load('https://cdn.jsdelivr.net/gh/Nicolasemanuelmorales/prueba/mvp1.json');
     }
+
     function masInfo() {
         if(info == null){}
         else{window.location.replace("/categoria/"+info);}
+    }
+
+    $(document).ready(function () {
+        var $avatarInput, $avatarImage;
+        $(function () {
+            $avatarInput = $('#avatarInput');
+            $avatarImage = $('#avatarImage');
+            $avatarImage.on('click', function () {
+                $avatarInput.click();
+            })
+        })
+    });
+
+    function previewFile() {
+        const preview = document.querySelector('#imagenn');
+        const di = document.querySelector('#avatarInput');
+        const file = document.querySelector('input[type=file]').files[0];
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+            // convert image file to base64 string
+            preview.src = reader.result;
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
     }
 </script>
 <footer class="page-footer font-small indigo mt-5" style="background:#3D3D3D;border-top: solid 0.0px darkorange;">
