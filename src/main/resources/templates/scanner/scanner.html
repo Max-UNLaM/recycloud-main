@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-4 text-center ">
             <div class="col-md-12 ajuste">
-                <button class="btn col-md-12 mt-5 mb-4 naranja-blanco" id="cambiaravideo"><span class="fas fa-arrow-circle-left"></span> Video en tiempo real</button>
+                <button class="btn col-md-12 mt-5 mb-4 naranja-blanco disabled" disabled id="cambiaravideo"><span class="fas fa-arrow-circle-left"></span> Video en tiempo real</button>
             </div>
             <div class="col-md-12 ajuste">
                 <button class="btn col-md-12 mt-5 mb-4 naranja-blanco"  id="cambiaraimagen">Adjunar imagen <span class="fas fa-arrow-circle-right"></span></button>
@@ -44,8 +44,6 @@
                 <button class="btn col-md-12 verde-blanco" id="mapita">Ver Mapa</button>
             </div>
     </div>
-<input onchange="previewFile()" type="file" hidden name="avatarInput" id="avatarInput" />
-
 <script th:inline="javascript">
     let video;
     let featureExtractor;
@@ -88,41 +86,9 @@
     function modelReady() {
         clasificador.load('https://cdn.jsdelivr.net/gh/Nicolasemanuelmorales/prueba/mvp1.json');
     }
-
     function masInfo() {
-        if(cate == null)
-        {
-        }
-        else
-        {
-            window.location.replace("masinfo/"+cate);
-        }
-    }
-    $(document).ready(function () {
-        var $avatarInput, $avatarImage;
-        $(function () {
-            $avatarInput = $('#avatarInput');
-            $avatarImage = $('#avatarImage');
-            $avatarImage.on('click', function () {
-                $avatarInput.click();
-            })
-        })
-    });
-
-    function previewFile() {
-        const preview = document.querySelector('#imagenn');
-        const di = document.querySelector('#avatarInput');
-        const file = document.querySelector('input[type=file]').files[0];
-        const reader = new FileReader();
-
-        reader.addEventListener("load", function () {
-            // convert image file to base64 string
-            preview.src = reader.result;
-        }, false);
-
-        if (file) {
-            reader.readAsDataURL(file);
-        }
+        if(cate == null){}
+        else{window.location.replace("masinfo/"+cate);}
     }
 </script>
 <footer class="page-footer font-small indigo mt-5" style="background:#3D3D3D;border-top: solid 0.0px darkorange;">

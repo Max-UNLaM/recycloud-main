@@ -1,12 +1,12 @@
 .divcontenedorVideo{
     background: black;
+    height: 240px!important;
 }
 .naranja-blanco{
     background: darkorange!important;
     color: white;
 }
 .bordes-adjun{
-
     border: dashed 3px #C6C6C6;
 }
 .botonera{
@@ -20,10 +20,6 @@
     background: #3B6E36!important;
     color: white;
 }
-
-.ajuste{
-    margin-left: 15px;
-}
 .asd{
     width: 40%;
     margin: 0 auto !important;
@@ -31,4 +27,17 @@
 .asd2{
     width: 100%;
     margin: 0 auto !important;
+}
+#imagenn{
+    width:100%!important;
+    height:240px!important;
+}
+#avatarImage{
+padding: 0!important;
+}
+#cambiaravideo {
+    margin-left: 5px!important;;
+}
+#cambiaraimagen {
+    margin-left: 5px!important;;
 }
