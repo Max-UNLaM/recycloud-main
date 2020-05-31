@@ -1,10 +1,12 @@
 package ar.edu.unlam.recycloud.web.pages.login;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -45,17 +47,19 @@ public class LoginController {
     }
 
     @GetMapping(path = "/login/registrar")
-    public String registrar(RegisterModel RegisterModel) {
-        return "/login/registrar";
+    public ModelAndView registrar() {
+        ModelMap modelo = new ModelMap();
+        modelo.addAttribute("registerModel", new RegisterModel());
+        return new ModelAndView("/login/registrar", modelo);
     }
 
     @PostMapping(path = "/login/registrar")
-    public String registrarConfirmar(HttpSession session, @Valid RegisterModel RegisterModel, BindingResult bindingResult) {
+    public String registrarConfirmar(HttpSession session, @Valid RegisterModel registerModel, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "/login/registrar";
         } else {
-            LoginModel log = loginService.confirmarUsuario(RegisterModel.getPass(), RegisterModel.getNombre());
+            LoginModel log = loginService.confirmarUsuario(registerModel.getPass(), registerModel.getNombre());
             log.setRol(1);
             session.setAttribute("usuario", log);
             return "/index";

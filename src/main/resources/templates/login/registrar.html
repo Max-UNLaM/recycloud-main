@@ -29,7 +29,7 @@
             <div class="card card-signin my-5">
                 <div class="card-body">
                     <h5 class="card-title text-center"><span style="color: darkorange">Registro</span></h5>
-                    <form action="#" th:action="@{/login/registrar}" th:object="${RegisterModel}" method="post">
+                    <form action="#" th:action="@{/login/registrar}" th:object="${registerModel}" method="post">
                         <div class="form-label-group">
                             <input type="text" id="nombre2" th:field="*{nombre}" class="form-control" placeholder="Nombre"  autofocus>
                             <span class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
