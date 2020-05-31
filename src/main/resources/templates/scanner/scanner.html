@@ -79,7 +79,8 @@
             myVariable.forEach(function (value) {
                 if (res[0].label == value.imagen){
                 cate = value.categoria.nombre;
-                select("#result").html(cate);
+                    info=value.categoria.id;
+                    select("#result").html(cate);
                 }
             });
         }else{}
