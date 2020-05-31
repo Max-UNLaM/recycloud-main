@@ -49,17 +49,17 @@ public class LoginController {
     @GetMapping(path = "/login/registrar")
     public ModelAndView registrar() {
         ModelMap modelo = new ModelMap();
-        modelo.addAttribute("RegisterModel", new RegisterModel());
+        modelo.addAttribute("registerModel", new RegisterModel());
         return new ModelAndView("/login/registrar", modelo);
     }
 
     @PostMapping(path = "/login/registrar")
-    public String registrarConfirmar(HttpSession session, @Valid RegisterModel RegisterModel, BindingResult bindingResult) {
+    public String registrarConfirmar(HttpSession session, @Valid RegisterModel registerModel, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "/login/registrar";
         } else {
-            LoginModel log = loginService.confirmarUsuario(RegisterModel.getPass(), RegisterModel.getNombre());
+            LoginModel log = loginService.confirmarUsuario(registerModel.getPass(), registerModel.getNombre());
             log.setRol(1);
             session.setAttribute("usuario", log);
             return "/index";
