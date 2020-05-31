@@ -20,7 +20,7 @@
                 <button class="btn col-md-12 mt-5 mb-4 naranja-blanco disabled" disabled id="cambiaravideo"><span class="fas fa-arrow-circle-left"></span> Video en tiempo real</button>
             </div>
             <div class="col-md-12 ajuste">
-                <button class="btn col-md-12 mt-5 mb-4 naranja-blanco"  id="cambiaraimagen">Adjunar imagen <span class="fas fa-arrow-circle-right"></span></button>
+                <a href="/scanner/scannerdos"><button class="btn col-md-12 mt-5 mb-4 naranja-blanco"  id="cambiaraimagen">Adjunar imagen <span class="fas fa-arrow-circle-right"></span></button></a>
             </div>
         </div>
         <div id="avatarImage" class="col-md-4 margin-auto text-center ">
@@ -49,7 +49,8 @@
     let featureExtractor;
     let clasificador;
     let categorias;
-    let cate
+    let cate;
+    let info;
     function setup() {
         noCanvas();
         video = createCapture(VIDEO);
@@ -87,8 +88,8 @@
         clasificador.load('https://cdn.jsdelivr.net/gh/Nicolasemanuelmorales/prueba/mvp1.json');
     }
     function masInfo() {
-        if(cate == null){}
-        else{window.location.replace("masinfo/"+cate);}
+        if(info == null){}
+        else{window.location.replace("/categoria/"+info);}
     }
 </script>
 <footer class="page-footer font-small indigo mt-5" style="background:#3D3D3D;border-top: solid 0.0px darkorange;">

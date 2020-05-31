@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-4 text-center ">
             <div class="col-md-12">
-                <button class="btn col-md-12 mt-5 mb-4 naranja-blanco "  id="cambiaravideo"><span class="fas fa-arrow-circle-left"></span> Video en tiempo real</button>
+                <a href="/scanner/scanner"><button class="btn col-md-12 mt-5 mb-4 naranja-blanco "  id="cambiaravideo"><span class="fas fa-arrow-circle-left"></span> Video en tiempo real</button></a>
             </div>
             <div class="col-md-12">
                 <button class="btn col-md-12 mt-5 mb-4 naranja-blanco disabled" disabled  id="cambiaraimagen">Adjunar imagen <span class="fas fa-arrow-circle-right"></span></button>
@@ -50,7 +50,7 @@
     let video;
     let featureExtractor;
     let clasificador;
-    let categorias;
+    let info;
     let cate
     function setup() {
         noCanvas();
@@ -83,7 +83,8 @@
             myVariable.forEach(function (value) {
                 if (resu.label == value.imagen){
                 cate = value.categoria.nombre;
-                select("#result").html(cate);
+                    info=value.categoria.id;
+                    select("#result").html(cate);
                 }
             });
 
@@ -93,14 +94,10 @@
     }
 
     function masInfo() {
-        if(cate == null)
-        {
-        }
-        else
-        {
-            window.location.replace("masinfo/"+cate);
-        }
+        if(info == null){}
+        else{window.location.replace("/categoria/"+info);}
     }
+
     $(document).ready(function () {
         var $avatarInput, $avatarImage;
         $(function () {
