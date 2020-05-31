@@ -100,8 +100,8 @@
         <!-- MONGO LOCO -->
         <dependency>
             <groupId>org.mongodb</groupId>
-            <artifactId>mongodb-driver-reactivestreams</artifactId>
-            <version>1.13.1</version>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>3.11.2</version>
         </dependency>
         <dependency>
             <groupId>org.sonatype.sisu</groupId>

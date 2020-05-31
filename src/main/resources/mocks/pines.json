@@ -1,20 +1,25 @@
 [
   {
     "title": "Eco Botellas",
-    "coords": {
-      "lat": -34.0717139,
-      "lng": -60.1096311
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.0717139,
+        -60.1096311
+      ]
     },
     "categories": [
-      "ECO BOTELLAS",
-      "PLÁSTICO"
+      "ECO BOTELLAS", "PLÁSTICO"
     ]
   },
   {
     "title": "Llená tu botella",
-    "coords": {
-      "lat": -34.6510276,
-      "lng": -58.6238583
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6510276,
+        -58.6238583
+      ]
     },
     "categories": [
       "ECO BOTELLAS",
@@ -23,9 +28,12 @@
   },
   {
     "title": "Padua Recicla",
-    "coords": {
-      "lat": -34.6801923,
-      "lng": -58.719233
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6801923,
+        -58.719233
+      ]
     },
     "categories": [
       "CARTÓN",
@@ -36,9 +44,12 @@
   },
   {
     "title": "Morón Verde",
-    "coords": {
-      "lat": -34.6475677,
-      "lng": -58.6208252
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6475677,
+        -58.6208252
+      ]
     },
     "categories": [
       "CARTÓN",
@@ -48,9 +59,12 @@
   },
   {
     "title": "Morón Verde",
-    "coords": {
-      "lat": -34.6475677,
-      "lng": -58.6208252
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6064186,
+        -58.5988777
+      ]
     },
     "categories": [
       "CARTÓN",
@@ -60,9 +74,12 @@
   },
   {
     "title": "Morón Verde",
-    "coords": {
-      "lat": -34.6064186,
-      "lng": -58.5988777
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6532363,
+        -58.6434944
+      ]
     },
     "categories": [
       "CARTÓN",
@@ -72,9 +89,12 @@
   },
   {
     "title": "Morón Verde",
-    "coords": {
-      "lat": -34.6532363,
-      "lng": -58.6434944
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6835629,
+        -58.6627587
+      ]
     },
     "categories": [
       "CARTÓN",
@@ -84,9 +104,12 @@
   },
   {
     "title": "Morón Verde",
-    "coords": {
-      "lat": -34.6835629,
-      "lng": -58.6627587
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6532363,
+        -58.6434944
+      ]
     },
     "categories": [
       "CARTÓN",
@@ -96,9 +119,12 @@
   },
   {
     "title": "Morón Verde",
-    "coords": {
-      "lat": -34.6532363,
-      "lng": -58.6434944
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ]
     },
     "categories": [
       "CARTÓN",
@@ -108,21 +134,12 @@
   },
   {
     "title": "Morón Verde",
-    "coords": {
-      "lat": -34.689439,
-      "lng": -58.6383319
-    },
-    "categories": [
-      "CARTÓN",
-      "VIDRIO",
-      "PLÁSTICOS"
-    ]
-  },
-  {
-    "title": "Morón Verde",
-    "coords": {
-      "lat": -34.6379719,
-      "lng": -58.5700491
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6379719,
+        -58.5700491
+      ]
     },
     "categories": [
       "CARTÓN",
