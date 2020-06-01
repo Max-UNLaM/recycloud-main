@@ -41,7 +41,7 @@
                 <button class="btn col-md-12 verde-blanco" onclick="masInfo()" id="info">Mas Información</button>
             </div>
             <div class="col-md-4 mb-2">
-                <button class="btn col-md-12 verde-blanco" id="mapita">Ver Mapa</button>
+                <button class="btn col-md-12 verde-blanco" onclick="verMapa()" id="mapita">Ver Mapa</button>
             </div>
     </div>
 <script th:inline="javascript">
@@ -79,7 +79,7 @@
             myVariable.forEach(function (value) {
                 if (res[0].label == value.imagen){
                 cate = value.categoria.nombre;
-                    info=value.categoria.id;
+                    info=value.categoria;
                     select("#result").html(cate);
                 }
             });
@@ -90,8 +90,13 @@
     }
     function masInfo() {
         if(info == null){}
-        else{window.location.replace("/categoria/"+info);}
+        else{window.location.replace("/categoria/"+info.id);}
     }
+    function verMapa() {
+        if(info == null){}
+        else{window.location.replace("/map?categories=" + info.nombre.toUpperCase());}
+    }
+
 </script>
 <footer class="page-footer font-small indigo mt-5" style="background:#3D3D3D;border-top: solid 0.0px darkorange;">
     <div class="container">
