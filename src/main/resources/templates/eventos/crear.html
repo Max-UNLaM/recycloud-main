@@ -31,7 +31,8 @@
                     <span class="text-danger" th:if="${#fields.hasErrors('localidad')}" th:errors="*{localidad}"></span>
                 </div>
                 <div class="col-md-12 text-center mt-2">
-                    <input style="height: 36px!important" type="text" class="form-control col-md-12" placeholder="Localidad" name="imagen" id="imagen">
+                    <input th:field="*{nombreEmpresa}" style="height: 36px!important" type="text" class="form-control col-md-12" placeholder="Nombre de la Organizacion" name="nombreEmpresa" id="nombreEmpresa">
+                    <span class="text-danger" th:if="${#fields.hasErrors('nombreEmpresa')}" th:errors="*{nombreEmpresa}"></span>
                 </div>
               <!--  <div class="row mt-2 justify-content-space-around ">
                     <div class="col-md-3  mt-2">Hora Inicio Inicio</div>
