@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
+    <meta charset="UTF-8">
+    <title>Perfil</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/js/jquery-ui.css}">
+</head>
+<body>
+<header th:replace="fragments/header"></header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-8 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <div id="perfil">
+                        <h1 class="card-title text-center"> Perfil </h1>
+                        <h2 th:text="${session.usuario.nombre}"></h2>
+                        <h2 th:text="${session.usuario.apellido}"></h2>
+                        <h2 th:text="${session.usuario.email}"></h2>
+
+                        <button style="background: #3B6E36!important;color: white; width: 45%; float: left; margin: 2.5%;" class="btn btn-lg  btn-block text-uppercase" id="password">Cambiar contraseña</button>
+                        <button style="background: #3B6E36!important;color: white; width: 45%; float: left; margin: 2.5%;" class="btn btn-lg  btn-block text-uppercase" id="puntos">Completar perfil</button>
+                    </div>
+
+                    <form action="#" th:action="@{/home/password}" th:object="${password}" method="post" id="password-oculto">
+                        <div class="form-label-group mt-3">
+                            <input type="password" id="old-password" name="oldPassword" class="form-control" placeholder="Contraseña actual" >
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="form-label-group mt-3">
+                            <input type="password"  id="new-password" name="newPassword" class="form-control" placeholder="Nueva contraseña" >
+                            <span class="text-danger" ></span>
+                        </div>
+
+                        <div class="form-label-group mt-3">
+                            <input type="password" id="renew-password" name="reNewPassword" class="form-control" placeholder="Confirmar contraseña" >
+                            <span class="text-danger" ></span>
+                        </div>
+
+                        <button style="background: #3B6E36!important;color: white; width: 45%; float: left; margin: 2.5%;" class="btn btn-lg  btn-block text-uppercase" id="pass" type="submit">Cambiar contraseña</button>
+                    </form>
+                    <button style="background: red!important;color: white; width: 45%; float: left; margin: 2.5%;" class="btn btn-lg  btn-block text-uppercase cancelar">Cancelar</button>
+
+
+                    <form action="#" th:action="@{/home/completar}" th:object="${usuario}" method="post" id="modificar-oculto">
+
+                        <div class="form-label-group">
+                            <input type="text" id="nacimiento" name="nacimiento" class="form-control" placeholder="DD/MM/AAAA - 20/12/1999">
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="number" id="dni" name="dni" class="form-control" placeholder="DNI">
+                            <span class="text-danger"></span>
+                        </div>
+<!--
+                        <div class="form-label-group">
+                            <input type="text" th:field="*{email}" id="email" class="form-control" th:value="${session.usuario.email}">
+                            <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                        </div>
+-->
+                        <button style="background: #3B6E36!important;color: white; width: 45%; float: left; margin: 2.5%;" class="btn btn-lg  btn-block text-uppercase" id="punto-entrega" type="submit">Aceptar</button>
+                        <button style="background: red;color: white; width: 45%; float: left; margin: 2.5%;" class="btn btn-lg  btn-block text-uppercase cancelar">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+</div>
+</body>
+</html>
+
+<style>
+    #modificar-oculto, #password-oculto{
+        display: none;
+    }
+</style>
+
+<script>
+    $( document ).ready(function() {
+        $("#password").click(function(){
+            $("#perfil").hide();
+            $("#password-oculto").show();
+            $("#modificar-oculto").hide();
+        });
+
+        $("#puntos").click(function(){
+            $("#perfil").hide();
+            $("#password-oculto").hide();
+            $("#modificar-oculto").show();
+        });
+
+        $(".cancelar").click(function(){
+            $("#perfil").show();
+            $("#password-oculto").hide();
+            $("#modificar-oculto").hide();
+        });
+    });
+</script>

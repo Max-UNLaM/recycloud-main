@@ -27,28 +27,35 @@
                                 <li class="nav-item mr-4" th:if="${session.usuario} != null" style=" background: none; border-color: #ececec!important;">
                                     <a class="nav-link mb-1 mt-1" href="#"><span
                                             style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600; color:#ececec!important;text-transform: uppercase;"
-                                            th:text="${session.usuario.usuario}"></span></a>
+                                            th:text="${session.usuario.nombre}"></span></a>
                                     <ul style="color: white!important;">
                                         <li class="nav-item " style="background: #3D3D3D!important;">
+                                            <a class="nav-link" href="/home/perfil"><span style="color:white;font-size: 12.5px!important;">Mi perfil</span></a>
+                                        </li>
+                                        <li class="nav-item " style="background: #3D3D3D!important;" th:if="${session.usuario} != null and ${session.usuario.rol} == 3 ">
                                             <a class="nav-link" href="/eventos/crear"><span style="color:white;font-size: 12.5px!important;">+ Crear Evento</span></a>
                                         </li>
+                                        <li class="nav-item " style="background: #3D3D3D!important;" th:if="${session.usuario} != null and ${session.usuario.rol} == 3 ">
+                                            <a class="nav-link" href="#"><span style="color:white;font-size: 12.5px!important;">+ Punto de reciclaje</span></a>
+                                        </li>
                                         <li class="nav-item" style="background: #3D3D3D!important;" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">
-                                            <a class="nav-link" href="/admin/categoria"><span style="color:white;font-size: 12.5px!important;">CATEGORIA</span></a>
+                                            <a class="nav-link" href="/admin/categoria"><span style="color:white;font-size: 12.5px!important;">CATEGORÍA</span></a>
                                         </li>
                                         <li class="nav-item" style="background: #3D3D3D!important;" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">
                                             <a class="nav-link" href="/entrenamiento"><span style="color:white;font-size: 12.5px!important;">ENTRENAMIENTO</span></a>
                                         </li>
+
                                         <li class="nav-item" style="background: #3D3D3D!important;">
-                                            <a class="nav-link" href="/login/cerrarSession"><span style="color:white;font-size: 12.5px!important;">CERRAR SESION</span></a>
+                                            <a class="nav-link" href="/login/cerrarSession"><span style="color:white;font-size: 12.5px!important;">CERRAR SESIÓN</span></a>
                                         </li>
 
                                     </ul>
                                 </li>
                                 <li th:if="${session.usuario} == null" class="nav-item margin-1 bg-light">
-                                    <a class="nav-link" href="/login"><span>INICIAR SESION</span></a>
+                                    <a class="nav-link" href="/login"><span>INICIAR SESIÓN</span></a>
                                 </li>
                                 <li th:if="${session.usuario} == null" class="nav-item margin-1 bg-light">
-                                    <a class="nav-link" href="/login/registrar"><span>REGISTRAR</span></a>
+                                    <a class="nav-link" href="/login/registrar"><span>REGISTRO</span></a>
                                 </li>
 
                             </ul>
