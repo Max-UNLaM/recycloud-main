@@ -30,7 +30,7 @@ public class Usuario {
     @Size(min = 8, max = 50, message
             = "Debe ser entre 8 y 50 caracteres")
     @NotEmpty(message="Campo requerido")
-    private String mail;
+    private String email;
 
     @Size(min = 8, max = 50, message
             = "Debe ser entre 8 y 50 caracteres")
@@ -38,4 +38,72 @@ public class Usuario {
     private String password;
 
     private Integer rol;
+
+    public String getNacimiento() {
+        return nacimiento;
+    }
+
+    public void setNacimiento(String nacimiento) {
+        this.nacimiento = nacimiento;
+    }
+
+    public Integer getDni() {
+        return dni;
+    }
+
+    public void setDni(Integer dni) {
+        this.dni = dni;
+    }
+
+    private String nacimiento;
+
+    private Integer dni;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Integer getRol() {
+        return rol;
+    }
+
+    public void setRol(Integer rol) {
+        this.rol = rol;
+    }
 }

@@ -7,6 +7,8 @@ INSERT INTO categoria(background_color, color, icon, nombre, short_desc) VALUES
 INSERT INTO recycloud.categoria_entrenada(imagen, categoria_id)
 VALUES('Tapa', 1),('CajaDeCigarrillos',2);
 
+
+
 INSERT INTO categoria_informacion(como, descripcion, donde, tipos, categoria_id) VALUES
 ('Alguna de las propiedades de los materiales plásticos que pueden hacer variar su precio son las siguientes:\n
 
