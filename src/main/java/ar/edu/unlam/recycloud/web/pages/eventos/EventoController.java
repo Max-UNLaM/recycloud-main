@@ -2,7 +2,7 @@ package ar.edu.unlam.recycloud.web.pages.eventos;
 
 import ar.edu.unlam.recycloud.app.evento.Evento;
 import ar.edu.unlam.recycloud.app.evento.EventoService;
-import ar.edu.unlam.recycloud.web.pages.login.RegisterModel;
+import ar.edu.unlam.recycloud.app.usuario.Usuario;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -22,26 +23,29 @@ public class EventoController {
     @GetMapping(path = "/eventos")
     public ModelAndView listar() {
         ModelMap model = new ModelMap();
-        model.put("eventos", this.eventoService.findAll());
+        model.addAttribute("listaDeEventos", eventoService.findAllByOrderByFechaAsc());
         return new ModelAndView("/eventos/eventos", model);
     }
+
     @GetMapping(path = "/eventos/crear")
-    public ModelAndView crear() {
+    public ModelAndView crear(HttpSession session) {
         ModelMap modelo = new ModelMap();
+        Usuario user = (Usuario) session.getAttribute("usuario");
         modelo.addAttribute("evento", new Evento());
+        modelo.addAttribute("listaDeEventos", eventoService.eventosPorId(user));
         return new ModelAndView("/eventos/crear", modelo);
     }
 
     @PostMapping(path = "/eventos/crear")
-    public String crearConfirmar(@Valid Evento evento, BindingResult bindingResult)
-            //Agregar->HttpSession session,
+    public String crearConfirmar(HttpSession session, @Valid Evento evento, BindingResult bindingResult)
     {
+
         if (bindingResult.hasErrors()) {
             return "/eventos/crear";
         } else {
-            eventoService.save(evento);
+            Usuario user = (Usuario) session.getAttribute("usuario");
+            eventoService.save(evento, user);
             return "/index";
         }
-
     }
 }

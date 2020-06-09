@@ -13,10 +13,13 @@
             <form action="#" th:action="@{/eventos/crear}" th:object="${evento}" method="post">
             <div class="  text-center"  style="margin: 0 auto;">
                 <div class="col-md-12 text-center mt-4">
-                    <input style="height: 36px!important" type="date" th:field="*{fechaInicio}" class="form-control col-md-12" placeholder="Fecha" name="fechaInicio" id="fechaInicio">
+                    <input style="height: 36px!important" type="date"  class="form-control col-md-12" placeholder="Fecha" name="fecha" id="fecha">
                 </div>
                 <div class="col-md-12 text-center mt-4">
-                    <input style="height: 36px!important" type="date" th:field="*{fechaFin}" class="form-control col-md-12" placeholder="Fecha" name="fechaFin" id="fechaFin">
+                    <input style="height: 36px!important" type="time" class="form-control col-md-12" placeholder="Hora inicio" name="horaInicio" id="horaInicio">
+                </div>
+                <div class="col-md-12 text-center mt-4">
+                    <input style="height: 36px!important" type="time" class="form-control col-md-12" placeholder="Hora fin" name="horaFin" id="horaFin">
                 </div>
                 <div class="col-md-12 text-center mt-2">
                     <input th:field="*{titulo}" style="height: 36px!important" type="text" class="form-control col-md-12" placeholder="Titulo" name="titulo" id="titulo">
@@ -31,79 +34,27 @@
                     <span class="text-danger" th:if="${#fields.hasErrors('localidad')}" th:errors="*{localidad}"></span>
                 </div>
                 <div class="col-md-12 text-center mt-2">
-                    <input th:field="*{nombreEmpresa}" style="height: 36px!important" type="text" class="form-control col-md-12" placeholder="Nombre de la Organizacion" name="nombreEmpresa" id="nombreEmpresa">
-                    <span class="text-danger" th:if="${#fields.hasErrors('nombreEmpresa')}" th:errors="*{nombreEmpresa}"></span>
-                </div>
-              <!--  <div class="row mt-2 justify-content-space-around ">
-                    <div class="col-md-3  mt-2">Hora Inicio Inicio</div>
-                    <input style="height: 36px!important" type="time" class="form-control col-md-3 m" placeholder="Objeto" name="imagen" id="imagen">
-                </div>
-                <div class="row mt-2 justify-content-space-around ">
-                    <div class="col-md-3  mt-2">Fecha Fin</div>
-                    <input style="height: 36px!important" type="time" class="form-control col-md-3 m" placeholder="Objeto" name="imagen" id="imagen">
-                </div> -->
-                <div class="col-md-12 text-center mt-2">
                     <button  style="height: 36px!important; background: #3B6E36!important;color: white;" type="submit" class="btn btn-success form-control col-md-12" id="guardar">Guardar</button>
                 </div>
             </div>
         </form>
 
         <div class="col-md-6">
-            <div class="col-md-12 mt-4">
+                <div class="col-md-12 mt-4" th:each="eventos : ${listaDeEventos}">
                 <table class="table" >
                     <thead class="table-active">
                     <tr>
                         <th class="row" style="padding: 15px; border: none;">
-                            <div class="col-md-2 text-center" style="color: darkorange">24/5</div>
-                            <div class="col-md-6 text-center" style="font-size: 13px; font-weight: 800;">Recoleccion de carton  </div>
-                            <div class="col-md-4 text-right" style="color: darkorange"> RecyStreet </div>
+                            <div class="col-md-2 text-center" style="color: darkorange"><span th:text="${eventos.fecha}"></span></div>
+                            <div class="col-md-6 text-center" style="font-size: 13px; font-weight: 800;"><span th:text="${eventos.titulo}"></span></div>
+                            <!--<div class="col-md-4 text-right" style="color: darkorange"> RecyStreet </div>-->
                         </th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td class="text-center" style="padding: 15px;border: none; background: #F7F7F7">
-                            <span style="color: #3B6E36">13,0Km</span> - <a>Arieta 3561</a> - San Justo - <span style="color: #3B6E36">18:00Hs</span> a <span style="color: #3B6E36">24:00Hs</span>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-md-12 mt-4">
-                <table class="table" >
-                    <thead class="table-active">
-                    <tr>
-                        <th class="row" style="padding: 15px; border: none;">
-                            <div class="col-md-2 text-center" style="color: darkorange">24/5</div>
-                            <div class="col-md-6 text-center" style="font-size: 13px; font-weight: 800;">Recoleccion de carton  </div>
-                            <div class="col-md-4 text-right" style="color: darkorange"> RecyStreet </div>
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td class="text-center" style="padding: 15px;border: none; background: #F7F7F7">
-                            <span style="color: #3B6E36">13,0Km</span> - <a>Arieta 3561</a> - San Justo - <span style="color: #3B6E36">18:00Hs</span> a <span style="color: #3B6E36">24:00Hs</span>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-md-12 mt-4">
-                <table class="table" >
-                    <thead class="table-active">
-                    <tr>
-                        <th class="row" style="padding: 15px; border: none;">
-                            <div class="col-md-2 text-center" style="color: darkorange">24/5</div>
-                            <div class="col-md-6 text-center" style="font-size: 13px; font-weight: 800;">Recoleccion de carton  </div>
-                            <div class="col-md-4 text-right" style="color: darkorange"> RecyStreet </div>
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td class="text-center" style="padding: 15px;border: none; background: #F7F7F7">
-                            <span style="color: #3B6E36">13,0Km</span> - <a>Arieta 3561</a> - San Justo - <span style="color: #3B6E36">18:00Hs</span> a <span style="color: #3B6E36">24:00Hs</span>
+                            <span style="color: #3B6E36">13,0Km</span> - <a th:text="${eventos.direccion}"></a> - <span th:text="${eventos.localidad}"></span> - <span style="color: #3B6E36"><span th:text="${eventos.horaInicio}"></span></span> a <span style="color: #3B6E36"><span th:text="${eventos.horaFin}"></span></span>
                         </td>
                     </tr>
                     </tbody>

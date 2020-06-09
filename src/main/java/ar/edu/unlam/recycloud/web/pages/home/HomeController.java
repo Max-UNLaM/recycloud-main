@@ -52,6 +52,7 @@ public class HomeController {
         public String completar (HttpSession session, @Valid Usuario usuario, BindingResult asd){
         Usuario user = (Usuario) session.getAttribute("usuario");
         usuarioService.completarDatos(user.getId(), usuario.getDni(),usuario.getNacimiento());
+        session.setAttribute("usuario", usuarioService.validarUsuario(user.getEmail()));
         return "/home/perfil";
     }
 }
