@@ -1,9 +1,19 @@
 use recycloud;
 BEGIN;
 INSERT INTO categoria(background_color, color, icon, nombre, short_desc) VALUES
-('rgba(43,155,14,0.35)', '#0d380d', 'fa-recycle', 'Plásticos', 'Los plásticos abarcan una gran familia de materiales que se pueden
-                            clasificar en varios tipos y reciclar de distintas manera'),
-('rgba(232,208,0,0.35)', '#9b7e06', 'fa-box', 'Cartón', 'Material formado por la superposición de papeles');
+('rgba(43,155,14,0.35)', '#0d380d', 'fa-recycle', 'Plásticos', 'Los plásticos abarcan una gran familia de materiales que se pueden clasificar en varios tipos y reciclar de distintas manera'),
+('rgba(239,112,0,0.35)', '#EF7000', 'fa-box', 'Cartón', 'Material formado por la superposición de papeles'),
+('rgba(231,16,94,0.35)', '#E7105E', 'fa-wine-bottle', 'Eco Botellas', 'es un envase plástico relleno de más plásticos limpios y secos, residuos que pueden ir desde envoltorios de alimentos hasta cualquier tipo de plástico'),
+('rgba(5,151,211,0.35)', '#0597D3', 'fa-wine-glass', 'Vidrio', 'El vidrio es un material inorgánico duro, frágil, transparente y amorfo que se encuentra en la naturaleza, aunque también puede ser producido por el ser humano'),
+('rgba(247,214,3,0.80)', '#2A2A2A', 'fa-coins', 'Tapitas', 'Pieza de plástico que se encuentra en la parte superior de un objeto y que sirve para cerrarlo o cubrirlo');
+
+INSERT INTO recycloud.usuario
+(apellido, dni, email, nacimiento, nombre, password, rol)VALUES
+('Admin', 39272340, 'admin@admin.com','12/11/2020','Admin', 'admin123', 1),
+('PuntoDeReciclaje', 39272340, 'punto@punto.com','12/11/2020','PuntoDeReciclaje', 'punto123', 3),
+('UsuarioGenerico', 39272340, 'generico@generico.com','12/11/2020','UsuarioGenerico', 'generico123', 2);
+
+
 INSERT INTO recycloud.categoria_entrenada(imagen, categoria_id)
 VALUES('Tapa', 1),('CajaDeCigarrillos',2);
 

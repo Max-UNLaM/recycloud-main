@@ -10,18 +10,14 @@
 <body>
 <header th:replace="fragments/header"></header>
 <div class="container">
-    <div class="row col-12">
-        <h1 class="display-4">Categorías de reciclaje <small class="text-muted">Buscá qué, cómo y dónde reciclar</small>
-        </h1>
-    </div>
-    <div class="row col-12 justify-content-space-around mt-5">
-        <div th:each="categoria : ${categorias}" class="card categoria-bloque"
+    <div class="row col-12 justify-content-space-around">
+        <div th:each="categoria : ${categorias}" class="card categoria-bloque mt-5"
              th:style="|background-color: ${categoria.backgroundColor}; color: ${categoria.color}|">
             <div class="row no-gutters full-height">
-                <div class="col-auto card-img-side-container">
+                <div class="col-md-3 card-img-side-container">
                     <i class="card-img-side fas fa-7x margin-auto" th:classappend="|${categoria.icon}|"></i>
                 </div>
-                <div class="col">
+                <div class="col-md-9">
                     <div class="card-body">
                         <h4 class="card-title" th:text="${categoria.nombre}"></h4>
                         <p class="card-text" th:text="${categoria.shortDesc}"></p>
