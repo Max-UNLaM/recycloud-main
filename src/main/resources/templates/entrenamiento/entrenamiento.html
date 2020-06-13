@@ -39,13 +39,17 @@
             <button class="btn  col-md-12" style="background: #3B6E36!important;color: white;" id="botonPredecir">Iniciar</button>
         </div>
         <br>
+        <div class="col-md-2 text-center mt-2">
+            <button class="btn  col-md-12" style="background: #3B6E36!important;color: white;" id="botonEntrenar">Entrenar</button>
+        </div>
+        <br>
 
         <div class="col-md-2 text-center mt-2">
                 <button type="submit" class="btn col-md-12" id="botonGuardar" style="background: #3B6E36!important;color: white;" value="GUARDARRR">Guardar</button>
         </div>
 
         <div class="col-md-2 text-center mt-2">
-            <button type="submit" class="btn col-md-12" style="background: #3B6E36!important;color: white;" id="cargar" value="GUARDARRR">Cargar</button>
+            <input type="file"class="btn col-md-12" style="background: #3B6E36!important;color: white;" id="cargar" multiple           />
         </div>
     </div>
 </div>
@@ -56,13 +60,22 @@
     let tapaDeBotellaImagenes = 0;
     let basuraAux='';
     let basura='';
-
+    function whileTraining(loss) {
+        if (loss == null) {
+            console.log('Training Complete');
+        } else {
+            console.log(loss);
+        }
+    }
+    function modelReady() {
+        console.log()
+    }
     function setup() {
         noCanvas();
         video = createCapture(VIDEO);
         video.parent('contenedorVideo');
-        featureExtractor = ml5.featureExtractor('Mobilenet');
-        clasificador = featureExtractor.classification(video);
+        featureExtractor = ml5.featureExtractor('MobileNet',modelReady);
+        clasificador = featureExtractor.classification(video, { numLabels: 4 });
         configuraBotones();
     }
 
@@ -86,8 +99,12 @@
         });
         botonPredecir = select('#botonPredecir');
         botonPredecir.mousePressed(function () {
-            clasificador.train();
             clasificador.classify(muestraResultado);
+        });
+
+        botonEntrenar = select('#botonEntrenar');
+        botonEntrenar.mousePressed(function () {
+            clasificador.train(whileTraining);
         });
 
         let botonGuardar = select('#botonGuardar');
@@ -95,11 +112,10 @@
         clasificador.save('modelo');
         });
 
-        botonCargar = select('#cargar');
-        botonCargar.mousePressed(function () {
-            clasificador.load('https://cdn.jsdelivr.net/gh/Nicolasemanuelmorales/prueba/mvp1.json')
+        loadBtn = select('#cargar');
+        loadBtn.changed(function() {
+            classifier.load(loadBtn.elt.files);
         });
-
     }
 
     function muestraResultado(err, res) {
