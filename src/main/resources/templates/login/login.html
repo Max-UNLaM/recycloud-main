@@ -3,7 +3,7 @@
 <head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/js/jquery-ui.css}">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
 <header th:replace="fragments/header"></header>
@@ -13,7 +13,7 @@
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card card-signin my-5">
                 <div class="card-body">
-                    <h5 class="card-title text-center"> RecyCloud </h5>
+                    <h5 class="card-title text-center"><span class="naranja">Login</span></h5>
                     <form action="#" th:action="@{/login}" th:object="${usuario}" method="post">
                         <div class="form-label-group">
                             <input type="text" th:field="*{email}" id="email" class="form-control" placeholder="Email">
@@ -24,7 +24,7 @@
                             <input type="password" th:field="*{password}" id="password" class="form-control" placeholder="Contraseña" >
                             <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
                         </div>
-                        <button style="background: #3B6E36!important;color: white;" class="btn btn-lg  btn-block text-uppercase" id="iniciar" type="submit">Iniciar sesión</button>
+                        <button class="btn btn-lg  btn-block text-uppercase verde-blanco mt-3" id="iniciar" type="submit">Iniciar sesión</button>
                     </form>
                 </div>
             </div>

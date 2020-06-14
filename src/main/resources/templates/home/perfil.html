@@ -3,7 +3,7 @@
 <head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
     <title>Perfil</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/js/jquery-ui.css}">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
 <header th:replace="fragments/header"></header>
@@ -19,8 +19,8 @@
                         <h2 th:text="${session.usuario.apellido}"></h2>
                         <h2 th:text="${session.usuario.email}"></h2>
 
-                        <button style="background: #3B6E36!important;color: white; width: 45%; float: left; margin: 2.5%;" class="btn btn-lg  btn-block text-uppercase" id="password">Cambiar contraseña</button>
-                        <button style="background: #3B6E36!important;color: white; width: 45%; float: left; margin: 2.5%;" class="btn btn-lg  btn-block text-uppercase" id="puntos">Completar perfil</button>
+                        <button class="btn btn-lg btn-block text-uppercase botones-perfil" id="password">Cambiar contraseña</button>
+                        <button class="btn btn-lg btn-block text-uppercase botones-perfil" id="puntos">Completar perfil</button>
                     </div>
 
                     <form action="#" th:action="@{/home/password}" th:object="${password}" method="post" id="password-oculto">
@@ -39,9 +39,9 @@
                             <span class="text-danger" ></span>
                         </div>
 
-                        <button style="background: #3B6E36!important;color: white; width: 45%; float: left; margin: 2.5%;" class="btn btn-lg  btn-block text-uppercase" id="pass" type="submit">Cambiar contraseña</button>
+                        <button  class="btn btn-lg  btn-block text-uppercase botones-perfil" id="pass" type="submit">Cambiar contraseña</button>
                     </form>
-                    <button style="background: red!important;color: white; width: 45%; float: left; margin: 2.5%;" class="btn btn-lg  btn-block text-uppercase cancelar">Cancelar</button>
+                    <button class="btn btn-lg  btn-block text-uppercase cancelar botones-perfil-rojo">Cancelar</button>
 
 
                     <form action="#" th:action="@{/home/completar}" th:object="${usuario}" method="post" id="modificar-oculto">
@@ -55,14 +55,8 @@
                             <input type="number" id="dni" name="dni" class="form-control" placeholder="DNI">
                             <span class="text-danger"></span>
                         </div>
-<!--
-                        <div class="form-label-group">
-                            <input type="text" th:field="*{email}" id="email" class="form-control" th:value="${session.usuario.email}">
-                            <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
-                        </div>
--->
-                        <button style="background: #3B6E36!important;color: white; width: 45%; float: left; margin: 2.5%;" class="btn btn-lg  btn-block text-uppercase" id="punto-entrega" type="submit">Aceptar</button>
-                        <button style="background: red;color: white; width: 45%; float: left; margin: 2.5%;" class="btn btn-lg  btn-block text-uppercase cancelar">Cancelar</button>
+                        <button class="btn btn-lg  btn-block text-uppercase botones-perfil" id="punto-entrega" type="submit">Aceptar</button>
+                        <button class="btn btn-lg  btn-block text-uppercase cancelar botones-perfil-rojo">Cancelar</button>
                     </form>
                 </div>
             </div>
@@ -70,15 +64,9 @@
     </div>
     <script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
 </div>
+<footer th:replace="fragments/footer"></footer>
 </body>
 </html>
-
-<style>
-    #modificar-oculto, #password-oculto{
-        display: none;
-    }
-</style>
-
 <script>
     $( document ).ready(function() {
         $("#password").click(function(){

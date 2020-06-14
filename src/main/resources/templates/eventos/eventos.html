@@ -3,48 +3,40 @@
 <head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
     <title>Eventos</title>
-    <link rel="stylesheet" th:href="@{/js/jquery-ui.css}">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
 <header th:replace="fragments/header"></header>
-<style>
-    #nico:hover{
-        color: red;
-        font-weight: 600;
-        cursor: pointer;
-    }
-</style>
-<div class="container mt-4">
-    <div class="row ">
+<div class="container mb-5">
+    <div class="row mt-5">
         <div class="col-md-6 text-center">
-            <a><span style="color: #6e6e6e;font-weight: 600;border: none; padding: 0.5px;">FECHA</span></a>
-            <a><span class="card-header" style="padding: 4px;border: none; background: #ECECEC">Hoy</span></a>
-            <a><span class="card-header" style="padding: 4px;border: none; background: #ECECEC">Semana</span></a>
-            <a><span class="card-header" style="padding: 4px;border: none; background: #ECECEC">Mes</span></a>
+            <a><span class="nombre-filtro-evento">FECHA</span></a>
+            <a><span class="card-header filtro-evento">Hoy</span></a>
+            <a><span class="card-header filtro-evento">Semana</span></a>
+            <a><span class="card-header filtro-evento">Mes</span></a>
         </div>
         <div class="col-md-6 text-center">
-            <a><span style="color: #6e6e6e;font-weight: 600; padding: 0.5px;">KM</span></a>
-            <a><span class="card-header" style="padding: 4px;border: none; background: #ECECEC">1</span></a>
-            <a><span class="card-header" style="padding: 4px;border: none; background: #ECECEC">Menor a 5</span></a>
-            <a><span class="card-header" style="padding: 4px;border: none; background: #ECECEC">Mayor a 5</span></a>
+            <a><span class="nombre-filtro-evento">KM</span></a>
+            <a><span class="card-header filtro-evento">1</span></a>
+            <a><span class="card-header filtro-evento">Menor a 5</span></a>
+            <a><span class="card-header filtro-evento">Mayor a 5</span></a>
         </div>
     </div>
-<div class="row mt-2">
+<div class="row mt-2 mb-5">
     <div class="col-md-12 mt-4" th:each="eventos : ${listaDeEventos}">
         <table class="table" >
             <thead class="table-active">
             <tr>
-                <th class="row" style="padding: 15px; border: none;">
-                    <div class="col-md-2 text-center" style="color: darkorange"><span th:text="${eventos.fecha}"></span></div>
-                    <div class="col-md-6 text-center" style="font-size: 13px; font-weight: 800;"><span th:text="${eventos.titulo}"></span></div>
-                    <!--<div class="col-md-4 text-right" style="color: darkorange"> RecyStreet </div>-->
+                <th class="row row-evento">
+                    <div class="col-md-6 text-center naranja"><span th:text="${eventos.fecha}"></span></div>
+                    <div class="col-md-6 text-center cabezera-evento"><span th:text="${eventos.titulo}"></span></div>
                 </th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td class="text-center" style="padding: 15px;border: none; background: #F7F7F7">
-                    <span style="color: #3B6E36">13,0Km</span> - <a th:text="${eventos.direccion}"></a> - <span th:text="${eventos.localidad}"></span> - <span style="color: #3B6E36"><span th:text="${eventos.horaInicio}"></span></span> a <span style="color: #3B6E36"><span th:text="${eventos.horaFin}"></span></span>
+                <td class="text-center info-evento">
+                    <span class="verde">13,0Km</span> - <a th:text="${eventos.direccion}"></a> - <span th:text="${eventos.localidad}"></span> - <span class="verde"><span th:text="${eventos.horaInicio}"></span></span> a <span class="verde"><span th:text="${eventos.horaFin}"></span></span>
                 </td>
             </tr>
             </tbody>
@@ -52,49 +44,6 @@
     </div>
  </div>
 </div>
-<footer class="page-footer font-small indigo mt-5" style="background:#3D3D3D;border-top: solid 0.0px darkorange;">
-    <div class="container">
-        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
-            <div class="col-md-2 mb-3 text-center">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="#!"><span style="color: white!important;">HOME</span></a>
-                </h6>
-            </div>
-            <div class="col-md-2 mb-3 text-center">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="/"><span style="color: white!important;">TIENDA</span></a>
-                </h6>
-            </div>
-            <div class="col-md-2 mb-3 text-center">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="/scanner/scanner"><span style="color: white!important;">SCANNER</span></a>
-                </h6>
-            </div>
-            <div class="col-md-2 mb-3 text-center">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="#"><span style="color: white!important;">CALENDARIO</span></a>
-                </h6>
-            </div>
-            <div class="col-md-2 mb-3 text-center">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="#"><span style="color: white!important;">MAPA</span></a>
-                </h6>
-            </div>
-        </div>
-        <hr class="rgba-white-light" style="margin: 0 auto;">
-        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
-            <div class="col-md-8 col-12 mt-5 text-center">
-                <p style=" font-weight: 600;font-size: 16px; color: white!important;">LO ÚNICO QUE NO PODEMOS RECICLAR ES EL TIEMPO QUE MALGASTAMOS.</p>
-            </div>
-
-        </div>
-        <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
-
-
-    </div>
-    <div class=" text-center py-3" style="color: white!important;">© 2020 Copyright:
-        RecyClud.com
-    </div>
-</footer>
+<footer th:replace="fragments/footer"></footer>
 </body>
 </html>
