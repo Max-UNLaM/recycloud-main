@@ -1,7 +1,50 @@
 const initialZoom = 15;
 const mapId = "map";
 const pinBaseUrl = "/api/pin";
-const pinFilterUrl = `${pinBaseUrl}${window.location.search}`
+const categoryKey = "categories";
+const selectPicker = $('#categorias-select');
+const pinFilterUrl = `${pinBaseUrl}${window.location.search}`;
+const params = new URLSearchParams(window.location.search);
+const category = params.get(categoryKey);
+const mapHandler = {
+    updateMap: (url) => {
+    },
+    beforeUpdate: () => {
+    }
+}
+let markers = [];
+
+class Location {
+    type = "";
+    coordinates = [];
+}
+
+class Dialog {
+    first_heading = "";
+    body_content = "";
+    days = [];
+    schedule = "";
+    link = "";
+    address = "";
+    categories = "";
+}
+
+class Pin {
+    title = "";
+    categories = [];
+    location = new Location();
+    icon = new Icon();
+    dialog = new Dialog();
+}
+
+
+if (category) {
+    $("#categorias-select").selectpicker('val', category.toLowerCase());
+}
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    selectPicker.selectpicker('mobile');
+}
+
 const request = obj => {
     return new Promise((resolve, reject) => {
         let xhr = new XMLHttpRequest();
@@ -32,7 +75,7 @@ const iconTemplate = (categories) => {
     return `
     <div class="no-background pin-tooltip">${badgeTemplate(categories, 'primary margin-1')}</div>
     <div class="pin-container flex">
-        <img class="pin-image pin-image-size" alt="pin" src="img/map/map_ping_green.svg">    
+        <img class="pin-image pin-image-size" alt="pin" src="../../../img/map/map_ping_green.svg">    
     </div>   
     `;
 }
@@ -64,27 +107,6 @@ const dialogTemplate = (dialog) => {
 `;
 };
 
-class Location {
-    type = "";
-    coordinates = [];
-}
-
-class Dialog {
-    first_heading = "";
-    body_content = "";
-    days = [];
-    schedule = "";
-    link = "";
-}
-
-class Pin {
-    title = "";
-    categories = [];
-    location = new Location();
-    icon = new Icon();
-    dialog = new Dialog();
-}
-
 /**
  *
  * @param {float[]} coords
@@ -105,7 +127,7 @@ const buildInfoWindow = (coords) => {
  * @param {Pin[]} pines
  * @param map
  */
-function buildPines(pines, map) {
+function addPinesToMap(pines, map) {
     pines.forEach((pin) => {
         let marker = new RichMarker({
             position: new google.maps.LatLng(pin.location.coordinates[0], pin.location.coordinates[1]),
@@ -118,27 +140,46 @@ function buildPines(pines, map) {
             const infoWindow = await buildInfoWindow(pin.location.coordinates);
             infoWindow.open(map, marker);
         });
+        markers.push(marker);
     });
 }
 
+function cleanMarkers(map) {
+    for (let i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }
+}
+
+const deleteMarkers = () => {
+    cleanMarkers(null);
+    markers = [];
+}
+
 let ignite = (location) => {
-    let browserLat = location.coords.latitude;
-    let browserLong = location.coords.longitude;
+    const browserLat = location.coords.latitude;
+    const browserLong = location.coords.longitude;
+
     let map = new google.maps.Map(document.getElementById(mapId), {
+        mapTypeControl: false,
         center: {
             lat: browserLat,
             lng: browserLong
         },
         zoom: initialZoom
     });
-    request({url: pinFilterUrl})
-        .then(data => {
-            buildPines(JSON.parse(data), map);
-        })
+    mapHandler.updateMap = (path) => {
+        mapHandler.beforeUpdate();
+        request({url: path})
+            .then(data => {
+                addPinesToMap(JSON.parse(data), map);
+            });
+    };
+    mapHandler.updateMap(pinFilterUrl);
+    mapHandler.beforeUpdate = deleteMarkers;
     map.addListener('zoom_changed', () => {
-        let pinImageClass = $('.pin-image-size');
-        let pinContainer = $('.pin-container');
-        let pinTooltip = $('.pin-tooltip');
+        const pinImageClass = $('.pin-image-size');
+        const pinContainer = $('.pin-container');
+        const pinTooltip = $('.pin-tooltip');
         if (map.zoom <= 22) {
             changeClassSize(pinImageClass, '28px', '40px');
         }
@@ -162,7 +203,6 @@ let ignite = (location) => {
             }
         }
     });
-
 }
 
 function changeClassSize(jqueryClass, width, height) {
@@ -171,7 +211,6 @@ function changeClassSize(jqueryClass, width, height) {
         'height': height
     });
 }
-
 
 function initMap() {
     navigator.geolocation.getCurrentPosition(ignite);
