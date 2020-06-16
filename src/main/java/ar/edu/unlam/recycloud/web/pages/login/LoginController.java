@@ -1,5 +1,7 @@
 package ar.edu.unlam.recycloud.web.pages.login;
 
+import ar.edu.unlam.recycloud.app.usuario.Usuario;
+import ar.edu.unlam.recycloud.app.usuario.UsuarioService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -14,10 +16,10 @@ import javax.validation.Valid;
 @Controller
 public class LoginController {
 
-    private final LoginService loginService;
+    private final UsuarioService usuarioService;
 
-    public LoginController(LoginService loginService) {
-        this.loginService = loginService;
+    public LoginController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
     }
 
     @RequestMapping(path = "/login/cerrarSession")
@@ -27,20 +29,19 @@ public class LoginController {
     }
 
     @GetMapping(path = "/login")
-    public String pantallaLogin(LoginModel loginModel) {
-
-        return "/login/login";
-
+    public ModelAndView pantallaLogin() {
+        ModelMap modelo = new ModelMap();
+        modelo.addAttribute("usuario", new Usuario());
+        return new ModelAndView("/login/login", modelo);
     }
 
     @PostMapping(path = "/login")
-    public String confirmar(HttpSession session, @Valid LoginModel loginModel, BindingResult bindingResult) {
-        LoginModel log = loginService.confirmarUsuario(loginModel.getPass(), loginModel.getUsuario());
+    public String confirmar(HttpSession session, Usuario usuario, BindingResult asd) {
+        Usuario log = usuarioService.confirmarUsuario(usuario.getEmail(), usuario.getPassword());
 
-        if (bindingResult.hasErrors()) {
+        if (log == null) {
             return "/login/login";
         } else {
-            log.setRol(1);
             session.setAttribute("usuario", log);
             return "/index";
         }
@@ -49,21 +50,21 @@ public class LoginController {
     @GetMapping(path = "/login/registrar")
     public ModelAndView registrar() {
         ModelMap modelo = new ModelMap();
-        modelo.addAttribute("registerModel", new RegisterModel());
+        modelo.addAttribute("usuario", new Usuario());
         return new ModelAndView("/login/registrar", modelo);
     }
 
     @PostMapping(path = "/login/registrar")
-    public String registrarConfirmar(HttpSession session, @Valid RegisterModel registerModel, BindingResult bindingResult) {
-
-        if (bindingResult.hasErrors()) {
+    public String registrarConfirmar(HttpSession session, @Valid Usuario usuario) {
+        Usuario l = usuarioService.validarUsuario(usuario.getEmail());
+        if(l != null){
             return "/login/registrar";
-        } else {
-            LoginModel log = loginService.confirmarUsuario(registerModel.getPass(), registerModel.getNombre());
-            log.setRol(1);
-            session.setAttribute("usuario", log);
-            return "/index";
         }
+        usuario.setRol(2);
+        usuario.setIdentificacion(0);
+        usuarioService.registro(usuario);
+        Usuario log = usuarioService.validarUsuario(usuario.getEmail());
+        session.setAttribute("usuario", log);
+        return "/index";
     }
-
 }
