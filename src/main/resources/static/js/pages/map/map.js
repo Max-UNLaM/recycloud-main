@@ -6,7 +6,7 @@ const selectPicker = $('#categorias-select');
 const pinFilterUrl = `${pinBaseUrl}${window.location.search}`;
 const params = new URLSearchParams(window.location.search);
 const category = params.get(categoryKey);
-const mapHandler = {
+let mapHandler = {
     updateMap: (url) => {
     },
     beforeUpdate: () => {

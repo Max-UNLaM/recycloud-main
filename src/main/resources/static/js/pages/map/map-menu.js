@@ -6,7 +6,7 @@ let categoryList = [];
 const buttons = $('.btn-map');
 
 const renewPines = (categories) => {
-    mapHandler.updateMap(`${pinBaseUrl}/${categories}`);
+    mapHandler.updateMap(`${pinBaseUrl}?categories=${categories.toUpperCase()}`);
 }
 
 class RgbaColor {
@@ -35,7 +35,7 @@ class RgbaColor {
 const fillCategoryList = (afterCall) => {
     const category = params.get(categoryKey);
     if (category !== null) {
-        categoryList.push(category);
+        categoryList.push(category.toLowerCase());
     }
     buttons.each(function (i, item) {
         buttonIterate($(item), category)
@@ -65,8 +65,7 @@ const buttonEnabler = (button) => {
     const color = button.data(backgroundColorDataName);
     color.currentAlpha = 1;
     button.css('background-color', color.getCssCurrentProperty());
-    categoryList.push(button.text());
-    renewPines(categoryList.join());
+    categoryList.push(button.text().toLowerCase());
 }
 
 /**
@@ -77,11 +76,12 @@ const buttonDisabler = (button) => {
     const color = button.data(backgroundColorDataName);
     button.removeClass(mapButtonActiveClass);
     button.css('background-color', color.getCssDefaultProperty());
-    categoryList = categoryList.filter(category => category !== button.text());
+    categoryList = categoryList.filter(category => category !== button.text().toLowerCase());
 }
 
 buttons.click(function () {
     buttonSwitcher($(this));
+    renewPines(categoryList.join());
 });
 
 fillCategoryList(() => {
