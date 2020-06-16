@@ -9,9 +9,17 @@
 <body>
 <header th:replace="fragments/header"></header>
 <div class="container mt-3" th:fragment="main()">
-    <div id="map"></div>
+    <div class="row">
+        <div class="col-12">
+            <div class="btn-group-vertical map-menu" role="group" aria-label="Categorías">
+                <button th:each="categoria : ${categorias}" class="btn btn-map" th:style="|background-color: ${categoria.backgroundColor}; color: ${categoria.color}|" th:text="${categoria.nombre}"></button>
+            </div>
+            <div id="map"></div>
+        </div>
+    </div>
 </div>
-<script th:src="@{/js/pages/map.js}"></script>
+<script th:src="@{/js/pages/map/map.js}"></script>
+<script th:src="@{/js/pages/map/map-menu.js}" async defer></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0lJoUoC-kiNyutxVB9ay4Oycbs35KjEg&callback=initMap"></script>
 <script th:src="@{/js/lib/richmarker.js}" async defer></script>
 <footer class="page-footer font-small indigo mt-5" style="background:#3D3D3D;border-top: solid 0.0px darkorange;">
