@@ -1,5 +1,5 @@
 use recycloud;
-BEGIN;
+
 INSERT INTO categoria(background_color, color, icon, nombre, short_desc) VALUES
 ('rgba(43,155,14,0.35)', '#0d380d', 'fa-recycle', 'Plásticos', 'Los plásticos abarcan una gran familia de materiales que se pueden clasificar en varios tipos y reciclar de distintas manera'),
 ('rgba(239,112,0,0.35)', '#EF7000', 'fa-box', 'Cartón', 'Material formado por la superposición de papeles'),
@@ -7,11 +7,12 @@ INSERT INTO categoria(background_color, color, icon, nombre, short_desc) VALUES
 ('rgba(5,151,211,0.35)', '#0597D3', 'fa-wine-glass', 'Vidrio', 'El vidrio es un material inorgánico duro, frágil, transparente y amorfo que se encuentra en la naturaleza, aunque también puede ser producido por el ser humano'),
 ('rgba(247,214,3,0.80)', '#2A2A2A', 'fa-coins', 'Tapitas', 'Pieza de plástico que se encuentra en la parte superior de un objeto y que sirve para cerrarlo o cubrirlo');
 
+
 INSERT INTO recycloud.usuario
-(apellido, dni, email, nacimiento, nombre, password, rol)VALUES
-('Admin', 39272340, 'admin@admin.com','12/11/2020','Admin', 'admin123', 1),
-('PuntoDeReciclaje', 39272340, 'punto@punto.com','12/11/2020','PuntoDeReciclaje', 'punto123', 3),
-('UsuarioGenerico', 39272340, 'generico@generico.com','12/11/2020','UsuarioGenerico', 'generico123', 2);
+(anio, apellido, dia, dni, email, identificacion, mes, nombre, password, rol)VALUES
+(1999,'Núñez',20, 39272340,'admin@admin.com',0,'Diciembre','Tomas','admin123', 1),
+(1995,'Morales',28, 39272340,'punto@punto.com',0,'Agosto','Nicolas','punto123', 3),
+(1990,'Barrio Nuevo',17, 39272340,'generico@generico.com',0,'Abril','David','generico123', 2);
 
 
 INSERT INTO recycloud.categoria_entrenada(imagen, categoria_id)
@@ -24,4 +25,4 @@ INSERT INTO categoria_informacion(como, descripcion, donde, tipos, categoria_id)
 ('Previo a reciclar el vidrio, ya sea para tirarlo o reutilizarlo, es importante lavarlo. Te recomendamos usar Cif Active Gel Limón Verde, con ultra poder desengrasante que hace que el lavado sea más fácil y rápido. Quitá todas las etiquetas o stickers del recipiente. Poné el recipiente en tu tacho de reciclaje o llévalo a un centro de reciclaje. Algunos elementos de vidrio, como las lamparitas, tienen otro tipo de reciclaje.Podés reciclar vidrios rotos, pero tenés que tener cuidado', 'El vidrio es un material inorgánico duro, frágil, transparente y amorfo que se encuentra en la naturaleza, aunque también puede ser producido por el ser humano. El vidrio artificial se usa para hacer ventanas, lentes, botellas y una gran variedad de productos. El vidrio es un tipo de material cerámico amorfo', '', 'Se pueden reciclar frascos, perfumes, las botellas de bebidas, vinos y licores. No se pueden reciclar parabrisas, espejos, ampolletas, tubos fluorescentes, loza, pírex, cristales, vidrio templado y ventanas', 4),
 ('', 'Una tapa plastica es una parte de un contenedor, como un recipiente o una botella que sirve para cerrar o sellar y evitar que el contenido del recipiente se derrame o se fugue', '', 'Tapas genéricas para botellas: Estas son de tipo rosca, a las cuales se les denomina cotidianamente taparrosca, o con cincho de seguridad. Son comúnmente utilizadas para el sellado de botellas de plástico que contienen agua, jugos, refresco, aceites, detergentes líquidos, etc. Tapas flip-top: Son tapas de tipo dosificadoras y están disponibles en distintas medidas. Son utilizadas para los productos líquidos, semilíquidos y productos viscosos de las industrias farmacéutica, bebidas y cosméticos. Tienen aplicaciones para jugos, medicamentos, aderezos, shampos, jabones líquidos, etc. Tapas disc top: La característica de este tipo de tapas es que al aplicar presión sobre uno de sus lados se levanta por el otro, habilitando una abertura por la que se permite dispersar el producto. Se encuentran disponibles en una gran variedad de modelos y colores para productos tales como, jabones líquidos, salsas, aderezos, medicamentos, etc. Tapas tipo sport: Este tipo de tapas permite que el líquido pase por un orificio ubicado en su parte central, funcionan a través de presión. Son comúnmente empleadas para sellar contenedores de agua, sueros y bebidas energetizantes', 5);
 
-COMMIT;
+

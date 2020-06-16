@@ -4,7 +4,7 @@
     height: 240px!important;
 }
 .naranja-blanco{
-    background: darkorange!important;
+    background: #ff9d00 !important;
     color: white;
 }
 .bordes-adjun{
@@ -81,7 +81,7 @@ video
     border: none!important;
 }
 .naranja{
-    color: darkorange;
+    color: #ff9d00;
 }
 .cabezera-evento{
     font-size: 13px;
@@ -148,11 +148,11 @@ gris-oscuro{
     display: none;
 }
 .botones-perfil{
-    background: #3B6E36!important;
+    background: #ff9d00 !important;
     color: white;
-    width: 45%;
+    width: 50%;
     float: left;
-    margin: 2.5%;
+    margin: 2.5% 25%;
 }
 
 .botones-perfil-rojo{
@@ -195,7 +195,7 @@ gris-oscuro{
     margin-top: -100px;
 }
 .servicios{
-    color: darkorange;
+    color: #ff9d00;
     font-weight: 800;
     font-size: 30px;
 }
@@ -208,14 +208,14 @@ gris-oscuro{
     height: auto;
 }
 .color-servicio{
-    color: darkorange;
+    color: #ff9d00;
     font-weight: 600;
 }
 
 /*footer*/
 .contendor-footer{
     background:#3D3D3D;
-    border-top: solid 0.0px darkorange;
+    border-top: solid 0.0px #ff9d00;
 }
 .barrita-footer{
     margin: 10% 15% 5%;
@@ -224,4 +224,26 @@ gris-oscuro{
     font-weight: 600;
     font-size: 16px;
     color: white!important;
+}
+
+#div_datos, #div_password, #div_puntos{
+    display: none;
+}
+
+.active {
+    background-color: #ff9d00 !important;
+    border-color: #ff9d00 !important;
+}
+
+.foto-perfil{
+    width: 25%;
+    margin: 0% 37.5% 5%;
+}
+
+.negrita{
+    font-width: 700 !important;
+}
+
+.w-100{
+    width: 100%;
 }

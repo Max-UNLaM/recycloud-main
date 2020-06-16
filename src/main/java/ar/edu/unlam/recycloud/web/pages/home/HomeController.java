@@ -51,7 +51,15 @@ public class HomeController {
     @PostMapping(path = "/home/completar")
         public String completar (HttpSession session, @Valid Usuario usuario, BindingResult asd){
         Usuario user = (Usuario) session.getAttribute("usuario");
-        usuarioService.completarDatos(user.getId(), usuario.getDni(),usuario.getNacimiento());
+        usuarioService.completarDatos(user.getId(), usuario.getIdentificacion());
+        session.setAttribute("usuario", usuarioService.validarUsuario(user.getEmail()));
+        return "/home/perfil";
+    }
+
+    @PostMapping(path = "/home/modificar")
+    public String modificar (HttpSession session, Usuario usuario){
+        Usuario user = (Usuario) session.getAttribute("usuario");
+        usuarioService.modificarDatos(user.getId(), usuario.getDni(),usuario.getDia(),usuario.getMes(), usuario.getAnio());
         session.setAttribute("usuario", usuarioService.validarUsuario(user.getEmail()));
         return "/home/perfil";
     }

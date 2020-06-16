@@ -21,6 +21,10 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
     void cambiarPassword(@Param ("password") String password, @Param ("id") Long id);
     @Transactional
     @Modifying
-    @Query(value = "UPDATE usuario SET dni = :dni, nacimiento = :nacimiento, rol = 3 WHERE id = :id", nativeQuery = true)
-    void completarUsuario(@Param ("id") Long id, @Param ("dni") Integer dni, @Param ("nacimiento") String nacimiento);
+    @Query(value = "UPDATE usuario SET identificacion = :identificacion, rol = 3 WHERE id = :id", nativeQuery = true)
+    void completarUsuario(@Param ("id") Long id, @Param ("identificacion") Integer identificacion);
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE usuario SET dni = :dni, dia = :dia, mes = :mes, anio = :anio WHERE id = :id", nativeQuery = true)
+    void modificarUsuario(@Param ("id") Long id, @Param ("dni") Integer dni, @Param ("dia") Integer dia, @Param ("mes") String mes, @Param ("anio") Integer anio);
 }

@@ -30,7 +30,11 @@ public class UsuarioService {
         usuarioRepository.cambiarPassword(pass, l.getId());
     }
 
-    public void completarDatos(Long id, Integer dni, String nacimiento){
-        usuarioRepository.completarUsuario(id, dni, nacimiento);
+    public void completarDatos(Long id, Integer dni){
+        usuarioRepository.completarUsuario(id, dni);
+    }
+
+    public void modificarDatos(Long id, Integer dni, Integer dia, String mes, Integer anio){
+        usuarioRepository.modificarUsuario(id, dni, dia, mes, anio);
     }
 }

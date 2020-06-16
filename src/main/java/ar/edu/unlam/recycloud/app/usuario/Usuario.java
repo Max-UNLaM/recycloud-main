@@ -38,26 +38,11 @@ public class Usuario {
     private String password;
 
     private Integer rol;
-
-    public String getNacimiento() {
-        return nacimiento;
-    }
-
-    public void setNacimiento(String nacimiento) {
-        this.nacimiento = nacimiento;
-    }
-
-    public Integer getDni() {
-        return dni;
-    }
-
-    public void setDni(Integer dni) {
-        this.dni = dni;
-    }
-
-    private String nacimiento;
-
+    private Integer dia;
+    private String mes;
+    private Integer anio;
     private Integer dni;
+    private Integer identificacion;
 
     public Long getId() {
         return id;
@@ -105,5 +90,45 @@ public class Usuario {
 
     public void setRol(Integer rol) {
         this.rol = rol;
+    }
+
+    public Integer getDia() {
+        return dia;
+    }
+
+    public void setDia(Integer dia) {
+        this.dia = dia;
+    }
+
+    public String getMes() {
+        return mes;
+    }
+
+    public void setMes(String mes) {
+        this.mes = mes;
+    }
+
+    public Integer getAnio() {
+        return anio;
+    }
+
+    public void setAnio(Integer anio) {
+        this.anio = anio;
+    }
+
+    public Integer getDni() {
+        return dni;
+    }
+
+    public void setDni(Integer dni) {
+        this.dni = dni;
+    }
+
+    public Integer getIdentificacion() {
+        return identificacion;
+    }
+
+    public void setIdentificacion(Integer identificacion) {
+        this.identificacion = identificacion;
     }
 }

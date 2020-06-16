@@ -61,6 +61,7 @@ public class LoginController {
             return "/login/registrar";
         }
         usuario.setRol(2);
+        usuario.setIdentificacion(0);
         usuarioService.registro(usuario);
         Usuario log = usuarioService.validarUsuario(usuario.getEmail());
         session.setAttribute("usuario", log);

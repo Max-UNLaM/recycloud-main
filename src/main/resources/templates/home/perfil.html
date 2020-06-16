@@ -10,20 +10,50 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-8 mx-auto">
+        <div class="col-12 col-md-4 my-5">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" id="perfil">Mis datos</a>
+                <a href="#" class="list-group-item list-group-item-action" id="datos">Actualizar datos</a>
+                <a href="#" class="list-group-item list-group-item-action" id="password">Cambiar contraseña</a>
+                <a href="#" class="list-group-item list-group-item-action" id="puntos">Ser punto de reciclaje</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-8">
             <div class="card card-signin my-5">
                 <div class="card-body">
-                    <div id="perfil">
-                        <h1 class="card-title text-center"> Perfil </h1>
-                        <h2 th:text="${session.usuario.nombre}"></h2>
-                        <h2 th:text="${session.usuario.apellido}"></h2>
-                        <h2 th:text="${session.usuario.email}"></h2>
-
-                        <button class="btn btn-lg btn-block text-uppercase botones-perfil" id="password">Cambiar contraseña</button>
-                        <button class="btn btn-lg btn-block text-uppercase botones-perfil" id="puntos">Completar perfil</button>
+                    <div id="div_perfil">
+                        <h1 class="card-title text-center">Mi Perfil</h1>
+                        <img src="../imagenes/perfil.jpg" alt="" class="foto-perfil rounded-circle">
+                        <h1 th:text="${session.usuario.nombre + ' ' + session.usuario.apellido}"} class="text-center negrita"></h1>
+                        <h2 th:text="${session.usuario.email}" class="text-center"></h2>
                     </div>
 
-                    <form action="#" th:action="@{/home/password}" th:object="${password}" method="post" id="password-oculto">
+                    <form action="#" th:action="@{/home/modificar}" th:object="${usuario}" method="post" id="div_datos">
+                        <h1 class="card-title text-center">Actualizar datos</h1>
+                        <div class="form-inline mt-3">
+                            <h3 class="w-100">Fecha de nacimiento</h3>
+                            <div class="form-group col-4">
+                                <select class="form-control w-100" id="daydropdown" name="dia"></select>
+                            </div>
+                            <span class="text-danger"></span>
+                            <div class="form-label-group col-4">
+                                <select class="form-control w-100" id="monthdropdown" name="mes"></select>
+                            </div>
+                            <span class="text-danger"></span>
+                            <div class="form-label-group col-4">
+                                <select class="form-control w-100" id="yeardropdown" name="anio"></select>
+                            </div>
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-label-group mt-3">
+                            <input type="number" id="dni" name="dni" class="form-control" placeholder="DNI">
+                            <span class="text-danger"></span>
+                        </div>
+                        <button class="btn btn-lg  btn-block text-uppercase botones-perfil" id="cambiar_datos" type="submit">Modificar datos</button>
+                    </form>
+
+                    <form action="#" th:action="@{/home/password}" th:object="${password}" method="post" id="div_password">
+                        <h1 class="card-title text-center">Cambiar contraseña</h1>
                         <div class="form-label-group mt-3">
                             <input type="password" id="old-password" name="oldPassword" class="form-control" placeholder="Contraseña actual" >
                             <span class="text-danger"></span>
@@ -38,25 +68,16 @@
                             <input type="password" id="renew-password" name="reNewPassword" class="form-control" placeholder="Confirmar contraseña" >
                             <span class="text-danger" ></span>
                         </div>
-
                         <button  class="btn btn-lg  btn-block text-uppercase botones-perfil" id="pass" type="submit">Cambiar contraseña</button>
                     </form>
-                    <button class="btn btn-lg  btn-block text-uppercase cancelar botones-perfil-rojo">Cancelar</button>
 
-
-                    <form action="#" th:action="@{/home/completar}" th:object="${usuario}" method="post" id="modificar-oculto">
-
-                        <div class="form-label-group">
-                            <input type="text" id="nacimiento" name="nacimiento" class="form-control" placeholder="DD/MM/AAAA - 20/12/1999">
+                    <form action="#" th:action="@{/home/completar}" th:object="${usuario}" method="post" id="div_puntos">
+                        <h1 class="card-title text-center">Ser punto de reciclaje</h1>
+                        <div class="form-label-group mt-3">
+                            <input type="number" name="identificacion" class="form-control" placeholder="Cuil/Cuit">
                             <span class="text-danger"></span>
                         </div>
-
-                        <div class="form-label-group">
-                            <input type="number" id="dni" name="dni" class="form-control" placeholder="DNI">
-                            <span class="text-danger"></span>
-                        </div>
-                        <button class="btn btn-lg  btn-block text-uppercase botones-perfil" id="punto-entrega" type="submit">Aceptar</button>
-                        <button class="btn btn-lg  btn-block text-uppercase cancelar botones-perfil-rojo">Cancelar</button>
+                        <button class="btn btn-lg  btn-block text-uppercase botones-perfil" id="punto-entrega" type="submit">Cargar datos</button>
                     </form>
                 </div>
             </div>
@@ -70,21 +91,109 @@
 <script>
     $( document ).ready(function() {
         $("#password").click(function(){
-            $("#perfil").hide();
-            $("#password-oculto").show();
-            $("#modificar-oculto").hide();
+            $("#div_perfil").hide();
+            $("#div_password").show();
+            $("#div_datos").hide();
+            $("#div_puntos").hide();
+            $( "#password" ).addClass( "active" );
+            $( "#perfil" ).removeClass( "active" );
+            $( "#puntos" ).removeClass( "active" );
+            $( "#datos" ).removeClass( "active" );
+        });
+
+        $("#perfil").click(function(){
+            $("#div_perfil").show();
+            $("#div_password").hide();
+            $("#div_datos").hide();
+            $("#div_puntos").hide();
+            $( "#perfil" ).addClass( "active" );
+            $( "#password" ).removeClass( "active" );
+            $( "#puntos" ).removeClass( "active" );
+            $( "#datos" ).removeClass( "active" );
+        });
+
+        $("#datos").click(function(){
+            $("#div_perfil").hide();
+            $("#div_password").hide();
+            $("#div_datos").show();
+            $("#div_puntos").hide();
+            $( "#datos" ).addClass( "active" );
+            $( "#perfil" ).removeClass( "active" );
+            $( "#puntos" ).removeClass( "active" );
+            $( "#password" ).removeClass( "active" );
         });
 
         $("#puntos").click(function(){
-            $("#perfil").hide();
-            $("#password-oculto").hide();
-            $("#modificar-oculto").show();
+            $("#div_perfil").hide();
+            $("#div_password").hide();
+            $("#div_datos").hide();
+            $("#div_puntos").show();
+            $( "#puntos" ).addClass( "active" );
+            $( "#perfil" ).removeClass( "active" );
+            $( "#password" ).removeClass( "active" );
+            $( "#datos" ).removeClass( "active" );
         });
 
-        $(".cancelar").click(function(){
-            $("#perfil").show();
-            $("#password-oculto").hide();
-            $("#modificar-oculto").hide();
-        });
+        $("#identificacion").mask("99-99999999-9");
+        //Select fecha nacimiento
+        var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+        function daysInMonth(month, year) {
+            return new Date(year, month, 0).getDate();
+        }
+
+        function populateDates(){
+            var today = new Date(),
+                day = today.getUTCDate(),
+                month = today.getUTCMonth(),
+                year = today.getUTCFullYear(),
+                daysInCurrMonth = daysInMonth(month, year);
+
+            // Year
+            for(var i = 2020; i >= 1900; i--){
+                var opt = document.createElement('option');
+                opt.value = i;
+                opt.text = i;
+                yeardropdown.appendChild(opt);
+            }
+
+            // Month
+            for(var i = 0; i < 12; i++){
+                var opt = document.createElement('option');
+                opt.value = months[i];
+                opt.text = months[i];
+                monthdropdown.appendChild(opt);
+            }
+
+            // Day
+            for(var i = 0; i < daysInCurrMonth; i++){
+                var opt = document.createElement('option');
+                opt.value = i + 1;
+                opt.text = i + 1;
+                daydropdown.appendChild(opt);
+            }
+        }
+
+        var daydropdown = document.getElementById("daydropdown"),
+            monthdropdown = document.getElementById("monthdropdown"),
+            yeardropdown = document.getElementById("yeardropdown");
+
+        // Change handler for months
+        monthdropdown.onchange = function(){
+            var newMonth = months.indexOf(monthdropdown.value) + 1,
+                newYear = yeardropdown.value;
+
+            daysInCurrMonth = daysInMonth(newMonth, newYear);
+
+            daydropdown.innerHTML = "";
+            for(var i = 0; i < daysInCurrMonth; i++){
+                var opt = document.createElement('option');
+                opt.value = i + 1;
+                opt.text = i + 1;
+                daydropdown.appendChild(opt);
+            }
+        }
+
+        populateDates()
     });
 </script>
