@@ -1,6 +1,6 @@
 package ar.edu.unlam.recycloud.interceptors;
 
-import ar.edu.unlam.recycloud.web.pages.login.LoginModel;
+import ar.edu.unlam.recycloud.app.usuario.Usuario;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -24,7 +24,7 @@ public class UserInterceptor implements HandlerInterceptor {
             HttpServletResponse response,
             Object handler) throws Exception {
         HttpSession session = httpSessionFactory.getObject();
-        LoginModel login = (LoginModel) session.getAttribute("usuario");
+        Usuario login = (Usuario) session.getAttribute("usuario");
         //if (login == null || login.getRol() != 1) {
         //    response.sendRedirect("/");
         //    return false;

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>RecyCloud</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
 <header id="header" th:fragment="header">
-    <link rel="stylesheet" th:href="@{/css/pages/header.css}">
     <div class="header header-top">
         <div class="header_top_outer flex">
             <div class="header_top_inner flex container space-between">
@@ -24,31 +24,40 @@
                     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="recy-navbar">
                         <div class="collapse navbar-collapse">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item mr-4" th:if="${session.usuario} != null" style=" background: none; border-color: #ececec!important;">
-                                    <a class="nav-link mb-1 mt-1" href="#"><span
-                                            style="font-family: 'DejaVu Sans';font-size: 13px!important;font-weight: 600; color:#ececec!important;text-transform: uppercase;"
-                                            th:text="${session.usuario.usuario}"></span></a>
-                                    <ul style="color: white!important;">
-                                        <li class="nav-item " style="background: #3D3D3D!important;">
-                                            <a class="nav-link" href="/eventos/crear"><span style="color:white;font-size: 12.5px!important;">+ Crear Evento</span></a>
+                                <li class="nav-item mr-4 contenedor-usuario" th:if="${session.usuario} != null">
+                                    <a class="nav-link mb-1 mt-1" href="#">
+                                        <span class="nombre-usuario"
+                                            th:text="${session.usuario.nombre}">
+                                        </span>
+                                    </a>
+                                    <ul class="blanco">
+                                        <li class="nav-item gris-oscuro" >
+                                            <a class="nav-link" href="/home/perfil"><span class="color-menu-usuario">Mi perfil</span></a>
                                         </li>
-                                        <li class="nav-item" style="background: #3D3D3D!important;" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">
-                                            <a class="nav-link" href="/admin/categoria"><span style="color:white;font-size: 12.5px!important;">CATEGORIA</span></a>
+                                        <li class="nav-item gris-oscuro"  th:if="${session.usuario} != null and ${session.usuario.rol} == 3 ">
+                                            <a class="nav-link" href="/eventos/crear"><span class="color-menu-usuario">+ Crear Evento</span></a>
                                         </li>
-                                        <li class="nav-item" style="background: #3D3D3D!important;" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">
-                                            <a class="nav-link" href="/entrenamiento"><span style="color:white;font-size: 12.5px!important;">ENTRENAMIENTO</span></a>
+                                        <li class="nav-item gris-oscuro" th:if="${session.usuario} != null and ${session.usuario.rol} == 3 ">
+                                            <a class="nav-link" href="#"><span class="color-menu-usuario">+ Punto de reciclaje</span></a>
                                         </li>
-                                        <li class="nav-item" style="background: #3D3D3D!important;">
-                                            <a class="nav-link" href="/login/cerrarSession"><span style="color:white;font-size: 12.5px!important;">CERRAR SESION</span></a>
+                                        <li class="nav-item gris-oscuro" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">
+                                            <a class="nav-link" href="/admin/categoria"><span class="color-menu-usuario">CATEGORÍA</span></a>
+                                        </li>
+                                        <li class="nav-item gris-oscuro"  th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">
+                                            <a class="nav-link" href="/entrenamiento"><span class="color-menu-usuario">ENTRENAMIENTO</span></a>
+                                        </li>
+
+                                        <li class="nav-item gris-oscuro">
+                                            <a class="nav-link" href="/login/cerrarSession"><span class="color-menu-usuario">CERRAR SESIÓN</span></a>
                                         </li>
 
                                     </ul>
                                 </li>
                                 <li th:if="${session.usuario} == null" class="nav-item margin-1 bg-light">
-                                    <a class="nav-link" href="/login"><span>INICIAR SESION</span></a>
+                                    <a class="nav-link" href="/login"><span>INICIAR SESIÓN</span></a>
                                 </li>
                                 <li th:if="${session.usuario} == null" class="nav-item margin-1 bg-light">
-                                    <a class="nav-link" href="/login/registrar"><span>REGISTRAR</span></a>
+                                    <a class="nav-link" href="/login/registrar"><span>REGISTRO</span></a>
                                 </li>
 
                             </ul>
@@ -60,12 +69,11 @@
     </div>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a style="width: 25%!important;" class="navbar-brand mt-3" href="/"><img style="height: auto; width: 170px;" src="/css/fotito3.png"> </a>
+            <a class="navbar-brand mt-3 ajuste-imagen" href="/"><img class="estilo-logo" src="/imagenes/fotito3.png"> </a>
             <button type="button" class="mt-4 navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon "></span>
             </button>
-            <div class="mt-3 collapse navbar-collapse" id="navbarCollapse"
-                 style="width: 100%!important;font-weight: 600;">
+            <div class="mt-3 collapse navbar-collapse" id="navbarCollapse">
                 <ul id="navigation" class="ml-auto navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="/"><span
