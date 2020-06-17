@@ -7,43 +7,40 @@
 </head>
 <body>
 <header th:replace="fragments/header"></header>
-<div class="container mb-5">
-    <div class="row mt-5">
-        <div class="col-md-6 text-center">
-            <a><span class="nombre-filtro-evento">FECHA</span></a>
-            <a><span class="card-header filtro-evento">Hoy</span></a>
-            <a><span class="card-header filtro-evento">Semana</span></a>
-            <a><span class="card-header filtro-evento">Mes</span></a>
-        </div>
-        <div class="col-md-6 text-center">
-            <a><span class="nombre-filtro-evento">KM</span></a>
-            <a><span class="card-header filtro-evento">1</span></a>
-            <a><span class="card-header filtro-evento">Menor a 5</span></a>
-            <a><span class="card-header filtro-evento">Mayor a 5</span></a>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 my-2">
+                <div class="col-6 text-center float-left">
+                    <a><span class="nombre-filtro-evento">FECHA</span></a>
+                    <a><span class="card-header filtro-evento">Hoy</span></a>
+                    <a><span class="card-header filtro-evento">Semana</span></a>
+                    <a><span class="card-header filtro-evento">Mes</span></a>
+                </div>
+                <div class="col-6 text-center float-left">
+                    <a><span class="nombre-filtro-evento">KM</span></a>
+                    <a><span class="card-header filtro-evento">1</span></a>
+                    <a><span class="card-header filtro-evento">Menor a 5</span></a>
+                    <a><span class="card-header filtro-evento">Mayor a 5</span></a>
+                </div>
+            </div>
+            <div class="col-12 mt-2 mb-5">
+                <div class="col-lg-6 col-12 float-left" id="card-evento" th:each="eventos : ${listaDeEventos}">
+                    <div class="card text-center col-md-12 mt-2 float-left">
+                        <div class="card-header">
+                            <div class="col-md-8 text-center cabezera-evento float-left"><span th:text="${eventos.titulo}"></span></div>
+                            <div class="col-md-4 text-center naranja float-left"><span th:text="${eventos.fecha}"></span></div>
+                        </div>
+                        <div class="card-body text-center">
+                            <span class="naranja">13,0Km</span> - <a th:text="${eventos.direccion}"></a> <span th:text="${eventos.localidad}"></span> - <span class="naranja"><span th:text="${eventos.horaInicio}"></span></span> a <span class="naranja"><span th:text="${eventos.horaFin}"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-<div class="row mt-2 mb-5">
-    <div class="col-md-12 mt-4" th:each="eventos : ${listaDeEventos}">
-        <table class="table" >
-            <thead class="table-active">
-            <tr>
-                <th class="row row-evento">
-                    <div class="col-md-6 text-center naranja"><span th:text="${eventos.fecha}"></span></div>
-                    <div class="col-md-6 text-center cabezera-evento"><span th:text="${eventos.titulo}"></span></div>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="text-center info-evento">
-                    <span class="verde">13,0Km</span> - <a th:text="${eventos.direccion}"></a> - <span th:text="${eventos.localidad}"></span> - <span class="verde"><span th:text="${eventos.horaInicio}"></span></span> a <span class="verde"><span th:text="${eventos.horaFin}"></span></span>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
- </div>
-</div>
+</section>
+
 <footer th:replace="fragments/footer"></footer>
 </body>
 </html>

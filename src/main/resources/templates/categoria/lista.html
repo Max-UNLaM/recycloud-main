@@ -8,26 +8,25 @@
 </head>
 <body>
 <header th:replace="fragments/header"></header>
-<div class="container mb-5">
-    <div class="row col-12 justify-content-space-around">
-        <div th:each="categoria : ${categorias}" class="card categoria-bloque mt-5"
-             th:style="|background-color: ${categoria.backgroundColor}; color: ${categoria.color}|">
-            <div class="row no-gutters full-height">
-                <div class="col-md-3 card-img-side-container">
+
+<section id="categorias">
+    <div class="container">
+        <div class="row">
+            <div class="card-group col-lg-4 col-12 my-3" th:each="categoria : ${categorias}">
+                <div class="card" th:style="|background-color: ${categoria.backgroundColor} !important; color: ${categoria.color}|">
                     <i class="card-img-side fas fa-7x margin-auto" th:classappend="|${categoria.icon}|"></i>
-                </div>
-                <div class="col-md-9">
                     <div class="card-body">
-                        <h4 class="card-title" th:text="${categoria.nombre}"></h4>
+                        <h4 class="card-title text-center" th:text="${categoria.nombre}"></h4>
                         <p class="card-text" th:text="${categoria.shortDesc}"></p>
-                        <a th:href="@{/categoria/__${categoria.id}__}" class="card-link">Más Info</a>
-                        <a th:href="@{/map?categories=__${#strings.toUpperCase(categoria.nombre)}__}" class="card-link">Encontrar donde reciclar</a>
+                        <a th:href="@{/categoria/__${categoria.id}__}" class="btn btn-primary">Más Información</a>
+                        <a th:href="@{/map?categories=__${#strings.toUpperCase(categoria.nombre)}__}" class="btn btn-primary">Encontrá dónde reciclar</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
 <footer th:replace="fragments/footer"></footer>
 </body>
 </html>
