@@ -55,6 +55,7 @@
     color: darkgreen !important;
 }
 
-.active {
-    font-weight: bolder;
+.btn-active {
+    font-weight: bolder !important;
+    color: ghostwhite !important;
 }
