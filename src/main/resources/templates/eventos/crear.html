@@ -9,10 +9,11 @@
 <body>
 <header th:replace="fragments/header"></header>
 <div class="container mb-5">
-    <div class="row col-md-12 justify-content-md-center mt-5">
-            <form action="#" th:action="@{/eventos/crear}" th:object="${evento}" method="post">
+    <div class="row ">
+        <div class="col-12 justify-content-md-center">
+            <form action="#" th:action="@{/eventos/crear}" th:object="${evento}" method="post" class="col-md-4 col-12 mt-4 float-left">
             <div class="text-center botonera">
-                <div class="col-md-12 text-center mt-4">
+                <div class="col-md-12 text-center mt-2">
                     <input type="date"  class="form-control col-md-12" placeholder="Fecha" name="fecha" id="fecha">
                 </div>
                 <div class="col-md-12 text-center mt-2">
@@ -34,35 +35,24 @@
                     <span class="text-danger" th:if="${#fields.hasErrors('localidad')}" th:errors="*{localidad}"></span>
                 </div>
                 <div class="col-md-12 text-center mt-2">
-                    <button type="submit" class="btn btn-success form-control col-md-12 verde-blanco" id="guardar">Guardar</button>
+                    <button type="submit" class="btn btn-primary form-control col-md-12 verde-blanco" id="guardar">Crear evento</button>
                 </div>
             </div>
         </form>
 
-        <div class="col-md-6">
-                <div class="col-md-12 mt-4" th:each="eventos : ${listaDeEventos}">
-                <table class="table" >
-                    <thead class="table-active">
-                    <tr>
-                        <th class="row row-evento">
-                            <div class="col-md-6 text-center naranja"><span th:text="${eventos.fecha}"></span></div>
-                            <div class="col-md-6 text-center cabezera-evento"><span th:text="${eventos.titulo}"></span></div>
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td class="text-center info-evento">
-                            <span class="verde">13,0Km</span> - <a th:text="${eventos.direccion}"></a> - <span th:text="${eventos.localidad}"></span> - <span class="verde"><span th:text="${eventos.horaInicio}"></span></span> a <span class="verde"><span th:text="${eventos.horaFin}"></span></span>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+        <div class="col-md-8 col-12 float-left mt-4" id="card-evento">
+            <div class="card text-center col-md-12 mt-2" th:each="eventos : ${listaDeEventos}">
+                <div class="card-header">
+                    <div class="col-md-8 text-center cabezera-evento float-left"><span th:text="${eventos.titulo}"></span></div>
+                    <div class="col-md-4 text-center naranja float-left"><span th:text="${eventos.fecha}"></span></div>
+                </div>
+                <div class="card-body text-center">
+                    <span class="naranja">13,0Km</span> - <a th:text="${eventos.direccion}"></a> <span th:text="${eventos.localidad}"></span> - <span class="naranja"><span th:text="${eventos.horaInicio}"></span></span> a <span class="naranja"><span th:text="${eventos.horaFin}"></span></span>
+                </div>
             </div>
         </div>
-
-
-</div>
+    </div>
+    </div>
 </div>
 <footer th:replace="fragments/footer"></footer>
 
