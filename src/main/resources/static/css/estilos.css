@@ -462,9 +462,7 @@ footer a{
     font-size: 20px;
     line-height: 30px;
 }
-body a, body p{
-    font-family: roboto !important;
-}
+
 .fa, .fas {
     margin: 2% auto !important;
 }

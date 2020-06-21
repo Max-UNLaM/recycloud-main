@@ -1,5 +1,6 @@
-const mapButtonActiveClass = 'active';
+const mapButtonActiveClass = 'btn-active';
 const backgroundColorDataName = 'background';
+const fontColorDataName = 'color';
 const floatNumberMatch = /[-+]?([0-9]*\.[0-9]+|[0-9]+)/g;
 
 let categoryList = [];
@@ -47,6 +48,7 @@ const buttonIterate = (button, category) => {
     let rgba = new RgbaColor();
     rgba.buildColor(button.css('background-color'));
     button.data(backgroundColorDataName, rgba);
+    button.data(fontColorDataName, button.css('color'));
     if (category === null || category === '' || button.text().toLowerCase() === category.toLowerCase()) {
         buttonEnabler(button);
     }
@@ -65,6 +67,7 @@ const buttonEnabler = (button) => {
     const color = button.data(backgroundColorDataName);
     color.currentAlpha = 1;
     button.css('background-color', color.getCssCurrentProperty());
+    button.css('color', 'FFFF00');
     categoryList.push(button.text().toLowerCase());
 }
 
@@ -76,6 +79,7 @@ const buttonDisabler = (button) => {
     const color = button.data(backgroundColorDataName);
     button.removeClass(mapButtonActiveClass);
     button.css('background-color', color.getCssDefaultProperty());
+    button.css('color', button.data(fontColorDataName));
     categoryList = categoryList.filter(category => category !== button.text().toLowerCase());
 }
 
