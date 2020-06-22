@@ -57,9 +57,16 @@ padding: 0!important;
     color: black!important;
 }
 .items-categoria{
-    background: #3D3D3D!important;
+    background: #505050 !important;
     color: white!important;
     font-weight: 600;
+}
+#listado-categorias .active{
+    background-color: #55c655 !important;
+    color: white;
+}
+.menusito .dropdown-menu {
+    z-index: 99999;
 }
 /*entrenamiento*/
 video
@@ -154,7 +161,7 @@ gris-oscuro{
 }
 
 .botones-perfil{
-    background: #ff9d00 !important;
+    background: #55c655 !important;
     color: white;
     width: 50%;
     float: left;
@@ -191,7 +198,7 @@ gris-oscuro{
 /*footer*/
 .contendor-footer{
     background:#3D3D3D;
-    border-top: solid 0.0px #ff9d00;
+    border-top: solid 0.0px #55c655;
 }
 .barrita-footer{
     margin: 10% 15% 5%;
@@ -205,12 +212,12 @@ gris-oscuro{
     display: none;
 }
 nav .active {
-    color: #ff9d00 !important;
+    color: #55c655 !important;
 }
 .list-group-item.active {
     color: white !important;
-    background-color: #ff9d00 !important;
-    border-color: #ff9d00 !important;
+    background-color: #55c655 !important;
+    border-color: #55c655 !important;
 }
 btn-map{
     color: white !important;
@@ -224,7 +231,7 @@ input:focus, input.form-control:focus {
     -webkit-box-shadow: 2px 0px 12px -1px rgba(255,157,0,1);
     -moz-box-shadow: 2px 0px 12px -1px rgba(255,157,0,1);
     box-shadow: 2px 0px 12px -1px rgba(255,157,0,1);
-    border-color: #ff9d00;
+    border-color: #55c655;
 }
 .foto-perfil{
     width: 25%;
@@ -254,7 +261,7 @@ p{
     color: black;
 }
 a:hover {
-    color: rgba(44, 187, 159, 0.5);
+    color: #55c655;
 }
 .color-blanco{
     color: white;
@@ -266,20 +273,21 @@ a:hover {
     color: #55c655;
 }
 .btn-primary {
-    background-color: #ff9d00 !important;
-    border-color: #ff9d00 !important;
+    background-color: #55c655 !important;
+    border-color: #55c655 !important;
     color: white !important;
+    font-weight: 500 !important;
 }
 .fw-600{
     font-weight: 600;
 }
 .btn-primary:hover {
-    background-color: #cc7e00 !important;
-    border-color: #cc7e00 !important;
+    background-color: #3ab13a !important;
+    border-color: #3ab13a !important;
     color: white !important;
 }
 #banner h1{
-    font-size: 60px !important;
+    font-size: 45px !important;
 }
 .iconos {
     width: 7%;
@@ -289,13 +297,16 @@ a:hover {
     background-color: rgba(85, 198, 85, 0.5) !important;
 }
 .degradado{
-    background: #55c655;
-    background: linear-gradient(137deg, rgba(85,198,85,0.5) 0%, rgba(85,198,85,1) 100%);
-    padding: 1% 0 0 0;
+    background: rgb(85,198,85);
+    background: linear-gradient(145deg, rgba(85,198,85,1) 0%, rgba(85,198,85,0.7455357142857143) 100%);
 }
 .degradado ul li a{
-    font-size: 18px !important;
-    font-weight: 600;
+    font-size: 15px !important;
+    font-weight: 400;
+}
+.degradado a{
+    font-size: 13px !important;
+    font-weight: 500;
 }
 .servicios .card{
     padding: 2% 0 0;
@@ -303,16 +314,23 @@ a:hover {
     margin: 0 1%;
     text-align: center;
 }
+.servicios h3{
+    color: white;
+}
 .servicios .card:hover{
-    border-color: #ff9d00;
+    border-color: #55c655;
     transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+#categorias .card:hover{
+    border-color: #55c655;
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
 a {
     color: black !important;
 }
 a:hover {
-    color: #ff9d00 !important;
+    color: #55c655 !important;
 }
 .fondo{
     width: 100%;
@@ -324,7 +342,7 @@ a:hover {
 .descripcion{
     background: white;
     border-radius: 50px;
-    padding: 4% 2%;
+    /*padding: 4% 2%;*/
     background-color: transparent;
 }
 .iconos-servicios{
@@ -338,18 +356,18 @@ a:hover {
     font-size: 15px;
 }
 .servicios h4{
-    color: #ff9d00;
+    color: #55c655;
     text-align: center;
     margin-top: 1%;
     font-size: 1.5rem;
 }
 h3{
     font-size: 35px;
-    color: #ff9d00;
+    color: #55c655;
     font-weight: 600;
 }
 .banner h3{
-    color: #ff9d00;
+    color: #55c655;
 }
 
 .color-naranja {
@@ -450,7 +468,8 @@ footer a{
 }
 #categorias .card{
     padding: 4% 2%;
-    border-color: black;
+    border-color: rgba(0,0,0,.2);
+    background-color: rgba(0,0,0,.03);
 }
 #categorias .card-title{
     font-size: 20px;
@@ -460,11 +479,18 @@ footer a{
 #categorias .btn-primary{
     width: 100%;
     margin: 2% 0%;
+    color: black !important;
+}
+#banner .btn-primary{
+    color: white !important;
+    border-color: white !important;
 }
 #categorias .card-text{
-    min-height: 110px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
+}
+#categorias i{
+    color: white !important;
 }
 #card-evento .card{
     padding: 0 !important;
@@ -480,7 +506,7 @@ footer a{
 .form-control:focus {
     color: #495057;
     background-color: #fff;
-    border-color: #ff9d00 !important;
+    border-color: #55c655 !important;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(255,157,0,.25);
 }
@@ -491,6 +517,14 @@ footer a{
     background-color: white;
     padding: 3% 1%;
     border-radius: 20px;
+}
+.sticky-top {
+    background: white;
+    border-bottom: 1px solid #dbdbdb;
+
+}
+.borde-punteado{
+    border-bottom: 1px dashed #dbdbdb;
 }
 @media screen and (max-width: 550px){
     .iconos-servicios {
@@ -516,7 +550,7 @@ footer a{
     #banner{
         background-image: none;
     }
-    servicios .card{
+    .servicios .card{
         width: 98% !important;
         margin: 2% 1%;
     }
@@ -548,5 +582,29 @@ footer a{
     }
     .descripcion {
         margin: 5% auto;
+    }
+}
+
+@media (min-width: 34em) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 48em) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media (min-width: 62em) {
+    .card-columns {
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
     }
 }

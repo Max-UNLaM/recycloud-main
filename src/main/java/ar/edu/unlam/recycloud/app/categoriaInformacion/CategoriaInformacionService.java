@@ -28,4 +28,8 @@ public class CategoriaInformacionService {
     public CategoriaInformacion save(CategoriaInformacion categoriaInformacion) {
         return categoriaInformacionRepository.save(categoriaInformacion);
     }
+    public List<CategoriaInformacion> trerTodaLaInfoPorCategoria(Long id) {
+        return categoriaInformacionRepository.trerTodaLaInfoPorCategoria(id);
+    }
+
 }
