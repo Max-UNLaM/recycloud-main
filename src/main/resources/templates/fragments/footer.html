@@ -6,48 +6,38 @@
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
-<footer class="page-footer font-small indigo contendor-footer" th:fragment="footer">
-    <div class="container">
-        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
-            <div class="col-md-2 mb-3 text-center">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="#!"><span class="blanco" >HOME</span></a>
-                </h6>
+<footer class="footer">
+    <div class="container bottom_border">
+        <div class="row">
+            <div class=" col-md-6 col-12">
+                <a href="/">
+                <img src="/imagenes/logo.png" alt="RecyCloud" class="logo-footer pt2">
+                </a>
+                <!--<p class="slogan">Reciclar ya no será una excusa</p>-->
             </div>
-            <div class="col-md-2 mb-3 text-center">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="/"><span class="blanco">TIENDA</span></a>
-                </h6>
-            </div>
-            <div class="col-md-2 mb-3 text-center">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="/scanner/scanner"><span class="blanco">SCANNER</span></a>
-                </h6>
-            </div>
-            <div class="col-md-2 mb-3 text-center">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="#"><span class="blanco">CALENDARIO</span></a>
-                </h6>
-            </div>
-            <div class="col-md-2 mb-3 text-center">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="#"><span class="blanco">MAPA</span></a>
-                </h6>
+            <div class=" col-md-6 col-12 text-center">
+                <h5 class="headin5_amrc color-naranja pt2">Menú</h5>
+                <ul class="lista-footer list-inline">
+                    <li class="list-inline-item"><a href="/">Inicio</a></li>
+                    <li class="list-inline-item"><a href="/scanner/scanner">Scanner</a></li>
+                    <li class="list-inline-item"><a href="/map">Mapa</a></li>
+                    <li class="list-inline-item"><a href="/eventos">Eventos</a></li>
+                    <li class="list-inline-item"><a href="/categoria">Información</a></li>
+                    <li class="list-inline-item"><a href="https://recicommerce.exterionmu.com/">Tienda</a></li>
+                </ul>
             </div>
         </div>
-        <hr class="rgba-white-light botonera">
-        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
-            <div class="col-md-8 col-12 mt-5 text-center">
-                <p class="frase-footer">LO ÚNICO QUE NO PODEMOS RECICLAR ES EL TIEMPO QUE MALGASTAMOS.</p>
-            </div>
-
-        </div>
-        <hr class="clearfix d-md-none rgba-white-light barrita-footer">
-
     </div>
-    <div class=" text-center py-3 blanco">© 2020 Copyright:
-        RecyClud.com
+    <div class="container">
+        <p class="text-center mt-2">Copyright @2020 RecyCloudWeb</p>
+        <ul class="iconos-footer">
+            <li><a href="https://www.instagram.com/recycloudweb/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="mailto:recycloudweb@gmail.com" target="_blank"><i class="fa fa fa-envelope"></i></a></li>
+        </ul>
     </div>
 </footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>

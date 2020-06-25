@@ -41,7 +41,7 @@
         <br>
 
         <div class="col-md-2 text-center mt-2">
-                <button type="submit" class="btn col-md-12 verde-blanco" id="botonGuardar" value="GUARDARRR">Guardar</button>
+            <button type="submit" class="btn col-md-12 verde-blanco" id="botonGuardar" value="GUARDARRR">Guardar</button>
         </div>
 
         <div class="col-md-2 text-center mt-2">
@@ -71,7 +71,7 @@
         video = createCapture(VIDEO);
         video.parent('contenedorVideo');
         featureExtractor = ml5.featureExtractor('MobileNet',modelReady);
-        clasificador = featureExtractor.classification(video, { numLabels: 4 });
+        clasificador = featureExtractor.classification(video, { numLabels: 5 });
         configuraBotones();
     }
 
@@ -79,10 +79,10 @@
         botonB = select('#botonTapaDeBotella');
         botonB.mousePressed(function () {
             basura =  document.getElementById("basura").value;
-            clasificador.addImage(basura);
             if(basuraAux == ''){
-            select('#sumaDeImagenesTapaDeBotella').html(tapaDeBotellaImagenes++);
-            basuraAux=document.getElementById("basura").value;
+                select('#sumaDeImagenesTapaDeBotella').html(tapaDeBotellaImagenes++);
+                basuraAux=document.getElementById("basura").value;
+                clasificador.addImage(basura);
             }
             else if(basuraAux != basura){
                 select('#sumaDeImagenesTapaDeBotella').html(tapaDeBotellaImagenes=0);
@@ -91,6 +91,7 @@
             else if(basura == basuraAux) {
                 select('#sumaDeImagenesTapaDeBotella').html(tapaDeBotellaImagenes++);
                 basuraAux=document.getElementById("basura").value;
+                clasificador.addImage(basura);
             }
         });
         botonPredecir = select('#botonPredecir');
@@ -105,7 +106,7 @@
 
         let botonGuardar = select('#botonGuardar');
         botonGuardar.mousePressed(function () {
-        clasificador.save('modelo');
+            clasificador.save('modelo');
         });
 
         loadBtn = select('#cargar');
@@ -121,6 +122,6 @@
         }
     }
 </script>
-
+<footer th:replace="fragments/footer"></footer>
 </body>
 </html>

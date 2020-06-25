@@ -2,7 +2,6 @@ const initialZoom = 15;
 const mapId = "map";
 const pinBaseUrl = "/api/pin";
 const categoryKey = "categories";
-const selectPicker = $('#categorias-select');
 const pinFilterUrl = `${pinBaseUrl}${window.location.search}`;
 const params = new URLSearchParams(window.location.search);
 const category = params.get(categoryKey);
@@ -35,14 +34,6 @@ class Pin {
     location = new Location();
     icon = new Icon();
     dialog = new Dialog();
-}
-
-
-if (category) {
-    $("#categorias-select").selectpicker('val', category.toLowerCase());
-}
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-    selectPicker.selectpicker('mobile');
 }
 
 const request = obj => {

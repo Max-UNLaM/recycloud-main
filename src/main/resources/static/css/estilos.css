@@ -33,6 +33,9 @@
     width:100%!important;
     height:240px!important;
 }
+h1, h2{
+    color: black;
+}
 #avatarImage{
 padding: 0!important;
 }
@@ -84,8 +87,8 @@ video
     color: #ff9d00;
 }
 .cabezera-evento{
-    font-size: 13px;
-    font-weight: 800;
+    font-size: 16px;
+    font-weight: 700;
 }
 .verde{
     color: #3B6E36;
@@ -120,11 +123,17 @@ info-evento{
     border-color: #ececec!important;
 }
 .nombre-usuario{
-    font-family: 'DejaVu Sans';
+    font-family: Roboto;
     font-size: 13px!important;
     font-weight: 600;
     color:#ececec!important;
     text-transform: uppercase;
+}
+.nombre-usuario2{
+    font-family: Roboto;
+    font-size: 18px!important;
+    font-weight: 600;
+    color:black;
 }
 .blanco{
     color: white!important;
@@ -144,9 +153,6 @@ gris-oscuro{
     width: 170px;
 }
 
-#modificar-oculto, #password-oculto{
-    display: none;
-}
 .botones-perfil{
     background: #ff9d00 !important;
     color: white;
@@ -181,36 +187,6 @@ gris-oscuro{
     width: 80%;
     border-radius: 150px;
 }
-.quienes-somos{
-    color:#3B6E36;
-    font-weight: 800;
-    font-size: 30px;
-}
-
-.quienes-somos-font{
-    font-size: 19px;
-}
-#services{
-    background: #E2EEE1;
-    margin-top: -100px;
-}
-.servicios{
-    color: #ff9d00;
-    font-weight: 800;
-    font-size: 30px;
-}
-.img-servicios{
-    width: 70%;
-    height: auto;
-}
-.img-servicios-especial{
-    width: 48%;
-    height: auto;
-}
-.color-servicio{
-    color: #ff9d00;
-    font-weight: 600;
-}
 
 /*footer*/
 .contendor-footer{
@@ -225,25 +201,352 @@ gris-oscuro{
     font-size: 16px;
     color: white!important;
 }
-
 #div_datos, #div_password, #div_puntos{
     display: none;
 }
-
-.active {
+nav .active {
+    color: #ff9d00 !important;
+}
+.list-group-item.active {
+    color: white !important;
     background-color: #ff9d00 !important;
     border-color: #ff9d00 !important;
 }
-
+btn-map{
+    color: white !important;
+}
+nav ul li, ol li {
+    padding: 0px 0 0 !important;
+}
+input:focus, input.form-control:focus {
+    outline:none !important;
+    outline-width: 0 !important;
+    -webkit-box-shadow: 2px 0px 12px -1px rgba(255,157,0,1);
+    -moz-box-shadow: 2px 0px 12px -1px rgba(255,157,0,1);
+    box-shadow: 2px 0px 12px -1px rgba(255,157,0,1);
+    border-color: #ff9d00;
+}
 .foto-perfil{
     width: 25%;
     margin: 0% 37.5% 5%;
 }
-
 .negrita{
     font-width: 700 !important;
 }
 
 .w-100{
     width: 100%;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none !important;
+    color: black;
+}
+nav li a{
+    color: black !important;
+    font-weight: 600;
+}
+p{
+    color: black;
+}
+a:hover {
+    color: rgba(44, 187, 159, 0.5);
+}
+.color-blanco{
+    color: white;
+}
+.logo {
+    width: 30%;
+}
+.color-verde{
+    color: #55c655;
+}
+.btn-primary {
+    background-color: #ff9d00 !important;
+    border-color: #ff9d00 !important;
+    color: white !important;
+}
+.fw-600{
+    font-weight: 600;
+}
+.btn-primary:hover {
+    background-color: #cc7e00 !important;
+    border-color: #cc7e00 !important;
+    color: white !important;
+}
+#banner h1{
+    font-size: 60px !important;
+}
+.iconos {
+    width: 7%;
+    margin-right: 1%;
+}
+.bg-verde{
+    background-color: rgba(85, 198, 85, 0.5) !important;
+}
+.degradado{
+    background: #55c655;
+    background: linear-gradient(137deg, rgba(85,198,85,0.5) 0%, rgba(85,198,85,1) 100%);
+    padding: 1% 0 0 0;
+}
+.degradado ul li a{
+    font-size: 18px !important;
+    font-weight: 600;
+}
+.servicios .card{
+    padding: 2% 0 0;
+    width: 23% !important;
+    margin: 0 1%;
+    text-align: center;
+}
+.servicios .card:hover{
+    border-color: #ff9d00;
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+a {
+    color: black !important;
+}
+a:hover {
+    color: #ff9d00 !important;
+}
+.fondo{
+    width: 100%;
+    height: auto;
+}
+.descripcion img{
+    width: 100%;
+}
+.descripcion{
+    background: white;
+    border-radius: 50px;
+    padding: 4% 2%;
+    background-color: transparent;
+}
+.iconos-servicios{
+    width: 60% !important;
+    margin: 2% 20%;
+}
+.servicios{
+    padding: 3% 0;
+}
+.servicios p{
+    font-size: 15px;
+}
+.servicios h4{
+    color: #ff9d00;
+    text-align: center;
+    margin-top: 1%;
+    font-size: 1.5rem;
+}
+h3{
+    font-size: 35px;
+    color: #ff9d00;
+    font-weight: 600;
+}
+.banner h3{
+    color: #ff9d00;
+}
+
+.color-naranja {
+    color:#ff9d00 !important;
+}
+footer {
+    width:100%;
+    background-color:#505050;
+    min-height:250px;
+    padding:10px 0px 25px 0px ;
+}
+.pt2 {
+    padding-top:40px ;
+    margin-bottom:20px ;
+}
+footer p {
+    font-size:13px;
+    color:white;
+    padding-bottom:0px;
+    margin-bottom:8px;
+}
+.slogan {
+    padding-bottom: 15px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+}
+.lista-footer {
+    margin:0px ;
+    list-style-type:none ;
+    font-size:14px;
+    padding:0px 0px 10px 0px ;
+}
+.lista-footer li {
+    padding:0px 0px 5px 0px;
+}
+.lista-footer li a{
+    color:white;
+    font-weight: 700;
+}
+.padding-right {
+    padding-right:10px;
+}
+.bottom_border {
+    border-bottom:1px solid white;
+    padding-bottom:20px;
+}
+.iconos-footer {
+    display:table;
+    margin:15px auto 0 auto;
+    list-style-type:none;
+}
+.iconos-footer li {
+    padding-left:20px;
+    padding-top:10px !important;
+    float:left;
+}
+.iconos-footer li a {
+    color:white;
+    border:1px solid white;
+    padding:8px;
+    border-radius:50%;
+}
+.iconos-footer li i {
+    width:20px;
+    height:20px;
+    text-align:center;
+}
+.logo-footer{
+    width: 50%;
+    margin-left: 25%;
+}
+.iconos-footer{
+    padding: 0 !important;
+}
+footer a{
+    color: white !important;
+}
+.quienes-somos{
+    padding: 5% 0%;
+    background-image: url(../imagenes/bk-verde.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.quienes-somos img{
+    width: 100%;
+    margin: 0 0%;
+}
+.quienes-somos p{
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.fa, .fas {
+    margin: 2% auto !important;
+}
+#categorias .card{
+    padding: 4% 2%;
+    border-color: black;
+}
+#categorias .card-title{
+    font-size: 20px;
+    color: black;
+    font-weight: 600;
+}
+#categorias .btn-primary{
+    width: 100%;
+    margin: 2% 0%;
+}
+#categorias .card-text{
+    min-height: 110px;
+    font-size: 15px;
+    font-weight: 400;
+}
+#card-evento .card{
+    padding: 0 !important;
+}
+#card-evento .card-body a, #card-evento .card-body span, #card-evento .card-body{
+    font-size: 17px;
+    font-weight: 400;
+}
+.menu-responsive{
+    background-color: transparent;
+    border-color: transparent;
+}
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ff9d00 !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255,157,0,.25);
+}
+#daydropdown option, #monthdropdown option, #yeardropdown option{
+    height: 20px;
+}
+#categoria-admin{
+    background-color: white;
+    padding: 3% 1%;
+    border-radius: 20px;
+}
+@media screen and (max-width: 550px){
+    .iconos-servicios {
+        width: 40% !important;
+        margin: 2% 30% !important;
+    }
+    h3{
+        text-align: center;
+    }
+    .servicios {
+        padding: 5% 0;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .descripcion img {
+        width: 50%;
+        margin: 3% 25%;
+    }
+    .logo {
+        width: 100%;
+    }
+    #banner{
+        background-image: none;
+    }
+    servicios .card{
+        width: 98% !important;
+        margin: 2% 1%;
+    }
+    .servicios {
+        padding: 10% 0;
+    }
+    .headin5_amrc{
+        padding-top: 0 !important;
+    }
+    .quienes-somos{
+        padding: 20% 0%;
+    }
+    .quienes-somos p{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .btn-primary {
+        width: 100%;
+    }
+    #categorias .card-text{
+        min-height: 1px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .navbar-brand{
+        width: 50%;
+    }
+    .descripcion {
+        margin: 5% auto;
+    }
 }
