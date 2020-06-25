@@ -1,0 +1,253 @@
+[
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.0717139,
+        -60.1096311
+      ]
+    },
+    "address": "Av. Dr. Carlos Merlassino 1099, Arrecifes",
+    "categories": [
+      "ECO BOTELLAS",
+      "PLÁSTICO"
+    ],
+    "first_heading": "Eco Botellas",
+    "body_content": "Botellas de tipo PET rellenas de plásticos de un solo uso. Plásticos que cotidianamente usamos una sola vez y luego desechamos, debe estar compactado todo este plástico para que entre la mayor cantidad en 1 sola botella",
+    "days": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes"
+    ],
+    "schedule": "De 9 a 12 y de 16 a 20",
+    "link": "www.prueba.com"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6510276,
+        -58.6238583
+      ]
+    },
+    "categories": [
+      "ECO BOTELLAS",
+      "PLÁSTICO"
+    ],
+    "first_heading": "Llená tu Botella",
+    "body_content": "Este es un pin de prueba",
+    "days": [
+      "sábados",
+      "martes"
+    ],
+    "schedule": "de 15 a 17",
+    "link": "www.prueba.com"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6801923,
+        -58.719233
+      ]
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PAPELES",
+      "TAPITAS"
+    ],
+    "first_heading": "Padua Recicla",
+    "body_content": "Recolectamos tapitas plásticas, papeles blancos y de color, cartón, diarios y revistas. Los acoplamos y enviamos a reciclar.\nLos papeles deben estar separados, por un lado los blancos (tickets, prospectos de remedios, hojas de cuadernos y carpetas, fotocopias, apuntes, agendas, etc.) y por otro los de color (cajitas de remedios, folletos de color, cartulinas, cajas de productos alimenticios o de limpieza, etc.)",
+    "days": [
+      "miércoles",
+      "sábados"
+    ],
+    "schedule": "Mie: 17 a 18, Sab: 12 a 13",
+    "link": "www.prueba.com"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6475677,
+        -58.6208252
+      ]
+    },
+    "address": "Independencia 84, Morón",
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ],
+    "first_heading": "Contenedor UGC Morón",
+    "body_content": "Podés llevar los residuos separados desde tu casa a los contenedores ubicados en cada UGC y en la Reserva Natural Urbana. Acordate de ir en el horario indicado y no dejar la basura fuera del contenedor. Para dejar el aceite y la ropausá los puntos correspondientes.",
+    "days": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes"
+    ],
+    "schedule": "8 a 15 horas",
+    "link": "http://www.moron.gob.ar/puntos-de-recepcion/"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6064186,
+        -58.5988777
+      ]
+    },
+    "address": "Pedernera 280, El Palomar.",
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ],
+    "first_heading": "Contenedor UGC Palomar",
+    "body_content": "Podés llevar los residuos separados desde tu casa a los contenedores ubicados en cada UGC y en la Reserva Natural Urbana. Acordate de ir en el horario indicado y no dejar la basura fuera del contenedor. Para dejar el aceite y la ropausá los puntos correspondientes.",
+    "days": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes"
+    ],
+    "schedule": "8 a 15 horas",
+    "link": "http://www.moron.gob.ar/puntos-de-recepcion/"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6532363,
+        -58.6434944
+      ]
+    },
+    "address": "Martín Irigoyen 525, Castelar Centro.",
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ],
+    "first_heading": "Contenedor UGC Castelar",
+    "body_content": "Podés llevar los residuos separados desde tu casa a los contenedores ubicados en cada UGC y en la Reserva Natural Urbana. Acordate de ir en el horario indicado y no dejar la basura fuera del contenedor. Para dejar el aceite y la ropausá los puntos correspondientes.",
+    "days": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes"
+    ],
+    "schedule": "8 a 15 horas",
+    "link": "http://www.moron.gob.ar/puntos-de-recepcion/"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6835629,
+        -58.6627587
+      ]
+    },
+    "address": "Williams Morris 3520, Castelar Sur.",
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ],
+    "first_heading": "Contenedor UGC Castelar",
+    "body_content": "Podés llevar los residuos separados desde tu casa a los contenedores ubicados en cada UGC y en la Reserva Natural Urbana. Acordate de ir en el horario indicado y no dejar la basura fuera del contenedor. Para dejar el aceite y la ropausá los puntos correspondientes.",
+    "days": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes"
+    ],
+    "schedule": "8 a 15 horas",
+    "link": "http://www.moron.gob.ar/puntos-de-recepcion/"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6532363,
+        -58.6434944
+      ]
+    },
+    "address": "Martín Irigoyen 525, Castelar Centro.",
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ],
+    "first_heading": "Contenedor Castelar",
+    "body_content": "Podés llevar los residuos separados desde tu casa a los contenedores ubicados en cada UGC y en la Reserva Natural Urbana. Acordate de ir en el horario indicado y no dejar la basura fuera del contenedor. Para dejar el aceite y la ropausá los puntos correspondientes.",
+    "days": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes"
+    ],
+    "schedule": "8 a 15 horas",
+    "link": "http://www.moron.gob.ar/puntos-de-recepcion/"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ]
+    },
+    "address": "Baradero 1340, Morón sur.",
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ],
+    "first_heading": "Contenedor UGC Morón sur",
+    "body_content": "Podés llevar los residuos separados desde tu casa a los contenedores ubicados en cada UGC y en la Reserva Natural Urbana. Acordate de ir en el horario indicado y no dejar la basura fuera del contenedor. Para dejar el aceite y la ropausá los puntos correspondientes.",
+    "days": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes"
+    ],
+    "schedule": "8 a 15 horas",
+    "link": "http://www.moron.gob.ar/puntos-de-recepcion/"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6379719,
+        -58.5700491
+      ]
+    },
+    "address": "Solier 417, Villa Sarmiento.",
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ],
+    "first_heading": "Contenedor UGC Villa Sarmiento",
+    "body_content": "Podés llevar los residuos separados desde tu casa a los contenedores ubicados en cada UGC y en la Reserva Natural Urbana. Acordate de ir en el horario indicado y no dejar la basura fuera del contenedor. Para dejar el aceite y la ropausá los puntos correspondientes.",
+    "days": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes"
+    ],
+    "schedule": "8 a 15 horas",
+    "link": "http://www.moron.gob.ar/puntos-de-recepcion/"
+  }
+]

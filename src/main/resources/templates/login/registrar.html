@@ -3,74 +3,45 @@
 <head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
     <title>Registrarse</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/js/jquery-ui.css}">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
 <header th:replace="fragments/header"></header>
 
 <div class="container">
     <div class="row">
-        <div class=" col-md-4 mx-auto">
-            <div class="card card-signin my-5" style="border: none;">
-                <div class="card-body" style="background: #DDE5FF; border-radius: 10px 10px 10px 10px;border:dashed 1px white">
-                    <h5 class="card-title text-center" style="font-weight: 600;"><span style="color: darkorange">Registro General</span></h5>
-
-                    <div STYLE="color: red;font-weight: 600;">REQUISITOS: </div>
-                    <div style="font-weight: 600">Nombre - Apellido - Email - Contraseña</div>
-                </div>
-                <div class="card-body mt-3" style="background: #DDE5FF; border-radius: 10px 10px 10px 10px;border:dashed 1px white">
-                    <h5 class="card-title text-center" style="font-weight: 600;"><span style="color: darkorange">Registro para "Puntos de reciclaje"</span></h5>
-                    <div STYLE="color: red;font-weight: 600;">REQUISITOS: </div>
-                    <div style="font-weight: 600">TODOS LOS CAMPOS</div>
-                </div>
-            </div>
-        </div>
-        <div class=" col-md-6 mx-auto">
+        <div class=" col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card card-signin my-5">
                 <div class="card-body">
-                    <h5 class="card-title text-center"><span style="color: darkorange">Registro</span></h5>
-                    <form action="#" th:action="@{/login/registrar}" th:object="${registrarModel}" method="post">
+                    <h5 class="card-title text-center"><span class="naranja">Registro</span></h5>
+                    <form action="#" th:action="@{/login/registrar}" th:object="${usuario}" method="post">
                         <div class="form-label-group">
-                            <input type="text" id="nombre2" th:field="*{nombre}" class="form-control" placeholder="Nombre"  autofocus>
+                            <input type="text" th:field="*{nombre}" id="nombre" class="form-control" placeholder="Nombre" autofocus>
                             <span class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
                         </div>
-                        <div class="form-label-group mt-3">
-                            <input type="text" id="apellido2" th:field="*{apellido}" class="form-control" placeholder="Apellido">
-                            <span class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
 
-                        </div>
                         <div class="form-label-group mt-3">
-                            <input type="number" id="dni" th:field="*{apellido}" class="form-control" placeholder="Documento">
+                            <input type="text" th:field="*{apellido}" id="apellido" class="form-control" placeholder="Apellido">
                             <span class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
-
                         </div>
-                        <div class="form-label-group mt-3">
-                            <input type="text" id="localidad" th:field="*{apellido}" class="form-control" placeholder="Localidad">
-                            <span class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
 
-                        </div>
                         <div class="form-label-group mt-3">
-                            <input type="text" id="direccion" th:field="*{apellido}" class="form-control" placeholder=" Direccion: Calle y Nro">
-                            <span class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
-
-                        </div>
-                        <div class="form-label-group mt-3">
-                            <input type="text" id="email2" th:field="*{email}" class="form-control" placeholder="Email">
+                            <input type="text" th:field="*{email}" id="email" class="form-control" placeholder="Email">
                             <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
                         </div>
 
                         <div class="form-label-group mt-3">
-                            <input type="password" id="pass2" th:field="*{pass}" name="pass" class="form-control" placeholder="Contraseña">
-                            <span class="text-danger" th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}"></span>
-
+                            <input type="password" th:field="*{password}" id="password" class="form-control" placeholder="Contraseña" >
+                            <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
                         </div>
 
-                        <button style="background: #3B6E36!important;color: white;" class="btn btn-lg btn-block text-uppercase mt-3" id="iniciar2" type="submit">Registrar</button>
+                        <button class="btn btn-primary btn-block text-uppercase mt-3 verde-blanco" id="iniciar2" type="submit">Registrar</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<footer th:replace="fragments/footer"></footer>
 </body>
 </html>

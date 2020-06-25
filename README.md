@@ -45,6 +45,105 @@ https://www.shellhacks.com/mongodb-install-client-mongo-shell-ubuntu-centos/
 
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
 
+## Configurar
+
+### Variables de Entorno
+#### Terminal
+
+```shell script
+nano ~/.bashrc
+```
+
+Y añadir al final de todo:
+
+```shell script
+export MONGO_CONNECTION_STRING="mongodb://localhost"
+export MONGO_DATABASE="recycloud"
+export RECY_SQL_HOST="localhost:3306"
+export RECY_SQL_DB="recycloud"
+export RECY_SQL_USER="sa"
+export RECY_SQL_PASSWORD="1234"
+export RECY_ENV="PROD"
+```
+
+Puede que sea necesario reiniciar el IntelliJ para que reconozca las variables o, si se lo ejecuta desde la terminal:
+
+```shell script
+source ~/.bashrc
+```
+
+#### IntelliJ
+
+Se puede incluir las variables en el mismo IDE. 
+https://www.jetbrains.com/help/objc/add-environment-variables-and-program-arguments.html#
+
+### Bases de datos
+
+#### MYSQL
+
+Primero es necesario cerar una base de datos a usar para nuestro proyecto.
+
+```mysql
+CREATE SCHEMA recycloud;
+```
+
+Crearle un usuario o modificar permisos
+
+```mysql
+CREATE USER 'sa'@'localhost' IDENTIFIED BY '1234';
+```
+
+Darle privilegios a ese usuario
+
+```mysql
+GRANT ALL PRIVILEGES ON * . * TO 'sa'@'localhost';
+```
+
+Para conectarse a las bases de datos, el proyecto necesita que se le pasen ciertas variables de entorno. Para esto, editar el archivo .bashrc o .zshrc:
+
+#### Mongo
+
+Para poder poblar a mongo con datos, primero generar las collections y asignarles un índice de tipo 2dsphere a location.
+
+Conectarse a la base recycloud, si no existe, la va a crear
+
+Primero abrir mongo
+```shell script
+mongo
+```
+
+Usar la base de datos, si no existe la va a crear
+```mongojs
+use recycloud
+```
+
+Agregarle los índices a las collections. Si no existe, las va a crear.
+```mongojs
+db.dialog.createIndex( {location : "2dsphere"});
+db.pin.createIndex( {location : "2dsphere"});
+```
+
+Salir de mongo
+```shell script
+exit
+```
+
+Ir hacia la carpeta de mocks de resources
+
+```shell script
+cd ./src/main/resources/mocks
+```
+Cargar los datos a las collections, dentro de la carpeta de resources:
+```shell script
+mongoimport --jsonArray --db recycloud --collection pin --file pines.json   
+mongoimport --jsonArray --db recycloud --collection dialog --file dialogs.json                                                                                                               1 ↵
+```
+
+### Poblar bases de datos
+
+Hibernate generará las tablase necesarias en la primera ejecución. Pero estas no van a contar con información. Sumarle esa información usando los .sql que hay en /resources/sql.
+Basta con ejecutarlos para poblar las bases de datos.
+
 ## Ejecutar
 
 En unix
@@ -60,7 +159,6 @@ En windows
 ## Tecnologías
 
 ### Spring Framework
-
 Es la base del proyecto conecta a todos los componentes Spring y mete su magia.
 
 ### Spring Boot
@@ -71,6 +169,9 @@ Provee annotations para generar modelos más fácilmente: https://projectlombok.
 
 ### Thymeleaf
 Es nuestro motor de templates. La configuración se encuentra en /conf/ThymeleafConfig. Ahí seteamos una carpeta raíz para los templates, y le decimos a Spring quién está va a resolver los templates.
+
+### Mysql 8
+Usar versión 8 por las dudas, pero cualquier está bien.
 
 ## Estructura
 Los paquetes están organizados por "feature" (características). Cada característica del sistema tiene un paquete propio. Esta característica puede ser: calcular un mapa, mostrar una página web, etc. Cada feature implementará las capas necesarias. Por ejemplo: si un elemento es accesible por el navegador, tendrá un Controller, si accede a una base de datos, un DAO y así.

@@ -1,0 +1,150 @@
+[
+  {
+    "title": "Eco Botellas",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.0717139,
+        -60.1096311
+      ]
+    },
+    "categories": [
+      "ECO BOTELLAS", "PLÁSTICO"
+    ]
+  },
+  {
+    "title": "Llená tu botella",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6510276,
+        -58.6238583
+      ]
+    },
+    "categories": [
+      "ECO BOTELLAS",
+      "PLÁSTICO"
+    ]
+  },
+  {
+    "title": "Padua Recicla",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6801923,
+        -58.719233
+      ]
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PAPELES",
+      "TAPITAS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6475677,
+        -58.6208252
+      ]
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6064186,
+        -58.5988777
+      ]
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6532363,
+        -58.6434944
+      ]
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6835629,
+        -58.6627587
+      ]
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6532363,
+        -58.6434944
+      ]
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ]
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  },
+  {
+    "title": "Morón Verde",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -34.6379719,
+        -58.5700491
+      ]
+    },
+    "categories": [
+      "CARTÓN",
+      "VIDRIO",
+      "PLÁSTICOS"
+    ]
+  }
+]

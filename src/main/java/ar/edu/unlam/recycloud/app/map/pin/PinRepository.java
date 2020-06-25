@@ -1,0 +1,9 @@
+package ar.edu.unlam.recycloud.app.map.pin;
+
+import java.util.List;
+import java.util.Map;
+
+public interface PinRepository<T> {
+    List<T> findAll();
+    List<T> find(Map<String, String> filters);
+}

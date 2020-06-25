@@ -23,6 +23,7 @@
     margin: auto;
     bottom: 0;
 }
+
 /*  47 * 64 */
 .pin-image-size {
     width: 28px;
@@ -31,4 +32,30 @@
 
 .no-background {
     background-color: rgba(255, 255, 255, 0);
+}
+
+.map-menu {
+    height: 100%;
+    bottom: 0;
+    position: absolute;
+    z-index: 1000;
+    background-color: rgba(217, 217, 217, 0.7);
+}
+
+.map-menu > button {
+    max-height: 50px;
+}
+
+.btn-map {
+    font-weight: bold;
+}
+
+.btn-map:hover {
+    background-color: lightgreen !important;
+    color: darkgreen !important;
+}
+
+.btn-active {
+    font-weight: bolder !important;
+    color: ghostwhite !important;
 }

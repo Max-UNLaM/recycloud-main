@@ -3,7 +3,7 @@
 <head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/js/jquery-ui.css}">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
 <header th:replace="fragments/header"></header>
@@ -13,32 +13,24 @@
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card card-signin my-5">
                 <div class="card-body">
-                    <h5 class="card-title text-center"> RecyCloud </h5>
-                        <form action="#" th:action="@{/login}" th:object="${loginModel}" method="post">
+                    <h4 class="card-title text-center"><span class="naranja">Login</span></h4>
+                    <form action="#" th:action="@{/login}" th:object="${usuario}" method="post">
                         <div class="form-label-group">
-                            <input type="text" th:field="*{usuario}" id="usuario" class="form-control" placeholder="Usuario" autofocus>
-                            <span class="text-danger" th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}"></span>
+                            <input type="text" th:field="*{email}" id="email" class="form-control" placeholder="Email">
+                            <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
                         </div>
 
                         <div class="form-label-group mt-3">
-                            <input type="password" th:field="*{pass}" id="pass" class="form-control" placeholder="Contraseña" >
-                            <span class="text-danger" th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}"></span>
+                            <input type="password" th:field="*{password}" id="password" class="form-control" placeholder="Contraseña" >
+                            <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
                         </div>
-
-                        <div class="custom-control custom-checkbox mb-3 mt-3">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label" for="customCheck1">Recordar Contraseña</label>
-                        </div>
-
-                        <button style="background: #3B6E36!important;color: white;" class="btn btn-lg  btn-block text-uppercase" id="iniciar" type="submit">Iniciar Sesion</button>
-
+                        <button class="btn btn-primary btn-block text-uppercase verde-blanco mt-3" id="iniciar" type="submit">Iniciar sesión</button>
                     </form>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<footer th:replace="fragments/footer"></footer>
 </body>
 </html>
