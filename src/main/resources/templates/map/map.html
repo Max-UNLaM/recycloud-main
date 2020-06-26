@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-12">
             <div class="btn-group-vertical map-menu" role="group" aria-label="Categorías">
-                <button th:each="categoria : ${categorias}" class="btn btn-map" th:style="|background-color: ${categoria.backgroundColor}; color: ${categoria.color}|" th:text="${categoria.nombre}"></button>
+                <button th:each="categoria : ${categorias}" class="btn btn-map" th:text="${categoria.nombre}"></button>
             </div>
             <div id="map"></div>
         </div>
