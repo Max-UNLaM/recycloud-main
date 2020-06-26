@@ -130,17 +130,20 @@ info-evento{
     border-color: #ececec!important;
 }
 .nombre-usuario{
-    font-family: Roboto;
-    font-size: 13px!important;
     font-weight: 600;
-    color:#ececec!important;
+    color:#fff!important;
+    margin-left: 4px;
     text-transform: uppercase;
+    font: 13px/20px Arial, Helvetica, 'Nimbus Sans L', sans-serif;
 }
-.nombre-usuario2{
-    font-family: Roboto;
-    font-size: 18px!important;
-    font-weight: 600;
-    color:black;
+.ajustee{
+    padding: 2.8px!important;
+}
+.letra{
+    font-size: 16px!important;
+    font-weight: 500!important;
+    color: #1c1c1c!important;
+    font: 17px 'Quicksand', sans-serif!important;
 }
 .blanco{
     color: white!important;
