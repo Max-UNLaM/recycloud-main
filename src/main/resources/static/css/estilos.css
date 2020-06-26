@@ -526,6 +526,19 @@ footer a{
 .borde-punteado{
     border-bottom: 1px dashed #dbdbdb;
 }
+
+.flechas{
+    width: 100%;
+    height: auto;
+    margin-top: 25%;
+}
+.numero{
+    font-size: 110px;
+    margin: 0;
+    text-align: center;
+    line-height: 1;
+}
+
 @media screen and (max-width: 550px){
     .iconos-servicios {
         width: 40% !important;
