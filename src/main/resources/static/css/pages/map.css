@@ -39,7 +39,7 @@
     bottom: 0;
     position: absolute;
     z-index: 1000;
-    background-color: rgba(217, 217, 217, 0.7);
+    background-color: #78C978;
 }
 
 .map-menu > button {
@@ -48,14 +48,14 @@
 
 .btn-map {
     font-weight: bold;
+    background-color: rgba(120, 201, 119, 0)!important;
 }
 
 .btn-map:hover {
-    background-color: lightgreen !important;
-    color: darkgreen !important;
+    background: #3EB152!important;
 }
 
 .btn-active {
     font-weight: bolder !important;
-    color: ghostwhite !important;
+    color: white !important;
 }

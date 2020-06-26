@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>RecyCloud</title>
+    <title>RecyCloud ♻️</title>
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
@@ -16,7 +16,7 @@
                             src="/imagenes/insta.svg"
                             alt=""
                             class="iconos"
-                    />@RecyCloudWeb</a
+                    />recyCloudWeb</a
                     >
                 </div>
                 <div class="col-7 float-left">
@@ -33,7 +33,7 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item m-0 p-0">
                         <div class="dropdown float-right">
-                            <button class="btn btn-primary dropdown-toggle" th:if="${session.usuario} != null" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn-sm btn-primary dropdown-toggle ajustee" th:if="${session.usuario} != null" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="nombre-usuario"
                                       th:text="${session.usuario.nombre}">
                                 </span>
@@ -76,53 +76,30 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/"
+                    <a class="nav-link letra" href="/"
                     >Inicio <span class="sr-only">(current)</span></a
                     >
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/scanner/scanner">Scanner</a>
+                    <a class="nav-link letra" href="/scanner/scanner">Scanner</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/map">Mapa</a>
+                    <a class="nav-link letra" href="/map">Mapa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/eventos">Eventos</a>
+                    <a class="nav-link letra" href="/eventos">Eventos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/categoria">Categorías</a>
+                    <a class="nav-link letra" href="/categoria">Categorías</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://recicommerce.exterionmu.com/">Tienda</a>
+                    <a class="nav-link letra" href="https://recicommerce.exterionmu.com/">Tienda</a>
                 </li>
                 <li class="nav-item d-block d-md-none" th:if="${session.usuario} == null">
-                    <a class="nav-link" href="/login">Iniciar sesión</a>
+                    <a class="nav-link letra" href="/login">Iniciar sesión</a>
                 </li>
                 <li class="nav-item d-block d-md-none" th:if="${session.usuario} == null">
-                    <a class="nav-link" href="/login/registrar">Registro</a>
-                </li>
-                <li class="nav-item d-block d-md-none">
-                    <div class="dropdown float-left">
-                        <a class="nav-link dropdown-toggle" th:if="${session.usuario} != null" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="nombre-usuario2"
-                                  th:text="${session.usuario.nombre}">
-                            </span>
-                        </a>
-                        <div class="dropdown-menu menu-responsive" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="/home/perfil">Mi perfil</a>
-                            <a class="dropdown-item" href="/eventos/crear" th:if="${session.usuario} != null and ${session.usuario.rol} == 3 ">Crear evento</a>
-                            <a class="dropdown-item" href="#" th:if="${session.usuario} != null and ${session.usuario.rol} == 3 ">Punto de reciclaje</a>
-                            <a class="dropdown-item" href="/admin/categoria" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">Categoría</a>
-                            <a class="dropdown-item" href="/entrenamiento" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">Entrenamiento</a>
-                            <a class="dropdown-item" href="/login/cerrarSession">Cerrar sesión</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item d-block d-md-none">
-                    <a class="nav-link" href="https://www.instagram.com/recycloudweb/" target="_blank">Instagram</a>
-                </li>
-                <li class="nav-item d-block d-md-none">
-                    <a class="nav-link" href="mailto:recycloudweb@gmail.com" target="_blank">Mail</a>
+                    <a class="nav-link letra" href="/login/registrar">Registro</a>
                 </li>
             </ul>
         </div>
