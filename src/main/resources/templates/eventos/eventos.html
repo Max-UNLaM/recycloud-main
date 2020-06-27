@@ -8,31 +8,72 @@
 <body>
 <header th:replace="fragments/header"></header>
 <section>
-    <div class="container">
+    <div class="container eventos">
         <div class="row">
-            <div class="col-12 my-2">
-                <div class="col-6 text-center float-left">
-                    <a><span class="nombre-filtro-evento">FECHA</span></a>
-                    <a><span class="card-header filtro-evento">Hoy</span></a>
-                    <a><span class="card-header filtro-evento">Semana</span></a>
-                    <a><span class="card-header filtro-evento">Mes</span></a>
-                </div>
-                <div class="col-6 text-center float-left">
-                    <a><span class="nombre-filtro-evento">KM</span></a>
-                    <a><span class="card-header filtro-evento">1</span></a>
-                    <a><span class="card-header filtro-evento">Menor a 5</span></a>
-                    <a><span class="card-header filtro-evento">Mayor a 5</span></a>
+            <div class="col-2 mt-4 float-left pr-0 py-0">
+                <div id="ocultamiento">
+                    <div class="col-12 text-center float-left p-0">
+                        <div class="list-group w-100 float-left form-filtro">
+                            <p class="list-group-item active titulo-categoria">FILTROS</p>
+                            <form action="">
+                                <div class="form-group list-group-item bordes-categoria">
+                                    <p>Fecha</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Hoy
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" >
+                                        <label class="form-check-label color-radio" for="exampleRadios2">
+                                            Semana
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
+                                        <label class="form-check-label" for="exampleRadios3">
+                                            Mes
+                                        </label>
+                                    </div>
+                                </div>
+                            </form>
+                            <form action="">
+                                <div class="form-group list-group-item bordes-categoria">
+                                    <p>Distancia km</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4" >
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            1
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5" >
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Menor a 5
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6" >
+                                        <label class="form-check-label" for="exampleRadios3">
+                                            Mayor a 5
+                                        </label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 mt-2 mb-5">
+            <div class="col-md-10 mt-2 mb-5">
                 <div class="col-lg-6 col-12 float-left" id="card-evento" th:each="eventos : ${listaDeEventos}">
-                    <div class="card text-center col-md-12 mt-2 float-left">
-                        <div class="card-header">
+                    <div class="card text-center col-md-12 my-15 float-left">
+                        <div class="card-header degradado">
                             <div class="col-md-8 text-center cabezera-evento float-left"><span th:text="${eventos.titulo}"></span></div>
-                            <div class="col-md-4 text-center naranja float-left"><span th:text="${eventos.fecha}"></span></div>
+                            <div class="col-md-4 text-center cabezera-evento float-left"><span th:text="${eventos.fecha}"></span></div>
                         </div>
                         <div class="card-body text-center">
-                            <span class="naranja">13,0Km</span> - <a th:text="${eventos.direccion}"></a> <span th:text="${eventos.localidad}"></span> - <span class="naranja"><span th:text="${eventos.horaInicio}"></span></span> a <span class="naranja"><span th:text="${eventos.horaFin}"></span></span>
+                            <span class="color-verde2">13,0Km</span> - <a th:text="${eventos.direccion}"></a>, <span th:text="${eventos.localidad}"></span> <br> <span th:text="${eventos.horaInicio}" class="color-verde2"></span> a <span class="color-verde2" th:text="${eventos.horaFin}"></span></span>
                         </div>
                     </div>
                 </div>
@@ -40,7 +81,6 @@
         </div>
     </div>
 </section>
-
 <footer th:replace="fragments/footer"></footer>
 </body>
 </html>
