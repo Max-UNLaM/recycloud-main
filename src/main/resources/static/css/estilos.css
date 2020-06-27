@@ -1,14 +1,7 @@
 /*scanner - scannerdos*/
-.divcontenedorVideo{
-    background: black;
-    height: 240px!important;
-}
 .naranja-blanco{
     background: #ff9d00 !important;
     color: white;
-}
-.bordes-adjun{
-    border: dashed 3px #C6C6C6;
 }
 .botonera{
     margin: 0 auto;
@@ -29,15 +22,8 @@
     width: 100%;
     margin: 0 auto !important;
 }
-#imagenn{
-    width:100%!important;
-    height:240px!important;
-}
 h1, h2{
     color: black;
-}
-#avatarImage{
-padding: 0!important;
 }
 #cambiaravideo {
     margin-left: 5px!important;;
@@ -610,4 +596,37 @@ footer a{
         -moz-column-count: 4;
         column-count: 4;
     }
+}
+/*---------------------------------------*/
+#imagenn{
+    width:auto;
+    height:234px;
+    max-width: 374px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+.ajuste-tamaño{
+    width:380px!important;
+    height:240px;
+    margin: 0 auto;
+}
+.ajuste-tamaño2{
+    width:380px!important;
+    height:240px;
+    background: black;
+    margin: 0 auto;
+}
+.divcontenedorVideo{
+    height: 240px!important;
+}
+#avatarImage{
+    padding: 0!important;
+    text-align: center;
+}
+.bordes-adjun{
+    border: solid 3px black;
+}
+.gris-blanco{
+    background: #807e7e!important;
+    color: white;
 }

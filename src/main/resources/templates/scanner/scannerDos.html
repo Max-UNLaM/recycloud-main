@@ -11,36 +11,44 @@
 <header th:replace="fragments/header"></header>
 <div class="container mt-5">
     <div class="row ">
-        <div class="col-md-4 margin-auto text-center divcontenedorVideo">
-            <div class="text-center"id="contenedorVideo"></div>
-        </div>
-        <div class="col-md-4 text-center ">
-            <div class="col-md-12">
-                <a href="/scanner/scanner"><button class="btn col-md-12 mt-5 mb-4 btn-primary "  id="cambiaravideo"><span class="fas fa-arrow-circle-left"></span> Video en tiempo real</button></a>
-            </div>
-            <div class="col-md-12">
-                <button class="btn col-md-12 mt-5 mb-4 btn-primary disabled" disabled  id="cambiaraimagen">Adjunar imagen <span class="fas fa-arrow-circle-right"></span></button>
+        <div class="col-md-6 margin-auto text-center divcontenedorVideo mb-5">
+            <div class="ajuste-tamaño2">
+                <div class="text-center"id="contenedorVideo"></div>
             </div>
         </div>
-        <div id="avatarImage" class="col-md-4 margin-auto text-center s2">
-            <div class="col-md-12 "><img id="imagenn" class="bordes-adjun" src="/imagenes/adjun.png"></div>
+        <div id="avatarImage" class="col-md-6 margin-auto text-center mb-5">
+             <div id="adjuntar-difuminado" class="ajuste-tamaño bordes-adjun text-center">
+                <img id="imagenn" src="/imagenes/adjun.png">
+             </div>
+        </div>
+            <div class="col-md-3 margin-auto mb-2">
+                <a href="/scanner/scanner">
+                    <button class="btn col-md-12 gris-blanco "  id="cambiaravideo">
+                        <span class="fas fa-arrow-circle-left"></span>
+                        Video en tiempo real
+                    </button>
+                </a>
+            </div>
+            <div class="col-md-3 margin-auto mb-2">
+                <button disabled class="btn col-md-12 gris-blanco"  id="cambiaraimagen">Adjunar imagen <span class="fas fa-arrow-circle-right"></span></button>
+            </div>
         </div>
     </div>
 </div>
-    <div class="row mt-2 centrarvideo text-center">
-        <div class="col-md-12 mt-2 mb-4 text-center">
-            <span class="col-md-12 " id="result"></span>
+    <div class="row centrarvideo text-center">
+        <div class="col-md-12 mb-3 text-center">
+            <span class="col-md-12" id="result"></span>
         </div>
     </div>
-    <div class="row centrarbotones">
-            <div class="col-md-4 mb-2">
-                <button class="btn col-md-12 verde-blanco" id="botonPredecir">Iniciar</button>
+    <div class="row centrarbotones mb-5">
+            <div class="col-md-4 ">
+                <button class="btn col-md-12 btn-primary" id="botonPredecir">Iniciar</button>
             </div>
-            <div class="col-md-4 mb-2">
-                <button class="btn col-md-12 verde-blanco" onclick="masInfo()" id="info">Mas Información</button>
+            <div class="col-md-4 ">
+                <button class="btn col-md-12 btn-primary" onclick="masInfo()" id="info">Mas Información</button>
             </div>
-            <div class="col-md-4 mb-2">
-                <button class="btn col-md-12 verde-blanco mb-5" onclick="verMapa()" id="mapita">Ver Mapa</button>
+            <div class="col-md-4 ">
+                <button class="btn col-md-12 btn-primary mb-5" onclick="verMapa()" id="mapita">Ver Mapa</button>
             </div>
     </div>
 <input onchange="previewFile()" type="file" hidden name="avatarInput" id="avatarInput" />
@@ -61,7 +69,7 @@
 
         let botonPredecir = select('#botonPredecir');
         botonPredecir.mousePressed(function () {
-            if(document.getElementById('imagenn').src === window.location.protocol + "//" + window.location.host + "/" + 'css/adjun.png'){
+            if(document.getElementById('imagenn').src === window.location.protocol + "//" + window.location.host + "/" + 'imagenes/adjun.png'){
                 select("#result").html("Agregue una imagen por favor.");
             }else {
             clasificador.predict(document.getElementById('imagenn'), function(err, results) {
@@ -116,14 +124,16 @@
     });
 
     function previewFile() {
+        const clasedifuminado = document.querySelector('#adjuntar-difuminado');
         const preview = document.querySelector('#imagenn');
         const di = document.querySelector('#avatarInput');
         const file = document.querySelector('input[type=file]').files[0];
         const reader = new FileReader();
 
         reader.addEventListener("load", function () {
-            // convert image file to base64 string
+            clasedifuminado.style.backgroundImage=" url('"+ reader.result +"')";
             preview.src = reader.result;
+
         }, false);
 
         if (file) {
