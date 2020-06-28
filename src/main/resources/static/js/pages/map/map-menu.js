@@ -49,7 +49,7 @@ const buttonIterate = (button, category) => {
     rgba.buildColor(button.css('background-color'));
     button.data(backgroundColorDataName, rgba);
     button.data(fontColorDataName, button.css('color'));
-    if (category === null || category === '' || button.text().toLowerCase() === category.toLowerCase()) {
+    if (category != null && button.text().toLowerCase() === category.toLowerCase()) {
         buttonEnabler(button);
     }
 }
@@ -64,9 +64,9 @@ const buttonSwitcher = (button) => {
 
 const buttonEnabler = (button) => {
     button.addClass(mapButtonActiveClass);
-    const color = button.data(backgroundColorDataName);
-    color.currentAlpha = 1;
-    button.css('background-color', color.getCssCurrentProperty());
+    const backgroundColor = button.data(backgroundColorDataName);
+    backgroundColor.currentAlpha = 1;
+    button.css('background-color', backgroundColor.getCssCurrentProperty());
     button.css('color', 'FFFF00');
     categoryList.push(button.text().toLowerCase());
 }
