@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -47,5 +48,12 @@ public class EventoController {
             eventoService.save(evento, user);
             return "/index";
         }
+    }
+
+    @GetMapping(path = "/eventos/filtro/{tiempo}")
+    public ModelAndView leer(@PathVariable String tiempo) {
+        ModelMap modelo = new ModelMap();
+        modelo.addAttribute("listaDeEventos", eventoService.filtroPorTiempo(tiempo));
+        return new ModelAndView("/eventos/eventos", modelo);
     }
 }

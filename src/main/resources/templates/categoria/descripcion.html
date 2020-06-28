@@ -22,7 +22,7 @@
             <div class="list-group col-md-9 mt-5">
                 <div class="card text-center">
                     <div class="card-header items-categoria degradado">
-                        <span style="text-transform: uppercase;"
+                        <span style="text-transform: uppercase;" class="blanco"
                               th:text="${cateseleccionada.nombre}"></span>
                     </div>
                     <div class="card-body">
@@ -30,8 +30,8 @@
                             <div class="card-text" th:text="${informacion.descripcion}"></div><br>
                         </span>
                     </div>
-                    <div class="card-header items-categoria degradado">
-                        TIPOS
+                    <div class="card-header items-categoria degradado ">
+                        <span class="blanco">TIPOS</span>
                     </div>
                     <div class="card-body">
                         <span th:each="informacion : ${informacion}" th:if ="${informacion.tipos} != 'vacio'">
@@ -39,7 +39,7 @@
                         </span>
                     </div>
                     <div class="card-header items-categoria degradado">
-                        ¿CÓMO RECICLAR?
+                        <span class="blanco">¿CÓMO RECICLAR?</span>
                     </div>
                     <div class="card-body">
                         <span th:each="informacion : ${informacion}" th:if ="${informacion.como} != 'vacio'">
@@ -47,7 +47,7 @@
                         </span>
                     </div>
                     <div class="card-header items-categoria degradado">
-                        ¿DÓNDE RECICLAR?
+                        <span class="blanco">¿DÓNDE RECICLAR?</span>
                     </div>
                     <div class="card-body">
                         <a th:href="@{/map?categories=__${#strings.toUpperCase(cateseleccionada.nombre)}__}">
