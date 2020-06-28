@@ -31,7 +31,7 @@
             </div>
             <div class="col-6">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item m-0 p-0">
+                    <li class="nav-item m-0 p-0 ">
                         <div class="dropdown float-right">
                             <button class="btn-sm btn-primary dropdown-toggle ajustee" th:if="${session.usuario} != null" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="nombre-usuario"
@@ -47,11 +47,12 @@
                                 <a class="dropdown-item" href="/login/cerrarSession">Cerrar sesión</a>
                             </div>
                         </div>
+                        <a th:if="${session.usuario} != null" class="letra2 float-right mr-3" href="https://recicommerce.exterionmu.com/">Quiero vender</a>
                     </li>
-                    <li th:if="${session.usuario} == null" class="nav-item m-0 p-0">
-                        <a class="btn-primary btn-sm float-right ml-2" href="/login">INICIAR SESIÓN</a>
-                        <a class="btn-primary btn-sm float-right ml-2 up_case" href="/login/registrar">Regístrate</a>
-                        <a href="https://recicommerce.exterionmu.com/"><span class="letra2 float-right">Quiero vender</span></a>
+                    <li class="nav-item m-0 p-0">
+                        <a th:if="${session.usuario} == null" class="btn-primary btn-sm float-right ml-2" href="/login">INICIAR SESIÓN</a>
+                        <a th:if="${session.usuario} == null" class="btn-primary btn-sm float-right ml-2 up_case" href="/login/registrar">Regístrate</a>
+                        <a th:if="${session.usuario} == null" class="letra2 float-right mr-3" href="https://recicommerce.exterionmu.com/">Quiero vender</a>
                     </li>
                 </ul>
             </div>
