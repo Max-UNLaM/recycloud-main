@@ -1,7 +1,10 @@
 const mapButtonActiveClass = 'btn-active';
 const backgroundColorDataName = 'background';
 const fontColorDataName = 'color';
+const enableTooltipKey = 'recycloud-enable-tooltip';
 const floatNumberMatch = /[-+]?([0-9]*\.[0-9]+|[0-9]+)/g;
+const localStorage = window.localStorage;
+const disabled = 'disabled';
 
 let categoryList = [];
 const buttons = $('.btn-map');
@@ -83,10 +86,56 @@ const buttonDisabler = (button) => {
     categoryList = categoryList.filter(category => category !== button.text().toLowerCase());
 }
 
+const bindTooltip = (element) => {
+    element.popover({
+        trigger: 'manual',
+        html: true,
+        content: '',
+        title: 'Categorías',
+        placement: 'right',
+        template: `
+<div class="popover" role="popover">
+    <div class="arrow"></div>
+    <h5 class="popover-title recy-popover-title">Categorías</h5>
+    <div class="popover-text">
+        ¡Elegí los tipos de reciclaje acá para ver dónde dejarlos!
+    </div>
+    <a href="#" class="card-link" id="popover-cerrar">Cerrar</a>
+    <a href="#" class="card-link" id="popover-no-volver">No volver a mostrar</a>
+</div>
+</div>
+`
+    });
+}
+
+const activateTooltip = (element) => {
+    setTimeout(function () {
+        element.popover('toggle');
+        $('#popover-cerrar').click(() => {
+            element.popover('dispose');
+        });
+        $('#popover-no-volver').click(() => {
+            element.popover('dispose');
+            localStorage.setItem(enableTooltipKey, disabled);
+        })
+    }, 2000);
+}
+
+const enableTooltip = () => {
+    if (localStorage.getItem(enableTooltipKey) === disabled) {
+        return;
+    }
+    const menu = $('#vertical-menu');
+    bindTooltip(menu);
+    activateTooltip(menu);
+}
+
 buttons.click(function () {
     buttonSwitcher($(this));
     renewPines(categoryList.join());
 });
 
 fillCategoryList(() => {
+    enableTooltip();
 });
+

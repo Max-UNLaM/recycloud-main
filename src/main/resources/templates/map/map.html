@@ -11,7 +11,8 @@
 <div class="container my-5" th:fragment="main()">
     <div class="row">
         <div class="col-12">
-            <div class="btn-group-vertical map-menu" role="group" aria-label="Categorías">
+            <div class="btn-group-vertical map-menu" data-toggle="popover" role="group" aria-label="Categorías"
+                 id="vertical-menu">
                 <button th:each="categoria : ${categorias}" class="btn btn-map" th:text="${categoria.nombre}"></button>
             </div>
             <div id="map"></div>

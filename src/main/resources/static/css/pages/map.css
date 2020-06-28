@@ -58,3 +58,7 @@
     font-weight: bolder !important;
     color: white !important;
 }
+
+.recy-popover-title {
+    margin-bottom: 2px !important;
+}
