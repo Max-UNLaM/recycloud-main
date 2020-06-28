@@ -15,7 +15,7 @@
                     ><img
                             src="/imagenes/insta.svg"
                             alt=""
-                            class="iconos"
+                            class="iconos2"
                     />recycloudweb</a
                     >
                 </div>
@@ -51,6 +51,7 @@
                     <li th:if="${session.usuario} == null" class="nav-item m-0 p-0">
                         <a class="btn-primary btn-sm float-right ml-2" href="/login">INICIAR SESIÓN</a>
                         <a class="btn-primary btn-sm float-right ml-2 up_case" href="/login/registrar">Regístrate</a>
+                        <a href="https://recicommerce.exterionmu.com/"><span class="letra2 float-right">Quiero vender</span></a>
                     </li>
                 </ul>
             </div>
@@ -91,9 +92,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link letra" href="/categoria">Categorías</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link letra" href="https://recicommerce.exterionmu.com/">Tienda</a>
                 </li>
                 <li class="nav-item d-block d-md-none" th:if="${session.usuario} == null">
                     <a class="nav-link letra" href="/login">Iniciar sesión</a>
