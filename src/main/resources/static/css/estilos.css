@@ -131,7 +131,7 @@ info-evento{
     color:#fff!important;
     margin-left: 4px;
     text-transform: uppercase;
-    font: 13px/20px Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+    font: 14px Arial, Helvetica, 'Nimbus Sans L', sans-serif;
 }
 .ajustee{
     padding: 2.8px!important;
@@ -478,7 +478,7 @@ footer p {
     text-align:center;
 }
 .logo-footer{
-    width: 37%;
+    width: 41%;
     margin-left: 25%;
 }
 .iconos-footer{
