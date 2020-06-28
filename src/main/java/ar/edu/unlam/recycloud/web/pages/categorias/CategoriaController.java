@@ -35,16 +35,9 @@ public class CategoriaController {
     public ModelAndView leer(@PathVariable Long categoriaId) {
         ModelMap viewModel = new ModelMap();
         Categoria categoria = categoriaService.getCategoriaById(categoriaId);
-        viewModel.put("informacion", categoriaInformacionService.getBy(categoria));
+        viewModel.put("informacion", categoriaInformacionService.trerTodaLaInfoPorCategoria(categoria.getId()));
         viewModel.put("allcategoria", categoriaService.findAll());
+        viewModel.put("cateseleccionada", categoria);
         return new ModelAndView("/categoria/descripcion", viewModel);
-    }
-
-    @GetMapping(path = "/categoria/redirect/{categoriaId}")
-    public ModelAndView llevarAPantalla(@PathVariable Long categoriaId) {
-        ModelMap model = new ModelMap();
-        model.put("informacion", categoriaService.getCategoriaById(categoriaId));
-        model.put("allcategoria", categoriaService.findAll());
-        return new ModelAndView("/categoria/descripcion", model);
     }
 }

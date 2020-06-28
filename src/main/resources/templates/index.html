@@ -2,20 +2,19 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
-    <title>RecyCloud</title>
+    <title>RecyCloud ♻️</title>
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
 <header th:replace="fragments/header"></header>
 
 <main>
-    <section id="banner">
+    <section id="banner" class="degradado pt-4">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-12 descripcion">
-                    <h1 class="mb-3 text-center fw-600">RECICLÁ</h1>
-                    <h2 class="mb-3 text-center fw-600">Y ayudá a cuidar nuestro planeta</h2>
-                    <p class="fw-600 text-center">Para tener todas las novedades de <span style="color: #ff9d00;">RecyCloud</span> dejanos tu email o seguinos en nuestro Instagram <a href="https://www.instagram.com/recycloudweb/" target="_blank" style="color: #ff9d00 !important;">@RecyCloudWeb</a></p>
+                <div class="col-md-6 col-12 descripcion mt-4">
+                    <h1 class="mt-5 mb-3 fw-600"><span class="blanco">Reciclá</span> y ayudá a cuidar nuestro planeta</h1>
+                    <p class="fw-600 blanco"> Para recibir todas las novedades de RecyCloud dejanos tu E-mail</p>
                     <form>
                         <div class="form-group">
                             <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Ingrese su Email">
@@ -41,8 +40,6 @@
             </div>
         </div>
     </section>
-    </div> <!-- CIERRE ETIQUETA DEGRADE EN EL HEADER, NO BORRAR -->
-
 
     <section class="quienes-somos">
         <div class="container">
@@ -64,36 +61,49 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h3 class="text-center mb-5 color-naranja">SERVICIOS</h3>
+                    <h3 class="text-center mb-5">SERVICIOS</h3>
                 </div>
                 <div class="card float-left" style="width: 18rem;">
+                    <a href="/scanner/scanner">
                     <img class="card-img-top iconos-servicios" src="/imagenes/scanner.svg" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title">Scanner</h4>
                         <p class="card-text text-center">Sacá o cargá una foto del producto que quieras reciclar para recibir información del mismo.</p>
                     </div>
+                </a>
                 </div>
+
                 <div class="card float-left" style="width: 18rem;">
-                    <img class="card-img-top iconos-servicios" src="/imagenes/mapa.svg" alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Mapa</h4>
-                        <p class="card-text text-center">Buscá en el mapa los puntos mas cercanos para poder llevar tus productos reciclables.</p>
-                    </div>
+                    <a href="/map">
+                        <img class="card-img-top iconos-servicios" src="/imagenes/mapa.svg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title">Mapa</h4>
+                            <p class="card-text text-center">Buscá en el mapa los puntos mas cercanos para poder llevar tus productos reciclables.</p>
+                        </div>
+                    </a>
                 </div>
+
                 <div class="card float-left" style="width: 18rem;">
-                    <img class="card-img-top iconos-servicios" src="/imagenes/tienda.svg" alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Tienda</h4>
-                        <p class="card-text text-center">Utilizá la tienda para comprar o vender tus productos reciclados.</p>
-                    </div>
+                    <a href="https://recicommerce.exterionmu.com/">
+                        <img class="card-img-top iconos-servicios" src="/imagenes/tienda.svg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title">Tienda</h4>
+                            <p class="card-text text-center">Utilizá la tienda para comprar o vender tus productos reciclados.</p>
+                        </div>
+                    </a>
                 </div>
+
+
                 <div class="card float-left" style="width: 18rem;">
+                    <a href="/eventos">
                     <img class="card-img-top iconos-servicios" src="/imagenes/calendario.svg" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title">Eventos</h4>
                         <p class="card-text text-center">Mirá los próximos eventos de recolección o de charlas informativas.</p>
                     </div>
+                    </a>
                 </div>
+
             </div>
         </div>
     </section>

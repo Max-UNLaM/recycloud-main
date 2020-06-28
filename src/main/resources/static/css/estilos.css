@@ -1,14 +1,7 @@
 /*scanner - scannerdos*/
-.divcontenedorVideo{
-    background: black;
-    height: 240px!important;
-}
 .naranja-blanco{
-    background: #ff9d00 !important;
+    background: #f5b041 !important;
     color: white;
-}
-.bordes-adjun{
-    border: dashed 3px #C6C6C6;
 }
 .botonera{
     margin: 0 auto;
@@ -29,15 +22,8 @@
     width: 100%;
     margin: 0 auto !important;
 }
-#imagenn{
-    width:100%!important;
-    height:240px!important;
-}
 h1, h2{
     color: black;
-}
-#avatarImage{
-padding: 0!important;
 }
 #cambiaravideo {
     margin-left: 5px!important;;
@@ -57,9 +43,27 @@ padding: 0!important;
     color: black!important;
 }
 .items-categoria{
-    background: #3D3D3D!important;
+    background: #505050 !important;
     color: white!important;
     font-weight: 600;
+}
+#listado-categorias .active{
+    background-color: #55c655 !important;
+    color: white;
+}
+#listado-categorias .card-header{
+    color: black !important;
+    font-weight: 700;
+}
+.fs-16{
+  font-size: 16px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.menusito .dropdown-menu {
+    z-index: 99999;
+}
+.form-check-input ~ .form-check-label::before {
+
 }
 /*entrenamiento*/
 video
@@ -123,17 +127,28 @@ info-evento{
     border-color: #ececec!important;
 }
 .nombre-usuario{
-    font-family: Roboto;
-    font-size: 13px!important;
     font-weight: 600;
-    color:#ececec!important;
+    color:#fff!important;
+    margin-left: 4px;
     text-transform: uppercase;
+    font: 13px/20px Arial, Helvetica, 'Nimbus Sans L', sans-serif;
 }
-.nombre-usuario2{
-    font-family: Roboto;
-    font-size: 18px!important;
-    font-weight: 600;
-    color:black;
+.ajustee{
+    padding: 2.8px!important;
+}
+.letra{
+    font-weight: 500!important;
+    color: #1c1c1c!important;
+    font: 16px 'Quicksand', sans-serif!important;
+}
+.letra2{
+    margin-top: 1.2%;
+    color: #1c1c1c!important;
+    font: 14px 'Quicksand', sans-serif!important;
+    font-weight: 700!important;
+}
+.letra2:hover{
+    color: #3bac45!important;
 }
 .blanco{
     color: white!important;
@@ -154,7 +169,7 @@ gris-oscuro{
 }
 
 .botones-perfil{
-    background: #ff9d00 !important;
+    background: #55c655 !important;
     color: white;
     width: 50%;
     float: left;
@@ -191,7 +206,8 @@ gris-oscuro{
 /*footer*/
 .contendor-footer{
     background:#3D3D3D;
-    border-top: solid 0.0px #ff9d00;
+    border-top: solid 0.0px #55c655;
+    position: fixed;
 }
 .barrita-footer{
     margin: 10% 15% 5%;
@@ -205,12 +221,12 @@ gris-oscuro{
     display: none;
 }
 nav .active {
-    color: #ff9d00 !important;
+    color: #55c655 !important;
 }
 .list-group-item.active {
     color: white !important;
-    background-color: #ff9d00 !important;
-    border-color: #ff9d00 !important;
+    background-color: #55c655 !important;
+    border-color: #55c655 !important;
 }
 btn-map{
     color: white !important;
@@ -224,7 +240,7 @@ input:focus, input.form-control:focus {
     -webkit-box-shadow: 2px 0px 12px -1px rgba(255,157,0,1);
     -moz-box-shadow: 2px 0px 12px -1px rgba(255,157,0,1);
     box-shadow: 2px 0px 12px -1px rgba(255,157,0,1);
-    border-color: #ff9d00;
+    border-color: #55c655;
 }
 .foto-perfil{
     width: 25%;
@@ -254,7 +270,7 @@ p{
     color: black;
 }
 a:hover {
-    color: rgba(44, 187, 159, 0.5);
+    color: #55c655;
 }
 .color-blanco{
     color: white;
@@ -264,38 +280,61 @@ a:hover {
 }
 .color-verde{
     color: #55c655;
+    background: transparent !important;
+}
+.color-verde2{
+    color: #55c655;
+    font-weight: 600 !important;
+    background: transparent !important;
 }
 .btn-primary {
-    background-color: #ff9d00 !important;
-    border-color: #ff9d00 !important;
+    background-color: #55c655 !important;
+    border-color: #55c655 !important;
     color: white !important;
+    font-weight: 500 !important;
 }
 .fw-600{
     font-weight: 600;
 }
 .btn-primary:hover {
-    background-color: #cc7e00 !important;
-    border-color: #cc7e00 !important;
+    background-color: #3ab13a !important;
+    border-color: #3ab13a !important;
     color: white !important;
 }
 #banner h1{
-    font-size: 60px !important;
+    font-size: 45px !important;
 }
 .iconos {
     width: 7%;
+    margin-right: 1%;
+}
+.iconos2 {
+    width: 8%;
     margin-right: 1%;
 }
 .bg-verde{
     background-color: rgba(85, 198, 85, 0.5) !important;
 }
 .degradado{
-    background: #55c655;
-    background: linear-gradient(137deg, rgba(85,198,85,0.5) 0%, rgba(85,198,85,1) 100%);
-    padding: 1% 0 0 0;
+    background-color: rgb(85,198,85);
+    background: linear-gradient(145deg, rgba(85,198,85,1) 0%, rgba(85,198,85,0.7455357142857143) 100%) !important;
+}
+.linea-divisoria{
+    width: 100%;
+    height: 15px;
+    background-color: rgb(85,198,85);
+    background: linear-gradient(145deg, rgba(85,198,85,1) 0%, rgba(85,198,85,0.7455357142857143) 100%) !important;
+}
+.cabezera-evento span{
+    color: white !important;
 }
 .degradado ul li a{
-    font-size: 18px !important;
-    font-weight: 600;
+    font-size: 15px !important;
+    font-weight: 400;
+}
+.degradado a{
+    font-size: 13px !important;
+    font-weight: 500;
 }
 .servicios .card{
     padding: 2% 0 0;
@@ -303,16 +342,22 @@ a:hover {
     margin: 0 1%;
     text-align: center;
 }
+.servicios h3{
+    color: white;
+}
 .servicios .card:hover{
-    border-color: #ff9d00;
+    border-color: #55c655;
     transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+#categorias .card:hover{
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
 a {
     color: black !important;
 }
 a:hover {
-    color: #ff9d00 !important;
+    color: #55c655 !important;
 }
 .fondo{
     width: 100%;
@@ -321,10 +366,24 @@ a:hover {
 .descripcion img{
     width: 100%;
 }
+.card-scanner-img{
+    width: 50%;
+    margin: 5% auto;
+}
+.info-scan .card{
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+.info-scan .card-body{
+    height: 310px;
+}
+.info-scan .card p{
+    margin: 0 0 10px 0;
+    padding: 0;
+}
 .descripcion{
     background: white;
     border-radius: 50px;
-    padding: 4% 2%;
+    /*padding: 4% 2%;*/
     background-color: transparent;
 }
 .iconos-servicios{
@@ -338,18 +397,18 @@ a:hover {
     font-size: 15px;
 }
 .servicios h4{
-    color: #ff9d00;
+    color: #55c655;
     text-align: center;
     margin-top: 1%;
     font-size: 1.5rem;
 }
 h3{
     font-size: 35px;
-    color: #ff9d00;
+    color: #55c655;
     font-weight: 600;
 }
 .banner h3{
-    color: #ff9d00;
+    color: #55c655;
 }
 
 .color-naranja {
@@ -420,7 +479,7 @@ footer p {
     text-align:center;
 }
 .logo-footer{
-    width: 50%;
+    width: 37%;
     margin-left: 25%;
 }
 .iconos-footer{
@@ -450,21 +509,33 @@ footer a{
 }
 #categorias .card{
     padding: 4% 2%;
-    border-color: black;
+    border-color: rgba(0,0,0,.2);
 }
 #categorias .card-title{
     font-size: 20px;
-    color: black;
+    color: #55c655;
     font-weight: 600;
 }
 #categorias .btn-primary{
     width: 100%;
     margin: 2% 0%;
+    color: white !important;
+}
+#banner .btn-primary{
+    color: white !important;
+    background-color: #f5b041 !important;
+    border-color: #f5b041 !important;
+}
+.color-gris{
+    color: #1c1c1c !important;
 }
 #categorias .card-text{
-    min-height: 110px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
+    min-height: 125px;
+}
+#categorias i{
+    color: white !important;
 }
 #card-evento .card{
     padding: 0 !important;
@@ -473,6 +544,29 @@ footer a{
     font-size: 17px;
     font-weight: 400;
 }
+.eventos .card-body{
+    background-color: white !important;
+    border: 1px solid #ddd !important;
+}
+.eventos .card-header{
+    border: 1px solid #ddd !important;
+}
+.form-filtro p, .form-filtro .form-group{
+    margin: 0 !important;
+}
+.form-filtro .form-group p{
+    padding: 0%;
+    font-weight: 500;
+}
+.form-filtro{
+    border: 1px solid #ddd !important;
+}
+.form-group, .form-group-item{
+    border: 1px solid #ddd; !important;
+}
+.my-15{
+    margin: 15px 0;
+}
 .menu-responsive{
     background-color: transparent;
     border-color: transparent;
@@ -480,7 +574,7 @@ footer a{
 .form-control:focus {
     color: #495057;
     background-color: #fff;
-    border-color: #ff9d00 !important;
+    border-color: #55c655 !important;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(255,157,0,.25);
 }
@@ -492,6 +586,34 @@ footer a{
     padding: 3% 1%;
     border-radius: 20px;
 }
+.sticky-top {
+    background: white;
+    border-bottom: 1px solid #dbdbdb;
+
+}
+.borde-punteado{
+    border-bottom: 1px dashed #dbdbdb;
+}
+
+.flechas{
+    width: 100%;
+    height: auto;
+}
+.flechas2{
+    width: 30%;
+    margin: 2% auto;
+}
+.numero{
+    font-size: 110px;
+    margin: 0;
+    text-align: center;
+    line-height: 1;
+}
+
+#categorias .card {
+    column-count: 4 !important;
+}
+
 @media screen and (max-width: 550px){
     .iconos-servicios {
         width: 40% !important;
@@ -502,6 +624,9 @@ footer a{
     }
     .servicios {
         padding: 5% 0;
+    }
+    #categorias .card {
+        column-count: 1 !important;
     }
 }
 
@@ -516,7 +641,7 @@ footer a{
     #banner{
         background-image: none;
     }
-    servicios .card{
+    .servicios .card{
         width: 98% !important;
         margin: 2% 1%;
     }
@@ -540,6 +665,9 @@ footer a{
         min-height: 1px;
         text-align: center;
     }
+    #categorias .card {
+        column-count: 2 !important;
+    }
 }
 
 @media screen and (max-width: 992px){
@@ -549,4 +677,40 @@ footer a{
     .descripcion {
         margin: 5% auto;
     }
+    #categorias .card {
+        column-count: 3 !important;
+    }
+}
+/*---------------------------------------*/
+#imagenn{
+    width:auto;
+    height:234px;
+    max-width: 374px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+.ajuste-tamaño{
+    width:380px!important;
+    height:240px;
+    margin: 0 auto;
+}
+.ajuste-tamaño2{
+    width:380px!important;
+    height:240px;
+    background: black;
+    margin: 0 auto;
+}
+.divcontenedorVideo{
+    height: 240px!important;
+}
+#avatarImage{
+    padding: 0!important;
+    text-align: center;
+}
+.bordes-adjun{
+    border: solid 3px black;
+}
+.gris-blanco{
+    background: #807e7e!important;
+    color: white;
 }
