@@ -10,11 +10,11 @@
 
 <header th:replace="fragments/header"></header>
 
-<section class="degradado info-scan py-4">
+<section class="info-scan pt-4">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="text-center my-3 font-weight-bold">Cómo utilizar el scanner</h2>
+                <h2 class="text-center my-3 font-weight-bold color-verde">Cómo utilizar el scanner</h2>
             </div>
             <div class="col-12 col-md-3 float-left">
                 <div class="card my-4 py-1">
@@ -30,7 +30,7 @@
             </div>
             <div class="col-md col-12 float-left my-auto">
                 <img src="/imagenes/flecha.svg" alt="flecha" class="flechas d-none d-md-block">
-                <img src="/imagenes/flecha2.svg" alt="flecha" class="flechas d-block d-md-none">
+                <img src="/imagenes/flecha2.svg" alt="flecha" class="flechas2 d-block d-md-none">
             </div>
             <div class="col-12 col-md-3 float-left">
                 <div class="card my-4 py-1">
@@ -43,7 +43,7 @@
             </div>
             <div class="col-md col-12 float-left my-auto">
                 <img src="/imagenes/flecha.svg" alt="flecha" class="flechas d-none d-md-block">
-                <img src="/imagenes/flecha2.svg" alt="flecha" class="flechas d-block d-md-none">
+                <img src="/imagenes/flecha2.svg" alt="flecha" class="flechas2 d-block d-md-none">
             </div>
             <div class="col-12 col-md-3 float-left">
                 <div class="card my-4 py-1">
@@ -60,6 +60,8 @@
         </div>
     </div>
 </section>
+
+<div class="linea-divisoria my-5"></div>
 
 <div class="container mt-5">
     <div class="row ">
@@ -93,13 +95,13 @@
     </div>
 </div>
 <div class="row centrarbotones mb-5">
-    <div class="col-md-4 ">
+    <div class="col-md-4 col-12 mb-2">
         <button class="btn col-md-12 btn-primary" id="botonPredecir">Iniciar</button>
     </div>
-    <div class="col-md-4 ">
+    <div class="col-md-4 col-12 mb-2">
         <button class="btn col-md-12 btn-primary" onclick="masInfo()" id="info">Mas Información</button>
     </div>
-    <div class="col-md-4 ">
+    <div class="col-md-4 col-12 mb-2">
         <button class="btn col-md-12 btn-primary mb-5" onclick="verMapa()" id="mapita">Ver Mapa</button>
     </div>
 </div>

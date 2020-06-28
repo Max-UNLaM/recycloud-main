@@ -307,6 +307,15 @@ a:hover {
     background-color: rgb(85,198,85);
     background: linear-gradient(145deg, rgba(85,198,85,1) 0%, rgba(85,198,85,0.7455357142857143) 100%) !important;
 }
+.linea-divisoria{
+    width: 100%;
+    height: 15px;
+    background-color: rgb(85,198,85);
+    background: linear-gradient(145deg, rgba(85,198,85,1) 0%, rgba(85,198,85,0.7455357142857143) 100%) !important;
+}
+.cabezera-evento span{
+    color: white !important;
+}
 .degradado ul li a{
     font-size: 15px !important;
     font-weight: 400;
@@ -330,7 +339,6 @@ a:hover {
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
 #categorias .card:hover{
-    border-color: #55c655;
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
 a {
@@ -490,25 +498,29 @@ footer a{
 #categorias .card{
     padding: 4% 2%;
     border-color: rgba(0,0,0,.2);
-    background-color: rgba(0,0,0,.03);
 }
 #categorias .card-title{
     font-size: 20px;
-    color: black;
+    color: #55c655;
     font-weight: 600;
 }
 #categorias .btn-primary{
     width: 100%;
     margin: 2% 0%;
-    color: black !important;
+    color: white !important;
 }
 #banner .btn-primary{
     color: white !important;
-    border-color: white !important;
+    background-color: #f5b041 !important;
+    border-color: #f5b041 !important;
+}
+.color-gris{
+    color: #1c1c1c !important;
 }
 #categorias .card-text{
     font-size: 14px;
     font-weight: 400;
+    min-height: 125px;
 }
 #categorias i{
     color: white !important;
@@ -521,11 +533,11 @@ footer a{
     font-weight: 400;
 }
 .eventos .card-body{
-    background-color: rgba(0,0,0,.03) !important;
-    border-color: rgba(0,0,0,.02) !important;
+    background-color: white !important;
+    border: 1px solid #ddd !important;
 }
 .eventos .card-header{
-    border-color: rgba(0,0,0,.02) !important;
+    border: 1px solid #ddd !important;
 }
 .form-filtro p, .form-filtro .form-group{
     margin: 0 !important;
@@ -533,6 +545,12 @@ footer a{
 .form-filtro .form-group p{
     padding: 0%;
     font-weight: 500;
+}
+.form-filtro{
+    border: 1px solid #ddd !important;
+}
+.form-group, .form-group-item{
+    border: 1px solid #ddd; !important;
 }
 .my-15{
     margin: 15px 0;
@@ -569,11 +587,19 @@ footer a{
     width: 100%;
     height: auto;
 }
+.flechas2{
+    width: 30%;
+    margin: 2% auto;
+}
 .numero{
     font-size: 110px;
     margin: 0;
     text-align: center;
     line-height: 1;
+}
+
+#categorias .card {
+    column-count: 4 !important;
 }
 
 @media screen and (max-width: 550px){
@@ -586,6 +612,9 @@ footer a{
     }
     .servicios {
         padding: 5% 0;
+    }
+    #categorias .card {
+        column-count: 1 !important;
     }
 }
 
@@ -624,6 +653,9 @@ footer a{
         min-height: 1px;
         text-align: center;
     }
+    #categorias .card {
+        column-count: 2 !important;
+    }
 }
 
 @media screen and (max-width: 992px){
@@ -633,29 +665,8 @@ footer a{
     .descripcion {
         margin: 5% auto;
     }
-}
-
-@media (min-width: 34em) {
-    .card-columns {
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
-    }
-}
-
-@media (min-width: 48em) {
-    .card-columns {
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
-    }
-}
-
-@media (min-width: 62em) {
-    .card-columns {
-        -webkit-column-count: 4;
-        -moz-column-count: 4;
-        column-count: 4;
+    #categorias .card {
+        column-count: 3 !important;
     }
 }
 /*---------------------------------------*/

@@ -11,12 +11,12 @@
 <section id="categorias" class="my-5">
     <div class="container">
         <div class="row">
-            <div class="card-columns">
-                <div class="card" th:style="|color: ${categoria.color}|" th:each="categoria : ${categorias}">
+            <div class="card-group col-md-3 px-2 my-2" th:each="categoria : ${categorias}">
+                <div class="card" th:style="|color: ${categoria.color}|">
                     <!--<i class="card-img-side fas fa-7x margin-auto" th:classappend="|${categoria.icon}|"></i>-->
                     <div class="card-body">
                         <h4 class="card-title text-center" th:text="${categoria.nombre}"></h4>
-                        <p class="card-text" th:text="${categoria.shortDesc}"></p>
+                        <!--<p class="card-text" th:text="${categoria.shortDesc}"></p>-->
                         <a th:href="@{/categoria/__${categoria.id}__}" class="btn btn-primary"><i class="fas fa-info-circle"></i> Más Información</a>
                         <a th:href="@{/map?categories=__${#strings.toUpperCase(categoria.nombre)}__}" class="btn btn-primary"><i class="fas fa-map-marker-alt"></i> Dónde reciclar</a>
                     </div>
