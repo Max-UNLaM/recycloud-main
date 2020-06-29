@@ -2,11 +2,19 @@ use recycloud;
 
 INSERT INTO categoria(background_color, color, icon, nombre, short_desc) VALUES
 ('rgba(43,155,14,0.35)', '#0d380d', 'fa-recycle', 'Plásticos', 'Los plásticos abarcan una gran familia de materiales que se pueden clasificar en varios tipos y reciclar de distintas manera'),
-('rgba(239,112,0,0.35)', '#EF7000', 'fa-box', 'Cartón', 'Material formado por la superposición de papeles'),
+('rgba(239,112,0,0.35)', '#EF7000', 'fa-box', 'Cartón', 'El reciclaje de cartón sigue un proceso muy similar al reciclaje de papel, por lo que se puede obtener separando correctamente este material, y depositándolo en los contenedores de color azul.'),
 ('rgba(231,16,94,0.35)', '#E7105E', 'fa-wine-bottle', 'Eco Botellas', 'es un envase plástico relleno de más plásticos limpios y secos, residuos que pueden ir desde envoltorios de alimentos hasta cualquier tipo de plástico'),
 ('rgba(5,151,211,0.35)', '#0597D3', 'fa-wine-glass', 'Vidrio', 'El vidrio es un material inorgánico duro, frágil, transparente y amorfo que se encuentra en la naturaleza, aunque también puede ser producido por el ser humano'),
-('rgba(247,214,3,0.80)', '#2A2A2A', 'fa-coins', 'Tapitas', 'Pieza de plástico que se encuentra en la parte superior de un objeto y que sirve para cerrarlo o cubrirlo');
+('rgba(247,214,3,0.80)', '#2A2A2A', 'fa-coins', 'Tapitas', 'Pieza de plástico que se encuentra en la parte superior de un objeto y que sirve para cerrarlo o cubrirlo'),
 
+
+('rgba(247,214,3,0.80)', '#2A2A2A', 'fa-coins', 'Textil', 'El reciclaje textil es el método de reutilización o reprocesamiento de ropa usada, material fibroso y restos de ropa del proceso de fabricación.'),
+('rgba(247,214,3,0.80)', '#2A2A2A', 'fa-coins', 'Pilas y Baterías', 'El reciclaje de pilas y baterías es una actividad cuyo objetivo es reducir el número de pilas y baterías que son descartadas como residuo sólido urbano.'),
+('rgba(247,214,3,0.80)', '#2A2A2A', 'fa-coins', 'Metal', 'Al reciclar la chatarra se reduce la contaminación del agua, aire y los desechos de la minería en un 70%.'),
+('rgba(247,214,3,0.80)', '#2A2A2A', 'fa-coins', 'Electrónico', 'El reciclaje de ordenadores o reciclaje electrónico es la reutilización de ordenadores, o en su defecto el desmontaje de las piezas y su clasificación para su posterior reciclaje.'),
+('rgba(247,214,3,0.80)', '#2A2A2A', 'fa-coins', 'Agua', 'La Reutilización Del Agua. Agua reciclada o de re uso es el proceso de convertir un flujo de residuos en el agua que se puede reutilizar para otros fines.'),
+('rgba(247,214,3,0.80)', '#2A2A2A', 'fa-coins', 'Neumáticos', 'Los neumáticos reciclados se convierten en muchos productos útiles. Un producto común de los neumáticos reciclados es el combustible derivado del neumático.'),
+('rgba(247,214,3,0.80)', '#2A2A2A', 'fa-coins', 'Basura Orgánica', 'El Reciclaje orgánico o de materia orgánica, es aquel en el que la materia a reciclar, proviende de desechos naturales como son los alimentos, hojas, seres vivos o excrementos.');
 
 INSERT INTO recycloud.usuario
 (anio, apellido, dia, dni, email, identificacion, mes, nombre, password, rol)VALUES
@@ -55,6 +63,11 @@ INSERT INTO categoria_informacion(como, descripcion, donde, tipos, categoria_id)
 
 INSERT INTO recycloud.evento
 (direccion, fecha, hora_fin, hora_inicio, localidad, titulo, usuario_id)VALUES
-('Belgrano 1458', '2020/06/17', '15:15', '19:00', 'Ramos Mejía', 'Recolección de EcoBotellas', 1),
-('Mosconi 546', '2020/06/18', '12:00', '15:00', 'San Justo', 'Recolección de Bronce', 2),
-('Perón 2500', '2020/06/19', '09:30', '20:00', 'San Justo', 'Recolección de Vidrio', 3);
+('De los Incas 7546', '2020/06/30', '30:00', '16:00', 'Palermo', 'Clase en vivo de artesanias de reciclaje ', 2),
+('Arieta 2720', '2020/06/29', '09:30', '20:00', 'Villa Luzuriaga', 'Charla informativa de como reciclar', 3),
+('Belgrano 1458', '2020/07/01', '11:15', '19:00', 'Ramos Mejía', 'Reciclaje de EcoBotellas y productos reciclables', 2),
+('Mosconi 546', '2020/07/01', '12:00', '15:00', 'San Justo', 'Festival del reciclaje', 2),
+('De los Incas 7546', '2020/07/05', '10:00', '16:00', 'Palermo', 'Clase en vivo de artesanias de reciclaje ', 2),
+('Arieta 2720', '2020/07/06', '09:30', '20:00', 'Villa Luzuriaga', 'Charla informativa de como reciclar', 3),
+('Dr.Arturo Illia 5876', '2020/07/18', '11:30', '20:00', 'Isidro Casanova', 'Recolección de Tapitas', 3),
+('Jujuy 2500', '2020/07/25', '10:30', '21:00', 'Flores', 'Recolección de Neutamicos', 3);

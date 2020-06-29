@@ -21,7 +21,7 @@ public class EventoService {
     }
 
     public List<Evento> findAllByOrderByFechaAsc() {
-        return eventoRepository.findAllByOrderByFechaAsc();
+        return eventoRepository.findAllByOrderByFechaAsc(this.hoy());
     }
 
     public List<Evento> eventosPorId(Usuario user){
@@ -58,7 +58,7 @@ public class EventoService {
             case "mes":
                 return eventoRepository.filtroPorTiempoSemana(this.hoy(),this.sumaAlDiaActual(30));
             default:
-                return eventoRepository.findAllByOrderByFechaAsc();
+                return eventoRepository.findAllByOrderByFechaAsc(this.hoy());
         }
     }
 }
