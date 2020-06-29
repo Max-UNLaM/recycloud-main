@@ -1,40 +1,29 @@
 package ar.edu.unlam.recycloud.web.pages.puntoreciclaje;
 
-import ar.edu.unlam.recycloud.app.map.pin.Pin;
-import ar.edu.unlam.recycloud.app.map.pin.PinService;
-import ar.edu.unlam.recycloud.app.mongo.MongoFilterFactory;
-import ar.edu.unlam.recycloud.app.puntoreciclaje.PuntoReciclaje;
-import ar.edu.unlam.recycloud.app.puntoreciclaje.PuntoReciclajeService;
 import ar.edu.unlam.recycloud.app.usuario.Usuario;
+import ar.edu.unlam.recycloud.web.pages.puntoreciclaje.create.PuntoReciclajeCreateVMService;
+import ar.edu.unlam.recycloud.web.pages.puntoreciclaje.create.PuntoReciclajeCreateViewModel;
+import ar.edu.unlam.recycloud.web.pages.puntoreciclaje.home.PuntoReciclajeHomeVMService;
+import ar.edu.unlam.recycloud.web.pages.puntoreciclaje.home.PuntoReciclajeHomeViewModel;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 class PuntoReciclajeVMService {
 
-    private final PinService pinService;
-    private final PuntoReciclajeService puntoReciclajeService;
-    private final MongoFilterFactory mongoFilterFactory;
+    private final PuntoReciclajeCreateVMService puntoReciclajeCreateVMService;
+    private final PuntoReciclajeHomeVMService puntoReciclajeHomeVMService;
 
-    PuntoReciclajeVMService(PinService pinService, PuntoReciclajeService puntoReciclajeService, MongoFilterFactory mongoFilterFactory) {
-        this.pinService = pinService;
-        this.puntoReciclajeService = puntoReciclajeService;
-        this.mongoFilterFactory = mongoFilterFactory;
+    PuntoReciclajeVMService(PuntoReciclajeCreateVMService puntoReciclajeCreateVMService, PuntoReciclajeHomeVMService puntoReciclajeHomeVMService) {
+        this.puntoReciclajeCreateVMService = puntoReciclajeCreateVMService;
+        this.puntoReciclajeHomeVMService = puntoReciclajeHomeVMService;
     }
 
-    PuntoReciclajeHomeViewModel buildPuntoReciclajeVM(Usuario usuario) {
-        PuntoReciclajeHomeViewModel viewModel = new PuntoReciclajeHomeViewModel();
-        viewModel.setUserPines(getPinesFromUser(usuario));
-        return viewModel;
+    PuntoReciclajeHomeViewModel buildHome(Usuario usuario) {
+        return puntoReciclajeHomeVMService.build(usuario);
     }
 
-    private List<Pin> getPinesFromUser(Usuario usuario) {
-        List<PuntoReciclaje> puntoReciclajes = puntoReciclajeService.listByUserId(usuario.getId());
-        List<String> coords = new ArrayList<>();
-        puntoReciclajes.forEach((el) -> coords.add(el.getCoordinates()));
-        return pinService.get(mongoFilterFactory.locationListFilter(coords));
+    PuntoReciclajeCreateViewModel buildCreate() {
+        return puntoReciclajeCreateVMService.build();
     }
 
 }

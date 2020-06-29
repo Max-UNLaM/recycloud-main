@@ -18,7 +18,6 @@ public class MongoFilterFactory {
     private final CoordTools coordTools;
     private final Gson gson;
 
-
     MongoFilterFactory(CoordTools coordTools, Gson gson) {
         this.coordTools = coordTools;
         this.gson = gson;

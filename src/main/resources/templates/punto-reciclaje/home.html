@@ -11,23 +11,34 @@
     <div class="card card-signin my-5">
         <div class="card-body">
             <div class="container">
+                <h2>Puntos de Entrega</h2>
                 <div class="row">
-                    <div class="card-group col-md-3 px-2 my-2" th:each="data.userPines : ${pin}">
-                        <div class="card" th:style="|color: ${pin.title}|">
+                    <div class="card-group">
+                        <div class="card" th:each="data.userPines : ${pin}">
                             <!--i class="card-img-side fas fa-7x margin-auto" th:classappend="|${categoria.icon}|"></i-->
                             <div class="card-body">
-                                <h4 class="card-title text-center" th:text="${puntoReciclaje.title}"></h4>
-
+                                <h4 class="card-title text-center" th:text="${pin.title}"></h4>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Dirección: <span th:text="${puntoReciclaje.address}"></span></li>
+                                    <li class="list-group-item">Categorias: <span th:each="pin.categories : ${category}"
+                                                                                  th:text="${category}"
+                                                                                  class="badge badge-primary"></span>
+                                    </li>
                                     <li class="list-group-item">Dapibus ac facilisis in</li>
                                     <li class="list-group-item">Morbi leo risus</li>
                                     <li class="list-group-item">Porta ac consectetur ac</li>
                                     <li class="list-group-item">Vestibulum at eros</li>
                                 </ul>
-                                <p class="card-text text-center" th:text="${categoria.shortDesc}"></p>
-                                <a th:href="@{/categoria/__${categoria.id}__}" class="btn btn-primary"><i class="fas fa-info-circle"></i> Más Información</a>
-                                <a th:href="@{/map?categories=__${#strings.toUpperCase(categoria.nombre)}__}" class="btn btn-primary"><i class="fas fa-map-marker-alt"></i> Dónde reciclar</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title text-center">Añadir</h4>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <a class="btn btn-primary" Href="/punto-reciclaje/create">
+                                            Agregar punto de entrega</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>

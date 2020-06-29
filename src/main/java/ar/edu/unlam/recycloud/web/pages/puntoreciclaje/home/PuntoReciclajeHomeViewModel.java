@@ -1,4 +1,4 @@
-package ar.edu.unlam.recycloud.web.pages.puntoreciclaje;
+package ar.edu.unlam.recycloud.web.pages.puntoreciclaje.home;
 
 import ar.edu.unlam.recycloud.app.map.pin.Pin;
 import lombok.Data;

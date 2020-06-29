@@ -71,9 +71,9 @@ const iconTemplate = (categories) => {
     `;
 }
 
-const badgeTemplate = (days, badgeType) => {
-    return days.map(function (day) {
-        return '<span class="badge badge-' + badgeType + '">' + day + '</span>'
+const badgeTemplate = (items, badgeType) => {
+    return items.map(function (item) {
+        return '<span class="badge badge-' + badgeType + '">' + item + '</span>'
     }).join(" ");
 }
 

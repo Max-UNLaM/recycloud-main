@@ -20,4 +20,6 @@ public class PuntoReciclaje {
 
     @Column(name = "coordinates")
     private String coordinates;
+
+    private Long usuarioId;
 }
