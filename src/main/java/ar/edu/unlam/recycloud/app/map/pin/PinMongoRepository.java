@@ -45,6 +45,11 @@ public class PinMongoRepository implements PinRepository<Pin> {
         return this.mongoConsumer.filter(bsonFilter, Pin.class);
     }
 
+    @Override
+    public List<Pin> find(Bson filter) {
+        return this.mongoConsumer.filter(filter, Pin.class);
+    }
+
     private BsonDocument findIn(String key, List<BsonString> values) {
         BsonDocument inFilter = new BsonDocument("$in", new BsonArray(values));
         return new BsonDocument(key, inFilter);
