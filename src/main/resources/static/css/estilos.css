@@ -538,6 +538,8 @@ footer a{
 }
 #card-evento .card{
     padding: 0 !important;
+    min-height: 169px;
+
 }
 #card-evento .card-body a, #card-evento .card-body span, #card-evento .card-body{
     font-size: 17px;
