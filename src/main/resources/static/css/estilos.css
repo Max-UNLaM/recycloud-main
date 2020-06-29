@@ -222,6 +222,12 @@ gris-oscuro{
 nav .active {
     color: #55c655 !important;
 }
+.list-group-item{
+    padding: .4em!important;
+}
+.list-group-item2{
+    padding: .5em!important;
+}
 .list-group-item.active {
     color: white !important;
     background-color: #55c655 !important;
@@ -548,6 +554,9 @@ footer a{
 .eventos .card-body{
     background-color: white !important;
     border: 1px solid #ddd !important;
+}
+.card-header{
+    padding: .4rem!important;
 }
 .eventos .card-header{
     border: 1px solid #ddd !important;
