@@ -8,4 +8,5 @@ import java.util.List;
 public class PuntoReciclajeCreateViewModel {
     public PuntoReciclajeCreate expectedData = new PuntoReciclajeCreate();
     public List<String> categories;
+    private String[] days = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
 }

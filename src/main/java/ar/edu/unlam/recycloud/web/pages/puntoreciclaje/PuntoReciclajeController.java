@@ -26,9 +26,9 @@ public class PuntoReciclajeController {
     @GetMapping(value = BASE_PATH)
     public ModelAndView home(HttpSession httpSession) {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
-        if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {
-            return new ModelAndView("index");
-        }
+        //if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {
+        //    return new ModelAndView("index");
+       // }
         ModelMap modelMap = new ModelMap();
         modelMap.put("data", this.puntoReciclajeVMService.buildHome(usuario));
         return new ModelAndView("punto-reciclaje/home", modelMap);
@@ -36,10 +36,10 @@ public class PuntoReciclajeController {
 
     @GetMapping(value = CREATE_PATH)
     public ModelAndView create(HttpSession httpSession) {
-        Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
-        if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {
-            return new ModelAndView("index");
-        }
+        //Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
+        //if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {
+        //    return new ModelAndView("index");
+        //}
         ModelMap modelMap = new ModelMap();
         modelMap.put("data", this.puntoReciclajeVMService.buildCreate());
         return new ModelAndView("punto-reciclaje/create", modelMap);
