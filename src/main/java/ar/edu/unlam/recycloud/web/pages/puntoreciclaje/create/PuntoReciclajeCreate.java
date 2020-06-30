@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static ar.edu.unlam.recycloud.web.components.CommonConstants.DAYS;
+
 @Data
 public class PuntoReciclajeCreate {
     @NotEmpty
