@@ -4,9 +4,12 @@ import lombok.Data;
 
 import java.util.List;
 
+import static ar.edu.unlam.recycloud.web.components.CommonConstants.DAYS;
+import static ar.edu.unlam.recycloud.web.components.CommonConstants.HOURS;
+
 @Data
 public class PuntoReciclajeCreateViewModel {
-    public PuntoReciclajeCreate expectedData = new PuntoReciclajeCreate();
-    public List<String> categories;
-    private String[] days = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
+    private List<String> categories;
+    private String[] days = DAYS;
+    private String[] hours = HOURS;
 }

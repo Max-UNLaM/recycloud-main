@@ -15,51 +15,77 @@
         <div class="row">
             <h2>Crear Punto de Entrega</h2>
         </div>
-        <form class="form-row-wide" action="#" th:action="@{/punto-reciclaje/create}" th:object="${data.expectedData}">
-            <div class="row">
-                <div class="form-label-group col-6">
+        <form class="form-row-wide" action="#" th:action="@{/punto-reciclaje/create}" th:object="${form}" method="post">
+            <div class="row margin-3">
+                <div class="form-label-group col-12 col-md-6">
                     <label for="title">Nombre</label>
-                    <input type="text" id="title" th:field="*{title}" class="form-control">
+                    <input type="text" id="title" th:field="*{title}" class="form-control" required min="8">
                     <span class="text-danger" th:if="${#fields.hasErrors('title')}"
                           th:errors="*{title}"></span>
                 </div>
-                <div class="form-label-group col-6">
+                <div class="form-label-group col-12 col-md-6">
                     <label for="address">Dirección</label>
                     <input type="text" id="address" th:field="*{address}" class="form-control">
                     <span class="text-danger" th:if="${#fields.hasErrors('address')}"
                           th:errors="*{address}"></span>
                 </div>
             </div>
-            <div class="row margin-1">
-                <div class="col-6">
-                    <div class="row margin-1">
-                        <div class="form-label-group col-12">
-                            <label for="days">Dias</label>
-                            <select class="selectpicker" id="days" multiple required>
-                                <option th:each="day : ${data.days}" th:text="${day}"></option>
-                            </select>
-                        </div>
+            <div class="row margin-3">
+                <div class="form-label-group col-12 col-md-6">
+                    <label for="days">Dias</label>
+                    <select class="selectpicker form-control" id="days" multiple required th:field="*{days}">
+                        <option th:each="day : ${data.days}" th:text="${day}" th:value="${day}"></option>
+                    </select>
+                </div>
+                <div class="form-label-group col-12 col-md-6">
+                    <label for="categories">Categorías</label>
+                    <select class="selectpicker form-control" id="categories" multiple data-live-search="true"
+                            required th:field="*{categories}">
+                        <option th:each="category : ${data.categories}" th:text="${category}"
+                                th:value="${category}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="row margin-3">
+                <div class="col-12 col-md-6">
+                    <div class="form-label-group">
+                        <label for="begin_hour">Desde</label>
+                        <select class="form-control" id="begin_hour" required th:field="*{beginHour}">
+                            <option th:each="hour : ${data.hours}" th:text="${hour}" th:value="${hour}"></option>
+                        </select>
                     </div>
-                    <div class="row margin-1">
-                        <div class="form-label-group col-12">
-                            <label for="categories">Categorías</label>
-                            <select class="selectpicker" id="categories" multiple data-live-search="true"
-                                    required>
-                                <option th:each="category : ${data.categories}" th:text="${category}"></option>
-                            </select>
-                        </div>
+                    <div class="form-label-group">
+                        <label for="end_hour">Hasta</label>
+                        <select class="form-control" id="end_hour" required th:field="*{endHour}">
+                            <option th:each="hour : ${data.hours}" th:text="${hour}" th:value="${hour}"></option>
+                        </select>
+                    </div>
+                    <div class="form-label-group">
+                        <label for="link">Sitio Web</label>
+                        <input type="url" id="link" th:field="*{link}" class="form-control">
+                        <span class="text-danger" th:if="${#fields.hasErrors('link')}"
+                              th:errors="*{link}"></span>
                     </div>
                 </div>
-                <div class="form-label-group col-6">
+                <div class="form-label-group col-12 col-md-6">
                     <label for="content">Descripción</label>
                     <textarea id="content" th:field="*{content}" class="form-control"
-                              rows="3"></textarea>
+                              rows="6"></textarea>
                     <span class="text-danger" th:if="${#fields.hasErrors('content')}"
                           th:errors="*{content}"></span>
                 </div>
             </div>
-            <div class="row margin-1">
-
+            <div class="row margin-3">
+                <div th:if="${#fields.hasAnyErrors()}">
+                    <p th:each="err : ${#fields.allErrors()}" th:text="${err}">...</p>
+                </div>
+            </div>
+            <div class="row margin-3">
+                <div class="col-12 aligncenter flex justify-content-space-around">
+                    <button type="submit" value="ENVIAR" class="btn btn-primary"
+                            th:disabled="${#fields.hasAnyErrors()}">ENVIAR
+                    </button>
+                </div>
             </div>
         </form>
     </div>
