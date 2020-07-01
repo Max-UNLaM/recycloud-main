@@ -31,7 +31,7 @@
             </div>
             <div class="col-6">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item m-0 p-0">
+                    <li class="nav-item m-0 p-0 ">
                         <div class="dropdown float-right">
                             <button class="btn-sm btn-primary dropdown-toggle ajustee" th:if="${session.usuario} != null" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="nombre-usuario"
@@ -47,11 +47,12 @@
                                 <a class="dropdown-item" href="/login/cerrarSession">Cerrar sesión</a>
                             </div>
                         </div>
+                        <a th:if="${session.usuario} != null" class="letra2 float-right mr-3" href="https://recicommerce.exterionmu.com/">Quiero vender</a>
                     </li>
-                    <li th:if="${session.usuario} == null" class="nav-item m-0 p-0">
-                        <a class="btn-primary btn-sm float-right ml-2" href="/login">INICIAR SESIÓN</a>
-                        <a class="btn-primary btn-sm float-right ml-2 up_case" href="/login/registrar">Regístrate</a>
-                        <a href="https://recicommerce.exterionmu.com/"><span class="letra2 float-right">Quiero vender</span></a>
+                    <li class="nav-item m-0 p-0">
+                        <a th:if="${session.usuario} == null" class="btn-primary btn-sm float-right ml-2" href="/login">INICIAR SESIÓN</a>
+                        <a th:if="${session.usuario} == null" class="btn-primary btn-sm float-right ml-2 up_case" href="/login/registrar">Regístrate</a>
+                        <a th:if="${session.usuario} == null" class="letra2 float-right mr-3" href="https://recicommerce.exterionmu.com/">Quiero vender</a>
                     </li>
                 </ul>
             </div>
@@ -77,27 +78,27 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link letra" href="/"
+                    <a class="nav-link letra" href="/" style="padding-left: 30px;"
                     >Inicio <span class="sr-only">(current)</span></a
                     >
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link letra" href="/scanner/scanner">Scanner</a>
+                    <a class="nav-link letra" href="/scanner/scanner" style="padding-left: 30px;">Scanner</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link letra" href="/map">Mapa</a>
+                    <a class="nav-link letra" href="/map" style="padding-left: 30px;">Mapa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link letra" href="/eventos">Eventos</a>
+                    <a class="nav-link letra" href="/eventos" style="padding-left: 30px;">Eventos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link letra" href="/categoria">Categorías</a>
+                    <a class="nav-link letra" href="/categoria" style="padding-left: 30px;">Categorías</a>
                 </li>
                 <li class="nav-item d-block d-md-none" th:if="${session.usuario} == null">
-                    <a class="nav-link letra" href="/login">Iniciar sesión</a>
+                    <a class="nav-link letra" href="/login" style="padding-left: 30px;">Iniciar sesión</a>
                 </li>
                 <li class="nav-item d-block d-md-none" th:if="${session.usuario} == null">
-                    <a class="nav-link letra" href="/login/registrar">Registro</a>
+                    <a class="nav-link letra" href="/login/registrar" style="padding-left: 30px;">Registro</a>
                 </li>
             </ul>
         </div>

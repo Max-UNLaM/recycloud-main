@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="list-group col-md-3 mt-5">
-                <a href="#" class="list-group-item active titulo-categoria" style="font-size: 1rem">CATEGORÍAS</a>
+                <a href="#" class="list-group-item list-group-item2 active titulo-categoria" style="font-size: 16px;">CATEGORÍAS</a>
                 <span th:each="categoria : ${allcategoria}">
                         <a th:href="@{'/categoria/'+${categoria.id}}" class="list-group-item bordes-categoria fs-16">
                             <span th:text="${categoria.nombre}"></span>

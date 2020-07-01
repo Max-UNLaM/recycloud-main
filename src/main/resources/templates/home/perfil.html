@@ -28,19 +28,19 @@
                     </div>
 
                     <form action="#" th:action="@{/home/modificar}" th:object="${usuario}" method="post" id="div_datos">
-                        <h2 class="card-title text-center">Actualizar datos</h2>
+                        <h3 class="card-title text-center" style="font-size: 30px;">Actualizar datos</h3>
                         <div class="form-inline mt-3">
                             <h5 class="w-100">Fecha de nacimiento</h5>
                             <div class="form-group col-4 px-0">
-                                <select class="form-control w-100" id="daydropdown" name="dia"></select>
+                                <select class="form-control w-100" style="padding-top: 2px!important; padding-bottom: 2px;height: 30px;" id="daydropdown" name="dia"></select>
                             </div>
                             <span class="text-danger"></span>
-                            <div class="form-label-group col-4 px-2">
-                                <select class="form-control w-100" id="monthdropdown" name="mes"></select>
+                            <div class="form-label-group col-4 ">
+                                <select class="form-control w-100" style="padding-top: 2px!important; padding-bottom: 2px;height: 30px;" id="monthdropdown" name="mes"></select>
                             </div>
                             <span class="text-danger"></span>
-                            <div class="form-label-group col-4 px-0">
-                                <select class="form-control w-100" id="yeardropdown" name="anio"></select>
+                            <div class="form-label-group col-4 ">
+                                <select class="form-control w-100" style="padding-top: 2px!important; padding-bottom: 2px;height: 30px;" id="yeardropdown" name="anio"></select>
                             </div>
                             <span class="text-danger"></span>
                         </div>
@@ -48,11 +48,11 @@
                             <input type="number" id="dni" name="dni" class="form-control" placeholder="DNI">
                             <span class="text-danger"></span>
                         </div>
-                        <button class="btn btn-lg  btn-block text-uppercase botones-perfil" id="cambiar_datos" type="submit">Modificar datos</button>
+                        <button class="btn btn-sm  btn-block text-uppercase botones-perfil" id="cambiar_datos" type="submit">Modificar datos</button>
                     </form>
 
                     <form action="#" th:action="@{/home/password}" th:object="${password}" method="post" id="div_password">
-                        <h2 class="card-title text-center">Cambiar contraseña</h2>
+                        <h3 class="card-title text-center" style="font-size: 30px;">Cambiar contraseña</h3>
                         <div class="form-label-group mt-3">
                             <input type="password" id="old-password" name="oldPassword" class="form-control" placeholder="Contraseña actual" >
                             <span class="text-danger"></span>
@@ -67,16 +67,16 @@
                             <input type="password" id="renew-password" name="reNewPassword" class="form-control" placeholder="Confirmar contraseña" >
                             <span class="text-danger" ></span>
                         </div>
-                        <button  class="btn btn-lg  btn-block text-uppercase botones-perfil" id="pass" type="submit">Cambiar contraseña</button>
+                        <button  class="btn btn-sm  btn-block text-uppercase botones-perfil" id="pass" type="submit">Cambiar contraseña</button>
                     </form>
 
                     <form action="#" th:action="@{/home/completar}" th:object="${usuario}" method="post" id="div_puntos">
-                        <h2 class="card-title text-center">Ser punto de reciclaje</h2>
+                        <h3 class="card-title text-center">Ser punto de reciclaje</h3>
                         <div class="form-label-group mt-3">
                             <input type="number" name="identificacion" class="form-control" placeholder="Cuil/Cuit">
                             <span class="text-danger"></span>
                         </div>
-                        <button class="btn btn-lg  btn-block text-uppercase botones-perfil" id="punto-entrega" type="submit">Cargar datos</button>
+                        <button class="btn btn-sm  btn-block text-uppercase botones-perfil" id="punto-entrega" type="submit">Cargar datos</button>
                     </form>
                 </div>
             </div>
