@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
+    <meta charset="UTF-8">
+    <title>RecyCloud ♻️</title>
+    <link rel="stylesheet" th:href="@{/css/pages/map.css}">
+    <link rel="stylesheet" th:href="@{/css/pages/punto-reciclaje.css}">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+</head>
+<body>
+<header th:replace="fragments/header"></header>
+<div class="container my-5" th:fragment="main()">
+    <div class="container" th:replace="punto-reciclaje/punto-form">
+    </div>
+</div>
+
+<footer th:replace="fragments/footer"></footer>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-es_ES.min.js"></script>
+<!-- Create JS -->
+<script th:src="@{/js/lib/rest-client.js}"></script>
+<script async th:src="@{/js/pages/puntoreciclaje/validation.js}"></script>
+<script th:src="@{/js/pages/puntoreciclaje/edit.js}"></script>
+<script th:src="@{/js/pages/puntoreciclaje/punto-map.js}"></script>
+<!-- Google Map api -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0lJoUoC-kiNyutxVB9ay4Oycbs35KjEg&callback=initMap"></script>
+</body>
+</html>

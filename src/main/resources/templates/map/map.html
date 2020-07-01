@@ -11,7 +11,8 @@
 <div class="container my-5" th:fragment="main()">
     <div class="row">
         <div class="col-12">
-            <div class="btn-group-vertical map-menu" role="group" aria-label="Categorías">
+            <div class="btn-group-vertical map-menu" data-toggle="popover" role="group" aria-label="Categorías"
+                 id="vertical-menu">
                 <button th:each="categoria : ${categorias}" class="btn btn-map" th:text="${categoria.nombre}"></button>
             </div>
             <div id="map"></div>
@@ -19,7 +20,7 @@
     </div>
 </div>
 <footer th:replace="fragments/footer"></footer>
-
+<script th:src="@{/js/lib/rest-client.js}"></script>
 <script th:src="@{/js/pages/map/map.js}"></script>
 <script th:src="@{/js/pages/map/map-menu.js}" async defer></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0lJoUoC-kiNyutxVB9ay4Oycbs35KjEg&callback=initMap"></script>

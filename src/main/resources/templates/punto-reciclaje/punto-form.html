@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
+    <meta charset="UTF-8">
+    <title>RecyCloud ♻️</title>
+    <link rel="stylesheet" th:href="@{/css/pages/map.css}">
+    <link rel="stylesheet" th:href="@{/css/pages/punto-reciclaje.css}">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+</head>
+<body>
+<div class="container" th:fragment="fullForm()" id="full-form">
+    <div class="row">
+        <h2 th:text="${data.title}"></h2>
+    </div>
+    <form class="form-row-wide" name="crear" action="#" th:action="@{/punto-reciclaje/} + ${data.action}"
+          th:object="${form}"
+          method="post">
+        <!-- nombre y link -->
+        <div class="row margin-3">
+            <div class="form-label-group col-12 col-md-6">
+                <label for="title">Nombre</label>
+                <input type="text" id="title" th:field="*{title}" class="form-control" required th:value="*{title}">
+                <span class="text-danger" th:if="${#fields.hasErrors('title')}"
+                      th:errors="*{title}"></span>
+            </div>
+            <div class="form-label-group col-12 col-md-6">
+                <label for="link">Sitio Web</label>
+                <input type="url" id="link" th:field="*{link}" class="form-control" required th:value="*{link}">
+                <span class="text-danger" th:if="${#fields.hasErrors('link')}"
+                      th:errors="*{link}"></span>
+            </div>
+        </div>
+        <div class="row margin-3">
+
+        </div>
+        <!-- Días y Categorías -->
+        <div class="row margin-3">
+            <div class="form-label-group col-12 col-md-6">
+                <label for="days">Dias</label>
+                <select class="selectpicker form-control" id="days" multiple required th:field="*{days}"
+                        th:attr="data-lista=*{days}">
+                    <option th:each="day : ${data.days}" th:text="${#strings.capitalize(day)}"
+                            th:value="${day}"></option>
+                </select>
+            </div>
+            <div class="form-label-group col-12 col-md-6">
+                <label for="categories">Categorías</label>
+                <select class="selectpicker form-control" id="categories" multiple data-live-search="true"
+                        required th:field="*{categories}" th:value="*{categories}" th:attr="data-lista=*{categories}">
+                    <option th:each="category : ${data.categories}" th:text="${#strings.capitalize(category)}"
+                            th:value="${category}"></option>
+                </select>
+            </div>
+        </div>
+        <!-- Mapa y Dirección -->
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="row justify-content-center align-content-center">
+                    <div id="punto-map"></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6" th:switch="${data.type}">
+                <div class="row" th:case="'create'">
+                    <div class="form-label-group col-12 col-md-6">
+                        <label for="address">Dirección</label>
+                        <input type="text" id="address" th:field="*{address}" class="form-control" required
+                               th:value="*{title}">
+                        <span class="text-danger" th:if="${#fields.hasErrors('address')}"
+                              th:errors="*{address}"></span>
+                    </div>
+                    <div class="form-label-group col-12 col-md-6">
+                        <label for="city">Localidad</label>
+                        <input type="text" id="city" th:field="*{city}" class="form-control" required
+                               th:value="*{title}" placeholder="Ramos Mejía, Ciudadela, Flores...">
+                    </div>
+                    <div class="row margin-3">
+                        <div class="form-label-group col-12 col-md-6">
+                            <label for="province">Provincia</label>
+                            <select class="selectpicker form-control" th:field="*{province}" id="province" required
+                                    data-live-search="true" data-size="5">
+                                <option th:each="province : ${data.provinces}" th:text="${province}"
+                                        th:value="${province}"></option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6 flex">
+                            <a onclick="validateLocation()" class="btn btn-secondary" id="ubicate">UBICAR EN MAPA</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" th:case="'edit'">
+                    <div class="form-label-group col-12">
+                        <div class="form-label-group col-12">
+                            <label for="address">Dirección</label>
+                            <input type="text" id="address" th:field="*{address}" class="form-control" required
+                                   th:value="*{title}">
+                            <span class="text-danger" th:if="${#fields.hasErrors('address')}"
+                                  th:errors="*{address}"></span>
+                        </div>
+                    </div>
+                    <div class="row margin-3">
+                        <div class="form-label-group col-12 col-md-6">
+                            <label for="province">Provincia</label>
+                            <select class="selectpicker form-control" th:field="*{province}" id="province" required
+                                    data-live-search="true" data-size="5">
+                                <option th:each="province : ${data.provinces}" th:text="${province}"
+                                        th:value="${province}"></option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6 flex">
+                            <a onclick="validateLocation()" class="btn btn-secondary" id="ubicate">UBICAR EN MAPA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Horario y descripción -->
+        <div class="row margin-3">
+            <div class="col-12 col-md-6">
+                <div class="form-label-group">
+                    <label for="begin_hour">Desde</label>
+                    <select class="form-control" id="begin_hour" required th:field="*{beginHour}">
+                        <option th:each="hour : ${data.hours}" th:text="${hour}" th:value="${hour}"></option>
+                    </select>
+                </div>
+                <div class="form-label-group">
+                    <label for="end_hour">Hasta</label>
+                    <select class="form-control" id="end_hour" required th:field="*{endHour}">
+                        <option th:each="hour : ${data.hours}" th:text="${hour}" th:value="${hour}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-label-group col-12 col-md-6">
+                <label for="content">Descripción</label>
+                <textarea id="content" th:field="*{content}" class="form-control"
+                          rows="6" required></textarea>
+                <span class="text-danger" th:if="${#fields.hasErrors('content')}"
+                      th:errors="*{content}"></span>
+            </div>
+        </div>
+        <!-- Error row -->
+        <div class="row align-content-center justify-content-center">
+            <span id="ubication-error" class="error"></span>
+        </div>
+        <input type="hidden" id="coordinates" th:field="*{coordinates}" required data-error="#ubication-error">
+        <!-- Enviar row -->
+        <div class="row margin-3">
+            <div class="col-12 aligncenter flex justify-content-space-around">
+                <button type="submit" value="ENVIAR" class="btn btn-primary">ENVIAR</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

@@ -41,7 +41,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="/home/perfil">Mi perfil</a>
                                 <a class="dropdown-item" href="/eventos/crear" th:if="${session.usuario} != null and ${session.usuario.rol} == 3 ">Crear evento</a>
-                                <a class="dropdown-item" href="#" th:if="${session.usuario} != null and ${session.usuario.rol} == 3 ">Punto de reciclaje</a>
+                                <a class="dropdown-item" href="/punto-reciclaje" th:if="${session.usuario} != null and ${session.usuario.rol} == 3 ">Punto de reciclaje</a>
                                 <a class="dropdown-item" href="/admin/categoria" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">Categoría</a>
                                 <a class="dropdown-item" href="/entrenamiento" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">Entrenamiento</a>
                                 <a class="dropdown-item" href="/login/cerrarSession">Cerrar sesión</a>

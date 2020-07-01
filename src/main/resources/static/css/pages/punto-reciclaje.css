@@ -1,0 +1,12 @@
+#punto-map {
+    width: 350px;
+    height: 200px;
+    position: relative;
+}
+
+#ubicate {
+    color: white !important;
+    width: 250px;
+    height: 40px;
+    align-self: flex-end;
+}

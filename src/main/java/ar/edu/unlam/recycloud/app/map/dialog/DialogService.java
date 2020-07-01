@@ -20,4 +20,12 @@ public class DialogService {
         return repository.findByLocation(location);
     }
 
+    public void createDialog(Dialog dialog) {
+        repository.setDialog(dialog);
+    }
+
+    public void updateDialog(Dialog dialog) {
+        repository.updateDialog(dialog);
+    }
+
 }

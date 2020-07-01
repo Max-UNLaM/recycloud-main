@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
+    <meta charset="UTF-8">
+    <title>RecyCloud ♻️</title>
+    <link rel="stylesheet" th:href="@{/css/pages/map.css}">
+</head>
+<body>
+<header th:replace="fragments/header"></header>
+<div class="container my-5" th:fragment="main()">
+    <div class="card card-signin my-5">
+        <div class="card-body">
+            <div class="container">
+                <h2>Puntos de Entrega</h2>
+                <div class="row">
+                    <div class="card-group">
+                        <div class="card" th:each="puntoReciclaje : ${data.puntosReciclaje}">
+                            <!--i class="card-img-side fas fa-7x margin-auto" th:classappend="|${categoria.icon}|"></i-->
+                            <div class="card-body">
+                                <h4 class="card-title text-center" th:text="${puntoReciclaje.pin.title}"></h4>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Categorias: <span th:each="category : ${puntoReciclaje.pin.categories}"
+                                                                                  th:text="${category}"
+                                                                                  class="badge badge-primary"></span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a class="btn btn-primary" th:href="|/punto-reciclaje/edit/${puntoReciclaje.puntoReciclaje.id}|">
+                                            Editar Punto Reciclaje</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title text-center">Añadir</h4>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <a class="btn btn-primary" Href="/punto-reciclaje/create">
+                                            Agregar punto de entrega</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="fragments/footer"></footer>
+</body>
+</html>

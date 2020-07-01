@@ -39,7 +39,7 @@
     bottom: 0;
     position: absolute;
     z-index: 1000;
-    background-color: #78C978;
+    background-color: rgba(120, 201, 120, 0.74);
 }
 
 .map-menu > button {
@@ -47,7 +47,7 @@
 }
 .btn-map {
     font-weight: bold;
-    background-color: rgba(120, 201, 119, 0)!important;
+    background-color: rgba(120, 201, 119, 0)
 }
 
 .btn-map:hover {
@@ -57,4 +57,8 @@
 .btn-active {
     font-weight: bolder !important;
     color: white !important;
+}
+
+.recy-popover-title {
+    margin-bottom: 2px !important;
 }

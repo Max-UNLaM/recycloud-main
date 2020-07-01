@@ -3,6 +3,7 @@ package ar.edu.unlam.recycloud.app.map.pin;
 import ar.edu.unlam.recycloud.app.utils.GsonTools;
 import ar.edu.unlam.recycloud.app.utils.JsonTools;
 import com.google.inject.internal.util.Lists;
+import org.bson.conversions.Bson;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -32,7 +33,22 @@ public class PinMockRepository implements PinRepository<Pin> {
     }
 
     @Override
+    public List<Pin> find(Bson filter) {
+        return null;
+    }
+
+    @Override
     public List<Pin> find(Map<String, String> filters) {
         return null;
+    }
+
+    @Override
+    public void setPunto(Pin punto) {
+
+    }
+
+    @Override
+    public void updatePunto(Pin pin) {
+
     }
 }

@@ -2,6 +2,7 @@ package ar.edu.unlam.recycloud.app.categoria;
 
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,5 +24,11 @@ public class CategoriaService {
 
     public Categoria getCategoriaById(Long id) {
         return categoriaRepository.getById(id);
+    }
+
+    public List<String> getCategoriaNames() {
+        List<String> categoriaNames = new ArrayList<>();
+        findAll().forEach(categoria -> categoriaNames.add(categoria.getNombre().toLowerCase()));
+        return categoriaNames;
     }
 }
