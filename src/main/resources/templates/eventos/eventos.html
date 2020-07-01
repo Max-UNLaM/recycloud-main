@@ -41,8 +41,8 @@
                 </div>
             </div>
             <div class="col-md-10 mt-2 mb-5">
-                <div class="col-lg-6 col-12 float-left" id="card-evento" th:each="eventos : ${listaDeEventos}">
-                    <div class="card text-center col-md-12 my-15 float-left">
+                <div class="col-md-6 float-left" id="card-evento" th:each="eventos : ${listaDeEventos}">
+                    <div class="card text-center mt-3 ">
                         <div class="card-header degradado">
                             <div class="col-md-8 text-center cabezera-evento float-left"><span th:text="${eventos.titulo}"></span></div>
                             <div class="col-md-4 text-center cabezera-evento float-left"><span th:text="${eventos.fecha}"></span></div>

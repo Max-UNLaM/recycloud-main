@@ -8,7 +8,11 @@
 }
 #result{
     font: bold 20px Araial;
-    color: #3B6E36;
+    color: black;
+}
+#coincidencia{
+    font: bold 20px Araial;
+    color: black;
 }
 .verde-blanco{
     background: #3B6E36!important;
@@ -131,7 +135,7 @@ info-evento{
     color:#fff!important;
     margin-left: 4px;
     text-transform: uppercase;
-    font: 13px/20px Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+    font: 14px Arial, Helvetica, 'Nimbus Sans L', sans-serif;
 }
 .ajustee{
     padding: 2.8px!important;
@@ -144,8 +148,7 @@ info-evento{
 .letra2{
     margin-top: 1.2%;
     color: #1c1c1c!important;
-    font: 14px 'Quicksand', sans-serif!important;
-    font-weight: 700!important;
+    font: 16px 'Quicksand', sans-serif!important;
 }
 .letra2:hover{
     color: #3bac45!important;
@@ -222,6 +225,12 @@ gris-oscuro{
 }
 nav .active {
     color: #55c655 !important;
+}
+.list-group-item{
+    padding: .4em!important;
+}
+.list-group-item2{
+    padding: .5em!important;
 }
 .list-group-item.active {
     color: white !important;
@@ -320,10 +329,12 @@ a:hover {
     background: linear-gradient(145deg, rgba(85,198,85,1) 0%, rgba(85,198,85,0.7455357142857143) 100%) !important;
 }
 .linea-divisoria{
-    width: 100%;
-    height: 15px;
-    background-color: rgb(85,198,85);
-    background: linear-gradient(145deg, rgba(85,198,85,1) 0%, rgba(85,198,85,0.7455357142857143) 100%) !important;
+    width: 200px;
+    text-align: center;
+    border-bottom: solid 3px darkorange;
+    margin: 0 auto;
+    font-size: 27px;
+    font-weight: 600;
 }
 .cabezera-evento span{
     color: white !important;
@@ -479,7 +490,7 @@ footer p {
     text-align:center;
 }
 .logo-footer{
-    width: 37%;
+    width: 41%;
     margin-left: 25%;
 }
 .iconos-footer{
@@ -532,13 +543,15 @@ footer a{
 #categorias .card-text{
     font-size: 14px;
     font-weight: 400;
-    min-height: 125px;
+    min-height: 146px;
 }
 #categorias i{
     color: white !important;
 }
 #card-evento .card{
     padding: 0 !important;
+    min-height: 169px;
+
 }
 #card-evento .card-body a, #card-evento .card-body span, #card-evento .card-body{
     font-size: 17px;
@@ -547,6 +560,9 @@ footer a{
 .eventos .card-body{
     background-color: white !important;
     border: 1px solid #ddd !important;
+}
+.card-header{
+    padding: .4rem!important;
 }
 .eventos .card-header{
     border: 1px solid #ddd !important;
@@ -713,4 +729,7 @@ footer a{
 .gris-blanco{
     background: #807e7e!important;
     color: white;
+}
+#navbarNav ul li a .nav-item{
+    padding-left: 20px;
 }
