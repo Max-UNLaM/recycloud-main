@@ -75,6 +75,19 @@
                         <input type="text" id="city" th:field="*{city}" class="form-control" required
                                th:value="*{title}" placeholder="Ramos Mejía, Ciudadela, Flores...">
                     </div>
+                    <div class="row margin-3">
+                        <div class="form-label-group col-12 col-md-6">
+                            <label for="province">Provincia</label>
+                            <select class="selectpicker form-control" th:field="*{province}" id="province" required
+                                    data-live-search="true" data-size="5">
+                                <option th:each="province : ${data.provinces}" th:text="${province}"
+                                        th:value="${province}"></option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6 flex">
+                            <a onclick="validateLocation()" class="btn btn-secondary" id="ubicate">UBICAR EN MAPA</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="row" th:case="'edit'">
                     <div class="form-label-group col-12">

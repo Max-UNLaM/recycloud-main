@@ -1,0 +1,3 @@
+afterInit = () => {
+    $('.selectpicker').selectpicker('render');
+}

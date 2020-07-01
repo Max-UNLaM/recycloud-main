@@ -57,9 +57,8 @@ public class PuntoReciclajeController {
         if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {
             return new ModelAndView("index");
         }
-        ModelMap modelMap = new ModelMap();
-        modelMap.put("data", puntoReciclajeViewService.save(puntoReciclajeEdit, usuario.getId()));
-        return new ModelAndView("punto-reciclaje/edit", modelMap);
+        PuntoReciclaje pr = puntoReciclajeViewService.save(puntoReciclajeEdit, usuario.getId());
+        return new ModelAndView("redirect:/punto-reciclaje/edit/" + pr.getId());
     }
 
     @RequestMapping(value = EDIT_PATH + "/{puntoId}")

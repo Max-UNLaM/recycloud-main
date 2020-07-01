@@ -144,7 +144,9 @@ let ignite = (location) => {
                 addPinesToMap(JSON.parse(data), map);
             });
     };
-    mapHandler.updateMap(pinFilterUrl);
+    if (window.location.search != '') {
+        mapHandler.updateMap(pinFilterUrl);
+    }
     mapHandler.beforeUpdate = deleteMarkers;
     map.addListener('zoom_changed', () => {
         const pinImageClass = $('.pin-image-size');
