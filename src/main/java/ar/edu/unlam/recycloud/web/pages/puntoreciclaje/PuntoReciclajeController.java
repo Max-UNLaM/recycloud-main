@@ -27,13 +27,12 @@ public class PuntoReciclajeController {
 
     @GetMapping(value = BASE_PATH)
     public ModelAndView home(HttpSession httpSession) {
-        /*Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
+        Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
         if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {
             return new ModelAndView("index");
-        }*/
+        }
         ModelMap modelMap = new ModelMap();
-        Usuario usuario = new Usuario();
-        usuario.setId(2L);
+        usuario.setId(usuario.getId());
         modelMap.put("data", this.puntoReciclajeViewService.buildHome(usuario));
         return new ModelAndView("punto-reciclaje/home", modelMap);
     }
@@ -77,6 +76,9 @@ public class PuntoReciclajeController {
             @ModelAttribute("PuntoReciclajeForm") PuntoReciclajeEdit puntoReciclajeEdit
     ) {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
+        if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {
+            return new ModelAndView("index");
+        }
         PuntoReciclaje pr = puntoReciclajeViewService.update(puntoReciclajeEdit, 2L, id);
         return new ModelAndView("redirect:/punto-reciclaje/edit/" + pr.getId());
     }
