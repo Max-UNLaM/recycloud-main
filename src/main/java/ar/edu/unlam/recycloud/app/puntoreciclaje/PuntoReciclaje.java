@@ -31,4 +31,8 @@ public class PuntoReciclaje {
         Arrays.stream(coordinates.split(",")).forEach((dato) -> result.add(Double.valueOf(dato)));
         return result;
     }
+
+    public List<String> getCoordinatesAsList() {
+        return Arrays.asList(coordinates.split(","));
+    }
 }

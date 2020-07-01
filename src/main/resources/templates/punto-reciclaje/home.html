@@ -14,19 +14,19 @@
                 <h2>Puntos de Entrega</h2>
                 <div class="row">
                     <div class="card-group">
-                        <div class="card" th:each="data.userPines : ${pin}">
+                        <div class="card" th:each="puntoReciclaje : ${data.puntosReciclaje}">
                             <!--i class="card-img-side fas fa-7x margin-auto" th:classappend="|${categoria.icon}|"></i-->
                             <div class="card-body">
-                                <h4 class="card-title text-center" th:text="${pin.title}"></h4>
+                                <h4 class="card-title text-center" th:text="${puntoReciclaje.pin.title}"></h4>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Categorias: <span th:each="pin.categories : ${category}"
+                                    <li class="list-group-item">Categorias: <span th:each="category : ${puntoReciclaje.pin.categories}"
                                                                                   th:text="${category}"
                                                                                   class="badge badge-primary"></span>
                                     </li>
-                                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                                    <li class="list-group-item">Morbi leo risus</li>
-                                    <li class="list-group-item">Porta ac consectetur ac</li>
-                                    <li class="list-group-item">Vestibulum at eros</li>
+                                    <li class="list-group-item">
+                                        <a class="btn btn-primary" th:href="|/punto-reciclaje/edit/${puntoReciclaje.puntoReciclaje.id}|">
+                                            Editar Punto Reciclaje</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

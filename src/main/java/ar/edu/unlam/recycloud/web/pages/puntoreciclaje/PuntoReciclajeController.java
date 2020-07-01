@@ -12,8 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
-import java.util.concurrent.ExecutionException;
-
 import static ar.edu.unlam.recycloud.web.pages.puntoreciclaje.PuntoReciclajeConstants.*;
 
 @Controller
@@ -29,11 +27,13 @@ public class PuntoReciclajeController {
 
     @GetMapping(value = BASE_PATH)
     public ModelAndView home(HttpSession httpSession) {
-        Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
+        /*Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
         if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {
             return new ModelAndView("index");
-        }
+        }*/
         ModelMap modelMap = new ModelMap();
+        Usuario usuario = new Usuario();
+        usuario.setId(2L);
         modelMap.put("data", this.puntoReciclajeViewService.buildHome(usuario));
         return new ModelAndView("punto-reciclaje/home", modelMap);
     }
@@ -53,7 +53,7 @@ public class PuntoReciclajeController {
     public ModelAndView create(
             HttpSession httpSession,
             @ModelAttribute("PuntoReciclajeForm") PuntoReciclajeEdit puntoReciclajeEdit
-    ) throws ExecutionException, InterruptedException {
+    ) {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
         if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {
             return new ModelAndView("index");
@@ -75,11 +75,9 @@ public class PuntoReciclajeController {
             HttpSession httpSession,
             @PathVariable(value = "puntoId") Long id,
             @ModelAttribute("PuntoReciclajeForm") PuntoReciclajeEdit puntoReciclajeEdit
-    ) throws ExecutionException, InterruptedException {
+    ) {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
-        ModelMap modelMap = new ModelMap();
         PuntoReciclaje pr = puntoReciclajeViewService.update(puntoReciclajeEdit, 2L, id);
-        modelMap.put("form", puntoReciclajeEdit);
         return new ModelAndView("redirect:/punto-reciclaje/edit/" + pr.getId());
     }
 

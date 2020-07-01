@@ -1,7 +1,7 @@
 afterInit = () => {
     const categories = $('#categories');
     const days = $('#days');
-    const categoriesList = categories.data("lista").toLowerCase().split(',')
+    const categoriesList = categories.data("lista").toLowerCase().split(', ')
     const dayList = days.data("lista").split(',');
     const currentCoords = $('#coordinates').val().split(',');
     categories.val(categoriesList);

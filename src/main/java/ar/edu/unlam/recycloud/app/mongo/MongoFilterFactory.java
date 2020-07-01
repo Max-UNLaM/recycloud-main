@@ -1,7 +1,10 @@
 package ar.edu.unlam.recycloud.app.mongo;
 
+import ar.edu.unlam.recycloud.app.geolocation.Location;
 import ar.edu.unlam.recycloud.app.utils.CoordTools;
 import com.google.gson.Gson;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.geojson.Point;
 import org.bson.BsonDocument;
 import org.bson.conversions.Bson;
 import org.springframework.stereotype.Component;
@@ -21,6 +24,10 @@ public class MongoFilterFactory {
     MongoFilterFactory(CoordTools coordTools, Gson gson) {
         this.coordTools = coordTools;
         this.gson = gson;
+    }
+
+    public Bson locationFilter(Location location) {
+        return Filters.near("location", new Point(location.getPosition()), 0.0, 0.0);
     }
 
     public Bson locationListFilter(List<String> stringLocations) {

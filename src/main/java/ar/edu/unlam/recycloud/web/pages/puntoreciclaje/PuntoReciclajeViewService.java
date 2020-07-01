@@ -92,6 +92,7 @@ class PuntoReciclajeViewService {
 
     private Pin buildPin(PuntoReciclajeEdit puntoEdit) {
         Pin pin = new Pin();
+        pin.setTitle(puntoEdit.getTitle());
         pin.setCategories(puntoEdit.getCategoriesAsList());
         pin.setLocation(puntoEdit.getLocation());
         return pin;

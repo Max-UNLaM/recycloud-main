@@ -1,5 +1,6 @@
 package ar.edu.unlam.recycloud.web.pages.puntoreciclaje.home;
 
+import ar.edu.unlam.recycloud.app.geolocation.Location;
 import ar.edu.unlam.recycloud.app.map.pin.Pin;
 import ar.edu.unlam.recycloud.app.map.pin.PinService;
 import ar.edu.unlam.recycloud.app.mongo.MongoFilterFactory;
@@ -25,16 +26,25 @@ public class PuntoReciclajeHomeVMService {
     }
 
     public PuntoReciclajeHomeViewModel build(Usuario usuario) {
+        List<PuntoReciclajeElement> puntoReciclajeElements = new ArrayList<>();
+        List<PuntoReciclaje> puntoReciclajes = puntoReciclajeService.listByUserId(usuario.getId());
+        puntoReciclajes.forEach(puntoReciclaje -> {
+            Pin pin = getPinFromPuntoReciclaje(puntoReciclaje);
+            puntoReciclajeElements.add(new PuntoReciclajeElement(pin, puntoReciclaje));
+        });
         PuntoReciclajeHomeViewModel viewModel = new PuntoReciclajeHomeViewModel();
-        viewModel.setUserPines(getPinesFromUser(usuario));
+        viewModel.setPuntosReciclaje(puntoReciclajeElements);
         return viewModel;
     }
 
-    private List<Pin> getPinesFromUser(Usuario usuario) {
-        List<PuntoReciclaje> puntoReciclajes = puntoReciclajeService.listByUserId(usuario.getId());
-        List<String> coords = new ArrayList<>();
-        puntoReciclajes.forEach((el) -> coords.add(el.getCoordinates()));
-        return pinService.get(mongoFilterFactory.locationListFilter(coords));
+    private Pin getPinFromPuntoReciclaje(PuntoReciclaje puntoReciclajes) {
+        return getPinFromCoord(puntoReciclajes.getCoordinatesAsDouble()).get(0);
+    }
+
+    private List<Pin> getPinFromCoord(List<Double> coords) {
+        Location location = new Location();
+        location.setCoordinates(coords);
+        return pinService.get(mongoFilterFactory.locationFilter(location));
     }
 
 }
