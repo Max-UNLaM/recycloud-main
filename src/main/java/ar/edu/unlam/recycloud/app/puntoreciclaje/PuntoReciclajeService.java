@@ -35,8 +35,11 @@ public class PuntoReciclajeService {
         return repository.findPuntoReciclajeByCoordinatesIn(stringList);
     }
 
-    public void create(PuntoReciclaje puntoReciclaje) {
-        repository.save(puntoReciclaje);
+    public PuntoReciclaje create(PuntoReciclaje puntoReciclaje) {
+        return repository.save(puntoReciclaje);
     }
 
+    public PuntoReciclaje update(PuntoReciclaje puntoReciclaje) {
+        return repository.save(puntoReciclaje);
+    }
 }

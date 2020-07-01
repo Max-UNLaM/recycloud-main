@@ -2,13 +2,12 @@ package ar.edu.unlam.recycloud.app.mongo;
 
 
 import ar.edu.unlam.recycloud.app.geolocation.Location;
-import ar.edu.unlam.recycloud.app.utils.GsonRecyBuilder;
-import com.google.gson.Gson;
 import com.google.inject.internal.util.Lists;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.geojson.Point;
+import org.bson.BsonDocument;
 import org.bson.conversions.Bson;
 import org.springframework.stereotype.Component;
 
@@ -38,6 +37,16 @@ public class MongoConsumer<T> {
     public List<T> filter(Bson bsonFilter, Class<T> clazz) {
         MongoCollection<T> collection = this.mongoDatabase.getCollection(clazz.getSimpleName().toLowerCase(), clazz);
         return Lists.newArrayList(collection.find(bsonFilter));
+    }
+
+    public void set(T element, Class<T> type) {
+        MongoCollection<T> collection = this.mongoDatabase.getCollection(type.getSimpleName().toLowerCase(), type);
+        collection.insertOne(element);
+    }
+
+    public void update(Bson bsonFilter, T element, Class<T> type) {
+        MongoCollection<T> collection = this.mongoDatabase.getCollection(type.getSimpleName().toLowerCase(), type);
+        collection.replaceOne(bsonFilter, element);
     }
 
 }

@@ -28,7 +28,7 @@ public class CategoriaService {
 
     public List<String> getCategoriaNames() {
         List<String> categoriaNames = new ArrayList<>();
-        findAll().forEach(categoria -> categoriaNames.add(categoria.getNombre()));
+        findAll().forEach(categoria -> categoriaNames.add(categoria.getNombre().toLowerCase()));
         return categoriaNames;
     }
 }

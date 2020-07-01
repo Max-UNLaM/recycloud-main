@@ -1,7 +1,10 @@
 package ar.edu.unlam.recycloud.app.map.pin;
 
+import ar.edu.unlam.recycloud.app.map.dialog.Dialog;
 import ar.edu.unlam.recycloud.app.mongo.MongoConsumer;
 import com.google.gson.Gson;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.geojson.Point;
 import org.bson.BsonArray;
 import org.bson.BsonDocument;
 import org.bson.BsonString;
@@ -53,5 +56,16 @@ public class PinMongoRepository implements PinRepository<Pin> {
     private BsonDocument findIn(String key, List<BsonString> values) {
         BsonDocument inFilter = new BsonDocument("$in", new BsonArray(values));
         return new BsonDocument(key, inFilter);
+    }
+
+    @Override
+    public void setPunto(Pin punto) {
+        this.mongoConsumer.set(punto, Pin.class);
+    }
+
+    @Override
+    public void updatePunto(Pin pin) {
+        Bson filter = Filters.near("location", new Point(pin.getLocation().getPosition()), 0.0, 0.0);
+        this.mongoConsumer.update(filter, pin, Pin.class);
     }
 }

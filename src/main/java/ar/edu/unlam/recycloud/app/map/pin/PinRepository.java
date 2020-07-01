@@ -9,4 +9,6 @@ public interface PinRepository<T> {
     List<T> findAll();
     List<T> find(Map<String, String> filters);
     List<T> find(Bson filter);
+    void setPunto(T punto);
+    void updatePunto(T pin);
 }

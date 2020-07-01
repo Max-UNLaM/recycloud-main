@@ -27,4 +27,11 @@ public class PinService {
         return this.pinRepository.find(filter);
     }
 
+    public void set(Pin pin) {
+        this.pinRepository.setPunto(pin);
+    }
+
+    public void update(Pin pin) {
+        this.pinRepository.updatePunto(pin);
+    }
 }

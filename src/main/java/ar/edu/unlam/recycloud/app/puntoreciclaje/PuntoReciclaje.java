@@ -3,6 +3,9 @@ package ar.edu.unlam.recycloud.app.puntoreciclaje;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -22,4 +25,10 @@ public class PuntoReciclaje {
     private String coordinates;
 
     private Long usuarioId;
+
+    public List<Double> getCoordinatesAsDouble() {
+        List<Double> result = new ArrayList<>();
+        Arrays.stream(coordinates.split(",")).forEach((dato) -> result.add(Double.valueOf(dato)));
+        return result;
+    }
 }

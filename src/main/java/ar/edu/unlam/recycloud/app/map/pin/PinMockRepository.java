@@ -41,4 +41,14 @@ public class PinMockRepository implements PinRepository<Pin> {
     public List<Pin> find(Map<String, String> filters) {
         return null;
     }
+
+    @Override
+    public void setPunto(Pin punto) {
+
+    }
+
+    @Override
+    public void updatePunto(Pin pin) {
+
+    }
 }

@@ -4,5 +4,6 @@ interface PuntoReciclajeConstants {
 
     String BASE_PATH = "/punto-reciclaje";
     String CREATE_PATH = BASE_PATH + "/create";
+    String EDIT_PATH = BASE_PATH + "/edit";
 
 }
