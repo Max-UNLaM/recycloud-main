@@ -8,7 +8,11 @@
 }
 #result{
     font: bold 20px Araial;
-    color: #3B6E36;
+    color: black;
+}
+#coincidencia{
+    font: bold 20px Araial;
+    color: black;
 }
 .verde-blanco{
     background: #3B6E36!important;
