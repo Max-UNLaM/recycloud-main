@@ -83,7 +83,7 @@ public class HomeController {
     }
     @GetMapping("/validacion/{estado}/{id}")
     public ModelAndView asdrewrd(HttpSession session, @PathVariable String estado, @PathVariable Long id){
-        if(estado == "aceptada")
+        if(estado.equals("aceptada"))
         {
             usuarioService.cambiarDeEstado(id);
         }
