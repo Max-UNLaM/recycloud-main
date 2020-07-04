@@ -6,11 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class DependencyConfig {
+public class ParserConfig {
 
     private final Gson gson;
 
-    DependencyConfig(GsonRecyBuilder builder) {
+    ParserConfig(GsonRecyBuilder builder) {
         this.gson = builder.getGson();
     }
 

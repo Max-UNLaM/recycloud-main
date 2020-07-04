@@ -2,47 +2,111 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
-    <title>Scanner</title>
+    <title>RecyCloud ♻️</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
 
 <header th:replace="fragments/header"></header>
+
+<section class="info-scan pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center my-3 font-weight-bold color-verde">Cómo utilizar el scanner</h2>
+            </div>
+            <div class="col-12 col-md-3 float-left">
+                <div class="card my-4 py-1">
+                    <img class="card-img-top card-scanner-img" src="/imagenes/scanner.svg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text text-center mb-4">Seleccionar la manera para scanner la imagen</p>
+                        <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">En tiempo real</span></p>
+                        <p class="card-text text-center mb-4">Utilice su cámara o webcam.</p>
+                        <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Adjuntar imagen</span></p>
+                        <p class="card-text text-center mb-4">Seleccione una foto de su galería.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md col-12 float-left my-auto">
+                <img src="/imagenes/flecha.svg" alt="flecha" class="flechas d-none d-md-block">
+                <img src="/imagenes/flecha2.svg" alt="flecha" class="flechas2 d-block d-md-none">
+            </div>
+            <div class="col-12 col-md-3 float-left">
+                <div class="card my-4 py-1">
+                    <img class="card-img-top card-scanner-img" src="/imagenes/iniciar2.svg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text text-center mb-5">Una vez enfocado el objeto o seleccionado la imagen utilice el botón "iniciar"</p>
+                        <p class="card-text text-center font-weight-bold color-verde mb-4">¡Usted ya tendrá la categoría del producto que escaneó!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md col-12 float-left my-auto">
+                <img src="/imagenes/flecha.svg" alt="flecha" class="flechas d-none d-md-block">
+                <img src="/imagenes/flecha2.svg" alt="flecha" class="flechas2 d-block d-md-none">
+            </div>
+            <div class="col-12 col-md-3 float-left">
+                <div class="card my-4 py-1">
+                    <img class="card-img-top card-scanner-img" src="/imagenes/mapa.svg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text text-center">Una vez visto el resultado podrá obtener:</p>
+                        <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Más información</span></p>
+                        <p class="card-text text-center">Lo llevará a la información de la categoría resultante del scanner.</p>
+                        <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Ver mapa</span></p>
+                        <p class="card-text text-center">Lo llevará al mapa dónde podrá visualizar los punto de reciclaje de ese material.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="linea-divisoria my-5 pb-3">SCANNER</div>
+
 <div class="container mt-5">
     <div class="row ">
-        <div class="col-md-4 margin-auto text-center divcontenedorVideo">
-            <div class="text-center"id="contenedorVideo"></div>
-        </div>
-        <div class="col-md-4 text-center ">
-            <div class="col-md-12 ajuste">
-                <button class="btn col-md-12 mt-5 mb-4 naranja-blanco disabled" disabled id="cambiaravideo"><span class="fas fa-arrow-circle-left"></span> Video en tiempo real</button>
-            </div>
-            <div class="col-md-12 ajuste">
-                <a href="/scanner/scannerdos"><button class="btn col-md-12 mt-5 mb-4 naranja-blanco"  id="cambiaraimagen">Adjunar imagen <span class="fas fa-arrow-circle-right"></span></button></a>
+        <div class="col-md-6  text-center divcontenedorVideo mb-5">
+            <div class="ajuste-tamaño2">
+                <div class="text-center"id="contenedorVideo"></div>
             </div>
         </div>
-        <div id="avatarImage" class="col-md-4 margin-auto text-center ">
-            <div class="col-md-12 text-center vertical-center"><img id="imagenn" class="bordes-adjun" src="/imagenes/adjun.png" width="374" height="234"></div>
+        <div id="avatarImage" class="col-md-6  text-center mb-5">
+            <div id="adjuntar-difuminado" class="ajuste-tamaño bordes-adjun text-center">
+                <img id="imagenn" src="/imagenes/adjun.png">
+            </div>
+        </div>
+        <div class="col-md-3 margin-auto mb-2">
+                <button disabled class="btn col-md-12 gris-blanco "  id="cambiaravideo">
+                    <span class="fas fa-arrow-circle-left"></span>
+                    Video en tiempo real
+                </button>
+        </div>
+        <div class="col-md-3 margin-auto mb-2">
+            <a href="/scanner/scannerdos">
+            <button class="btn col-md-12 gris-blanco"  id="cambiaraimagen">Adjunar imagen <span class="fas fa-arrow-circle-right"></span></button>
+            </a>
         </div>
     </div>
 </div>
-    <div class="row mt-2 centrarvideo text-center">
-        <div class="col-md-12 mt-2 mb-4 text-center">
-            <span class="col-md-12 " id="result"></span>
-        </div>
+</div>
+<div class="row centrarvideo mt-4 text-center">
+    <div class="col-md-12 mb-3 text-center">
+        <span class="col-md-12 text-center" id="result"></span>
+        <span class="col-md-12 text-center"  id="coincidencia"></span>
     </div>
-    <div class="row centrarbotones">
-            <div class="col-md-4 mb-2">
-                <button class="btn col-md-12 verde-blanco" id="botonPredecir">Iniciar</button>
-            </div>
-            <div class="col-md-4 mb-2">
-                <button class="btn col-md-12 verde-blanco" onclick="masInfo()" id="info">Mas Información</button>
-            </div>
-            <div class="col-md-4 mb-2">
-                <button class="btn col-md-12 verde-blanco mb-5" onclick="verMapa()" id="mapita">Ver Mapa</button>
-            </div>
+</div>
+<div class="row centrarbotones mb-5">
+    <div class="col-md-4 col-12 mb-2">
+        <button class="btn col-md-12 btn-primary" id="botonPredecir">Iniciar</button>
     </div>
+    <div class="col-md-4 col-12 mb-2">
+        <button class="btn col-md-12 btn-primary" onclick="masInfo()" id="info">Mas Información</button>
+    </div>
+    <div class="col-md-4 col-12 mb-2">
+        <button class="btn col-md-12 btn-primary mb-5" onclick="verMapa()" id="mapita">Ver Mapa</button>
+    </div>
+</div>
 <script th:inline="javascript">
     let video;
     let featureExtractor;
@@ -50,6 +114,8 @@
     let categorias;
     let cate;
     let info;
+    let coincidencia;
+
     function setup() {
         noCanvas();
         video = createCapture(VIDEO);
@@ -78,8 +144,10 @@
             myVariable.forEach(function (value) {
                 if (res[0].label == value.imagen){
                 cate = value.categoria.nombre;
+                    coincidencia ='Coincidencia: %'+ (res[0].confidence.toFixed(2) * 100);
                     info=value.categoria;
                     select("#result").html(cate);
+                    select("#coincidencia").html(coincidencia);
                 }
             });
         }else{}

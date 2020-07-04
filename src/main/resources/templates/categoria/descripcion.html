@@ -2,58 +2,65 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
-    <title>Descripcion</title>
+    <title>RecyCloud ♻️</title>
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
 <header th:replace="fragments/header"></header>
 
-<div class="container">
-    <div class="row">
-        <div class="list-group col-md-3 mt-5">
-            <a href="#" class="list-group-item active titulo-categoria">CATEGORIAS</a>
-            <span th:each="categoria : ${allcategoria}">
-                    <a th:href="@{'/categoria/'+${categoria.id}}" class="list-group-item bordes-categoria">
-                        <span th:text="${categoria.nombre}"></span>
-                    </a>
-                <span/>
-        </div>
-        <div class="list-group col-md-9 mt-5">
-            <div class="card text-center">
-                <div class="card-header items-categoria">
-                    <span style="text-transform: uppercase;color: darkorange;"
-                          th:text="${informacion.categoria.nombre}">CARTÓN</span>
-                </div>
-                <div class="card-body">
-                    <p class="card-text" th:text="${informacion.descripcion}"></p>
-                </div>
-                <div class="card-header items-categoria">
-                    TIPOS
-                </div>
-                <div class="card-body">
-                    <p class="card-text" th:text="${informacion.tipos}"></p>
-                </div>
-                <div class="card-header items-categoria">
-                    ¿ COMO RECICLAR ?
-                </div>
-                <div class="card-body">
-                    <p class="card-text" th:text="${informacion.como}"></p>
-                </div>
-                <div class="card-header items-categoria">
-                    ¿ DONDE RECICLAR ?
-                </div>
-                <div class="card-body">
-                    <a th:href="@{/map?categories=__${#strings.toUpperCase(informacion.categoria.nombre)}__}">
-                        <button class="btn col-md-12 verde-blanco" id="">
-                            Ver Mapa
-                        </button>
-                    </a>
-                    <p class="card-text" th:text="${informacion.donde}"></p>
+<section class="mb-5" id="listado-categorias">
+    <div class="container">
+        <div class="row">
+            <div class="list-group col-md-3 mt-5">
+                <a href="#" class="list-group-item list-group-item2 active titulo-categoria" style="font-size: 16px;">CATEGORÍAS</a>
+                <span th:each="categoria : ${allcategoria}">
+                        <a th:href="@{'/categoria/'+${categoria.id}}" class="list-group-item bordes-categoria fs-16">
+                            <span th:text="${categoria.nombre}"></span>
+                        </a>
+                    <span/>
+            </div>
+            <div class="list-group col-md-9 mt-5">
+                <div class="card text-center">
+                    <div class="card-header items-categoria degradado">
+                        <span style="text-transform: uppercase;" class="blanco"
+                              th:text="${cateseleccionada.nombre}"></span>
+                    </div>
+                    <div class="card-body">
+                        <span th:each="informacion : ${informacion}" th:if ="${informacion.descripcion} != 'vacio'">
+                            <div class="card-text" th:text="${informacion.descripcion}"></div><br>
+                        </span>
+                    </div>
+                    <div class="card-header items-categoria degradado ">
+                        <span class="blanco">TIPOS</span>
+                    </div>
+                    <div class="card-body">
+                        <span th:each="informacion : ${informacion}" th:if ="${informacion.tipos} != 'vacio'">
+                            <div  class="card-text"  th:text="${informacion.tipos}"></div><br>
+                        </span>
+                    </div>
+                    <div class="card-header items-categoria degradado">
+                        <span class="blanco">¿CÓMO RECICLAR?</span>
+                    </div>
+                    <div class="card-body">
+                        <span th:each="informacion : ${informacion}" th:if ="${informacion.como} != 'vacio'">
+                            <div class="card-text"  th:text="${informacion.como}"></div><br>
+                        </span>
+                    </div>
+                    <div class="card-header items-categoria degradado">
+                        <span class="blanco">¿DÓNDE RECICLAR?</span>
+                    </div>
+                    <div class="card-body">
+                        <a th:href="@{/map?categories=__${#strings.toUpperCase(cateseleccionada.nombre)}__}">
+                            <button class="btn btn-primary" id="">
+                                <i class="fas fa-map-marker-alt"></i> Ver Mapa
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 <footer th:replace="fragments/footer"></footer>
 
 <script>

@@ -36,27 +36,6 @@ class Pin {
     dialog = new Dialog();
 }
 
-const request = obj => {
-    return new Promise((resolve, reject) => {
-        let xhr = new XMLHttpRequest();
-        xhr.open(obj.method || "GET", obj.url);
-        if (obj.headers) {
-            Object.keys(obj.headers).forEach(key => {
-                xhr.setRequestHeader(key, obj.headers[key]);
-            });
-        }
-        xhr.onload = () => {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                resolve(xhr.response);
-            } else {
-                reject(xhr.statusText);
-            }
-        };
-        xhr.onerror = () => reject(xhr.statusText);
-        xhr.send(obj.body);
-    });
-};
-
 /**
  *
  * @param {string[]} categories
@@ -71,9 +50,9 @@ const iconTemplate = (categories) => {
     `;
 }
 
-const badgeTemplate = (days, badgeType) => {
-    return days.map(function (day) {
-        return '<span class="badge badge-' + badgeType + '">' + day + '</span>'
+const badgeTemplate = (items, badgeType) => {
+    return items.map(function (item) {
+        return '<span class="badge badge-' + badgeType + '">' + item + '</span>'
     }).join(" ");
 }
 
@@ -165,7 +144,9 @@ let ignite = (location) => {
                 addPinesToMap(JSON.parse(data), map);
             });
     };
-    mapHandler.updateMap(pinFilterUrl);
+    if (window.location.search != '') {
+        mapHandler.updateMap(pinFilterUrl);
+    }
     mapHandler.beforeUpdate = deleteMarkers;
     map.addListener('zoom_changed', () => {
         const pinImageClass = $('.pin-image-size');

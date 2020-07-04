@@ -32,4 +32,13 @@ public class DialogMockRepository implements DialogRepository {
             return new Dialog();
         }
     }
+
+    @Override
+    public void setDialog(Dialog dialog) {
+    }
+
+    @Override
+    public void updateDialog(Dialog dialog) {
+
+    }
 }

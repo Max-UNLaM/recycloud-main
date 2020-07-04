@@ -39,23 +39,26 @@
     bottom: 0;
     position: absolute;
     z-index: 1000;
-    background-color: rgba(217, 217, 217, 0.7);
+    background-color: rgba(120, 201, 120, 0.74);
 }
 
 .map-menu > button {
     max-height: 50px;
 }
-
 .btn-map {
     font-weight: bold;
+    background-color: rgba(120, 201, 119, 0)
 }
 
 .btn-map:hover {
-    background-color: lightgreen !important;
-    color: darkgreen !important;
+    background: #3EB152!important;
 }
 
 .btn-active {
     font-weight: bolder !important;
-    color: ghostwhite !important;
+    color: white !important;
+}
+
+.recy-popover-title {
+    margin-bottom: 2px !important;
 }

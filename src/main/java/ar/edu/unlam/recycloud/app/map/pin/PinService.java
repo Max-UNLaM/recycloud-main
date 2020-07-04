@@ -1,5 +1,6 @@
 package ar.edu.unlam.recycloud.app.map.pin;
 
+import org.bson.conversions.Bson;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,4 +23,15 @@ public class PinService {
         return this.pinRepository.find(filters);
     }
 
+    public List<Pin> get(Bson filter) {
+        return this.pinRepository.find(filter);
+    }
+
+    public void set(Pin pin) {
+        this.pinRepository.setPunto(pin);
+    }
+
+    public void update(Pin pin) {
+        this.pinRepository.updatePunto(pin);
+    }
 }

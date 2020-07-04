@@ -5,11 +5,14 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Data
 @Entity
 public class CategoriaInformacion {
 
     @Id
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
     @Column(columnDefinition = "TEXT")
@@ -24,7 +27,5 @@ public class CategoriaInformacion {
     private String donde;
 
     @OneToOne
-    @JoinColumn
-    @MapsId
     private Categoria categoria;
 }
