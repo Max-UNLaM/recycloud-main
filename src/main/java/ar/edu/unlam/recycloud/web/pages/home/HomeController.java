@@ -1,11 +1,12 @@
 package ar.edu.unlam.recycloud.web.pages.home;
 
-import ar.edu.unlam.recycloud.app.usuario.*;
+import ar.edu.unlam.recycloud.app.usuario.Password;
+import ar.edu.unlam.recycloud.app.usuario.Usuario;
+import ar.edu.unlam.recycloud.app.usuario.UsuarioService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 public class HomeController {
@@ -73,23 +73,6 @@ public class HomeController {
         session.setAttribute("usuario", usuarioService.validarUsuario(user.getEmail()));
         return "/home/perfil";
     }
-    @GetMapping("/home/panel/admin/punto")
-    public ModelAndView asd(HttpSession session,Model model){
-        ModelMap modelo = new ModelMap();
-        List<ImagenesUsuario> imgUsu = usuarioService.getImagenesUsuario();
-        modelo.addAttribute("imagenes", imgUsu);
-        modelo.addAttribute("usu", usuarioService.usuariosParaValidar());
-        return new ModelAndView("/lumino/index", modelo);
-    }
-    @GetMapping("/validacion/{estado}/{id}")
-    public ModelAndView asdrewrd(HttpSession session, @PathVariable String estado, @PathVariable Long id){
-        if(estado.equals("aceptada"))
-        {
-            usuarioService.cambiarDeEstado(id);
-        }
-        else
-        {
-            usuarioService.rechazarcambioDeEstado(id);
-        }
-        return new ModelAndView("redirect:/home/panel/admin/punto");    }
+
+
 }

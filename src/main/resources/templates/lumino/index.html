@@ -44,7 +44,7 @@
 		<div class="divider"></div>
 		<ul class="nav menu" style="max-width: 190px;">
 			<li class="active"><a href="index.html"><em class="fa fa-plus-circle">&nbsp;</em> Puntos de reciclaje</a></li>
-			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em>Estadísticas</a></li>
+			<li><a href="/admin/estadisticas"><em class="fa fa-bar-chart">&nbsp;</em>Estadísticas</a></li>
 		</ul>
 	</div><!--/.sidebar-->
 
@@ -61,8 +61,8 @@
 			<div class="col-md-3 logo-punto-admin">
 				<div th:each="usu : ${usu}" class="col-md-12 panel-default ">
 					<div class="panel sacarback logo-punto-admin ">
-						<a th:href="@{'/validacion/aceptada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-primary punto-texto col-xs-12 azulito">Aceptar</button></a>
-						<a th:href="@{'/validacion/rechazada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-success mt-2 col-xs-12">Rechazar</button></a>
+						<a th:href="@{'/admin/validacion/aceptada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-primary punto-texto col-xs-12 azulito">Aceptar</button></a>
+						<a th:href="@{'/admin/validacion/rechazada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-success mt-2 col-xs-12">Rechazar</button></a>
 					</div>
 				</div>
 			</div>
