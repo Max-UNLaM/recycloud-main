@@ -61,16 +61,16 @@
     </div>
 </section>
 
-<div class="linea-divisoria my-5">SCANNER</div>
+<div class="linea-divisoria my-5 pb-3">SCANNER</div>
 
 <div class="container mt-5">
     <div class="row ">
-        <div class="col-md-6 margin-auto text-center divcontenedorVideo mb-5">
+        <div class="col-md-6  text-center  divcontenedorVideo mb-5">
             <div class="ajuste-tamaño2">
                 <div class="text-center"id="contenedorVideo"></div>
             </div>
         </div>
-        <div id="avatarImage" class="col-md-6 margin-auto text-center mb-5">
+        <div id="avatarImage" class="col-md-6  text-center  mb-5">
              <div id="adjuntar-difuminado" class="ajuste-tamaño bordes-adjun text-center">
                 <img id="imagenn" src="/imagenes/adjun.png">
              </div>
@@ -107,7 +107,7 @@
             </div>
     </div>
 <input onchange="previewFile()" type="file" hidden name="avatarInput" id="avatarInput" />
-
+<footer th:replace="fragments/footer"></footer>
 <script th:inline="javascript">
     let video;
     let featureExtractor;
@@ -199,6 +199,5 @@
         }
     }
 </script>
-<footer th:replace="fragments/footer"></footer>
 </body>
 </html>
