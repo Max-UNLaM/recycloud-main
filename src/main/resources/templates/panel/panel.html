@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
+    <meta charset="UTF-8">
+    <title>RecyCloud ♻️</title>
+    <link rel="stylesheet" th:href="@{/js/jquery-ui.css}">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+</head>
+<body>
+<header th:replace="fragments/header"></header>
+
+<span th:each="imagenes : ${imagenes}">
+<img th:src="@{'/imagenes/'+${imagenes.nombre}}">
+</span>
+
+<footer th:replace="fragments/footer"></footer>
+</body>
+</html>

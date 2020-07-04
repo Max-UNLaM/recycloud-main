@@ -733,3 +733,8 @@ footer a{
 #navbarNav ul li a .nav-item{
     padding-left: 20px;
 }
+.custom-file-label{
+    top: 80px!important;
+    right: 80px!important;
+    left: 80px!important;
+}

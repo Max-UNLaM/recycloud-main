@@ -70,13 +70,13 @@
                         <button  class="btn btn-sm  btn-block text-uppercase botones-perfil" id="pass" type="submit">Cambiar contraseña</button>
                     </form>
 
-                    <form action="#" th:action="@{/home/completar}" th:object="${usuario}" method="post" id="div_puntos">
+                    <form name="uploadFiles" id="uploadFiles" th:action="@{/home/completar}" enctype="multipart/form-data" method="post">
                         <h3 class="card-title text-center">Ser punto de reciclaje</h3>
-                        <div class="form-label-group mt-3">
-                            <input type="number" name="identificacion" class="form-control" placeholder="Cuil/Cuit">
-                            <span class="text-danger"></span>
+                        <div class="form-label-group mt-5">
+                            <label class="custom-file-label">Agregue sus imagenes</label>
+                            <input type="file" multiple="multiple" name="files" id="files" class="custom-file-input ">
                         </div>
-                        <button class="btn btn-sm  btn-block text-uppercase botones-perfil" id="punto-entrega" type="submit">Cargar datos</button>
+                        <button class="btn btn-sm  btn-block text-uppercase botones-perfil" id="punto-entrega" type="submit">Cargar imagenes</button>
                     </form>
                 </div>
             </div>
@@ -91,7 +91,7 @@
             $("#div_perfil").hide();
             $("#div_password").show();
             $("#div_datos").hide();
-            $("#div_puntos").hide();
+            $("#uploadFiles").hide();
             $( "#password" ).addClass( "active" );
             $( "#perfil" ).removeClass( "active" );
             $( "#puntos" ).removeClass( "active" );
@@ -102,7 +102,7 @@
             $("#div_perfil").show();
             $("#div_password").hide();
             $("#div_datos").hide();
-            $("#div_puntos").hide();
+            $("#uploadFiles").hide();
             $( "#perfil" ).addClass( "active" );
             $( "#password" ).removeClass( "active" );
             $( "#puntos" ).removeClass( "active" );
@@ -113,7 +113,7 @@
             $("#div_perfil").hide();
             $("#div_password").hide();
             $("#div_datos").show();
-            $("#div_puntos").hide();
+            $("#uploadFiles").hide();
             $( "#datos" ).addClass( "active" );
             $( "#perfil" ).removeClass( "active" );
             $( "#puntos" ).removeClass( "active" );
@@ -124,7 +124,7 @@
             $("#div_perfil").hide();
             $("#div_password").hide();
             $("#div_datos").hide();
-            $("#div_puntos").show();
+            $("#uploadFiles").show();
             $( "#puntos" ).addClass( "active" );
             $( "#perfil" ).removeClass( "active" );
             $( "#password" ).removeClass( "active" );
