@@ -1,9 +1,6 @@
 package ar.edu.unlam.recycloud.web.pages.home;
 
-import ar.edu.unlam.recycloud.app.usuario.ImagenesUsuario;
-import ar.edu.unlam.recycloud.app.usuario.Password;
-import ar.edu.unlam.recycloud.app.usuario.Usuario;
-import ar.edu.unlam.recycloud.app.usuario.UsuarioService;
+import ar.edu.unlam.recycloud.app.usuario.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -75,15 +72,15 @@ public class HomeController {
         session.setAttribute("usuario", usuarioService.validarUsuario(user.getEmail()));
         return "/home/perfil";
     }
-    @GetMapping("/home/p")
+    @GetMapping("/home/panel/admin/punto")
     public ModelAndView asd(HttpSession session,Model model){
         ModelMap modelo = new ModelMap();
         Usuario user = (Usuario) session.getAttribute("usuario");
         List<ImagenesUsuario> imgUsu = usuarioService.getImagenesUsuario(usuarioService.validarUsuario(user.getEmail()));
         modelo.addAttribute("imagenes", imgUsu);
-        return new ModelAndView("/panel/panel", modelo);
+        return new ModelAndView("/lumino/index", modelo);
     }
-    @GetMapping("/home/a")
+    @GetMapping("/home/panel/admin")
     public String asdrewrd(HttpSession session){
 
         return "/lumino/index";

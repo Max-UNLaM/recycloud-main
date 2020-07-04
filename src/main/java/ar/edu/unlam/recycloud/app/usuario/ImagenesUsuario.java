@@ -13,6 +13,7 @@ public class ImagenesUsuario {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private String nombre;
+    private Integer estado;
     @ManyToOne
     private Usuario usuario;
 

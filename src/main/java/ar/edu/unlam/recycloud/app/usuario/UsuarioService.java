@@ -50,10 +50,12 @@ public class UsuarioService {
 
         ImagenesUsuario imgUsu = new ImagenesUsuario();
         imgUsu.setNombre(file.getOriginalFilename());
+        imgUsu.setEstado(1);
         imgUsu.setUsuario(usuarioRepository.validarUsuario(usuario.getEmail()));
         imagenesUsuarioRepository.save(imgUsu);
     }
     public List<ImagenesUsuario> getImagenesUsuario (Usuario usuario){
         return imagenesUsuarioRepository.buscarPorIdDeUsuario(usuario.getId());
     }
+
 }

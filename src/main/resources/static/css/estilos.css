@@ -738,3 +738,21 @@ footer a{
     right: 80px!important;
     left: 80px!important;
 }
+.logo2{
+    width: 10%;
+    margin-top: -10px;
+}
+.logo-punto-admin{
+    width: auto;
+    height: 150px;
+}
+.back-black{
+    background: black;
+}
+.punto-texto{
+    margin-top: 15%!important;
+}
+.ajus{
+    width: 90%!important;
+    height: 150px!important;
+}
