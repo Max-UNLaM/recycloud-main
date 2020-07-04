@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -75,14 +76,20 @@ public class HomeController {
     @GetMapping("/home/panel/admin/punto")
     public ModelAndView asd(HttpSession session,Model model){
         ModelMap modelo = new ModelMap();
-        Usuario user = (Usuario) session.getAttribute("usuario");
-        List<ImagenesUsuario> imgUsu = usuarioService.getImagenesUsuario(usuarioService.validarUsuario(user.getEmail()));
+        List<ImagenesUsuario> imgUsu = usuarioService.getImagenesUsuario();
         modelo.addAttribute("imagenes", imgUsu);
+        modelo.addAttribute("usu", usuarioService.usuariosParaValidar());
         return new ModelAndView("/lumino/index", modelo);
     }
-    @GetMapping("/home/panel/admin")
-    public String asdrewrd(HttpSession session){
-
-        return "/lumino/index";
-    }
+    @GetMapping("/validacion/{estado}/{id}")
+    public ModelAndView asdrewrd(HttpSession session, @PathVariable String estado, @PathVariable Long id){
+        if(estado == "aceptada")
+        {
+            usuarioService.cambiarDeEstado(id);
+        }
+        else
+        {
+            usuarioService.rechazarcambioDeEstado(id);
+        }
+        return new ModelAndView("redirect:/home/panel/admin/punto");    }
 }

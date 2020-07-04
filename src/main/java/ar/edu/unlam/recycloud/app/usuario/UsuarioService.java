@@ -54,8 +54,21 @@ public class UsuarioService {
         imgUsu.setUsuario(usuarioRepository.validarUsuario(usuario.getEmail()));
         imagenesUsuarioRepository.save(imgUsu);
     }
-    public List<ImagenesUsuario> getImagenesUsuario (Usuario usuario){
-        return imagenesUsuarioRepository.buscarPorIdDeUsuario(usuario.getId());
+    public List<ImagenesUsuario> getImagenesUsuario (){
+        return imagenesUsuarioRepository.buscarPorIdDeUsuario();
     }
+    public List<ImagenesUsuario> usuariosParaValidar(){
 
+        return imagenesUsuarioRepository.usuariosParaValidar();
+    }
+    public void cambiarDeEstado(Long id){
+
+
+        imagenesUsuarioRepository.cambiarDeEstado(id);
+        imagenesUsuarioRepository.cambiarEstadoImagen(id);
+    }
+    public void rechazarcambioDeEstado(Long id){
+
+        imagenesUsuarioRepository.cambiarEstadoImagen(id);
+    }
 }

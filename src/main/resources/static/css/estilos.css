@@ -756,3 +756,13 @@ footer a{
     width: 90%!important;
     height: 150px!important;
 }
+.azulito{
+    background-color: #32a4fb!important;
+}
+.verdecito{
+    background-color: #45822d9c!important;
+}
+.sacarback{
+    background-color: transparent!important;
+    box-shadow: none!important;
+}

@@ -77,19 +77,24 @@
 		</div><!--/.row-->
 
 		<div class="row">
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default punto-texto">
-					<a><button type="button" class="btn btn-md btn-primary  col-xs-12 ">Aceptar</button></a>
-					<a><button type="button" class="btn btn-md btn-danger mt-2 col-xs-12 ">Rechazar</button></a>
-				</div>
-			</div>
-			<div th:each="imagenes : ${imagenes}" class="col-xs-6 col-md-3">
-				<div class="panel panel-default back-black">
-					<div class="panel-body easypiechart-panel">
-						<img class="logo-punto-admin" th:src="@{'/imagenes/'+${imagenes.nombre}}">
+			<div class="col-md-3 logo-punto-admin">
+				<div th:each="usu : ${usu}" class="col-md-12 panel-default ">
+					<div class="panel sacarback logo-punto-admin ">
+						<a th:href="@{'/validacion/aceptada/'+${usu.id}}" ><button type="button" class="btn btn-md btn-primary punto-texto col-xs-12 azulito">Aceptar</button></a>
+						<a th:href="@{'/validacion/rechazada/'+${usu.id}}" ><button type="button" class="btn btn-md btn-success mt-2 col-xs-12 verdecito">Rechazar</button></a>
 					</div>
 				</div>
 			</div>
+			<div class="col-md-9">
+				<div th:each="imagenes : ${imagenes}" class="col-md-4">
+					<div class="panel panel-default back-black">
+						<div class="panel-body easypiechart-panel">
+							<img class="logo-punto-admin" th:src="@{'/imagenes/'+${imagenes.nombre}}">
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div><!--/.row-->
 	</div>	<!--/.main-->
 
