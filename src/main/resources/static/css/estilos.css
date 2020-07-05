@@ -766,3 +766,7 @@ footer a{
     background-color: transparent!important;
     box-shadow: none!important;
 }
+.w100{
+    width: 100%;
+text-align: center;
+}
