@@ -770,3 +770,9 @@ footer a{
     width: 100%;
 text-align: center;
 }
+.w1{
+    width: 100%;
+}
+.active2{
+    background-color: #8ad919!important;
+}
