@@ -70,4 +70,8 @@ public class UsuarioService {
 
         imagenesUsuarioRepository.cambiarEstadoImagen(id);
     }
+    public ImagenesUsuario traerEstadosDeImagenes(Usuario usuario) {
+
+        return imagenesUsuarioRepository.traerEstadosDeImagenes(usuario.getId());
+    }
 }

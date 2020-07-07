@@ -696,6 +696,38 @@ footer a{
     #categorias .card {
         column-count: 3 !important;
     }
+    .btn-menu{
+        width: 45%;
+        margin: 2% 2.5%;
+        float: left;
+    }
+    .punto-texto {
+        margin-top: 5px !important;
+    }
+    .panel{
+        margin-bottom: 5px;
+    }
+    .modal{
+        width: 80% !important;
+        margin: auto;
+    }
+    .page-header{
+        text-align: center;
+    }
+    .logo2{
+        width: 35% !important;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .logo2{
+        width: 70% !important;
+    }
+}
+@media screen and (max-width: 400px){
+    .logo2{
+        width: 100% !important;
+    }
 }
 /*---------------------------------------*/
 #imagenn{
@@ -745,12 +777,13 @@ footer a{
 .logo-punto-admin{
     width: auto;
     height: 150px;
+    max-width: 100%;
 }
 .back-black{
     background: black;
 }
 .punto-texto{
-    margin-top: 15%!important;
+    margin-top: 19%;
 }
 .ajus{
     width: 90%!important;
@@ -776,3 +809,35 @@ text-align: center;
 .active2{
     background-color: #8ad919!important;
 }
+.hov:hover{
+    color: black!important;
+}
+.nav2{
+    background: white !important;
+    border-bottom: 1px solid #dbdbdb !important;
+}
+.img-modal{
+    width: 100%;
+    height: auto;
+}
+.modal{
+    width: 40%;
+    margin: auto;
+}
+.modal-content, .modal-dialog {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+.navbar-toggle {
+    color: rgba(0,0,0,.5);
+    border-color: rgba(0,0,0,.1);
+    padding: 9px !important;
+}
+.icon-bar {
+    background: rgba(0,0,0,.5) !important;
+}
+
+
+
+
+

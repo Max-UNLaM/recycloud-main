@@ -15,6 +15,7 @@
                 <a href="#" class="list-group-item list-group-item-action" id="datos">Actualizar datos</a>
                 <a href="#" class="list-group-item list-group-item-action" id="password">Cambiar contraseña</a>
                 <a href="#" th:if="${session.usuario.rol} == 2 or ${session.usuario.rol} == 1 " class="list-group-item list-group-item-action" id="puntos">Ser punto de reciclaje</a>
+                <a th:if="${session.usuario.rol} == 3 " class="list-group-item list-group-item-action">¡Ya sos un punto de reciclaje!</a>
             </div>
         </div>
         <div class="col-12 col-md-8">

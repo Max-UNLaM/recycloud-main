@@ -17,6 +17,14 @@ public class ImagenesUsuario {
     @ManyToOne
     private Usuario usuario;
 
+    public Integer getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Integer estado) {
+        this.estado = estado;
+    }
+
     public Long getId() {
         return id;
     }

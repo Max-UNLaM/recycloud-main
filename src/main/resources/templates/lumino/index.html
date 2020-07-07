@@ -18,7 +18,7 @@
 	<![endif]-->
 </head>
 <body>
-	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+	<nav class="navbar nav2 navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
@@ -30,49 +30,59 @@
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
-	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+	<div id="sidebar-collapse" class="col-xs-12 col-md-3 sidebar">
 		<div class="profile-sidebar">
-			<div class="profile-usertitle mb-3 w100">
-				<div class="profile-usertitle-name ">Panel Admin</div>
+			<div class="w100">
+				<h2 th:text="${usuario.nombre + ' ' + usuario.apellido}"} class="text-center negrita"></h2>
 			</div>
 			<div class="clear"></div>
 		</div>
 		<div class="divider"></div>
-		<ul class="nav menu" style="max-width: 190px;">
-			<li class="active w1"><a href="/admin/punto" class=" active2 blanco"><em class="fa fa-plus-circle">&nbsp;</em> Puntos de reciclaje</a></li>
-			<li class="active w1"><a href="/admin/estadisticas" class="blanco"><em class="fa fa-bar-chart">&nbsp;</em>Estadísticas</a></li>
-			<li class="active w1"><a href="/admin/estadisticas" class="blanco"><em class="fa fa-bar-chart">&nbsp;</em>Entrenamiento</a></li>
+		<ul class="nav menu">
+			<li class="active w1"><a href="/admin/punto" class="active2 blanco hov"><em class="fa fa-plus-circle">&nbsp;</em> Puntos de reciclaje</a></li>
+			<li class="active w1"><a href="/admin/estadisticas" class=" blanco hov"><em class="fa fa-bar-chart">&nbsp;</em>Estadísticas</a></li>
+			<li class="active w1"><a href="/admin/estadisticas" class="blanco hov"><em class="fa fa-bar-chart">&nbsp;</em>Entrenamiento</a></li>
 		</ul>
 	</div><!--/.sidebar-->
 
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-
+<div class="col-sm-12 col-md-9 offset-md-3 main">
 		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Panel Admin</h1>
+			<div class="col-12">
+				<h1 class="page-header">Puntos de reciclaje para evaluar</h1>
 			</div>
-		</div><!--/.row-->
-		<div class="row">
-			<div class="col-md-3 logo-punto-admin">
-				<div th:each="usu : ${usu}" class="col-md-12 panel-default ">
-					<div class="panel sacarback logo-punto-admin ">
-						<a th:href="@{'/admin/validacion/aceptada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-primary punto-texto col-xs-12 azulito">Aceptar</button></a>
-						<a th:href="@{'/admin/validacion/rechazada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-success mt-2 col-xs-12">Rechazar</button></a>
-					</div>
+			<div th:each="usu : ${usu}" class="col-lg-12 col-12 panel-default mb-4">
+				<div class="panel sacarback col-lg-3 col-sm-12 float-left">
+					<a th:href="@{'/admin/validacion/aceptada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-primary punto-texto btn-menu col-xs-12 azulito">Aceptar</button></a>
+					<a th:href="@{'/admin/validacion/rechazada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-success btn-menu mt-2 col-xs-12">Rechazar</button></a>
 				</div>
-			</div>
-			<div class="col-md-9">
-				<div th:each="imagenes : ${imagenes}" class="col-md-4">
-					<div class="panel panel-default back-black">
-						<div class="panel-body easypiechart-panel">
-							<img class="logo-punto-admin" th:src="@{'/imagenes/'+${imagenes.nombre}}">
+				<div class="col-lg-9 col-12 float-left">
+					<div th:each="imagenes : ${imagenes}" class="col-md-4 col-12 float-left" th:if="${imagenes.usuario.id} == ${usu.usuario.id}">
+						<div class="panel panel-default back-black" data-toggle="modal" th:data-target="@{'#id_img_'+${imagenes.id}}">
+							<div class="panel-body easypiechart-panel">
+								<img class="logo-punto-admin" th:src="@{'/imagenes/'+${imagenes.nombre}}">
+							</div>
 						</div>
+
+						<div class="modal fade bd-example-modal-lg" th:id="@{'id_img_'+${imagenes.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-body">
+										<img class="logo-punto-admin img-modal" th:src="@{'/imagenes/'+${imagenes.nombre}}">
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
-
 		</div><!--/.row-->
 	</div>	<!--/.main-->
+
+
 
 	<script th:src="@{/lumino/js/jquery-1.11.1.min.js}"></script>
 	<script th:src="@{/lumino/js/bootstrap.min.js}"></script>

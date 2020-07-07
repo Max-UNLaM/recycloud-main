@@ -1,6 +1,7 @@
 package ar.edu.unlam.recycloud.web.pages.admin;
 
 import ar.edu.unlam.recycloud.app.usuario.ImagenesUsuario;
+import ar.edu.unlam.recycloud.app.usuario.Usuario;
 import ar.edu.unlam.recycloud.app.usuario.UsuarioService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,8 +25,11 @@ public class AdminController {
     }
 
     @GetMapping("/estadisticas")
-    public String as(HttpSession session){
-        return "/lumino/charts";
+    public ModelAndView as(HttpSession session){
+        ModelMap modelo = new ModelMap();
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        modelo.addAttribute("usuario", usuarioService.validarUsuario(usuario.getEmail()));
+        return new ModelAndView( "/lumino/charts", modelo);
     }
 
     @GetMapping("/punto")
@@ -34,6 +38,8 @@ public class AdminController {
         List<ImagenesUsuario> imgUsu = usuarioService.getImagenesUsuario();
         modelo.addAttribute("imagenes", imgUsu);
         modelo.addAttribute("usu", usuarioService.usuariosParaValidar());
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        modelo.addAttribute("usuario", usuarioService.validarUsuario(usuario.getEmail()));
         return new ModelAndView("/lumino/index", modelo);
     }
     @GetMapping("/validacion/{estado}/{id}")

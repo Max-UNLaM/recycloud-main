@@ -32,10 +32,12 @@ public class HomeController {
         return "/index";
     }
     @GetMapping("/home/perfil")
-    public ModelAndView perfil(Model model){
+    public ModelAndView perfil(HttpSession session,Model model){
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
         ModelMap modelo = new ModelMap();
         modelo.addAttribute("usuario", new Usuario());
         modelo.addAttribute("password", new Password());
+        modelo.addAttribute("estado", usuarioService.traerEstadosDeImagenes(usuarioService.validarUsuario(usuario.getEmail())));
         return new ModelAndView("/home/perfil", modelo);
     }
 

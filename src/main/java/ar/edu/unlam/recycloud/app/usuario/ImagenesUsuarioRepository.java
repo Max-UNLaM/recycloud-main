@@ -10,8 +10,12 @@ import java.util.List;
 public interface ImagenesUsuarioRepository extends CrudRepository<ImagenesUsuario, Long> {
     @Query(value = "SELECT * FROM imagenes_usuario WHERE estado =1 ORDER BY usuario_id", nativeQuery=true)
     List<ImagenesUsuario> buscarPorIdDeUsuario();
+
     @Query(value = "SELECT * FROM imagenes_usuario WHERE estado =1 GROUP BY usuario_id ORDER BY usuario_id", nativeQuery=true)
     List<ImagenesUsuario> usuariosParaValidar();
+
+    @Query(value = "SELECT * FROM imagenes_usuario i WHERE i.id = (SELECT max(u.id) FROM imagenes_usuario u WHERE u.usuario_id = :id)", nativeQuery=true)
+    ImagenesUsuario traerEstadosDeImagenes(@Param ("id") Long id);
 
     @Transactional
     @Modifying

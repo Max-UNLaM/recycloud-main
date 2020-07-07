@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Lumino - Charts</title>
 	<link th:href="@{/lumino/css/bootstrap.min.css}" rel="stylesheet">
 	<link th:href="@{/lumino/css/font-awesome.min.css}" rel="stylesheet">
@@ -30,22 +30,22 @@
 		</div>
 	</div><!-- /.container-fluid -->
 </nav>
-<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+<div id="sidebar-collapse" class="col-xs-12 col-md-3 sidebar">
 	<div class="profile-sidebar">
-		<div class="profile-usertitle mb-3 w100">
-			<div class="profile-usertitle-name ">Panel Admin</div>
+		<div class="w100">
+			<h2 th:text="${usuario.nombre + ' ' + usuario.apellido}"} class="text-center negrita"></h2>
 		</div>
 		<div class="clear"></div>
 	</div>
 	<div class="divider"></div>
-	<ul class="nav menu" style="max-width: 190px;">
-		<li class="active w1"><a href="/admin/punto" class="blanco"><em class="fa fa-plus-circle">&nbsp;</em> Puntos de reciclaje</a></li>
-		<li class="active w1"><a href="/admin/estadisticas" class="active2 blanco"><em class="fa fa-bar-chart">&nbsp;</em>Estadísticas</a></li>
-		<li class="active w1"><a href="/admin/estadisticas" class="blanco"><em class="fa fa-bar-chart">&nbsp;</em>Entrenamiento</a></li>
+	<ul class="nav menu">
+		<li class="active w1"><a href="/admin/punto" class="blanco hov"><em class="fa fa-plus-circle">&nbsp;</em> Puntos de reciclaje</a></li>
+		<li class="active w1"><a href="/admin/estadisticas" class="active2 blanco hov"><em class="fa fa-bar-chart">&nbsp;</em>Estadísticas</a></li>
+		<li class="active w1"><a href="/admin/estadisticas" class="blanco hov"><em class="fa fa-bar-chart">&nbsp;</em>Entrenamiento</a></li>
 	</ul>
 </div><!--/.sidebar-->
 
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+<div class="col-sm-12 col-md-9 offset-md-3 main">
 
 
 	<div class="row">
