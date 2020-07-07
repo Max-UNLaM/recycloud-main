@@ -220,7 +220,7 @@ gris-oscuro{
     font-size: 16px;
     color: white!important;
 }
-#div_datos, #div_password, #div_puntos{
+#div_datos, #div_password, #div_puntos, #uploadFiles, .subir-img{
     display: none;
 }
 nav .active {
@@ -490,8 +490,9 @@ footer p {
     text-align:center;
 }
 .logo-footer{
-    width: 41%;
-    margin-left: 25%;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 .iconos-footer{
     padding: 0 !important;
@@ -836,6 +837,7 @@ text-align: center;
 .icon-bar {
     background: rgba(0,0,0,.5) !important;
 }
+
 
 
 

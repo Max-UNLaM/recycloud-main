@@ -9,17 +9,30 @@
 <header th:replace="fragments/header"></header>
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-4 my-5">
+        <div class="col-12 col-md-4 col-12 my-md-5 my-3">
             <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action active" id="perfil">Mis datos</a>
                 <a href="#" class="list-group-item list-group-item-action" id="datos">Actualizar datos</a>
                 <a href="#" class="list-group-item list-group-item-action" id="password">Cambiar contraseña</a>
                 <a href="#" th:if="${session.usuario.rol} == 2 or ${session.usuario.rol} == 1 " class="list-group-item list-group-item-action" id="puntos">Ser punto de reciclaje</a>
-                <a th:if="${session.usuario.rol} == 3 " class="list-group-item list-group-item-action">¡Ya sos un punto de reciclaje!</a>
             </div>
+
+            <div class="alert alert-success text-center mt-2" role="alert" th:if="${session.usuario.rol} == 3">
+                ¡Ya sos un punto de reciclaje!
+            </div>
+            <div th:if="${session.estado} != null">
+                <div class="alert alert-warning text-center mt-2" role="alert" th:if="${session.estado.estado} == 1">
+                    Tu solicitud está siendo evaluada
+                </div>
+
+                <div class="alert alert-danger text-center mt-2" role="alert" th:if="${session.estado.estado} == 0">
+                    Sus imágenes fueron rechazadas, por favor, inténtelo nuevamente
+                </div>
+            </div>
+
         </div>
         <div class="col-12 col-md-8">
-            <div class="card card-signin my-5">
+            <div class="card card-signin col-12 my-md-5 my-3">
                 <div class="card-body">
                     <div id="div_perfil">
                         <h2 class="card-title text-center">Mi Perfil</h2>
@@ -73,11 +86,13 @@
 
                     <form name="uploadFiles" id="uploadFiles" th:action="@{/home/completar}" enctype="multipart/form-data" method="post">
                         <h3 class="card-title text-center">Ser punto de reciclaje</h3>
-                        <div class="form-label-group mt-5">
-                            <label class="custom-file-label">Agregue sus imagenes</label>
-                            <input type="file" multiple="multiple" name="files" id="files" class="custom-file-input ">
+                        <div class="form-label-group mt-4">
+                            <label class="">Seleccionar imágenes<span class="text-danger">*</span></label>
+                            <input type="file" multiple="multiple" name="files" id="files" class="form-control-file">
                         </div>
-                        <button class="btn btn-sm  btn-block text-uppercase botones-perfil" id="punto-entrega" type="submit">Cargar imagenes</button>
+                        <p class="alert alert-info d-none d-md-block mt-3"><span class="text-danger">*</span>Presione la tecla Ctrl para seleccionar más de una imagen</p>
+                        <p class="alert alert-info d-block d-md-none mt-3"><span class="text-danger">*</span>Mantenga presionado para seleccionar mas de una imagen</p>
+                        <button class="btn btn-sm  btn-block text-uppercase botones-perfil subir-img" id="punto-entrega" type="submit">Cargar imágenes</button>
                     </form>
                 </div>
             </div>
@@ -132,6 +147,11 @@
             $( "#datos" ).removeClass( "active" );
         });
 
+
+        $(".form-control-file").change(function(){
+            $(".subir-img").show();
+        });
+        
         //$("#identificacion").mask("99-99999999-9");
 
         //Select fecha nacimiento

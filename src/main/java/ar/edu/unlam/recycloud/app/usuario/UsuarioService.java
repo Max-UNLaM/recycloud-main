@@ -64,7 +64,7 @@ public class UsuarioService {
     public void cambiarDeEstado(Long id){
 
         usuarioRepository.cambiarDeEstado(id);
-        imagenesUsuarioRepository.cambiarEstadoImagen(id);
+        imagenesUsuarioRepository.cambiarEstadoImagenAceptado(id);
     }
     public void rechazarcambioDeEstado(Long id){
 

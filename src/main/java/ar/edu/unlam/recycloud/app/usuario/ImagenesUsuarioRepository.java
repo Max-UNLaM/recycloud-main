@@ -21,4 +21,9 @@ public interface ImagenesUsuarioRepository extends CrudRepository<ImagenesUsuari
     @Modifying
     @Query(value = "UPDATE imagenes_usuario SET estado=0 WHERE usuario_id = :id", nativeQuery = true)
     void cambiarEstadoImagen(@Param ("id") Long id);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE imagenes_usuario SET estado=2 WHERE usuario_id = :id", nativeQuery = true)
+    void cambiarEstadoImagenAceptado(@Param ("id") Long id);
 }
