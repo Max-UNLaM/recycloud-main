@@ -1,11 +1,14 @@
 package ar.edu.unlam.recycloud.app.usuario;
 
+import ar.edu.unlam.recycloud.app.admin.Estadisticas;
+import ar.edu.unlam.recycloud.app.categoria.CategoriaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,11 +16,13 @@ public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
     private final ImagenesUsuarioRepository imagenesUsuarioRepository;
+    private final CategoriaRepository categoriaRepository;
 
 
-    public UsuarioService(UsuarioRepository usuarioRepository, ImagenesUsuarioRepository imagenesUsuarioRepository) {
+    public UsuarioService(UsuarioRepository usuarioRepository, ImagenesUsuarioRepository imagenesUsuarioRepository, CategoriaRepository categoriaRepository) {
         this.usuarioRepository = usuarioRepository;
         this.imagenesUsuarioRepository = imagenesUsuarioRepository;
+        this.categoriaRepository = categoriaRepository;
     }
 
     public Usuario confirmarUsuario(String email, String password){
@@ -74,4 +79,17 @@ public class UsuarioService {
 
         return imagenesUsuarioRepository.traerEstadosDeImagenes(usuario.getId());
     }
+
+    public Estadisticas getAllEstadistics() {
+        Estadisticas lista = new Estadisticas();
+
+        lista.setUsuariosTotales(usuarioRepository.totalDeUsuarios());
+        lista.setUsuariosTotalesRol1(usuarioRepository.totalDeUsuariosRol1());
+        lista.setUsuariosTotalesRol2(usuarioRepository.totalDeUsuariosRol2());
+        lista.setUsuariosTotalesRol3(usuarioRepository.totalDeUsuariosRol3());
+        lista.setCategoriasTotales(categoriaRepository.totalDeCategorias());
+        return lista;
+    }
+
+
 }

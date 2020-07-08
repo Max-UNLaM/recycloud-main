@@ -29,6 +29,7 @@ public class AdminController {
         ModelMap modelo = new ModelMap();
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         modelo.addAttribute("usuario", usuarioService.validarUsuario(usuario.getEmail()));
+        modelo.addAttribute("estadisticas", usuarioService.getAllEstadistics());
         return new ModelAndView( "/lumino/charts", modelo);
     }
 

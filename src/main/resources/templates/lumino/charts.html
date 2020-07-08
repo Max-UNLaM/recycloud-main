@@ -57,157 +57,44 @@
 		<div class="row">
 			<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 				<div class="panel panel-teal panel-widget border-right">
-					<div class="row no-padding"><em class="w100 fa fa-xl fa-shopping-cart color-blue"></em>
+					<div class="row no-padding"><em class="w100 fa fa-xl fa-eye color-blue"></em>
 						<div class="large w100">120</div>
-						<div class="text-muted w100">New Orders</div>
+						<div class="text-muted w100">Visitas al sitio</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 				<div class="panel panel-blue panel-widget border-right">
-					<div class="row no-padding"><em class="w100 fa fa-xl fa-comments color-orange"></em>
-						<div class="large w100 ">52</div>
-						<div class="text-muted w100">Comments</div>
+					<div class="row no-padding"><em class="w100 fa fa-xl fa-user color-orange"></em>
+						<div class="large w100 " th:text="${estadisticas.usuariosTotales}"></div>
+						<div class="text-muted w100">Usuarios registrados</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 				<div class="panel panel-orange panel-widget border-right">
-					<div class="row no-padding"><em class="fa fa-xl fa-users color-teal w100"></em>
+					<div class="row no-padding"><em class="fa fa-xl fa-map-marker color-teal w100"></em>
 						<div class="large w100">24</div>
-						<div class="text-muted w100">New Users</div>
+						<div class="text-muted w100">Puntos de reciclaje</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 				<div class="panel panel-red panel-widget ">
-					<div class="row no-padding"><em class="w100 fa fa-xl fa-search color-red"></em>
-						<div class="large w100">25.2k</div>
-						<div class="text-muted w100">Page Views</div>
+					<div class="row no-padding"><em class="w100 fa fa-xl fa-recycle color-red"></em>
+						<div class="large w100" th:text="${estadisticas.categoriasTotales}"></div>
+						<div class="text-muted w100">Categorías cargadas</div>
 					</div>
 				</div>
 			</div>
 		</div><!--/.row-->
 	</div>
-		<div class="row">
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<div class="easypiechart" id="easypiechart-teal" data-percent="56" ><span class="percent">56%</span></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<div class="easypiechart" id="easypiechart-blue" data-percent="92" ><span class="percent">92%</span></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<div class="easypiechart" id="easypiechart-orange" data-percent="65" ><span class="percent">65%</span></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<div class="easypiechart" id="easypiechart-red" data-percent="27" ><span class="percent">27%</span></div>
-					</div>
-				</div>
-			</div>
-		</div><!--/.row-->
-	<div class="panel panel-default ">
-		<div class="panel-heading">
-			Progress bars
-			<ul class="pull-right panel-settings panel-button-tab-right">
-				<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-					<em class="fa fa-cogs"></em>
-				</a>
-					<ul class="dropdown-menu dropdown-menu-right">
-						<li>
-							<ul class="dropdown-settings">
-								<li><a href="#">
-									<em class="fa fa-cog"></em> Settings 1
-								</a></li>
-								<li class="divider"></li>
-								<li><a href="#">
-									<em class="fa fa-cog"></em> Settings 2
-								</a></li>
-								<li class="divider"></li>
-								<li><a href="#">
-									<em class="fa fa-cog"></em> Settings 3
-								</a></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-			</ul>
-			<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
-		<div class="panel-body">
-			<div class="col-md-12 no-padding">
-				<div class="row progress-labels">
-					<div class="col-sm-6">New Orders</div>
-					<div class="col-sm-6" style="text-align: right;">80%</div>
-				</div>
-				<div class="progress">
-					<div data-percentage="0%" style="width: 80%;" class="progress-bar progress-bar-blue" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-				</div>
-				<div class="row progress-labels">
-					<div class="col-sm-6">Comments</div>
-					<div class="col-sm-6" style="text-align: right;">60%</div>
-				</div>
-				<div class="progress">
-					<div data-percentage="0%" style="width: 60%;" class="progress-bar progress-bar-orange" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-				</div>
-				<div class="row progress-labels">
-					<div class="col-sm-6">New Users</div>
-					<div class="col-sm-6" style="text-align: right;">40%</div>
-				</div>
-				<div class="progress">
-					<div data-percentage="0%" style="width: 40%;" class="progress-bar progress-bar-teal" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-				</div>
-				<div class="row progress-labels">
-					<div class="col-sm-6">Page Views</div>
-					<div class="col-sm-6" style="text-align: right;">20%</div>
-				</div>
-				<div class="progress">
-					<div data-percentage="0%" style="width: 20%;" class="progress-bar progress-bar-red" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-		
+	
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Line Chart
-						<ul class="pull-right panel-settings panel-button-tab-right">
-							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-								<em class="fa fa-cogs"></em>
-							</a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<ul class="dropdown-settings">
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
-											</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
+						Puntos de reciclaje más solicitados
 						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
 						<div class="canvas-wrapper">
@@ -217,35 +104,39 @@
 				</div>
 			</div>
 		</div><!--/.row-->
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Roles
+					<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
+				<div class="panel-body">
+					<div class="canvas-wrapper">
+						<canvas class="chart" id="pie-chart" ></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Categorías en el mapa
+					<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
+				<div class="panel-body">
+					<div class="canvas-wrapper">
+						<canvas class="chart" id="doughnut-chart" ></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Bar Chart
-						<ul class="pull-right panel-settings panel-button-tab-right">
-							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-								<em class="fa fa-cogs"></em>
-							</a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<ul class="dropdown-settings">
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
-											</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
+						Visitias al sitio
 						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
 						<div class="canvas-wrapper">
@@ -256,154 +147,7 @@
 			</div>
 		</div><!--/.row-->		
 		
-		<div class="row">
-			<div class="col-md-6">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Pie Chart
-						<ul class="pull-right panel-settings panel-button-tab-right">
-							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-								<em class="fa fa-cogs"></em>
-							</a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<ul class="dropdown-settings">
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
-											</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
-					<div class="panel-body">
-						<div class="canvas-wrapper">
-							<canvas class="chart" id="pie-chart" ></canvas>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Doughnut Chart
-						<ul class="pull-right panel-settings panel-button-tab-right">
-							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-								<em class="fa fa-cogs"></em>
-							</a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<ul class="dropdown-settings">
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
-											</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
-					<div class="panel-body">
-						<div class="canvas-wrapper">
-							<canvas class="chart" id="doughnut-chart" ></canvas>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/.row-->
-		
-		<div class="row">
-			<div class="col-md-6">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Radar Chart
-						<ul class="pull-right panel-settings panel-button-tab-right">
-							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-								<em class="fa fa-cogs"></em>
-							</a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<ul class="dropdown-settings">
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
-											</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
-					<div class="panel-body">
-						<div class="canvas-wrapper">
-							<canvas class="chart" id="radar-chart" ></canvas>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Polar Area Chart
-						<ul class="pull-right panel-settings panel-button-tab-right">
-							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-								<em class="fa fa-cogs"></em>
-							</a>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<ul class="dropdown-settings">
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
-											</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
-					<div class="panel-body">
-						<div class="canvas-wrapper">
-							<canvas class="chart" id="polar-area-chart" ></canvas>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
-			</div>
-		</div><!--/.row-->
+
 	</div>	<!--/.main-->
 
 
@@ -416,6 +160,33 @@
 	<script th:src="@{/lumino/js/bootstrap-datepicker.js}"></script>
 	<script th:src="@{/lumino/js/custom.js}"></script>
 	<script>
+
+		var myVariable1= [[${estadisticas.usuariosTotalesRol1}]];
+		var myVariable2= [[${estadisticas.usuariosTotalesRol2}]];
+		var myVariable3= [[${estadisticas.usuariosTotalesRol3}]];
+
+		var pieData = [
+			{
+				value: myVariable3,
+				color: "#ffb53e",
+				highlight: "#fac878",
+				label: "Punto de reciclaje"
+			},
+			{
+				value: myVariable2,
+				color: "#1ebfae",
+				highlight: "#3cdfce",
+				label: "Genérico"
+			},
+			{
+				value: myVariable1,
+				color: "#f9243f",
+				highlight: "#f6495f",
+				label: "Administradores"
+			}
+
+		];
+
 	window.onload = function () {
 	var chart1 = document.getElementById("line-chart").getContext("2d");
 	window.myLine = new Chart(chart1).Line(lineChartData, {
@@ -441,18 +212,7 @@
 	responsive: true,
 	segmentShowStroke: false
 	});
-	var chart5 = document.getElementById("radar-chart").getContext("2d");
-	window.myRadarChart = new Chart(chart5).Radar(radarData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.05)",
-	angleLineColor: "rgba(0,0,0,.2)"
-	});
-	var chart6 = document.getElementById("polar-area-chart").getContext("2d");
-	window.myPolarAreaChart = new Chart(chart6).PolarArea(polarData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	segmentShowStroke: false
-	});
+
 };
 	</script>	
 </body>
