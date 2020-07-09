@@ -5,11 +5,11 @@ import ar.edu.unlam.recycloud.app.usuario.UsuarioService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -67,4 +67,35 @@ public class LoginController {
         session.setAttribute("usuario", log);
         return "/index";
     }
+
+/*
+    @GetMapping(path = "/login/logingoogle")
+    public String loginGoogle() {
+        return "/login/logingoogle";
+    }*/
+
+    @PostMapping(value = "details")
+    public String loginGoogle(HttpSession session, HttpServletRequest request) {
+        Usuario usr= new Usuario();
+        Usuario u = usuarioService.validarUsuario(request.getParameter("email"));
+        if(u == null){
+            usr.setNombre(request.getParameter("nombre"));
+            usr.setApellido(request.getParameter("apellido"));
+            usr.setEmail(request.getParameter("email"));
+            usr.setRol(2);
+            usr.setIdentificacion(0);
+            usuarioService.registro(usr);
+            session.setAttribute("usuario", usr);
+        }
+        else{
+            session.setAttribute("usuario", u);
+        }
+
+        return "redirect:/index";
+
+    }
+   /* @RequestMapping(...)
+    public String getCountySelected(@RequestParam(value = "UR_PARAM_NAME") String param){
+        return "/login/logingoogle";
+    }*/
 }

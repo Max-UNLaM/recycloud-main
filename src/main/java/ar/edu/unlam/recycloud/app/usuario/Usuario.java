@@ -31,10 +31,10 @@ public class Usuario {
             = "Debe ser entre 8 y 50 caracteres")
     @NotEmpty(message="Campo requerido")
     private String email;
-
+/*
     @Size(min = 8, max = 50, message
             = "Debe ser entre 8 y 50 caracteres")
-    @NotEmpty(message="Campo requerido")
+    @NotEmpty(message="Campo requerido") */
     private String password;
 
     private Integer rol;
