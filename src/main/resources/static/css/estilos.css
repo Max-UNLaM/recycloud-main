@@ -305,6 +305,9 @@ a:hover {
 .fw-600{
     font-weight: 600;
 }
+.f800{
+    font-weight: 800;
+}
 .btn-primary:hover {
     background-color: #3ab13a !important;
     border-color: #3ab13a !important;
