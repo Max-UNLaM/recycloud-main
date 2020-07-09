@@ -1,4 +1,7 @@
 /*scanner - scannerdos*/
+body, p, a, input, h1, h2, h3, h4, h5, div{
+    font-family: 'Quicksand', sans-serif !important;
+}
 .naranja-blanco{
     background: #f5b041 !important;
     color: white;
@@ -220,7 +223,7 @@ gris-oscuro{
     font-size: 16px;
     color: white!important;
 }
-#div_datos, #div_password, #div_puntos, #uploadFiles, .subir-img{
+#div_datos, #div_password, #div_puntos, #uploadFiles, .subir-img, #graficos{
     display: none;
 }
 nav .active {
@@ -840,6 +843,14 @@ text-align: center;
 .icon-bar {
     background: rgba(0,0,0,.5) !important;
 }
+
+.apagado{
+    display: none !important;
+}
+.prendido{
+    display: block !important;
+}
+
 
 
 

@@ -3,7 +3,17 @@
 <head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
     <meta charset="UTF-8">
     <title>RecyCloud ♻️</title>
+
+    <link th:href="@{/lumino/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/lumino/css/datepicker3.css}" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
+
+    <!--Custom Font-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script th:src="@{/lumino/js/html5shiv.js}"></script>
+    <script th:src="@{/lumino/js/respond.min.js}"></script>
+    <![endif]-->
 </head>
 <body>
 <header th:replace="fragments/header"></header>
@@ -11,15 +21,16 @@
     <div class="row">
         <div class="col-12 col-md-4 col-12 my-md-5 my-3">
             <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active" id="perfil">Mis datos</a>
-                <a href="#" class="list-group-item list-group-item-action" id="datos">Actualizar datos</a>
-                <a href="#" class="list-group-item list-group-item-action" id="password">Cambiar contraseña</a>
+                <a href="#" class="list-group-item list-group-item-action active" id="perfil" onclick="perfil()">Mis datos</a>
+                <a href="#" class="list-group-item list-group-item-action" id="datos" onclick="datos()">Actualizar datos</a>
+                <a href="#" class="list-group-item list-group-item-action" id="password" onclick="passw()">Cambiar contraseña</a>
             <span th:if="${session.estado} == null">
-                <a href="#" th:if="${session.usuario.rol} != 3" class="list-group-item list-group-item-action" id="puntos">Ser punto de reciclaje</a>
+                <a href="#" th:if="${session.usuario.rol} != 3" class="list-group-item list-group-item-action" id="puntos" onclick="puntos()">Ser punto de reciclaje</a>
             </span>
             <span th:if="${session.estado} != null">
-                <a href="#" th:if="${session.usuario.rol} != 3 and ${session.estado.estado} == 0" class="list-group-item list-group-item-action" id="puntos">Ser punto de reciclaje</a>
+                <a href="#" th:if="${session.usuario.rol} != 3 and ${session.estado.estado} == 0" class="list-group-item list-group-item-action" id="puntos2" onclick="puntos()">Ser punto de reciclaje</a>
             </span>
+                <a href="#" th:if="${session.usuario.rol} == 3" class="list-group-item list-group-item-action" id="estadisticas" onclick="estadistica()">Estadísticas</a>
             </div>
 
             <div class="alert alert-success text-center mt-2" role="alert" th:if="${session.usuario.rol} == 3">
@@ -39,14 +50,57 @@
         <div class="col-12 col-md-8">
             <div class="card card-signin col-12 my-md-5 my-3">
                 <div class="card-body">
-                    <div id="div_perfil">
+                    <div id="div_perfil" class="col-12 float-left mb-4">
                         <h2 class="card-title text-center">Mi Perfil</h2>
-                        <img src="../imagenes/perfil.jpg" alt="" class="foto-perfil rounded-circle">
-                        <h2 th:text="${session.usuario.nombre + ' ' + session.usuario.apellido}"} class="text-center negrita"></h2>
-                        <h4 th:text="${session.usuario.email}" class="text-center"></h4>
+                        <div class="col-md-6 col-12 float-left">
+                            <h2 th:text="${session.usuario.nombre + ' ' + session.usuario.apellido}"} class="text-center negrita"></h2>
+                            <h4 th:text="${session.usuario.email}" class="text-center"></h4>
+                        </div>
+                        <div class="col-md-6 col-12 float-left">
+                            <img src="../imagenes/perfil.jpg" alt="" class="foto-perfil rounded-circle">
+                        </div>
                     </div>
 
-                    <form action="#" th:action="@{/home/modificar}" th:object="${usuario}" method="post" id="div_datos">
+                    <div class="panel panel-container apagado col-12 float-left mt-2" id="panel">
+                        <h3 class="card-title text-center mb-4" style="font-size: 30px;">Estadísticas</h3>
+                        <div class="row">
+                            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+                                <div class="panel panel-teal panel-widget border-right">
+                                    <div class="row no-padding"><em class="w100 fa fa-xl fa-eye color-blue"></em>
+                                        <div class="large w100">120</div>
+                                        <div class="text-muted w100">Visitas al sitio</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+                                <div class="panel panel-blue panel-widget border-right">
+                                    <div class="row no-padding"><em class="w100 fa fa-xl fa-user color-orange"></em>
+                                        <div class="large w100 " th:text="${estadisticas.usuariosTotales}"></div>
+                                        <div class="text-muted w100">Usuarios registrados</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+                                <div class="panel panel-orange panel-widget border-right">
+                                    <div class="row no-padding"><em class="fa fa-xl fa-map-marker color-teal w100"></em>
+                                        <div class="large w100">24</div>
+                                        <div class="text-muted w100">Puntos de reciclaje</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+                                <div class="panel panel-red panel-widget ">
+                                    <div class="row no-padding"><em class="w100 fa fa-xl fa-recycle color-red"></em>
+                                        <div class="large w100" th:text="${estadisticas.categoriasTotales}"></div>
+                                        <div class="text-muted w100">Categorías cargadas</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--/.row-->
+                    </div>
+
+
+                    <form action="#" th:action="@{/home/modificar}" th:object="${usuario}" method="post" id="div_datos" class="col-12 float-left">
                         <h3 class="card-title text-center" style="font-size: 30px;">Actualizar datos</h3>
                         <div class="form-inline mt-3">
                             <h5 class="w-100">Fecha de nacimiento</h5>
@@ -70,7 +124,7 @@
                         <button class="btn btn-sm  btn-block text-uppercase botones-perfil" id="cambiar_datos" type="submit">Modificar datos</button>
                     </form>
 
-                    <form action="#" th:action="@{/home/password}" th:object="${password}" method="post" id="div_password">
+                    <form action="#" th:action="@{/home/password}" th:object="${password}" method="post" id="div_password" class="col-12 float-left">
                         <h3 class="card-title text-center" style="font-size: 30px;">Cambiar contraseña</h3>
                         <div class="form-label-group mt-3">
                             <input type="password" id="old-password" name="oldPassword" class="form-control" placeholder="Contraseña actual" >
@@ -89,7 +143,7 @@
                         <button  class="btn btn-sm  btn-block text-uppercase botones-perfil" id="pass" type="submit">Cambiar contraseña</button>
                     </form>
 
-                    <form name="uploadFiles" id="uploadFiles" th:action="@{/home/completar}" enctype="multipart/form-data" method="post">
+                    <form name="uploadFiles" id="uploadFiles" th:action="@{/home/completar}" enctype="multipart/form-data" method="post" class="col-12 float-left">
                         <h3 class="card-title text-center">Ser punto de reciclaje</h3>
                         <div class="form-label-group mt-4">
                             <label class="">Seleccionar imágenes<span class="text-danger">*</span></label>
@@ -103,60 +157,83 @@
             </div>
         </div>
     </div>
-    <script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
 </div>
+<script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+
+
 
 <script>
-    $( document ).ready(function($) {
-        $("#password").click(function(){
-            $("#div_perfil").hide();
-            $("#div_password").show();
-            $("#div_datos").hide();
-            $("#uploadFiles").hide();
+
+        function passw(){
+            document.getElementById("div_perfil").classList.remove("prendido");
+            document.getElementById("div_password").classList.add("prendido");
+            document.getElementById("div_datos").classList.remove("prendido");
+            document.getElementById("uploadFiles").classList.remove("prendido");
+            document.getElementById("panel").classList.remove("prendido");
+            document.getElementsByClassName("panel2").classList.remove("prendido");
             $( "#password" ).addClass( "active" );
             $( "#perfil" ).removeClass( "active" );
             $( "#puntos" ).removeClass( "active" );
             $( "#datos" ).removeClass( "active" );
-        });
+        };
 
-        $("#perfil").click(function(){
-            $("#div_perfil").show();
-            $("#div_password").hide();
-            $("#div_datos").hide();
-            $("#uploadFiles").hide();
+        function perfil(){
+            document.getElementById("div_perfil").classList.add("prendido");
+            document.getElementById("div_password").classList.remove("prendido");
+            document.getElementById("div_datos").classList.remove("prendido");
+            document.getElementById("uploadFiles").classList.remove("prendido");
+            document.getElementById("panel").classList.remove("prendido");
+            document.getElementsByClassName("panel2").classList.remove("prendido");
             $( "#perfil" ).addClass( "active" );
             $( "#password" ).removeClass( "active" );
             $( "#puntos" ).removeClass( "active" );
             $( "#datos" ).removeClass( "active" );
-        });
+        };
 
-        $("#datos").click(function(){
-            $("#div_perfil").hide();
-            $("#div_password").hide();
-            $("#div_datos").show();
-            $("#uploadFiles").hide();
+        function datos(){
+            document.getElementById("div_perfil").classList.remove("prendido");
+            document.getElementById("div_password").classList.remove("prendido");
+            document.getElementById("div_datos").classList.add("prendido");
+            document.getElementById("uploadFiles").classList.remove("prendido");
+            document.getElementById("panel").classList.remove("prendido");
+            document.getElementsByClassName("panel2").classList.remove("prendido");
             $( "#datos" ).addClass( "active" );
             $( "#perfil" ).removeClass( "active" );
             $( "#puntos" ).removeClass( "active" );
             $( "#password" ).removeClass( "active" );
-        });
+        };
 
-        $("#puntos").click(function(){
-            $("#div_perfil").hide();
-            $("#div_password").hide();
-            $("#div_datos").hide();
-            $("#uploadFiles").show();
+        function puntos(){
+            document.getElementById("div_perfil").classList.remove("prendido");
+            document.getElementById("div_password").classList.remove("prendido");
+            document.getElementById("div_datos").classList.remove("prendido");
+            document.getElementById("uploadFiles").classList.add("prendido");
+            document.getElementById("panel").classList.remove("prendido");
+            document.getElementsByClassName("panel2").classList.remove("prendido");
             $( "#puntos" ).addClass( "active" );
             $( "#perfil" ).removeClass( "active" );
             $( "#password" ).removeClass( "active" );
             $( "#datos" ).removeClass( "active" );
-        });
+        };
+
+        function estadistica(){
+            document.getElementById("div_perfil").classList.remove("prendido");
+            document.getElementById("div_password").classList.remove("prendido");
+            document.getElementById("div_datos").classList.remove("prendido");
+            document.getElementById("uploadFiles").classList.remove("prendido");
+            document.getElementById("panel").classList.add("prendido");
+            document.getElementsByClassName("panel2").classList.add("prendido");
+            $( "#puntos" ).addClass( "active" );
+            $( "#perfil" ).removeClass( "active" );
+            $( "#password" ).removeClass( "active" );
+            $( "#datos" ).removeClass( "active" );
+        };
 
 
         $(".form-control-file").change(function(){
-            $(".subir-img").show();
+            document.getElementsByClassName('subir-img').style.visibility = "visible";
         });
-        
+        $( document ).ready(function($) {
         //$("#identificacion").mask("99-99999999-9");
 
         //Select fecha nacimiento
@@ -220,6 +297,61 @@
 
         populateDates()
     });
+
+
+    var myVariable1= [[${estadisticas.usuariosTotalesRol1}]];
+    var myVariable2= [[${estadisticas.usuariosTotalesRol2}]];
+    var myVariable3= [[${estadisticas.usuariosTotalesRol3}]];
+
+    var pieData = [
+        {
+            value: myVariable3,
+            color: "#ffb53e",
+            highlight: "#fac878",
+            label: "Punto de reciclaje"
+        },
+        {
+            value: myVariable2,
+            color: "#1ebfae",
+            highlight: "#3cdfce",
+            label: "Genérico"
+        },
+        {
+            value: myVariable1,
+            color: "#f9243f",
+            highlight: "#f6495f",
+            label: "Administradores"
+        }
+
+    ];
+
+    window.onload = function () {
+        var chart1 = document.getElementById("line-chart").getContext("2d");
+        window.myLine = new Chart(chart1).Line(lineChartData, {
+            responsive: true,
+            scaleLineColor: "rgba(0,0,0,.2)",
+            scaleGridLineColor: "rgba(0,0,0,.05)",
+            scaleFontColor: "#c5c7cc"
+        });
+        var chart2 = document.getElementById("bar-chart").getContext("2d");
+        window.myBar = new Chart(chart2).Bar(barChartData, {
+            responsive: true,
+            scaleLineColor: "rgba(0,0,0,.2)",
+            scaleGridLineColor: "rgba(0,0,0,.05)",
+            scaleFontColor: "#c5c7cc"
+        });
+        var chart3 = document.getElementById("doughnut-chart").getContext("2d");
+        window.myDoughnut = new Chart(chart3).Doughnut(doughnutData, {
+            responsive: true,
+            segmentShowStroke: false
+        });
+        var chart4 = document.getElementById("pie-chart").getContext("2d");
+        window.myPie = new Chart(chart4).Pie(pieData, {
+            responsive: true,
+            segmentShowStroke: false
+        });
+
+    };
 </script>
 
 

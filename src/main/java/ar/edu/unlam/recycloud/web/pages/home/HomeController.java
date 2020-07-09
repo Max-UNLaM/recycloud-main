@@ -39,6 +39,7 @@ public class HomeController {
         modelo.addAttribute("password", new Password());
         session.setAttribute("estado", usuarioService.traerEstadosDeImagenes(usuarioService.validarUsuario(usuario.getEmail())));
         session.setAttribute("usuario", usuarioService.validarUsuario(usuario.getEmail()));
+        modelo.addAttribute("estadisticas", usuarioService.getAllEstadistics());
         return new ModelAndView("/home/perfil", modelo);
     }
 
