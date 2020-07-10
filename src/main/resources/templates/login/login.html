@@ -15,14 +15,14 @@
             <div class="card card-signin my-5">
                 <div class="card-body">
                     <h5 class="card-title text-center"><span class="naranja">Login</span></h5>
-                    <form action="#" th:action="@{/login}" th:object="${usuario}" method="post">
+                    <form action="#" th:action="@{/login}" th:object="${login}" method="post">
                         <div class="form-label-group">
-                            <input type="text" th:field="*{email}" id="email" class="form-control" placeholder="Email">
+                            <input type="text" th:field="*{email}" name="email" id="email" class="form-control" placeholder="Email">
                             <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
                         </div>
 
                         <div class="form-label-group mt-3">
-                            <input type="password" th:field="*{password}" id="password" class="form-control" placeholder="Contraseña" >
+                            <input type="password" th:field="*{password}" name="password" id="password" class="form-control" placeholder="Contraseña" >
                             <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
                         </div>
                         <button class="btn btn-primary btn-block text-uppercase verde-blanco mt-3" id="iniciar" type="submit">Iniciar sesión</button>

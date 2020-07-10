@@ -1,5 +1,6 @@
 package ar.edu.unlam.recycloud.web.pages.login;
 
+import ar.edu.unlam.recycloud.app.usuario.Login;
 import ar.edu.unlam.recycloud.app.usuario.Usuario;
 import ar.edu.unlam.recycloud.app.usuario.UsuarioService;
 import org.springframework.stereotype.Controller;
@@ -31,18 +32,18 @@ public class LoginController {
     @GetMapping(path = "/login")
     public ModelAndView pantallaLogin() {
         ModelMap modelo = new ModelMap();
-        modelo.addAttribute("usuario", new Usuario());
+        modelo.addAttribute("login", new Login());
         return new ModelAndView("/login/login", modelo);
     }
 
     @PostMapping(path = "/login")
-    public String confirmar(HttpSession session,@Valid Usuario usuario, BindingResult bindingResult) {
-        Usuario log;
+    public String confirmar(HttpSession session, @Valid Login login, BindingResult bindingResult) {
+        Usuario log= new Usuario();
         if (bindingResult.hasErrors()) {
             return "/login/login";
         }
         else{
-            log = usuarioService.confirmarUsuario(usuario.getEmail(), usuario.getPassword());
+            log = usuarioService.confirmarUsuario(login.getEmail(), login.getPassword());
             if (log == null) {
                 return "/login/login";
             } else {
