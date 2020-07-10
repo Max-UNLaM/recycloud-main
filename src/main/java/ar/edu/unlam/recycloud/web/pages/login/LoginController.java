@@ -36,15 +36,21 @@ public class LoginController {
     }
 
     @PostMapping(path = "/login")
-    public String confirmar(HttpSession session, Usuario usuario, BindingResult asd) {
-        Usuario log = usuarioService.confirmarUsuario(usuario.getEmail(), usuario.getPassword());
-
-        if (log == null) {
+    public String confirmar(HttpSession session,@Valid Usuario usuario, BindingResult bindingResult) {
+        Usuario log;
+        if (bindingResult.hasErrors()) {
             return "/login/login";
-        } else {
-            session.setAttribute("usuario", log);
-            return "/index";
         }
+        else{
+            log = usuarioService.confirmarUsuario(usuario.getEmail(), usuario.getPassword());
+            if (log == null) {
+                return "/login/login";
+            } else {
+                session.setAttribute("usuario", log);
+                return "/index";
+            }
+        }
+
     }
 
     @GetMapping(path = "/login/registrar")
@@ -55,17 +61,23 @@ public class LoginController {
     }
 
     @PostMapping(path = "/login/registrar")
-    public String registrarConfirmar(HttpSession session, @Valid Usuario usuario) {
-        Usuario l = usuarioService.validarUsuario(usuario.getEmail());
-        if(l != null){
+    public String registrarConfirmar(HttpSession session, @Valid Usuario usuario, BindingResult bindingResult){
+        Usuario l;
+        if (bindingResult.hasErrors()) {
             return "/login/registrar";
         }
-        usuario.setRol(2);
-        usuario.setIdentificacion(0);
-        usuarioService.registro(usuario);
-        Usuario log = usuarioService.validarUsuario(usuario.getEmail());
-        session.setAttribute("usuario", log);
-        return "/index";
+        else{
+            l = usuarioService.validarUsuario(usuario.getEmail());
+            if(l != null){
+                return "/login/registrar";
+            }
+            usuario.setRol(2);
+            usuario.setIdentificacion(0);
+            usuarioService.registro(usuario);
+            Usuario log = usuarioService.validarUsuario(usuario.getEmail());
+            session.setAttribute("usuario", log);
+            return "/index";
+        }
     }
 
 /*
