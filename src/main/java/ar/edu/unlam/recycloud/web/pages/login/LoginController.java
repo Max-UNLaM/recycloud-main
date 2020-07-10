@@ -96,7 +96,7 @@ public class LoginController {
             usr.setPassword(request.getParameter("pass"));
             usr.setEmail(request.getParameter("email"));
             usr.setRol(2);
-            usr.setIdentificacion(0);
+            usr.setIdentificacion(2);// es por que es google o facebook
             usuarioService.registro(usr);
             session.setAttribute("usuario", usr);
         }
