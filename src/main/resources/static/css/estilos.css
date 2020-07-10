@@ -231,7 +231,7 @@ gris-oscuro{
     font-size: 16px;
     color: white!important;
 }
-#div_datos, #div_password, #div_puntos, #uploadFiles, .subir-img, #graficos{
+#div_datos, #div_password, #div_puntos, #uploadFiles, #graficos{
     display: none;
 }
 nav .active {

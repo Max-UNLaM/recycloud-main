@@ -147,11 +147,11 @@
                         <h3 class="card-title text-center">Ser punto de reciclaje</h3>
                         <div class="form-label-group mt-4">
                             <label class="">Seleccionar imágenes<span class="text-danger">*</span></label>
-                            <input type="file" multiple="multiple" name="files" id="files" class="form-control-file">
+                            <input type="file" multiple="multiple" name="files" id="files" class="form-control-file" onchange="cambiar()">
                         </div>
                         <p class="alert alert-info d-none d-md-block mt-3"><span class="text-danger">*</span>Presione la tecla Ctrl para seleccionar más de una imagen</p>
                         <p class="alert alert-info d-block d-md-none mt-3"><span class="text-danger">*</span>Mantenga presionado para seleccionar mas de una imagen</p>
-                        <button class="btn btn-sm  btn-block text-uppercase botones-perfil subir-img" id="punto-entrega" type="submit">Cargar imágenes</button>
+                        <button class="btn btn-sm  btn-block text-uppercase botones-perfil subir-img apagado"  id="punto-entrega" type="submit">Cargar imágenes</button>
                     </form>
                 </div>
             </div>
@@ -229,10 +229,11 @@
             $( "#datos" ).removeClass( "active" );
         };
 
+        function cambiar() {
+            document.getElementById("punto-entrega").classList.remove("apagado");
+            document.getElementById("punto-entrega").classList.add("prendido");
+        }
 
-        $(".form-control-file").change(function(){
-            document.getElementsByClassName('subir-img').style.visibility = "visible";
-        });
         $( document ).ready(function($) {
         //$("#identificacion").mask("99-99999999-9");
 
