@@ -850,6 +850,11 @@ text-align: center;
 .prendido{
     display: block !important;
 }
+.mensaje-contenedor{
+
+border: solid 1.5px rgb(120, 201, 119);
+    padding: 10px;
+}
 
 
 
