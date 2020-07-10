@@ -1,6 +1,5 @@
 package ar.edu.unlam.recycloud.app.usuario;
 
-import ar.edu.unlam.recycloud.app.usuario.Usuario;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -27,4 +26,16 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
     @Modifying
     @Query(value = "UPDATE usuario SET dni = :dni, dia = :dia, mes = :mes, anio = :anio WHERE id = :id", nativeQuery = true)
     void modificarUsuario(@Param ("id") Long id, @Param ("dni") Integer dni, @Param ("dia") Integer dia, @Param ("mes") String mes, @Param ("anio") Integer anio);
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE usuario SET rol = 3 WHERE id = :id", nativeQuery = true)
+    void cambiarDeEstado(@Param("id") Long id);
+    @Query(value = "SELECT COUNT(*) FROM usuario", nativeQuery = true)
+    Integer totalDeUsuarios();
+    @Query(value = "SELECT COUNT(*) FROM usuario WHERE rol = 1", nativeQuery = true)
+    Integer totalDeUsuariosRol1();
+    @Query(value = "SELECT COUNT(*) FROM usuario WHERE rol = 2", nativeQuery = true)
+    Integer totalDeUsuariosRol2();
+    @Query(value = "SELECT COUNT(*) FROM usuario WHERE rol = 3", nativeQuery = true)
+    Integer totalDeUsuariosRol3();
 }

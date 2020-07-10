@@ -1,14 +1,28 @@
 package ar.edu.unlam.recycloud.app.usuario;
 
+import ar.edu.unlam.recycloud.app.admin.Estadisticas;
+import ar.edu.unlam.recycloud.app.categoria.CategoriaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
+    private final ImagenesUsuarioRepository imagenesUsuarioRepository;
+    private final CategoriaRepository categoriaRepository;
 
-    public UsuarioService(UsuarioRepository usuarioRepository) {
+
+    public UsuarioService(UsuarioRepository usuarioRepository, ImagenesUsuarioRepository imagenesUsuarioRepository, CategoriaRepository categoriaRepository) {
         this.usuarioRepository = usuarioRepository;
+        this.imagenesUsuarioRepository = imagenesUsuarioRepository;
+        this.categoriaRepository = categoriaRepository;
     }
 
     public Usuario confirmarUsuario(String email, String password){
@@ -29,12 +43,53 @@ public class UsuarioService {
         Usuario l = usuarioRepository.buscarUsuario(usuario.getEmail(),usuario.getPassword());
         usuarioRepository.cambiarPassword(pass, l.getId());
     }
-
-    public void completarDatos(Long id, Integer dni){
-        usuarioRepository.completarUsuario(id, dni);
-    }
-
     public void modificarDatos(Long id, Integer dni, Integer dia, String mes, Integer anio){
         usuarioRepository.modificarUsuario(id, dni, dia, mes, anio);
     }
+
+    public void saveFile (MultipartFile file, Usuario usuario) throws Exception{
+        String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/imagenes/";
+        byte[] bytes = file.getBytes();
+        Path path = Paths.get(uploadDirectory + file.getOriginalFilename());
+        Files.write(path,bytes);
+
+        ImagenesUsuario imgUsu = new ImagenesUsuario();
+        imgUsu.setNombre(file.getOriginalFilename());
+        imgUsu.setEstado(1);
+        imgUsu.setUsuario(usuarioRepository.validarUsuario(usuario.getEmail()));
+        imagenesUsuarioRepository.save(imgUsu);
+    }
+    public List<ImagenesUsuario> getImagenesUsuario (){
+        return imagenesUsuarioRepository.buscarPorIdDeUsuario();
+    }
+    public List<ImagenesUsuario> usuariosParaValidar(){
+
+        return imagenesUsuarioRepository.usuariosParaValidar();
+    }
+    public void cambiarDeEstado(Long id){
+
+        usuarioRepository.cambiarDeEstado(id);
+        imagenesUsuarioRepository.cambiarEstadoImagenAceptado(id);
+    }
+    public void rechazarcambioDeEstado(Long id){
+
+        imagenesUsuarioRepository.cambiarEstadoImagen(id);
+    }
+    public ImagenesUsuario traerEstadosDeImagenes(Usuario usuario) {
+
+        return imagenesUsuarioRepository.traerEstadosDeImagenes(usuario.getId());
+    }
+
+    public Estadisticas getAllEstadistics() {
+        Estadisticas lista = new Estadisticas();
+
+        lista.setUsuariosTotales(usuarioRepository.totalDeUsuarios());
+        lista.setUsuariosTotalesRol1(usuarioRepository.totalDeUsuariosRol1());
+        lista.setUsuariosTotalesRol2(usuarioRepository.totalDeUsuariosRol2());
+        lista.setUsuariosTotalesRol3(usuarioRepository.totalDeUsuariosRol3());
+        lista.setCategoriasTotales(categoriaRepository.totalDeCategorias());
+        return lista;
+    }
+
+
 }

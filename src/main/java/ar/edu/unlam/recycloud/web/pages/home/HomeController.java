@@ -4,10 +4,12 @@ import ar.edu.unlam.recycloud.app.usuario.Password;
 import ar.edu.unlam.recycloud.app.usuario.Usuario;
 import ar.edu.unlam.recycloud.app.usuario.UsuarioService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -15,7 +17,6 @@ import javax.validation.Valid;
 
 @Controller
 public class HomeController {
-
     private final UsuarioService usuarioService;
 
     public HomeController(UsuarioService usuarioService) {
@@ -31,10 +32,14 @@ public class HomeController {
         return "/index";
     }
     @GetMapping("/home/perfil")
-    public ModelAndView perfil(){
+    public ModelAndView perfil(HttpSession session,Model model){
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
         ModelMap modelo = new ModelMap();
         modelo.addAttribute("usuario", new Usuario());
         modelo.addAttribute("password", new Password());
+        session.setAttribute("estado", usuarioService.traerEstadosDeImagenes(usuarioService.validarUsuario(usuario.getEmail())));
+        session.setAttribute("usuario", usuarioService.validarUsuario(usuario.getEmail()));
+        modelo.addAttribute("estadisticas", usuarioService.getAllEstadistics());
         return new ModelAndView("/home/perfil", modelo);
     }
 
@@ -49,11 +54,20 @@ public class HomeController {
     }
 
     @PostMapping(path = "/home/completar")
-        public String completar (HttpSession session, @Valid Usuario usuario, BindingResult asd){
-        Usuario user = (Usuario) session.getAttribute("usuario");
-        usuarioService.completarDatos(user.getId(), usuario.getIdentificacion());
-        session.setAttribute("usuario", usuarioService.validarUsuario(user.getEmail()));
-        return "/home/perfil";
+        public String completar (HttpSession session, @RequestParam("files") MultipartFile[] files){
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+
+        for (MultipartFile file :files){
+
+            try {
+                usuarioService.saveFile(file,usuario);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return "redirect:/home/perfil";
+
     }
 
     @PostMapping(path = "/home/modificar")
@@ -63,4 +77,6 @@ public class HomeController {
         session.setAttribute("usuario", usuarioService.validarUsuario(user.getEmail()));
         return "/home/perfil";
     }
+
+
 }

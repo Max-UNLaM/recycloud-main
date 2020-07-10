@@ -108,7 +108,18 @@ function addPinesToMap(pines, map) {
         });
         marker.addListener('click', async function () {
             const infoWindow = await buildInfoWindow(pin.location.coordinates);
-            infoWindow.open(map, marker);
+            if(!marker.open){
+                infoWindow.open(map,marker);
+                marker.open = true;
+            }
+            else{
+                infoWindow.close();
+                marker.open = false;
+            }
+            google.maps.event.addListener(map, 'click', function() {
+                infoWindow.close();
+                marker.open = false;
+            });
         });
         markers.push(marker);
     });

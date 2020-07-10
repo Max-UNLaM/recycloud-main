@@ -94,14 +94,17 @@ const bindTooltip = (element) => {
         title: 'Categorías',
         placement: 'right',
         template: `
-<div class="popover" role="popover">
+<div class="popover mensaje-contenedor" role="popover">
     <div class="arrow"></div>
-    <h5 class="popover-title recy-popover-title">Categorías</h5>
+    <h5 class="popover-title recy-popover-title fw-600">Categorías</h5>
     <div class="popover-text">
-        ¡Elegí los tipos de reciclaje acá para ver dónde dejarlos!
+        <span class="text-danger">Elige la categoría por la que quieras filtrar el mapa</span>
     </div>
-    <a href="#" class="card-link" id="popover-cerrar">Cerrar</a>
-    <a href="#" class="card-link" id="popover-no-volver">No volver a mostrar</a>
+    <div class="margin-auto w100">
+        <a href="#" class="card-link fw-600" id="popover-no-volver">No volver a mostrar</a>
+        <a href="#" class="card-link fw-600" id="popover-cerrar">Cerrar</a>
+    </div>
+
 </div>
 </div>
 `

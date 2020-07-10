@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lumino - Dashboard</title>
+	<link th:href="@{/lumino/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{/lumino/css/font-awesome.min.css}" rel="stylesheet">
+	<link th:href="@{/lumino/css/datepicker3.css}" rel="stylesheet">
+	<link th:href="@{/lumino/css/styles.css}" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/estilos.css}">
+
+	<!--Custom Font-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script th:src="@{/lumino/js/html5shiv.js}"></script>
+	<script th:src="@{/lumino/js/respond.min.js}"></script>
+	<![endif]-->
+</head>
+<body>
+	<nav class="navbar nav2 navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span></button>
+				<a class="navbar-brand" href="/"><img src="/imagenes/logo.png" alt="Logo RecyCloud" class="logo2"
+				/></a>
+			</div>
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div id="sidebar-collapse" class="col-xs-12 col-md-3 sidebar">
+		<div class="profile-sidebar">
+			<div class="w100">
+				<h2 th:text="${usuario.nombre + ' ' + usuario.apellido}"} class="text-center negrita"></h2>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="divider"></div>
+		<ul class="nav menu">
+			<li class="active w1"><a href="/admin/punto" class="active2 blanco hov"><em class="fa fa-plus-circle">&nbsp;</em> Puntos de reciclaje</a></li>
+			<li class="active w1"><a href="/admin/estadisticas" class=" blanco hov"><em class="fa fa-bar-chart">&nbsp;</em>Estadísticas</a></li>
+			<li class="active w1"><a href="/admin/estadisticas" class="blanco hov"><em class="fa fa-bar-chart">&nbsp;</em>Entrenamiento</a></li>
+		</ul>
+	</div><!--/.sidebar-->
+
+<div class="col-sm-12 col-md-9 offset-md-3 main">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="page-header">Puntos de reciclaje para evaluar</h1>
+			</div>
+			<div th:each="usu : ${usu}" class="col-lg-12 col-12 panel-default mb-4">
+				<div class="panel sacarback col-lg-3 col-sm-12 float-left">
+					<a th:href="@{'/admin/validacion/aceptada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-primary punto-texto btn-menu col-xs-12 azulito">Aceptar</button></a>
+					<a th:href="@{'/admin/validacion/rechazada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-success btn-menu mt-2 col-xs-12">Rechazar</button></a>
+				</div>
+				<div class="col-lg-9 col-12 float-left">
+					<div th:each="imagenes : ${imagenes}" class="col-md-4 col-12 float-left" th:if="${imagenes.usuario.id} == ${usu.usuario.id}">
+						<div class="panel panel-default back-black" data-toggle="modal" th:data-target="@{'#id_img_'+${imagenes.id}}">
+							<div class="panel-body easypiechart-panel">
+								<img class="logo-punto-admin" th:src="@{'/imagenes/'+${imagenes.nombre}}">
+							</div>
+						</div>
+
+						<div class="modal fade bd-example-modal-lg" th:id="@{'id_img_'+${imagenes.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-body">
+										<img class="logo-punto-admin img-modal" th:src="@{'/imagenes/'+${imagenes.nombre}}">
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->
+	</div>	<!--/.main-->
+
+
+
+	<script th:src="@{/lumino/js/jquery-1.11.1.min.js}"></script>
+	<script th:src="@{/lumino/js/bootstrap.min.js}"></script>
+	<script th:src="@{/lumino/js/chart.min.js}"></script>
+	<script th:src="@{/lumino/js/chart-data.js}"></script>
+	<script th:src="@{/lumino/js/easypiechart.js}"></script>
+	<script th:src="@{/lumino/js/easypiechart-data.js}"></script>
+	<script th:src="@{/lumino/js/bootstrap-datepicker.js}"></script>
+	<script th:src="@{/lumino/js/custom.js}"></script>
+	<script>
+		window.onload = function () {
+	var chart1 = document.getElementById("line-chart").getContext("2d");
+	window.myLine = new Chart(chart1).Line(lineChartData, {
+	responsive: true,
+	scaleLineColor: "rgba(0,0,0,.2)",
+	scaleGridLineColor: "rgba(0,0,0,.05)",
+	scaleFontColor: "#c5c7cc"
+	});
+};
+	</script>
+
+</body>
+</html>
