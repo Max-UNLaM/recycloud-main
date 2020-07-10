@@ -28,8 +28,16 @@
                         <button class="btn btn-primary btn-block text-uppercase verde-blanco mt-3" id="iniciar" type="submit">Iniciar sesión</button>
                     </form>
                 </div>
-                <div class="mx-auto">
-                        <div class="g-signin2" data-onsuccess="Registrar" data-theme="dark"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 btn-google">
+                            <div class="g-signin2" data-redirecturi="/" data-onsuccess="Registrar" data-theme="dark"></div>
+                        </div>
+                        <div class="col-md-5 btn-facebook">
+                            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" size="large" >
+                            </fb:login-button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,20 +56,71 @@
         console.log("Email: " + profile.getEmail());
         console.log("perfil",profile);
         // The ID token you need to pass to your backend:
-       /* var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);*/
+        let id_token = googleUser.getAuthResponse().id_token;
+        id_token=id_token.toString().slice(0, 48);
+        console.log("ID Token: " + id_token);
         googleUser.disconnect();
 
         $.ajax({
-            url: "details",
+            url: "logingooglefacebook",
             type: 'POST',
-            data: {nombre: profile.getGivenName(),apellido:profile.getFamilyName(),email:profile.getEmail()},
+            data: {nombre: profile.getGivenName(),apellido:profile.getFamilyName(),email:profile.getEmail(),pass:id_token},
             success: function(data) {
-               console.log("logeado");
+                document.location.href='/';
             }
         });
-    }
-</script>
 
+    }
+
+    function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+        console.log('statusChangeCallback');
+        console.log(response);                   // The current login status of the person.
+        if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+            testAPI();
+        }
+    }
+
+
+    function checkLoginState() {               // Called when a person is finished with the Login Button.
+        FB.getLoginStatus(function(response) {   // See the onlogin handler
+            statusChangeCallback(response);
+        });
+    }
+
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '3816693108347076',
+            cookie     : true,                     // Enable cookies to allow the server to access the session.
+            xfbml      : true,                     // Parse social plugins on this webpage.
+            version    : 'v7.0'           // Use this Graph API version for this call.
+        });
+
+
+        FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+            statusChangeCallback(response);        // Returns the login status.
+        });
+    };
+
+    function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me','GET',
+            {"fields":"first_name,last_name,email,id"}, function(response) {
+            console.log(response);
+            let codigo=response.id.toString().slice(0, 48);
+                $.ajax({
+                    url: "logingooglefacebook",
+                    type: 'POST',
+                    data: {nombre: response.first_name,apellido:response.last_name,email:response.email,pass:codigo},
+                    success: function(data) {
+                        document.location.href='/';
+                    }
+                });
+            });
+
+    }
+
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_US/sdk.js"></script>
 </body>
 </html>

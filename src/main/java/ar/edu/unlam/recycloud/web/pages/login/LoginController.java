@@ -74,13 +74,14 @@ public class LoginController {
         return "/login/logingoogle";
     }*/
 
-    @PostMapping(value = "details")
-    public String loginGoogle(HttpSession session, HttpServletRequest request) {
+    @PostMapping(value = "logingooglefacebook")
+    public String logingooglefacebook(HttpSession session, HttpServletRequest request) {
         Usuario usr= new Usuario();
         Usuario u = usuarioService.validarUsuario(request.getParameter("email"));
         if(u == null){
             usr.setNombre(request.getParameter("nombre"));
             usr.setApellido(request.getParameter("apellido"));
+            usr.setPassword(request.getParameter("pass"));
             usr.setEmail(request.getParameter("email"));
             usr.setRol(2);
             usr.setIdentificacion(0);
@@ -91,7 +92,7 @@ public class LoginController {
             session.setAttribute("usuario", u);
         }
 
-        return "redirect:/index";
+        return "/index";
 
     }
    /* @RequestMapping(...)

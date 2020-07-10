@@ -130,6 +130,14 @@ info-evento{
     background: none;
     border-color: #ececec!important;
 }
+.btn-google{
+    margin-left: 11%;
+}
+.btn-facebook{
+    margin-bottom: 5%;
+    margin-top: 1%;
+
+}
 .nombre-usuario{
     font-weight: 600;
     color:#fff!important;
