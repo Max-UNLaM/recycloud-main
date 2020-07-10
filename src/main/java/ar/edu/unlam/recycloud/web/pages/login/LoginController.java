@@ -1,25 +1,31 @@
 package ar.edu.unlam.recycloud.web.pages.login;
 
+import ar.edu.unlam.recycloud.app.recycommerce.CustomerService;
 import ar.edu.unlam.recycloud.app.usuario.Login;
 import ar.edu.unlam.recycloud.app.usuario.Usuario;
 import ar.edu.unlam.recycloud.app.usuario.UsuarioService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
+import static ar.edu.unlam.recycloud.conf.ProjectConstants.RECYCOMMERCE_SESSION_KEY;
 
 @Controller
 public class LoginController {
 
+    private final CustomerService customerService;
     private final UsuarioService usuarioService;
 
-    public LoginController(UsuarioService usuarioService) {
+    public LoginController(CustomerService customerService, UsuarioService usuarioService) {
+        this.customerService = customerService;
         this.usuarioService = usuarioService;
     }
 
@@ -38,15 +44,15 @@ public class LoginController {
 
     @PostMapping(path = "/login")
     public String confirmar(HttpSession session, @Valid Login login, BindingResult bindingResult) {
-        Usuario log= new Usuario();
+        Usuario log;
         if (bindingResult.hasErrors()) {
             return "/login/login";
-        }
-        else{
+        } else {
             log = usuarioService.confirmarUsuario(login.getEmail(), login.getPassword());
             if (log == null) {
                 return "/login/login";
             } else {
+                session.setAttribute(RECYCOMMERCE_SESSION_KEY, this.customerService.getSession(log));
                 session.setAttribute("usuario", log);
                 return "/index";
             }
@@ -62,18 +68,18 @@ public class LoginController {
     }
 
     @PostMapping(path = "/login/registrar")
-    public String registrarConfirmar(HttpSession session, @Valid Usuario usuario, BindingResult bindingResult){
+    public String registrarConfirmar(HttpSession session, @Valid Usuario usuario, BindingResult bindingResult) {
         Usuario l;
         if (bindingResult.hasErrors()) {
             return "/login/registrar";
-        }
-        else{
+        } else {
             l = usuarioService.validarUsuario(usuario.getEmail());
-            if(l != null){
+            if (l != null) {
                 return "/login/registrar";
             }
             usuario.setRol(2);
             usuario.setIdentificacion(0);
+            customerService.save(usuario);
             usuarioService.registro(usuario);
             Usuario log = usuarioService.validarUsuario(usuario.getEmail());
             session.setAttribute("usuario", log);
@@ -89,9 +95,9 @@ public class LoginController {
 
     @PostMapping(value = "logingooglefacebook")
     public String logingooglefacebook(HttpSession session, HttpServletRequest request) {
-        Usuario usr= new Usuario();
+        Usuario usr = new Usuario();
         Usuario u = usuarioService.validarUsuario(request.getParameter("email"));
-        if(u == null){
+        if (u == null) {
             usr.setNombre(request.getParameter("nombre"));
             usr.setApellido(request.getParameter("apellido"));
             usr.setPassword(request.getParameter("pass"));
@@ -100,8 +106,7 @@ public class LoginController {
             usr.setIdentificacion(2);// es por que es google o facebook
             usuarioService.registro(usr);
             session.setAttribute("usuario", usr);
-        }
-        else{
+        } else {
             session.setAttribute("usuario", u);
         }
 

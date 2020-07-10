@@ -8,7 +8,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,33 +24,34 @@ public class UsuarioService {
         this.categoriaRepository = categoriaRepository;
     }
 
-    public Usuario confirmarUsuario(String email, String password){
-        Usuario l =usuarioRepository.buscarUsuario(email, password);
+    public Usuario confirmarUsuario(String email, String password) {
+        Usuario l = usuarioRepository.buscarUsuario(email, password);
         return l;
     }
 
-    public void registro(Usuario usuario){
+    public void registro(Usuario usuario) {
         usuarioRepository.save(usuario);
     }
 
-    public Usuario validarUsuario(String email){
+    public Usuario validarUsuario(String email) {
         Usuario l = usuarioRepository.validarUsuario(email);
         return l;
     }
 
-    public void actualizarPass(String pass, Usuario usuario){
-        Usuario l = usuarioRepository.buscarUsuario(usuario.getEmail(),usuario.getPassword());
+    public void actualizarPass(String pass, Usuario usuario) {
+        Usuario l = usuarioRepository.buscarUsuario(usuario.getEmail(), usuario.getPassword());
         usuarioRepository.cambiarPassword(pass, l.getId());
     }
-    public void modificarDatos(Long id, Integer dni, Integer dia, String mes, Integer anio){
+
+    public void modificarDatos(Long id, Integer dni, Integer dia, String mes, Integer anio) {
         usuarioRepository.modificarUsuario(id, dni, dia, mes, anio);
     }
 
-    public void saveFile (MultipartFile file, Usuario usuario) throws Exception{
-        String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/imagenes/";
+    public void saveFile(MultipartFile file, Usuario usuario) throws Exception {
+        String uploadDirectory = System.getProperty("user.dir") + "/src/main/resources/static/imagenes/";
         byte[] bytes = file.getBytes();
         Path path = Paths.get(uploadDirectory + file.getOriginalFilename());
-        Files.write(path,bytes);
+        Files.write(path, bytes);
 
         ImagenesUsuario imgUsu = new ImagenesUsuario();
         imgUsu.setNombre(file.getOriginalFilename());
@@ -59,22 +59,27 @@ public class UsuarioService {
         imgUsu.setUsuario(usuarioRepository.validarUsuario(usuario.getEmail()));
         imagenesUsuarioRepository.save(imgUsu);
     }
-    public List<ImagenesUsuario> getImagenesUsuario (){
+
+    public List<ImagenesUsuario> getImagenesUsuario() {
         return imagenesUsuarioRepository.buscarPorIdDeUsuario();
     }
-    public List<ImagenesUsuario> usuariosParaValidar(){
+
+    public List<ImagenesUsuario> usuariosParaValidar() {
 
         return imagenesUsuarioRepository.usuariosParaValidar();
     }
-    public void cambiarDeEstado(Long id){
+
+    public void cambiarDeEstado(Long id) {
 
         usuarioRepository.cambiarDeEstado(id);
         imagenesUsuarioRepository.cambiarEstadoImagenAceptado(id);
     }
-    public void rechazarcambioDeEstado(Long id){
+
+    public void rechazarcambioDeEstado(Long id) {
 
         imagenesUsuarioRepository.cambiarEstadoImagen(id);
     }
+
     public ImagenesUsuario traerEstadosDeImagenes(Usuario usuario) {
 
         return imagenesUsuarioRepository.traerEstadosDeImagenes(usuario.getId());
