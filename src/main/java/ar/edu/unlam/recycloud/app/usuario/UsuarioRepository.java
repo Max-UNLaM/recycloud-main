@@ -38,4 +38,8 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
     Integer totalDeUsuariosRol2();
     @Query(value = "SELECT COUNT(*) FROM usuario WHERE rol = 3", nativeQuery = true)
     Integer totalDeUsuariosRol3();
+    @Query(value = "SELECT COUNT(*) FROM evento WHERE usuario_id = :id", nativeQuery = true)
+    Integer eventosTotales(@Param ("id") Long id);
+    @Query(value = "SELECT COUNT(*) FROM punto_reciclaje WHERE usuario_id = :id", nativeQuery = true)
+    Integer pinesTotales(@Param ("id") Long id);
 }

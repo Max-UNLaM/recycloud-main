@@ -51,10 +51,16 @@
             <div class="card card-signin col-12 my-md-5 my-3">
                 <div class="card-body">
                     <div id="div_perfil" class="col-12 float-left mb-4">
-                        <h2 class="card-title text-center">Mi Perfil</h2>
-                        <div class="col-md-6 col-12 float-left">
-                            <h2 th:text="${session.usuario.nombre + ' ' + session.usuario.apellido}"} class="text-center negrita"></h2>
+                        <div class="col-md-6 col-12 float-left pt-3">
+                            <h3 th:text="${session.usuario.nombre + ' ' + session.usuario.apellido}"} class="text-center negrita"></h3>
                             <h4 th:text="${session.usuario.email}" class="text-center"></h4>
+                            <span th:if="${session.usuario.dia} != null">
+                                <h4 th:text="${session.usuario.dia + ' de ' + session.usuario.mes + ' del ' + session.usuario.anio}" class="text-center"></h4>
+                            </span>
+                            <!--
+                            <span th:if="${session.usuario.telefono} != null">
+                                <h4 th:text="${session.usuario.telefono}" class="text-center"></h4>
+                            </span>   -->
                         </div>
                         <div class="col-md-6 col-12 float-left">
                             <img src="../imagenes/perfil.jpg" alt="" class="foto-perfil rounded-circle">
@@ -62,37 +68,38 @@
                     </div>
 
                     <div class="panel panel-container apagado col-12 float-left mt-2" id="panel">
+                        <div class="linea-divisoria-4"></div>
                         <h3 class="card-title text-center mb-4" style="font-size: 30px;">Estadísticas</h3>
                         <div class="row">
                             <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                                 <div class="panel panel-teal panel-widget border-right">
                                     <div class="row no-padding"><em class="w100 fa fa-xl fa-eye color-blue"></em>
-                                        <div class="large w100">120</div>
-                                        <div class="text-muted w100">Visitas al sitio</div>
+                                        <div class="large w100 my-3">0</div>
+                                        <div class="text-muted w100">Visitas al mapa</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                                 <div class="panel panel-blue panel-widget border-right">
                                     <div class="row no-padding"><em class="w100 fa fa-xl fa-user color-orange"></em>
-                                        <div class="large w100 " th:text="${estadisticas.usuariosTotales}"></div>
-                                        <div class="text-muted w100">Usuarios registrados</div>
+                                        <div class="large w100 my-3" th:text="${estadisticaspunto.pinesTotales}"></div>
+                                        <div class="text-muted w100" >Cantidad de pines</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                                 <div class="panel panel-orange panel-widget border-right">
                                     <div class="row no-padding"><em class="fa fa-xl fa-map-marker color-teal w100"></em>
-                                        <div class="large w100">24</div>
-                                        <div class="text-muted w100">Puntos de reciclaje</div>
+                                        <div class="large w100 my-3" th:text="${estadisticaspunto.eventosTotales}"></div>
+                                        <div class="text-muted w100">Eventos de reciclaje</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                                 <div class="panel panel-red panel-widget ">
                                     <div class="row no-padding"><em class="w100 fa fa-xl fa-recycle color-red"></em>
-                                        <div class="large w100" th:text="${estadisticas.categoriasTotales}"></div>
-                                        <div class="text-muted w100">Categorías cargadas</div>
+                                        <div class="large w100 my-3" >0</div>
+                                        <div class="text-muted w100">Categorías mas buscada</div>
                                     </div>
                                 </div>
                             </div>
@@ -101,6 +108,7 @@
 
 
                     <form action="#" th:action="@{/home/modificar}" th:object="${usuario}" method="post" id="div_datos" class="col-12 float-left">
+                        <div class="linea-divisoria-4"></div>
                         <h3 class="card-title text-center" style="font-size: 30px;">Actualizar datos</h3>
                         <div class="form-inline mt-3">
                             <h5 class="w-100">Fecha de nacimiento</h5>
@@ -125,6 +133,7 @@
                     </form>
 
                     <form action="#" th:action="@{/home/password}" th:object="${password}" method="post" id="div_password" class="col-12 float-left">
+                        <div class="linea-divisoria-4"></div>
                         <h3 class="card-title text-center" style="font-size: 30px;">Cambiar contraseña</h3>
                         <div class="form-label-group mt-3">
                             <input type="password" id="old-password" name="oldPassword" class="form-control" placeholder="Contraseña actual" >
@@ -144,6 +153,7 @@
                     </form>
 
                     <form name="uploadFiles" id="uploadFiles" th:action="@{/home/completar}" enctype="multipart/form-data" method="post" class="col-12 float-left">
+                        <div class="linea-divisoria-4"></div>
                         <h3 class="card-title text-center">Ser punto de reciclaje</h3>
                         <div class="form-label-group mt-4">
                             <label class="">Seleccionar imágenes<span class="text-danger">*</span></label>

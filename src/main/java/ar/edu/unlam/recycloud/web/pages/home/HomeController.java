@@ -37,6 +37,7 @@ public class HomeController {
         ModelMap modelo = new ModelMap();
         modelo.addAttribute("usuario", new Usuario());
         modelo.addAttribute("password", new Password());
+        modelo.addAttribute("estadisticaspunto", usuarioService.estadisticasDelPuntoDeReciclaje(usuario));
         session.setAttribute("estado", usuarioService.traerEstadosDeImagenes(usuarioService.validarUsuario(usuario.getEmail())));
         session.setAttribute("usuario", usuarioService.validarUsuario(usuario.getEmail()));
         modelo.addAttribute("estadisticas", usuarioService.getAllEstadistics());

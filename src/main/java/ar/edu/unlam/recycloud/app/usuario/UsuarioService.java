@@ -2,6 +2,7 @@ package ar.edu.unlam.recycloud.app.usuario;
 
 import ar.edu.unlam.recycloud.app.admin.Estadisticas;
 import ar.edu.unlam.recycloud.app.categoria.CategoriaRepository;
+import ar.edu.unlam.recycloud.app.puntoreciclaje.EstadisticasPuntoReciclaje;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -78,6 +79,12 @@ public class UsuarioService {
     public ImagenesUsuario traerEstadosDeImagenes(Usuario usuario) {
 
         return imagenesUsuarioRepository.traerEstadosDeImagenes(usuario.getId());
+    }
+    public EstadisticasPuntoReciclaje estadisticasDelPuntoDeReciclaje(Usuario usuario) {
+        EstadisticasPuntoReciclaje lista = new EstadisticasPuntoReciclaje();
+        lista.setEventosTotales(usuarioRepository. eventosTotales(usuario.getId()));
+        lista.setPinesTotales(usuarioRepository.pinesTotales(usuario.getId()));
+        return lista;
     }
 
     public Estadisticas getAllEstadistics() {

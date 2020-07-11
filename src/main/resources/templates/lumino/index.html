@@ -39,21 +39,24 @@
 		</div>
 		<div class="divider"></div>
 		<ul class="nav menu">
-			<li class="active w1"><a href="/admin/punto" class="active2 blanco hov"><em class="fa fa-plus-circle">&nbsp;</em> Puntos de reciclaje</a></li>
-			<li class="active w1"><a href="/admin/estadisticas" class=" blanco hov"><em class="fa fa-bar-chart">&nbsp;</em>Estadísticas</a></li>
-			<li class="active w1"><a href="/admin/estadisticas" class="blanco hov"><em class="fa fa-bar-chart">&nbsp;</em>Entrenamiento</a></li>
+			<li class="active w1"><a href="/admin/punto" class="active2 blanco hov btn-primary"><em class="fa fa-plus-circle">&nbsp;</em> Puntos de reciclaje</a></li>
+			<li class="active w1"><a href="/admin/estadisticas" class=" blanco hov btn-primary"><em class="fa fa-bar-chart">&nbsp;</em>Estadísticas</a></li>
+			<li class="active w1"><a href="/admin/estadisticas" class="blanco hov btn-primary"><em class="fa fa-bar-chart">&nbsp;</em>Entrenamiento</a></li>
 		</ul>
 	</div><!--/.sidebar-->
 
 <div class="col-sm-12 col-md-9 offset-md-3 main">
 		<div class="row">
 			<div class="col-12">
-				<h1 class="page-header">Puntos de reciclaje para evaluar</h1>
+				<h1 class="page-header text-center">Puntos de reciclaje para evaluar</h1>
+				<div class="linea-divisoria3"></div>
 			</div>
-			<div th:each="usu : ${usu}" class="col-lg-12 col-12 panel-default mb-4">
+			<div th:each="usu : ${usu}" class="col-lg-12 col-12 panel-default">
+				<div class="bk-blanco">
 				<div class="panel sacarback col-lg-3 col-sm-12 float-left">
-					<a th:href="@{'/admin/validacion/aceptada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-primary punto-texto btn-menu col-xs-12 azulito">Aceptar</button></a>
-					<a th:href="@{'/admin/validacion/rechazada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-success btn-menu mt-2 col-xs-12">Rechazar</button></a>
+					<p th:text="${usu.usuario.nombre + ' ' + usu.usuario.apellido}" class="text-center fw-600 fs-19"></p>
+					<a th:href="@{'/admin/validacion/aceptada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-primary btn-menu col-xs-12">Aceptar</button></a>
+					<a th:href="@{'/admin/validacion/rechazada/'+${usu.usuario.id}}" ><button type="button" class="btn btn-md btn-secundary btn-menu mt-2 col-xs-12">Rechazar</button></a>
 				</div>
 				<div class="col-lg-9 col-12 float-left">
 					<div th:each="imagenes : ${imagenes}" class="col-md-4 col-12 float-left" th:if="${imagenes.usuario.id} == ${usu.usuario.id}">
@@ -75,9 +78,10 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
+				</div>
+				<div class="linea-divisoria2"></div>
 			</div>
 		</div><!--/.row-->
 	</div>	<!--/.main-->

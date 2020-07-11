@@ -30,20 +30,22 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-5 btn-google">
-                            <div class="g-signin2" data-redirecturi="/" data-onsuccess="Registrar" data-theme="dark"></div>
+                        <div class="col-md-6 col-12 float-left">
+                            <div class="g-signin2" id="customBtn" data-redirecturi="/" data-onsuccess="Registrar" data-theme="dark"></div>
                         </div>
-                        <div class="col-md-5 btn-facebook">
-                            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" size="large" >
+                        <div class="col-md-6 col-12 btn-facebook float-left">
+                            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" size="large" id="customBtn2">
                             </fb:login-button>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
 <footer th:replace="fragments/footer"></footer>
+
 <script>
     function Registrar(googleUser) {
         // Useful data for your client-side scripts:
@@ -119,6 +121,8 @@
             });
 
     }
+
+
 
 </script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_US/sdk.js"></script>
