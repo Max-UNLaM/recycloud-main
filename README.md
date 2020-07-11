@@ -65,7 +65,7 @@ export RECY_SQL_USER="sa"
 export RECY_SQL_PASSWORD="1234"
 export RECY_ENV="PROD"
 export RECY_COMMERCE_HOST="http://www.recycommerce.local"
-export RECY_COMMERCE_ENABLED=true
+export RECY_COMMERCE_STATUS=true
 ```
 
 Puede que sea necesario reiniciar el IntelliJ para que reconozca las variables o, si se lo ejecuta desde la terminal:

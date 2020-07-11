@@ -4,7 +4,7 @@ import ar.edu.unlam.recycloud.app.usuario.Usuario;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
-import static ar.edu.unlam.recycloud.conf.ConfigConstants.RECYCOMMERCE_ENABLED_KEY;
+import static ar.edu.unlam.recycloud.conf.ConfigConstants.RECYCOMMERCE_STATUS_KEY;
 
 @Service
 public class CustomerService {
@@ -16,7 +16,7 @@ public class CustomerService {
     public CustomerService(CustomerBuilder customerBuilder, CustomerRepository customerRepository, Environment environment) {
         this.customerBuilder = customerBuilder;
         this.customerRepository = customerRepository;
-        this.RECYCOMMERCE_ENABLED = environment.getProperty(RECYCOMMERCE_ENABLED_KEY);
+        this.RECYCOMMERCE_ENABLED = environment.getProperty(RECYCOMMERCE_STATUS_KEY);
     }
 
     public void save(Usuario usuario) {

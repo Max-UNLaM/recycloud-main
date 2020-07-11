@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
-import static ar.edu.unlam.recycloud.conf.ConfigConstants.RECYCOMMERCE_ENABLED_KEY;
+import static ar.edu.unlam.recycloud.conf.ConfigConstants.RECYCOMMERCE_STATUS_KEY;
 import static ar.edu.unlam.recycloud.conf.ConfigConstants.RECYCOMMERCE_HOST_KEY;
 
 @Controller
@@ -24,7 +24,7 @@ public class RecycommerceController {
 
     public RecycommerceController(Environment environment, CustomerService customerService) {
         this.RECYCOMMERCE_HOST = environment.getProperty(RECYCOMMERCE_HOST_KEY);
-        this.RECYCOMMERCE_ENABLED = environment.getProperty(RECYCOMMERCE_ENABLED_KEY);
+        this.RECYCOMMERCE_ENABLED = environment.getProperty(RECYCOMMERCE_STATUS_KEY);
     }
 
     @GetMapping(path = "/login")
