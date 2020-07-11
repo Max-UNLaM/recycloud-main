@@ -62,7 +62,16 @@
                             </span>
                         </div>
                         <div class="col-md-6 col-12 float-left">
-                            <img src="../imagenes/perfil.jpg" alt="" class="foto-perfil rounded-circle">
+                            <form action="#" th:action="@{/home/cambiarImagenDePerfil}" th:object="${actualizar}" method="post" id="imagenPerfil" enctype="multipart/form-data">
+                                <span th:if="${session.usuario.nombreImagen} == null">
+                                    <img onclick="abrirFile()" id="imagg" src="../imagenes/perfil.jpg" alt="" class="foto-perfil rounded-circle">
+                                </span>
+                                <span th:if="${session.usuario.nombreImagen} != null">
+                                    <img onclick="abrirFile()" id="imagg" th:src="@{'/imagenesDePerfil/'+${session.usuario.nombreImagen}}" alt="" class="foto-perfil rounded-circle">
+                                </span>
+                                <input onchange="previewFile()" type="file" hidden name="avatarInput" id="avatarInput" />
+                                <button class="btn btn-sm text-uppercase botones-perfil apagado" id="botonImagenFile" type="submit">Guardar</button>
+                            </form>
                         </div>
                     </div>
 
@@ -174,6 +183,26 @@
 
 
 <script>
+
+    function abrirFile() {
+        document.getElementById("avatarInput").click();
+    }
+    function previewFile() {
+        document.getElementById("botonImagenFile").classList.remove("apagado");
+        document.getElementById("botonImagenFile").classList.add("prendido");
+        const preview = document.querySelector('#imagg');
+        const file = document.querySelector('#avatarInput').files[0];
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+            preview.src = reader.result;
+
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
 
         function passw(){
             document.getElementById("div_perfil").classList.remove("prendido");

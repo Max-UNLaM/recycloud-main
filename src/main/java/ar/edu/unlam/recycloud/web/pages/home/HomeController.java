@@ -72,6 +72,20 @@ public class HomeController {
         return "redirect:/home/perfil";
 
     }
+    @PostMapping(path = "/home/cambiarImagenDePerfil")
+    public String cambiarImagenDePerfil (HttpSession session, @RequestParam("avatarInput") MultipartFile files){
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+
+            try {
+                usuarioService.saveFileInUser(files,usuarioService.validarUsuario(usuario.getEmail()));
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
+        return "redirect:/home/perfil";
+
+    }
 
     @PostMapping(path = "/home/modificar")
     public String modificar (HttpSession session, Actualizar actualizar){

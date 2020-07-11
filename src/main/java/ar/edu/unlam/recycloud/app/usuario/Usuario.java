@@ -44,6 +44,15 @@ public class Usuario {
     private String dni;
     private Integer identificacion;
     private String telefono;
+    private String nombreImagen;
+
+    public String getNombreImagen() {
+        return nombreImagen;
+    }
+
+    public void setNombreImagen(String nombreImagen) {
+        this.nombreImagen = nombreImagen;
+    }
 
     public Long getId() {
         return id;

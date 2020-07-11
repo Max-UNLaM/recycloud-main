@@ -60,6 +60,17 @@ public class UsuarioService {
         imgUsu.setUsuario(usuarioRepository.validarUsuario(usuario.getEmail()));
         imagenesUsuarioRepository.save(imgUsu);
     }
+
+    public void saveFileInUser (MultipartFile file, Usuario usuario) throws Exception{
+        String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/imagenesDePerfil/";
+        byte[] bytes = file.getBytes();
+        Path path = Paths.get(uploadDirectory + file.getOriginalFilename());
+        Files.write(path,bytes);
+
+        usuario.setNombreImagen(file.getOriginalFilename());
+
+        usuarioRepository.save(usuario);
+    }
     public List<ImagenesUsuario> getImagenesUsuario (){
         return imagenesUsuarioRepository.buscarPorIdDeUsuario();
     }
