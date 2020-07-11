@@ -134,7 +134,6 @@
                             <span class="text-danger"></span>
                             <div class="form-label-group ajuste-fech mb-2 mb-md-0 mr-0 pr-md-0 col-md col-12">
                                 <select class="form-control select" id="yeardropdown" name="anio">
-                                    <option disabled selected>Año</option>
                                 </select>
                             </div>
                         </div>
@@ -172,7 +171,7 @@
                         <div class="linea-divisoria-4"></div>
                         <h3 class="card-title text-center mb-4">Ser punto de reciclaje</h3>
                         <div class="alert alert-success" role="alert">
-                            Para poder crear puntos de reciclaje en nuestro mapa y eventos en el calendario usted deberá subir:
+                            Para poder crear puntos de reciclaje en nuestro mapa y eventos en el calendario usted deberá subir un total de tres fotos:
                         </div>
                         <div class="container">
                             <div class="row">
@@ -303,10 +302,7 @@
             document.getElementById("punto-entrega").classList.add("prendido");
         }
 
-        $( document ).ready(function($) {
-        //$("#identificacion").mask("99-99999999-9");
 
-        //Select fecha nacimiento
         var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
         function daysInMonth(month, year) {
@@ -350,11 +346,14 @@
             yeardropdown = document.getElementById("yeardropdown");
 
         // Change handler for months
-        monthdropdown.onchange = function(){
+        monthdropdown.onchange = function meses (){
+
             var newMonth = months.indexOf(monthdropdown.value) + 1,
                 newYear = yeardropdown.value;
 
-            daysInCurrMonth = daysInMonth(newMonth, newYear);
+           var daysInCurrMonth = daysInMonth(newMonth, newYear);
+
+           alert(newMonth + newYear) ;
 
             daydropdown.innerHTML = "";
             for(var i = 0; i < daysInCurrMonth; i++){
@@ -365,9 +364,8 @@
             }
         }
 
-        populateDates()
-    });
-
+        populateDates(); 
+    
 
     var myVariable1= [[${estadisticas.usuariosTotalesRol1}]];
     var myVariable2= [[${estadisticas.usuariosTotalesRol2}]];

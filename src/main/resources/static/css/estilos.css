@@ -730,6 +730,12 @@ footer a{
         margin: 2% 0;
         height: 70%;
     }
+    .perfil-responsive{
+        padding-left: 30px !important;
+    }
+    .perfil-responsive a{
+        font-size: 18px !important;
+    }
 }
 
 @media screen and (max-width: 992px){

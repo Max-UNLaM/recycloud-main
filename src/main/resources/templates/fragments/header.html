@@ -100,6 +100,27 @@
                 <li class="nav-item d-block d-md-none" th:if="${session.usuario} == null">
                     <a class="nav-link letra" href="/login/registrar" style="padding-left: 30px;">Registro</a>
                 </li>
+                <li class="nav-item d-block d-md-none">
+                    <a class="nav-link letra" href="https://recicommerce.exterionmu.com/" style="padding-left: 30px;">Quiero vender</a>
+                </li>
+                <li class="nav-link d-block d-md-none perfil-responsive">
+                    <div class="dropdown float-left">
+                        <a class="nav-link dropdown-toggle" th:if="${session.usuario} != null" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="nombre-usuario2"
+                                  th:text="${session.usuario.nombre}">
+                            </span>
+                        </a>
+                        <div class="dropdown-menu menu-responsive" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/home/perfil">Mi perfil</a>
+                            <a class="dropdown-item" href="/eventos/crear" th:if="${session.usuario} != null and ${session.usuario.rol} == 3 ">Crear evento</a>
+                            <a class="dropdown-item" href="/punto-reciclaje" th:if="${session.usuario} != null and ${session.usuario.rol} == 3 ">Punto de reciclaje</a>
+                            <a class="dropdown-item" href="/admin/punto" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">Panel Admin</a>
+                            <a class="dropdown-item" href="/entrenamiento" th:if="${session.usuario} != null and ${session.usuario.rol} == 1 ">Entrenamiento</a>
+                            <a class="dropdown-item" href="/login/cerrarSession">Cerrar sesión</a>
+                        </div>
+                    </div>
+                </li>
+
             </ul>
         </div>
     </div>
