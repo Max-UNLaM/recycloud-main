@@ -62,7 +62,7 @@
 					<div th:each="imagenes : ${imagenes}" class="col-md-4 col-12 float-left" th:if="${imagenes.usuario.id} == ${usu.usuario.id}">
 						<div class="panel panel-default back-black" data-toggle="modal" th:data-target="@{'#id_img_'+${imagenes.id}}">
 							<div class="panel-body easypiechart-panel">
-								<img class="logo-punto-admin" th:src="@{'/imagenes/'+${imagenes.nombre}}">
+								<img class="logo-punto-admin" th:src="@{'/imagenesParaEvaluar/'+${imagenes.nombre}}">
 							</div>
 						</div>
 
