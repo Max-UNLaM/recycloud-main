@@ -11,6 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
+import static ar.edu.unlam.recycloud.conf.ConfigConstants.RECYCOMMERCE_ENABLED_KEY;
 import static ar.edu.unlam.recycloud.conf.ConfigConstants.RECYCOMMERCE_HOST_KEY;
 
 @Controller
@@ -19,15 +20,18 @@ public class RecycommerceController {
 
     private static final String LOGIN_PATH = "/index.php?route=account/login";
     private final String RECYCOMMERCE_HOST;
-    private final CustomerService customerService;
+    private final String RECYCOMMERCE_ENABLED;
 
     public RecycommerceController(Environment environment, CustomerService customerService) {
         this.RECYCOMMERCE_HOST = environment.getProperty(RECYCOMMERCE_HOST_KEY);
-        this.customerService = customerService;
+        this.RECYCOMMERCE_ENABLED = environment.getProperty(RECYCOMMERCE_ENABLED_KEY);
     }
 
     @GetMapping(path = "/login")
     public String goToRecycommerce(RedirectAttributes redirectAttributes, HttpSession session) {
+        if (!this.RECYCOMMERCE_ENABLED.equals("enabled")) {
+            return "redirect:" + RECYCOMMERCE_HOST;
+        }
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         redirectAttributes.addAttribute("email", usuario.getEmail());
         redirectAttributes.addAttribute("password", usuario.getPassword());

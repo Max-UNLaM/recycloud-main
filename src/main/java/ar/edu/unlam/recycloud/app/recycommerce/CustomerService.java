@@ -1,30 +1,27 @@
 package ar.edu.unlam.recycloud.app.recycommerce;
 
-import ar.edu.unlam.recycloud.app.usuario.Login;
 import ar.edu.unlam.recycloud.app.usuario.Usuario;
-import org.springframework.http.ResponseEntity;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
+
+import static ar.edu.unlam.recycloud.conf.ConfigConstants.RECYCOMMERCE_ENABLED_KEY;
 
 @Service
 public class CustomerService {
 
     private final CustomerBuilder customerBuilder;
     private final CustomerRepository customerRepository;
+    private final String RECYCOMMERCE_ENABLED;
 
-    public CustomerService(CustomerBuilder customerBuilder, CustomerRepository customerRepository) {
+    public CustomerService(CustomerBuilder customerBuilder, CustomerRepository customerRepository, Environment environment) {
         this.customerBuilder = customerBuilder;
         this.customerRepository = customerRepository;
+        this.RECYCOMMERCE_ENABLED = environment.getProperty(RECYCOMMERCE_ENABLED_KEY);
     }
 
     public void save(Usuario usuario) {
-        this.customerRepository.create(this.customerBuilder.build(usuario));
-    }
-
-    public ResponseEntity<String> login(Login usuario) {
-        return this.customerRepository.login(this.customerBuilder.buildCredentials(usuario));
-    }
-
-    public ResponseEntity<String> login(Usuario usuario) {
-        return this.customerRepository.login(this.customerBuilder.buildCredentials(usuario));
+        if (this.RECYCOMMERCE_ENABLED.equals("enabled")) {
+            this.customerRepository.create(this.customerBuilder.build(usuario));
+        }
     }
 }
