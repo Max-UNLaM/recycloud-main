@@ -120,26 +120,32 @@
                         <h3 class="card-title text-center" style="font-size: 30px;">Actualizar datos</h3>
                         <div class="form-inline mt-3">
                             <h5 class="w-100">Fecha de nacimiento</h5>
-                            <div class="form-label-group ajuste-fech">
-                                <select class="form-control select"  id="daydropdown" name="dia"></select>
+                            <div class="form-label-group ajuste-fech mb-2 mb-md-0 ml-md-0 pl-md-0 col-md col-12">
+                                <select class="form-control select"  id="daydropdown" name="dia">
+                                    <option disabled selected>Día</option>
+                                </select>
                             </div>
                             <span class="text-danger"></span>
-                            <div class="form-label-group ajuste-fech">
-                                <select class="form-control select"  id="monthdropdown" name="mes"></select>
+                            <div class="form-label-group ajuste-fech mb-2 mb-md-0 col-md col-12">
+                                <select class="form-control select"  id="monthdropdown" name="mes">
+                                    <option disabled selected>Mes</option>
+                                </select>
                             </div>
                             <span class="text-danger"></span>
-                            <div class="form-label-group ajuste-fech">
-                                <select class="form-control select" id="yeardropdown" name="anio"></select>
+                            <div class="form-label-group ajuste-fech mb-2 mb-md-0 mr-0 pr-md-0 col-md col-12">
+                                <select class="form-control select" id="yeardropdown" name="anio">
+                                    <option disabled selected>Año</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="form-label-group mt-3">
+                        <div class="form-label-group mt-md-3 mt-2">
                             <input type="text" id="dni" name="dni" class="form-control" placeholder="DNI">
                         </div>
                         <div class="form-label-group mt-3">
-                           <div class="ajustar-cod float-left"><input type="text" id="cod" name="cod" class="form-control " placeholder="EJ: 011"></div>
-                            <div class="float-right ajustar-tel"><input type="text" id="telefono" name="telefono" class="form-control " placeholder="TELÉFONO"></div>
+                           <div class="ajustar-cod float-left"><input type="text" id="cod" name="cod" class="form-control " placeholder="011"></div>
+                            <div class="float-right ajustar-tel"><input type="text" id="telefono" name="telefono" class="form-control " placeholder="Teléfono"></div>
                         </div>
-                        <button class="btn btn-sm  btn-block text-uppercase botones-perfil" id="cambiar_datos" type="submit">Modificar datos</button>
+                        <button class="btn btn-sm btn-block text-uppercase botones-perfil" id="cambiar_datos" type="submit">Modificar datos</button>
                     </form>
 
                     <form action="#" th:action="@{/home/password}" th:object="${password}" method="post" id="div_password" class="col-12 float-left">
@@ -164,7 +170,30 @@
 
                     <form name="uploadFiles" id="uploadFiles" th:action="@{/home/completar}" enctype="multipart/form-data" method="post" class="col-12 float-left">
                         <div class="linea-divisoria-4"></div>
-                        <h3 class="card-title text-center">Ser punto de reciclaje</h3>
+                        <h3 class="card-title text-center mb-4">Ser punto de reciclaje</h3>
+                        <div class="alert alert-success" role="alert">
+                            Para poder crear puntos de reciclaje en nuestro mapa y eventos en el calendario usted deberá subir:
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-md-6 float-left mb-2">
+                                    <div class="card">
+                                        <img src="/imagenes/dni.svg" class="dni" alt="DNI">
+                                        <div class="card-body">
+                                            <p class="card-text text-center p-0">Foto de su DNI (anverso y reverso)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 float-left mb-2">
+                                    <div class="card">
+                                        <img src="/imagenes/persona-dni.svg" class="dni" alt="Selfie">
+                                        <div class="card-body">
+                                            <p class="card-text text-center p-0">Selfie de su rostro junto al DNI</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-label-group mt-4">
                             <label class="">Seleccionar imágenes<span class="text-danger">*</span></label>
                             <input type="file" multiple="multiple" name="files" id="files" class="form-control-file" onchange="cambiar()">

@@ -705,6 +705,19 @@ footer a{
     #categorias .card {
         column-count: 2 !important;
     }
+    .ajustar-cod{
+        width: 20% !important;
+    }
+    .ajustar-tel{
+        width: 78% !important;
+    }
+    .ajuste-fech{
+        padding: 0;
+    }
+    .botones-perfil{
+        width: 100%;
+        margin: 5% 0%;
+    }
 }
 
 @media screen and (max-width: 992px){
@@ -962,10 +975,10 @@ border: solid 1.5px rgb(120, 201, 119);
     width: 100% !important;
 }
 .ajustar-cod{
-    width: 10%;
+    width: 15%;
 }
 .ajustar-tel{
-     width: 88%;
+     width: 83%;
     margin-left: 2%;
  }
 .ajuste-fech{
@@ -992,6 +1005,32 @@ border: solid 1.5px rgb(120, 201, 119);
 ._4z_6 {
     height: 40px !important;
 }     */
+
+.dni{
+    width: 70%;
+    margin: 2% 15% 0;
+}
+
+input[type=text], input[type=search], input[type=email], input[type=password], input[type=number], input[type=url], input[type=tel], input[type=submit], input[type=button], button, textarea, option {
+    font-family: 'Quicksand', sans-serif !important;
+    background-color: #fdfdfd;
+    padding: 11px;
+    margin: 0;
+    max-width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
 
 
 
