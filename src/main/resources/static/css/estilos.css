@@ -718,6 +718,9 @@ footer a{
         width: 100%;
         margin: 5% 0%;
     }
+    .fb_iframe_widget_fluid {
+        margin-left: 0% !important;
+    }
 }
 
 @media screen and (max-width: 992px){
@@ -1005,6 +1008,10 @@ border: solid 1.5px rgb(120, 201, 119);
 ._4z_6 {
     height: 40px !important;
 }     */
+.fb_iframe_widget_fluid {
+    display: inline;
+    margin-left: 10%;
+}
 
 .dni{
     width: 70%;
@@ -1030,6 +1037,11 @@ input[type=text], input[type=search], input[type=email], input[type=password], i
     border: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.azul{
+    background-color: #1877f2;
+    border-radius: 5px;
 }
 
 

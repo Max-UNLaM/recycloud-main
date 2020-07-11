@@ -7,6 +7,9 @@
     <script src="https://apis.google.com/js/platform.js" content="" async defer></script>
 </head>
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0" nonce="f06UTxlg"></script>
+
 <header th:replace="fragments/header"></header>
 
 <div class="container">
@@ -14,7 +17,7 @@
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card card-signin my-5">
                 <div class="card-body">
-                    <h5 class="card-title text-center"><span class="naranja">Login</span></h5>
+                    <h5 class="card-title text-center"><span class="naranja">Iniciar sesión</span></h5>
                     <form action="#" th:action="@{/login}" th:object="${login}" method="post">
                         <div class="form-label-group">
                             <input type="text" th:field="*{email}" name="email" id="email" class="form-control" placeholder="Email">
@@ -30,12 +33,15 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-12 float-left">
-                            <div class="g-signin2" id="customBtn" data-redirecturi="/" data-onsuccess="Registrar" data-theme="dark"></div>
+                        <div class="col-12 float-left">
+                            <img src="/imagenes/login-g.jpg" id="img-g" alt="">
+                            <div class="g-signin2" hidden id="customBtn" data-redirecturi="/" data-onsuccess="Registrar" data-theme="dark"></div>
                         </div>
-                        <div class="col-md-6 col-12 btn-facebook float-left">
-                            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" size="large" id="customBtn2">
+                        <div class="col-12 btn-facebook float-left">
+                            <img src="/imagenes/login-f.jpg" id="img-fb" alt="">
+                            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" class="fb-login-button">
                             </fb:login-button>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -47,6 +53,9 @@
 <footer th:replace="fragments/footer"></footer>
 
 <script>
+
+
+
     function Registrar(googleUser) {
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
@@ -119,11 +128,26 @@
                     }
                 });
             });
-
     }
 
+    function fblogin(url) {
+        FB.login(function(response) {
+            if (response.authResponse) {
+                top.location.href = url;
+            }
+            else {
+            }
+        }, {scope:'email,manage_pages,offline_access,publish_stream'});
+    }
 
-
+    $( document ).ready(function() {
+        $("#img-g").click(function () {
+            $(".abcRioButtonContentWrapper").click();
+        });
+        $("#img-fb").click(function () {
+            FB.login(statusChangeCallback, {scope: 'email,public_profile', return_scopes: true});
+        });
+    });
 </script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_US/sdk.js"></script>
 </body>
