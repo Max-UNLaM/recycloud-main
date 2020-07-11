@@ -52,7 +52,6 @@ public class LoginController {
             if (log == null) {
                 return "/login/login";
             } else {
-                session.setAttribute(RECYCOMMERCE_SESSION_KEY, this.customerService.getSession(log));
                 session.setAttribute("usuario", log);
                 return "/index";
             }

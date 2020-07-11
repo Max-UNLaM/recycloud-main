@@ -1,4 +1,4 @@
-package ar.edu.unlam.recycloud.app.recycommerce;
+package ar.edu.unlam.recycloud.app.recycommerce.models;
 
 import lombok.Data;
 
