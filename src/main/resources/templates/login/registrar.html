@@ -7,6 +7,8 @@
     <script src="https://apis.google.com/js/platform.js" content="" async defer></script>
 </head>
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0" nonce="f06UTxlg"></script>
 <header th:replace="fragments/header"></header>
 
 <div class="container">
@@ -41,14 +43,16 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-5 btn-google">
-                            <div class="g-signin2" data-redirecturi="/" data-onsuccess="Registrar" data-theme="dark"></div>
+                        <div class="col-12 col-md-6 mb-md-3 pr-md-0 float-left">
+                            <img src="/imagenes/google.jpg" class="redes" id="img-g" alt="">
+                            <div class="g-signin2" hidden id="customBtn" data-redirecturi="/" data-onsuccess="Registrar" data-theme="dark"></div>
                         </div>
-                        <div class="col-md-5 btn-facebook">
-
-                            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" size="large" >
+                        <div class="col-12 col-md-6 mb-md-3 pl-md-0 float-left">
+                            <img src="/imagenes/facebook.jpg" class="redes" id="img-fb" alt="">
+                            <fb:login-button hidden scope="public_profile,email" onlogin="checkLoginState();" class="fb-login-button">
                             </fb:login-button>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -132,6 +136,25 @@
             });
 
     }
+
+    function fblogin(url) {
+        FB.login(function(response) {
+            if (response.authResponse) {
+                top.location.href = url;
+            }
+            else {
+            }
+        }, {scope:'email,manage_pages,offline_access,publish_stream'});
+    }
+
+    $( document ).ready(function() {
+        $("#img-g").click(function () {
+            $(".abcRioButtonContentWrapper").click();
+        });
+        $("#img-fb").click(function () {
+            FB.login(statusChangeCallback, {scope: 'email,public_profile', return_scopes: true});
+        });
+    });
 
 </script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_US/sdk.js"></script>

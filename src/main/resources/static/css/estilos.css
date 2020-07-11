@@ -651,6 +651,10 @@ footer a{
     column-count: 4 !important;
 }
 
+.redes{
+    width: 100%;
+}
+
 @media screen and (max-width: 550px){
     .iconos-servicios {
         width: 40% !important;
@@ -720,6 +724,11 @@ footer a{
     }
     .fb_iframe_widget_fluid {
         margin-left: 0% !important;
+    }
+    .redes{
+        width: 100%;
+        margin: 2% 0;
+        height: 70%;
     }
 }
 
