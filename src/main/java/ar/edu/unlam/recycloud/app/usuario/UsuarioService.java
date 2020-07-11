@@ -49,7 +49,7 @@ public class UsuarioService {
     }
 
     public void saveFile (MultipartFile file, Usuario usuario) throws Exception{
-        String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/imagenes/";
+        String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/imagenesParaEvaluar/";
         byte[] bytes = file.getBytes();
         Path path = Paths.get(uploadDirectory + file.getOriginalFilename());
         Files.write(path,bytes);

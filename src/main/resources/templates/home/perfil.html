@@ -64,7 +64,7 @@
                         <div class="col-md-6 col-12 float-left">
                             <form action="#" th:action="@{/home/cambiarImagenDePerfil}" th:object="${actualizar}" method="post" id="imagenPerfil" enctype="multipart/form-data">
                                 <span th:if="${session.usuario.nombreImagen} == null">
-                                    <img onclick="abrirFile()" id="imagg" src="../imagenes/perfil.jpg" alt="" class="foto-perfil rounded-circle">
+                                    <img onclick="abrirFile()" id="imagg" src="../imagenes/perfil.png" alt="" class="foto-perfil rounded-circle">
                                 </span>
                                 <span th:if="${session.usuario.nombreImagen} != null">
                                     <img onclick="abrirFile()" id="imagg" th:src="@{'/imagenesDePerfil/'+${session.usuario.nombreImagen}}" alt="" class="foto-perfil rounded-circle">
