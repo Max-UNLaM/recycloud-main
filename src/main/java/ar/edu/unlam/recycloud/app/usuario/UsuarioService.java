@@ -9,7 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -44,8 +43,9 @@ public class UsuarioService {
         Usuario l = usuarioRepository.buscarUsuario(usuario.getEmail(),usuario.getPassword());
         usuarioRepository.cambiarPassword(pass, l.getId());
     }
-    public void modificarDatos(Long id, Integer dni, Integer dia, String mes, Integer anio){
-        usuarioRepository.modificarUsuario(id, dni, dia, mes, anio);
+    public void modificarDatos(Long id, String dni, Integer dia, String mes, Integer anio, String telefono, String cod){
+        telefono= '('+cod+')'+' '+telefono.replaceFirst("(\\d{4})(\\d+)", "$1-$2");
+        usuarioRepository.modificarUsuario(id, dni, dia, mes, anio, telefono);
     }
 
     public void saveFile (MultipartFile file, Usuario usuario) throws Exception{

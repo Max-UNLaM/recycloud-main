@@ -57,10 +57,9 @@
                             <span th:if="${session.usuario.dia} != null">
                                 <h4 th:text="${session.usuario.dia + ' de ' + session.usuario.mes + ' del ' + session.usuario.anio}" class="text-center"></h4>
                             </span>
-                            <!--
                             <span th:if="${session.usuario.telefono} != null">
                                 <h4 th:text="${session.usuario.telefono}" class="text-center"></h4>
-                            </span>   -->
+                            </span>
                         </div>
                         <div class="col-md-6 col-12 float-left">
                             <img src="../imagenes/perfil.jpg" alt="" class="foto-perfil rounded-circle">
@@ -82,7 +81,7 @@
                             <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                                 <div class="panel panel-blue panel-widget border-right">
                                     <div class="row no-padding"><em class="w100 fa fa-xl fa-user color-orange"></em>
-                                        <div class="large w100 my-3" th:text="${estadisticaspunto.pinesTotales}"></div>
+                                        <div class="large w100 my-3" th:if="${estadisticaspunto.pinesTotales != null}" th:text="${estadisticaspunto.pinesTotales}"></div>
                                         <div class="text-muted w100" >Cantidad de pines</div>
                                     </div>
                                 </div>
@@ -90,7 +89,7 @@
                             <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                                 <div class="panel panel-orange panel-widget border-right">
                                     <div class="row no-padding"><em class="fa fa-xl fa-map-marker color-teal w100"></em>
-                                        <div class="large w100 my-3" th:text="${estadisticaspunto.eventosTotales}"></div>
+                                        <div class="large w100 my-3" th:if="${estadisticaspunto.eventosTotales != null}" th:text="${estadisticaspunto.eventosTotales}"></div>
                                         <div class="text-muted w100">Eventos de reciclaje</div>
                                     </div>
                                 </div>
@@ -107,27 +106,29 @@
                     </div>
 
 
-                    <form action="#" th:action="@{/home/modificar}" th:object="${usuario}" method="post" id="div_datos" class="col-12 float-left">
+                    <form action="#" th:action="@{/home/modificar}" th:object="${actualizar}" method="post" id="div_datos" class="col-12 float-left">
                         <div class="linea-divisoria-4"></div>
                         <h3 class="card-title text-center" style="font-size: 30px;">Actualizar datos</h3>
                         <div class="form-inline mt-3">
                             <h5 class="w-100">Fecha de nacimiento</h5>
-                            <div class="form-group col-4 px-0">
-                                <select class="form-control w-100" style="padding-top: 2px!important; padding-bottom: 2px;height: 30px;" id="daydropdown" name="dia"></select>
+                            <div class="form-label-group ajuste-fech">
+                                <select class="form-control select"  id="daydropdown" name="dia"></select>
                             </div>
                             <span class="text-danger"></span>
-                            <div class="form-label-group col-4 ">
-                                <select class="form-control w-100" style="padding-top: 2px!important; padding-bottom: 2px;height: 30px;" id="monthdropdown" name="mes"></select>
+                            <div class="form-label-group ajuste-fech">
+                                <select class="form-control select"  id="monthdropdown" name="mes"></select>
                             </div>
                             <span class="text-danger"></span>
-                            <div class="form-label-group col-4 ">
-                                <select class="form-control w-100" style="padding-top: 2px!important; padding-bottom: 2px;height: 30px;" id="yeardropdown" name="anio"></select>
+                            <div class="form-label-group ajuste-fech">
+                                <select class="form-control select" id="yeardropdown" name="anio"></select>
                             </div>
-                            <span class="text-danger"></span>
                         </div>
                         <div class="form-label-group mt-3">
-                            <input type="number" id="dni" name="dni" class="form-control" placeholder="DNI">
-                            <span class="text-danger"></span>
+                            <input type="text" id="dni" name="dni" class="form-control" placeholder="DNI">
+                        </div>
+                        <div class="form-label-group mt-3">
+                           <div class="ajustar-cod float-left"><input type="text" id="cod" name="cod" class="form-control " placeholder="EJ: 011"></div>
+                            <div class="float-right ajustar-tel"><input type="text" id="telefono" name="telefono" class="form-control " placeholder="TELÉFONO"></div>
                         </div>
                         <button class="btn btn-sm  btn-block text-uppercase botones-perfil" id="cambiar_datos" type="submit">Modificar datos</button>
                     </form>
