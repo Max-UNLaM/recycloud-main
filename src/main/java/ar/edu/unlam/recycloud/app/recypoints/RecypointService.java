@@ -1,5 +1,6 @@
 package ar.edu.unlam.recycloud.app.recypoints;
 
+import ar.edu.unlam.recycloud.app.exceptions.NotFoundException;
 import ar.edu.unlam.recycloud.app.usuario.Usuario;
 import ar.edu.unlam.recycloud.app.usuario.UsuarioService;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,22 @@ public class RecypointService {
 
     public List<Recypoint> getAllPointsFromProvider(Usuario provider) {
         return this.recypointRepository.findAllByProvider(provider);
+    }
+
+    public Recypoint getPointsFromPair(String providerEmail, String beneficiaryEmail) {
+        Usuario provider = usuarioService.getUsuarioByEmail(providerEmail);
+        Usuario beneficiary = usuarioService.getUsuarioByEmail(beneficiaryEmail);
+        Optional<Recypoint> current = Optional.ofNullable(
+                this.recypointRepository.findDistinctFirstByProvider_IdAndBeneficiary_Id(
+                        provider.getId(),
+                        beneficiary.getId()
+                )
+        );
+        if (current.isPresent()) {
+            return current.get();
+        } else {
+            throw new NotFoundException("No se encontró proveedor " + providerEmail + " para el usuario " + beneficiaryEmail);
+        }
     }
 
     public void addPoints(RecypointCreateDTO create) {

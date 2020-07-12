@@ -32,9 +32,9 @@ public class CustomerRepository {
         this.responseParser = responseParser;
     }
 
-    public Customer create(Customer usuario) {
+    public void create(Customer usuario) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForObject(
+        restTemplate.postForObject(
                 RECYCOMMERCE_HOST + USER_PATH, usuario, Customer.class
         );
     }
