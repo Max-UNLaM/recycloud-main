@@ -69,6 +69,10 @@
                                 <span th:if="${session.usuario.nombreImagen} != null">
                                     <img onclick="abrirFile()" id="imagg" th:src="@{'/imagenesDePerfil/'+${session.usuario.nombreImagen}}" alt="" class="foto-perfil rounded-circle">
                                 </span>
+                                <span class="editar" id="editar1">
+                                    <img src="/imagenes/editar1.svg" alt="" class="" onclick="abrirFile()">
+                                </span>
+
                                 <input onchange="previewFile()" type="file" hidden name="avatarInput" id="avatarInput" />
                                 <button class="btn btn-sm text-uppercase botones-perfil apagado" id="botonImagenFile" type="submit">Guardar</button>
                             </form>
@@ -118,32 +122,64 @@
                     <form action="#" th:action="@{/home/modificar}" th:object="${actualizar}" method="post" id="div_datos" class="col-12 float-left">
                         <div class="linea-divisoria-4"></div>
                         <h3 class="card-title text-center" style="font-size: 30px;">Actualizar datos</h3>
-                        <div class="form-inline mt-3">
-                            <h5 class="w-100">Fecha de nacimiento</h5>
-                            <div class="form-label-group ajuste-fech mb-2 mb-md-0 ml-md-0 pl-md-0 col-md col-12">
-                                <select class="form-control select"  id="daydropdown" name="dia">
-                                    <option disabled selected>Día</option>
-                                </select>
+                        <span th:if="${session.usuario.dia} == null and ${session.usuario.mes} == null and ${session.usuario.anio} == null">
+                            <div class="form-inline mt-3">
+                                <h5 class="w-100">Fecha de nacimiento</h5>
+                                <div class="form-label-group ajuste-fech mb-2 mb-md-0 ml-md-0 pl-md-0 col-md col-12">
+                                    <select class="form-control select"  id="daydropdown" name="dia" required>
+                                        <option disabled selected value="">Día</option>
+                                    </select>
+                                </div>
+                                <span class="text-danger"></span>
+                                <div class="form-label-group ajuste-fech mb-2 mb-md-0 col-md col-12">
+                                    <select class="form-control select" onchange="myFunction5()" id="monthdropdown" name="mes" required>
+                                        <option disabled selected value="">Mes</option>
+                                    </select>
+                                </div>
+                                <span class="text-danger"></span>
+                                <div class="form-label-group ajuste-fech mb-2 mb-md-0 mr-0 pr-md-0 col-md col-12">
+                                    <select class="form-control select" id="yeardropdown" name="anio" required>
+                                        <option disabled selected value="">Año</option>
+                                    </select>
+                                </div>
                             </div>
-                            <span class="text-danger"></span>
-                            <div class="form-label-group ajuste-fech mb-2 mb-md-0 col-md col-12">
-                                <select class="form-control select"  id="monthdropdown" name="mes">
-                                    <option disabled selected>Mes</option>
-                                </select>
+                        </span>
+                        <span th:if="${session.usuario.dia} != null and ${session.usuario.mes} != null and ${session.usuario.anio} != null">
+                            <div class="form-inline mt-3">
+                                <h5 class="w-100">Fecha de nacimiento</h5>
+                                <div class="form-label-group ajuste-fech mb-2 mb-md-0 ml-md-0 pl-md-0 col-md col-12">
+                                    <select class="form-control select" id="daydropdown" name="dia">
+                                    </select>
+                                </div>
+                                <span class="text-danger"></span>
+                                <div class="form-label-group ajuste-fech mb-2 mb-md-0 col-md col-12">
+                                    <select class="form-control select" onchange="myFunction5()" id="monthdropdown" name="mes">
+                                    </select>
+                                </div>
+                                <span class="text-danger"></span>
+                                <div class="form-label-group ajuste-fech mb-2 mb-md-0 mr-0 pr-md-0 col-md col-12">
+                                    <select class="form-control select" id="yeardropdown" name="anio">
+                                    </select>
+                                </div>
                             </div>
-                            <span class="text-danger"></span>
-                            <div class="form-label-group ajuste-fech mb-2 mb-md-0 mr-0 pr-md-0 col-md col-12">
-                                <select class="form-control select" id="yeardropdown" name="anio">
-                                </select>
+                        </span>
+                        
+                        <span th:if="${session.usuario.dni} == null">
+                            <div class="form-label-group mt-md-3 mt-2">
+                                <input type="text" id="dni" name="dni" class="form-control" placeholder="DNI">
                             </div>
-                        </div>
-                        <div class="form-label-group mt-md-3 mt-2">
-                            <input type="text" id="dni" name="dni" class="form-control" placeholder="DNI">
-                        </div>
+                        </span>
+                        <span th:if="${session.usuario.dni} != null">
+                            <div class="form-label-group mt-md-3 mt-2">
+                                <input type="text" name="dni" class="form-control" placeholder="DNI" th:value="${session.usuario.dni}">
+                            </div>
+                        </span>
+
                         <div class="form-label-group mt-3">
-                           <div class="ajustar-cod float-left"><input type="text" id="cod" name="cod" class="form-control " placeholder="011"></div>
-                            <div class="float-right ajustar-tel"><input type="text" id="telefono" name="telefono" class="form-control " placeholder="Teléfono"></div>
+                           <div class="ajustar-cod float-left"><input type="text" id="cod" name="cod" class="form-control " placeholder="Ej: 011" required></div>
+                            <div class="float-right ajustar-tel"><input type="text" id="telefono" name="telefono" class="form-control " placeholder="Teléfono" required></div>
                         </div>
+
                         <button class="btn btn-sm btn-block text-uppercase botones-perfil" id="cambiar_datos" type="submit">Modificar datos</button>
                     </form>
 
@@ -212,12 +248,17 @@
 
 <script>
 
+
+
     function abrirFile() {
         document.getElementById("avatarInput").click();
     }
     function previewFile() {
         document.getElementById("botonImagenFile").classList.remove("apagado");
         document.getElementById("botonImagenFile").classList.add("prendido");
+        document.getElementById("editar1").classList.remove("editar");
+        document.getElementById("editar1").classList.add("editar2");
+
         const preview = document.querySelector('#imagg');
         const file = document.querySelector('#avatarInput').files[0];
         const reader = new FileReader();
@@ -305,11 +346,13 @@
 
         var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
+
         function daysInMonth(month, year) {
             return new Date(year, month, 0).getDate();
         }
 
         function populateDates(){
+
             var today = new Date(),
                 day = today.getUTCDate(),
                 month = today.getUTCMonth(),
@@ -317,12 +360,18 @@
                 daysInCurrMonth = daysInMonth(month, year);
 
             // Year
-            for(var i = 2020; i >= 1900; i--){
+            var f = -1;
+            for(var i = 2020;  i >= 1900; i--){
+                f++;
                 var opt = document.createElement('option');
                 opt.value = i;
                 opt.text = i;
                 yeardropdown.appendChild(opt);
+                if((anioNaci + 1) == i){
+                    anioTraido = f;
+                }
             }
+            myFunction3();
 
             // Month
             for(var i = 0; i < 12; i++){
@@ -330,8 +379,12 @@
                 opt.value = months[i];
                 opt.text = months[i];
                 monthdropdown.appendChild(opt);
-            }
 
+                if(mesNaci === opt.text){
+                    mesTraido = i;
+                }
+            }
+            myFunction2();
             // Day
             for(var i = 0; i < daysInCurrMonth; i++){
                 var opt = document.createElement('option');
@@ -339,14 +392,19 @@
                 opt.text = i + 1;
                 daydropdown.appendChild(opt);
             }
+            myFunction();
         }
 
         var daydropdown = document.getElementById("daydropdown"),
             monthdropdown = document.getElementById("monthdropdown"),
             yeardropdown = document.getElementById("yeardropdown");
 
+
+
         // Change handler for months
         monthdropdown.onchange = function meses (){
+            var e = document.getElementById("daydropdown");
+            diaSeleccionado = Number(e.options[e.selectedIndex].value);
 
             var newMonth = months.indexOf(monthdropdown.value) + 1,
                 newYear = yeardropdown.value;
@@ -358,12 +416,73 @@
                 var opt = document.createElement('option');
                 opt.value = i + 1;
                 opt.text = i + 1;
+
                 daydropdown.appendChild(opt);
             }
+            myFunction();
+            document.getElementById("daydropdown").selectedIndex = diaSeleccionado - 1;
         }
 
-        populateDates(); 
-    
+
+    var mesNaci= '[[${fecha.mes}]]';
+    var anioNaci= [[${fecha.anio}]] - 1;
+    var mesTraido;
+    var anioTraido;
+    var diaNaci= [[${fecha.dia}]] - 1;
+    var diaSeleccionado;
+    var codtel = '[[${fecha.telefono}]]';
+    var codigo;
+    var telefono;
+
+    function dividir(){
+        if (codtel != null){
+            var cualquierCadena = codtel.indexOf("(");
+            var cualquierCadena2 = codtel.indexOf(")");
+            codigo = codtel.substring(cualquierCadena+1,cualquierCadena2);
+            telefono = codtel.substring(cualquierCadena2+1);
+            document.getElementById("cod").placeholder="Ej: 011";
+            var input = document.getElementById("cod");
+            input.value = codigo;
+            document.getElementById("telefono").placeholder="Teléfono";
+            var input = document.getElementById("telefono");
+            input.value = telefono;
+        }
+    }
+
+    dividir();
+
+    daydropdown.onchange = function myFunction5(){
+        var e = document.getElementById("daydropdown");
+        diaSeleccionado = Number(e.options[e.selectedIndex].value);
+    }
+
+    function myFunction() {
+            if(diaNaci != -1){
+                document.getElementById("daydropdown").selectedIndex = diaNaci;
+            }else {
+                diaNaci='';
+            }
+        }
+    function myFunction2() {
+        if(mesNaci != -1){
+            document.getElementById("monthdropdown").selectedIndex = mesTraido;
+        }else {
+            mesNaci='';
+        }
+    }
+    function myFunction3() {
+        if(anioNaci != -1){
+            document.getElementById("yeardropdown").selectedIndex = anioTraido;
+        }else {
+            anioNaci=0;
+        }
+    }
+
+
+
+        populateDates();
+
+
 
     var myVariable1= [[${estadisticas.usuariosTotalesRol1}]];
     var myVariable2= [[${estadisticas.usuariosTotalesRol2}]];
