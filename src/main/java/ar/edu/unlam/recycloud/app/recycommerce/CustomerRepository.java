@@ -1,0 +1,61 @@
+package ar.edu.unlam.recycloud.app.recycommerce;
+
+import ar.edu.unlam.recycloud.app.recycommerce.models.Customer;
+import ar.edu.unlam.recycloud.app.recycommerce.models.CustomerLogin;
+import ar.edu.unlam.recycloud.app.utils.ResponseParser;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.LaxRedirectStrategy;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
+
+import static ar.edu.unlam.recycloud.conf.ConfigConstants.RECYCOMMERCE_HOST_KEY;
+
+@Service
+public class CustomerRepository {
+
+    private static final String USER_PATH = "/api/v1/user/";
+    private static final String LOGIN_PATH = "/index.php?route=account/login";
+    private final String RECYCOMMERCE_HOST;
+    private final ResponseParser responseParser;
+
+    public CustomerRepository(Environment environment, ResponseParser responseParser) {
+        this.RECYCOMMERCE_HOST = environment.getProperty(RECYCOMMERCE_HOST_KEY);
+        this.responseParser = responseParser;
+    }
+
+    public Customer create(Customer usuario) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForObject(
+                RECYCOMMERCE_HOST + USER_PATH, usuario, Customer.class
+        );
+    }
+
+    public ResponseEntity<String> login(CustomerLogin credentials) {
+        final RestTemplate restTemplate = new RestTemplate();
+        final HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
+        final CloseableHttpClient httpClient = HttpClientBuilder.create()
+                .setRedirectStrategy(new LaxRedirectStrategy())
+                .build();
+        factory.setHttpClient(httpClient);
+        restTemplate.setRequestFactory(factory);
+
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+
+        MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+        map.add("email", credentials.getEmail());
+        map.add("password", credentials.getPassword());
+        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+        return restTemplate.postForEntity(RECYCOMMERCE_HOST + LOGIN_PATH, request, String.class);
+    }
+}
