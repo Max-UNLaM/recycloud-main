@@ -2,6 +2,7 @@ package ar.edu.unlam.recycloud.app.usuario;
 
 import ar.edu.unlam.recycloud.app.admin.Estadisticas;
 import ar.edu.unlam.recycloud.app.categoria.CategoriaRepository;
+import ar.edu.unlam.recycloud.app.puntoreciclaje.EstadisticasPuntoReciclaje;
 import ar.edu.unlam.recycloud.app.exceptions.NotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -9,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,34 +28,34 @@ public class UsuarioService {
         this.categoriaRepository = categoriaRepository;
     }
 
-    public Usuario confirmarUsuario(String email, String password) {
-        Usuario l = usuarioRepository.buscarUsuario(email, password);
+    public Usuario confirmarUsuario(String email, String password){
+        Usuario l =usuarioRepository.buscarUsuario(email, password);
         return l;
     }
 
-    public void registro(Usuario usuario) {
+    public void registro(Usuario usuario){
         usuarioRepository.save(usuario);
     }
 
-    public Usuario validarUsuario(String email) {
+    public Usuario validarUsuario(String email){
         Usuario l = usuarioRepository.validarUsuario(email);
         return l;
     }
 
-    public void actualizarPass(String pass, Usuario usuario) {
-        Usuario l = usuarioRepository.buscarUsuario(usuario.getEmail(), usuario.getPassword());
+    public void actualizarPass(String pass, Usuario usuario){
+        Usuario l = usuarioRepository.buscarUsuario(usuario.getEmail(),usuario.getPassword());
         usuarioRepository.cambiarPassword(pass, l.getId());
     }
-
-    public void modificarDatos(Long id, Integer dni, Integer dia, String mes, Integer anio) {
-        usuarioRepository.modificarUsuario(id, dni, dia, mes, anio);
+    public void modificarDatos(Long id, String dni, Integer dia, String mes, Integer anio, String telefono, String cod){
+        telefono= '('+cod+')'+' '+telefono.replaceFirst("(\\d{4})(\\d+)", "$1-$2");
+        usuarioRepository.modificarUsuario(id, dni, dia, mes, anio, telefono);
     }
 
-    public void saveFile(MultipartFile file, Usuario usuario) throws Exception {
-        String uploadDirectory = System.getProperty("user.dir") + "/src/main/resources/static/imagenes/";
+    public void saveFile (MultipartFile file, Usuario usuario) throws Exception{
+        String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/imagenesParaEvaluar/";
         byte[] bytes = file.getBytes();
         Path path = Paths.get(uploadDirectory + file.getOriginalFilename());
-        Files.write(path, bytes);
+        Files.write(path,bytes);
 
         ImagenesUsuario imgUsu = new ImagenesUsuario();
         imgUsu.setNombre(file.getOriginalFilename());
@@ -62,29 +64,41 @@ public class UsuarioService {
         imagenesUsuarioRepository.save(imgUsu);
     }
 
-    public List<ImagenesUsuario> getImagenesUsuario() {
+    public void saveFileInUser (MultipartFile file, Usuario usuario) throws Exception{
+        String uploadDirectory = System.getProperty("user.dir")+"/src/main/resources/static/imagenesDePerfil/";
+        byte[] bytes = file.getBytes();
+        Path path = Paths.get(uploadDirectory + file.getOriginalFilename());
+        Files.write(path,bytes);
+
+        usuario.setNombreImagen(file.getOriginalFilename());
+
+        usuarioRepository.save(usuario);
+    }
+    public List<ImagenesUsuario> getImagenesUsuario (){
         return imagenesUsuarioRepository.buscarPorIdDeUsuario();
     }
-
-    public List<ImagenesUsuario> usuariosParaValidar() {
+    public List<ImagenesUsuario> usuariosParaValidar(){
 
         return imagenesUsuarioRepository.usuariosParaValidar();
     }
-
-    public void cambiarDeEstado(Long id) {
+    public void cambiarDeEstado(Long id){
 
         usuarioRepository.cambiarDeEstado(id);
         imagenesUsuarioRepository.cambiarEstadoImagenAceptado(id);
     }
-
-    public void rechazarcambioDeEstado(Long id) {
+    public void rechazarcambioDeEstado(Long id){
 
         imagenesUsuarioRepository.cambiarEstadoImagen(id);
     }
-
     public ImagenesUsuario traerEstadosDeImagenes(Usuario usuario) {
 
         return imagenesUsuarioRepository.traerEstadosDeImagenes(usuario.getId());
+    }
+    public EstadisticasPuntoReciclaje estadisticasDelPuntoDeReciclaje(Usuario usuario) {
+        EstadisticasPuntoReciclaje lista = new EstadisticasPuntoReciclaje();
+        lista.setEventosTotales(usuarioRepository. eventosTotales(usuario.getId()));
+        lista.setPinesTotales(usuarioRepository.pinesTotales(usuario.getId()));
+        return lista;
     }
 
     public Estadisticas getAllEstadistics() {

@@ -17,10 +17,10 @@ INSERT INTO categoria(background_color, color, icon, nombre, short_desc) VALUES
 ('rgba(247,214,3,0.80)', '#2A2A2A', 'fa-coins', 'Basura Orgánica', 'El Reciclaje orgánico o de materia orgánica, es aquel en el que la materia a reciclar, proviende de desechos naturales como son los alimentos, hojas, seres vivos o excrementos.');
 
 INSERT INTO recycloud.usuario
-(anio, apellido, dia, dni, email, identificacion, mes, nombre, password, rol)VALUES
-(1999,'Núñez',20, 39272340,'admin@admin.com',0,'Diciembre','Tomas','admin123', 1),
-(1995,'Morales',28, 39272340,'punto@punto.com',0,'Agosto','Nicolas','punto123', 3),
-(1990,'Barrio Nuevo',17, 39272340,'generico@generico.com',0,'Abril','David','generico123', 2);
+(anio, apellido, dia, dni, email, identificacion, mes, nombre, nombre_imagen, password, rol, telefono)VALUES
+(1999,'Núñez',20, 39272340,'admin@admin.com',0,'Diciembre','Tomas',NULL,'admin123', 1,NULL),
+(1995,'Morales',28, 39272340,'punto@punto.com',0,'Agosto','Nicolas',NULL,'punto123', 3,NULL),
+(1990,'Barrio Nuevo',17, 39272340,'generico@generico.com',0,'Abril','David',NULL,'generico123', 2,NULL);
 
 
 INSERT INTO recycloud.categoria_entrenada(imagen, categoria_id)

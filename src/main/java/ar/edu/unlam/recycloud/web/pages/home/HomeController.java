@@ -1,5 +1,6 @@
 package ar.edu.unlam.recycloud.web.pages.home;
 
+import ar.edu.unlam.recycloud.app.usuario.Actualizar;
 import ar.edu.unlam.recycloud.app.usuario.Password;
 import ar.edu.unlam.recycloud.app.usuario.Usuario;
 import ar.edu.unlam.recycloud.app.usuario.UsuarioService;
@@ -37,8 +38,11 @@ public class HomeController {
         ModelMap modelo = new ModelMap();
         modelo.addAttribute("usuario", new Usuario());
         modelo.addAttribute("password", new Password());
+        modelo.addAttribute("actualizar", new Actualizar());
+        modelo.addAttribute("estadisticaspunto", usuarioService.estadisticasDelPuntoDeReciclaje(usuario));
         session.setAttribute("estado", usuarioService.traerEstadosDeImagenes(usuarioService.validarUsuario(usuario.getEmail())));
         session.setAttribute("usuario", usuarioService.validarUsuario(usuario.getEmail()));
+        modelo.addAttribute("fecha", usuarioService.validarUsuario(usuario.getEmail()));
         modelo.addAttribute("estadisticas", usuarioService.getAllEstadistics());
         return new ModelAndView("/home/perfil", modelo);
     }
@@ -50,7 +54,7 @@ public class HomeController {
         if(p != null){
             usuarioService.actualizarPass(pass.getNewPassword(), p);
         }
-        return "/home/perfil";
+        return "redirect:/home/perfil";
     }
 
     @PostMapping(path = "/home/completar")
@@ -69,13 +73,29 @@ public class HomeController {
         return "redirect:/home/perfil";
 
     }
+    @PostMapping(path = "/home/cambiarImagenDePerfil")
+    public String cambiarImagenDePerfil (HttpSession session, @RequestParam("avatarInput") MultipartFile files){
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+
+            try {
+                usuarioService.saveFileInUser(files,usuarioService.validarUsuario(usuario.getEmail()));
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
+        return "redirect:/home/perfil";
+
+    }
 
     @PostMapping(path = "/home/modificar")
-    public String modificar (HttpSession session, Usuario usuario){
-        Usuario user = (Usuario) session.getAttribute("usuario");
-        usuarioService.modificarDatos(user.getId(), usuario.getDni(),usuario.getDia(),usuario.getMes(), usuario.getAnio());
-        session.setAttribute("usuario", usuarioService.validarUsuario(user.getEmail()));
-        return "/home/perfil";
+    public String modificar (HttpSession session, Actualizar actualizar){
+
+            Usuario user = (Usuario) session.getAttribute("usuario");
+            usuarioService.modificarDatos(user.getId(), actualizar.getDni(), actualizar.getDia(), actualizar.getMes(), actualizar.getAnio(), actualizar.getTelefono(),actualizar.getCod());
+            session.setAttribute("usuario", usuarioService.validarUsuario(user.getEmail()));
+            return "redirect:/home/perfil";
+
     }
 
 

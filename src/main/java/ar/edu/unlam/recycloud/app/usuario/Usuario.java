@@ -41,8 +41,18 @@ public class Usuario {
     private Integer dia;
     private String mes;
     private Integer anio;
-    private Integer dni;
+    private String dni;
     private Integer identificacion;
+    private String telefono;
+    private String nombreImagen;
+
+    public String getNombreImagen() {
+        return nombreImagen;
+    }
+
+    public void setNombreImagen(String nombreImagen) {
+        this.nombreImagen = nombreImagen;
+    }
 
     public Long getId() {
         return id;
@@ -116,11 +126,11 @@ public class Usuario {
         this.anio = anio;
     }
 
-    public Integer getDni() {
+    public String getDni() {
         return dni;
     }
 
-    public void setDni(Integer dni) {
+    public void setDni(String dni) {
         this.dni = dni;
     }
 
@@ -130,5 +140,13 @@ public class Usuario {
 
     public void setIdentificacion(Integer identificacion) {
         this.identificacion = identificacion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }
