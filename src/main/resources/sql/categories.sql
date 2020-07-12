@@ -71,3 +71,7 @@ INSERT INTO recycloud.evento
 ('Arieta 2720', '2020/07/06', '09:30', '20:00', 'Villa Luzuriaga', 'Charla informativa de como reciclar', 3),
 ('Dr.Arturo Illia 5876', '2020/07/18', '11:30', '20:00', 'Isidro Casanova', 'Recolección de Tapitas', 3),
 ('Jujuy 2500', '2020/07/25', '10:30', '21:00', 'Flores', 'Recolección de Neutamicos', 3);
+
+INSERT INTO recypoint
+(amount, beneficiary_id, provider_id) VALUES
+(1000, 1, 2);

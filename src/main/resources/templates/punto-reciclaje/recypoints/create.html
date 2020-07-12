@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: baseHead(~{::title}, ~{::link}, ~{::script})">
+    <meta charset="UTF-8">
+    <title>RecyCloud ♻️</title>
+    <link rel="stylesheet" th:href="@{/css/pages/map.css}">
+</head>
+<body>
+<header th:replace="fragments/header"></header>
+<div class="container my-5" th:fragment="main()">
+    <div class="card card-signin my-5">
+        <div class="card-body">
+            <div class="container">
+
+                <h2>Añadir Beneficiario</h2>
+                <form class="form-row-wide" name="crear" action="#" th:action="@{/punto-reciclaje/recypoints}"
+                      th:object="${form}" method="post">
+                    <input type="hidden" class="hidden" id="provider-id" th:field="*{providerId}" th:value="*{providerId}" th:attr="data-provider_id=${providerId}">
+                    <div class="row">
+                        <div class="form-label-group col-12 col-md-6">
+                            <label for="email">Email Beneficiario</label>
+                            <input type="text" id="email" th:field="*{email}" class="form-control" required
+                                   th:value="*{email}">
+                            <span class="text-danger" th:if="${#fields.hasErrors('email')}"
+                                  th:errors="*{email}"></span>
+                        </div>
+                        <div class="form-label-group col-12 col-md-6">
+                            <label for="amount">Cantidad</label>
+                            <input type="number" step="100" id="amount" th:field="*{amount}" class="form-control"
+                                   required
+                                   th:value="*{amount}">
+                            <span class="text-danger" th:if="${#fields.hasErrors('amount')}"
+                                  th:errors="*{amount}"></span>
+                        </div>
+                    </div>
+                    <div class="row margin-3">
+
+                    </div>
+                    <div class="row margin-3">
+                        <div class="col-12 col-md-6">
+                            <a class="btn btn-secondary" data-toggle="popover" id="btn-validate"
+                               onclick="validateMail()">
+                                VALIDAR USUARIO
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 aligncenter flex justify-content-space-around">
+                            <button type="submit" value="ENVIAR" class="btn btn-primary" disabled id="btn-submit">ENVIAR</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="fragments/footer"></footer>
+<script th:src="@{/js/lib/rest-client.js}"></script>
+<script th:src="@{/js/pages/puntoreciclaje/recypoints/create.js}"></script>
+</body>
+</html>

@@ -16,6 +16,7 @@ import static ar.edu.unlam.recycloud.web.pages.puntoreciclaje.PuntoReciclajeCons
 
 @Controller
 @SessionScope
+@RequestMapping(BASE_PATH)
 public class PuntoReciclajeController {
 
     private static final Integer VALID_ROL = 3;
@@ -25,7 +26,7 @@ public class PuntoReciclajeController {
         this.puntoReciclajeViewService = puntoReciclajeViewService;
     }
 
-    @GetMapping(value = BASE_PATH)
+    @GetMapping
     public ModelAndView home(HttpSession httpSession) {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
         if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {

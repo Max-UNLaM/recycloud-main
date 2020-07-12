@@ -7,4 +7,9 @@ import lombok.Setter;
 @Setter
 public class HttpException extends RuntimeException {
     private int statusCode;
+
+    public HttpException(String message, int statusCode) {
+        super(message);
+    }
+
 }

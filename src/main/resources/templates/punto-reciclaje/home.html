@@ -19,12 +19,14 @@
                             <div class="card-body">
                                 <h4 class="card-title text-center" th:text="${puntoReciclaje.pin.title}"></h4>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Categorias: <span th:each="category : ${puntoReciclaje.pin.categories}"
-                                                                                  th:text="${category}"
-                                                                                  class="badge badge-primary"></span>
+                                    <li class="list-group-item">Categorias: <span
+                                            th:each="category : ${puntoReciclaje.pin.categories}"
+                                            th:text="${category}"
+                                            class="badge badge-primary"></span>
                                     </li>
                                     <li class="list-group-item">
-                                        <a class="btn btn-primary" th:href="|/punto-reciclaje/edit/${puntoReciclaje.puntoReciclaje.id}|">
+                                        <a class="btn btn-primary"
+                                           th:href="|/punto-reciclaje/edit/${puntoReciclaje.puntoReciclaje.id}|">
                                             Editar Punto Reciclaje</a>
                                     </li>
                                 </ul>
@@ -35,10 +37,69 @@
                                 <h4 class="card-title text-center">Añadir</h4>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
-                                        <a class="btn btn-primary" Href="/punto-reciclaje/create">
+                                        <a class="btn btn-primary" href="/punto-reciclaje/create">
                                             Agregar punto de entrega</a>
                                     </li>
                                 </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card card-signin my-5">
+        <div class="card-body">
+            <div class="container">
+                <h2>Recy Points</h2>
+                <div class="row">
+                    <button class="btn btn-primary"><a th:href="@{'/punto-reciclaje/recypoints'}">INGRESAR A RECYPOINTS</a></button>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="text-center my-3 font-weight-bold color-verde">Cómo dar y usar Recy Points!</h2>
+                    </div>
+                    <div class="col-12 col-md-3 float-left">
+                        <div class="card my-4 py-1">
+                            <img class="card-img-top card-scanner-img" src="/imagenes/scanner.svg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Recolecte Reciclables</span>
+                                </p>
+                                <p class="card-text text-center mb-4">¡Da de alta tu punto de reciclable para que los
+                                    usuarios puedan verte!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md col-12 float-left my-auto">
+                        <img src="/imagenes/flecha.svg" alt="flecha" class="flechas d-none d-md-block">
+                        <img src="/imagenes/flecha2.svg" alt="flecha" class="flechas2 d-block d-md-none">
+                    </div>
+                    <div class="col-12 col-md-3 float-left">
+                        <div class="card my-4 py-1">
+                            <img class="card-img-top card-scanner-img" src="/imagenes/iniciar2.svg"
+                                 alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text text-center mb-5">Da puntos a un usuario</p>
+                                <p class="card-text text-center font-weight-bold color-verde mb-4">Premiá a los usuarios
+                                    que te lleven reciclables dandole recypoints</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md col-12 float-left my-auto">
+                        <img src="/imagenes/flecha.svg" alt="flecha" class="flechas d-none d-md-block">
+                        <img src="/imagenes/flecha2.svg" alt="flecha" class="flechas2 d-block d-md-none">
+                    </div>
+                    <div class="col-12 col-md-3 float-left">
+                        <div class="card my-4 py-1">
+                            <img class="card-img-top card-scanner-img" src="/imagenes/mapa.svg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Vendé tus productos con descuentos</span>
+                                </p>
+                                <p class="card-text text-center">El usuario podrá usar los puntos que recibió <strong>exclusivamente
+                                    en tus productos</strong>.</p>
+                                <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">¡Círculo completo!</span>
+                                </p>
+                                <p class="card-text text-center">Atrae usuarios a tus puntos de reciclaje e incrementa tus ventas con recypoints.</p>
                             </div>
                         </div>
                     </div>
