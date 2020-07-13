@@ -48,22 +48,21 @@
             </div>
         </div>
     </div>
-    <div class="card card-signin my-5">
+    <div class="card-signin my-5" id="recypoints">
         <div class="card-body">
             <div class="container">
-                <h2>Recy Points</h2>
-                <div class="row">
-                    <button class="btn btn-primary"><a th:href="@{'/punto-reciclaje/recypoints'}">INGRESAR A RECYPOINTS</a></button>
-                </div>
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="text-center my-3 font-weight-bold color-verde">Cómo dar y usar Recy Points!</h2>
+                        <h2 class="text-center my-3 font-weight-bold color-verde">¡Cómo dar y usar Recy Points!</h2>
+                        <div class="alert alert-success text-center fw-600" role="alert">
+                            Atrae usuarios a tus puntos de reciclaje e incrementa tus ventas con recypoints.
+                        </div>
                     </div>
                     <div class="col-12 col-md-3 float-left">
                         <div class="card my-4 py-1">
-                            <img class="card-img-top card-scanner-img" src="/imagenes/scanner.svg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Recolecte Reciclables</span>
+                            <img class="card-img-top card-scanner-img" src="/imagenes/recicla.svg" alt="Card image cap">
+                            <div class="card-body tarjeta-recypoint">
+                                <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Recolectá residuos reciclables</span>
                                 </p>
                                 <p class="card-text text-center mb-4">¡Da de alta tu punto de reciclable para que los
                                     usuarios puedan verte!</p>
@@ -76,12 +75,13 @@
                     </div>
                     <div class="col-12 col-md-3 float-left">
                         <div class="card my-4 py-1">
-                            <img class="card-img-top card-scanner-img" src="/imagenes/iniciar2.svg"
+                            <img class="card-img-top card-scanner-img" src="/imagenes/dar-puntos.svg"
                                  alt="Card image cap">
-                            <div class="card-body">
-                                <p class="card-text text-center mb-5">Da puntos a un usuario</p>
-                                <p class="card-text text-center font-weight-bold color-verde mb-4">Premiá a los usuarios
-                                    que te lleven reciclables dandole recypoints</p>
+                            <div class="card-body tarjeta-recypoint">
+                                <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Dar recypoints a un usuario</span>
+                                </p>
+                                <p class="card-text text-center mb-4"><strong>Premiá</strong> a los usuarios
+                                    que te lleven reciclables dándole <strong class="color-naranja">recypoints*</strong></p>
                             </div>
                         </div>
                     </div>
@@ -91,18 +91,22 @@
                     </div>
                     <div class="col-12 col-md-3 float-left">
                         <div class="card my-4 py-1">
-                            <img class="card-img-top card-scanner-img" src="/imagenes/mapa.svg" alt="Card image cap">
-                            <div class="card-body">
+                            <img class="card-img-top card-scanner-img" src="/imagenes/carrito.svg" alt="Card image cap">
+                            <div class="card-body tarjeta-recypoint">
                                 <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Vendé tus productos con descuentos</span>
                                 </p>
                                 <p class="card-text text-center">El usuario podrá usar los puntos que recibió <strong>exclusivamente
-                                    en tus productos</strong>.</p>
-                                <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">¡Círculo completo!</span>
+                                    en tus productos.</strong></p>
                                 </p>
-                                <p class="card-text text-center">Atrae usuarios a tus puntos de reciclaje e incrementa tus ventas con recypoints.</p>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="alert alert-warning text-center fw-600" role="alert">
+                    100 Recypoints equivalen a un 1% de descuento. El descuento máximo que el usuario podrá aplicar será de 500 puntos por producto.
+                </div>
+                <div class="row">
+                    <button class="btn btn-primary btn-recyp"><a th:href="@{'/punto-reciclaje/recypoints'}" class="blanco fw-600">Cargar Recypoints</a></button>
                 </div>
             </div>
         </div>

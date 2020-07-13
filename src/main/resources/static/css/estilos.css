@@ -348,6 +348,10 @@ a:hover {
 .bg-verde{
     background-color: rgba(85, 198, 85, 0.5) !important;
 }
+.bg-naranja{
+    background-color: #ff9d00;
+    border-color: #ff9d00;
+}
 .degradado{
     background-color: rgb(85,198,85);
     background: linear-gradient(145deg, rgba(85,198,85,1) 0%, rgba(85,198,85,0.7455357142857143) 100%) !important;
@@ -405,7 +409,7 @@ a:hover {
     width: 50%;
     margin: 5% auto;
 }
-.info-scan .card{
+.info-scan .card, #recypoints .card{
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
 .info-scan .card-body{
@@ -685,6 +689,19 @@ footer a{
     width: 90%;
     margin: 0 5%;
 }
+#recypoints .tarjeta-recypoint{
+    height: 200px !important;
+}
+#recypoints .alert{
+    margin-top: 16px !important;
+}
+.btn-recyp{
+    width: 20%;
+    margin: 0 40%;
+}
+.btn-recyp a:hover{
+    color: white !important;
+}
 
 @media screen and (max-width: 550px){
     .iconos-servicios {
@@ -778,6 +795,10 @@ footer a{
         position: absolute;
         right: 20px;
         bottom: 84px;
+    }
+    .btn-recyp{
+        width: 90%;
+        margin: 0 5%;
     }
 }
 
