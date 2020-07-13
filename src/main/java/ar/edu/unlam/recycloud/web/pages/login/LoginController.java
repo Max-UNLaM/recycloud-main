@@ -33,7 +33,7 @@ public class LoginController {
     @RequestMapping(path = "/login/cerrarSession")
     public String cerrarSession(HttpSession session) {
         session.setAttribute("usuario", null);
-        return "/index";
+        return "redirect:/";
     }
 
     @GetMapping(path = "/login")
@@ -54,7 +54,7 @@ public class LoginController {
                 return "/login/login";
             } else {
                 session.setAttribute("usuario", log);
-                return "/index";
+                return "redirect:/";
             }
         }
 
@@ -84,7 +84,7 @@ public class LoginController {
             Usuario log = usuarioService.validarUsuario(usuario.getEmail());
             session.setAttribute("usuario", log);
             emailService.sendEmail(log.getEmail(),"Registración a RecyCloud", "Gracias por registrarte a RecyCloud");
-            return "/index";
+            return "redirect:/";
         }
     }
 
@@ -113,7 +113,7 @@ public class LoginController {
             session.setAttribute("usuario", u);
         }
 
-        return "/index";
+        return "redirect:/";
 
     }
    /* @RequestMapping(...)

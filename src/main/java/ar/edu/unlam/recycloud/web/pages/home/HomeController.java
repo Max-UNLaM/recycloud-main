@@ -38,7 +38,7 @@ public class HomeController {
     }
     @GetMapping("/header")
     public String index(){
-        return "/index";
+        return "redirect:/";
     }
     @GetMapping("/home/perfil")
     public ModelAndView perfil(HttpSession session,Model model){

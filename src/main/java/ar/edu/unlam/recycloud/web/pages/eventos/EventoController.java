@@ -46,7 +46,7 @@ public class EventoController {
         } else {
             Usuario user = (Usuario) session.getAttribute("usuario");
             eventoService.save(evento, user);
-            return "/index";
+            return "redirect:/";
         }
     }
 
