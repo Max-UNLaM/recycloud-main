@@ -1,5 +1,7 @@
 package ar.edu.unlam.recycloud.web.pages.home;
 
+import ar.edu.unlam.recycloud.app.email.SuscriptoresRepository;
+import ar.edu.unlam.recycloud.app.email.SuscriptoresService;
 import ar.edu.unlam.recycloud.app.usuario.Actualizar;
 import ar.edu.unlam.recycloud.app.usuario.Password;
 import ar.edu.unlam.recycloud.app.usuario.Usuario;
@@ -19,9 +21,13 @@ import javax.validation.Valid;
 @Controller
 public class HomeController {
     private final UsuarioService usuarioService;
+    private final SuscriptoresRepository suscriptoresRepository;
+    private final SuscriptoresService suscriptoresService;
 
-    public HomeController(UsuarioService usuarioService) {
+    public HomeController(UsuarioService usuarioService, SuscriptoresRepository suscriptoresRepository, SuscriptoresService suscriptoresService) {
         this.usuarioService = usuarioService;
+        this.suscriptoresRepository = suscriptoresRepository;
+        this.suscriptoresService = suscriptoresService;
     }
 
     @GetMapping("/")
@@ -55,6 +61,13 @@ public class HomeController {
             usuarioService.actualizarPass(pass.getNewPassword(), p);
         }
         return "redirect:/home/perfil";
+    }
+    @PostMapping(path = "/home/suscribirse")
+    public String suscribirse (HttpSession session, @RequestParam("email") String email){
+        if(email != ""){
+            suscriptoresService.verificarSiYaExiste(email);
+        }
+        return "/index";
     }
 
     @PostMapping(path = "/home/completar")
