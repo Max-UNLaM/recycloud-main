@@ -1122,7 +1122,13 @@ input[type=text], input[type=search], input[type=email], input[type=password], i
     background-color: #1877f2;
     border-radius: 5px;
 }
+.textoError {
+    text-transform: lowercase;
+}
 
+.textoError:first-letter {
+    text-transform: uppercase;
+}
 
 
 

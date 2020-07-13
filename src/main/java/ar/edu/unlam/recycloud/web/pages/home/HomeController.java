@@ -1,5 +1,6 @@
 package ar.edu.unlam.recycloud.web.pages.home;
 
+import ar.edu.unlam.recycloud.app.email.Suscriptores;
 import ar.edu.unlam.recycloud.app.email.SuscriptoresRepository;
 import ar.edu.unlam.recycloud.app.email.SuscriptoresService;
 import ar.edu.unlam.recycloud.app.usuario.Actualizar;
@@ -9,6 +10,7 @@ import ar.edu.unlam.recycloud.app.usuario.UsuarioService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,7 +33,7 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public String home(){
+    public String home(Suscriptores suscriptores){
         return "/index";
     }
     @GetMapping("/header")
@@ -63,11 +65,13 @@ public class HomeController {
         return "redirect:/home/perfil";
     }
     @PostMapping(path = "/home/suscribirse")
-    public String suscribirse (HttpSession session, @RequestParam("email") String email){
-        if(email != ""){
-            suscriptoresService.verificarSiYaExiste(email);
+    public String suscribirse (HttpSession session, @Valid Suscriptores suscriptores, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return "/index";
+        } else {
+            suscriptoresService.verificarSiYaExiste(suscriptores.getEmail());
         }
-        return "/index";
+        return "redirect:/";
     }
 
     @PostMapping(path = "/home/completar")
