@@ -2,7 +2,7 @@ package ar.edu.unlam.recycloud.app.recycommerce;
 
 import ar.edu.unlam.recycloud.app.recycommerce.models.Customer;
 import ar.edu.unlam.recycloud.app.recycommerce.models.CustomerLogin;
-import ar.edu.unlam.recycloud.app.utils.ResponseParser;
+import com.google.gson.Gson;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.LaxRedirectStrategy;
@@ -25,17 +25,21 @@ public class CustomerRepository {
     private static final String USER_PATH = "/api/v1/user/";
     private static final String LOGIN_PATH = "/index.php?route=account/login";
     private final String RECYCOMMERCE_HOST;
-    private final ResponseParser responseParser;
+    private final Gson gson;
 
-    public CustomerRepository(Environment environment, ResponseParser responseParser) {
+    public CustomerRepository(Environment environment, Gson gson) {
         this.RECYCOMMERCE_HOST = environment.getProperty(RECYCOMMERCE_HOST_KEY);
-        this.responseParser = responseParser;
+        this.gson = gson;
     }
 
     public void create(Customer usuario) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        String request = gson.toJson(usuario);
+        HttpEntity<String> entity = new HttpEntity<>(request, headers);
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.postForObject(
-                RECYCOMMERCE_HOST + USER_PATH, usuario, Customer.class
+                RECYCOMMERCE_HOST + USER_PATH, entity, String.class
         );
     }
 
