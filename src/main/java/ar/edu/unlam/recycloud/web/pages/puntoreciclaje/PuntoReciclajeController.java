@@ -30,7 +30,7 @@ public class PuntoReciclajeController {
     public ModelAndView home(HttpSession httpSession) {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
         if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {
-            return new ModelAndView("index");
+            return new ModelAndView( "redirect:/");
         }
         ModelMap modelMap = new ModelMap();
         usuario.setId(usuario.getId());
@@ -42,7 +42,7 @@ public class PuntoReciclajeController {
     public String create(HttpSession httpSession, Model model) {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
         if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {
-            return "index";
+            return "redirect:/";
         }
         model.addAttribute("data", puntoReciclajeViewService.buildCreate());
         model.addAttribute("form", new PuntoReciclajeEdit());
@@ -56,7 +56,7 @@ public class PuntoReciclajeController {
     ) {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
         if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {
-            return new ModelAndView("index");
+            return new ModelAndView( "redirect:/");
         }
         PuntoReciclaje pr = puntoReciclajeViewService.save(puntoReciclajeEdit, usuario.getId());
         return new ModelAndView("redirect:/punto-reciclaje/edit/" + pr.getId());
@@ -77,7 +77,7 @@ public class PuntoReciclajeController {
     ) {
         Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
         if (usuario == null || !usuario.getRol().equals(VALID_ROL)) {
-            return new ModelAndView("index");
+            return new ModelAndView( "redirect:/");
         }
         PuntoReciclaje pr = puntoReciclajeViewService.update(puntoReciclajeEdit, 2L, id);
         return new ModelAndView("redirect:/punto-reciclaje/edit/" + pr.getId());
