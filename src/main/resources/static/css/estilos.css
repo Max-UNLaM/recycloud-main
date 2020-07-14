@@ -855,6 +855,9 @@ footer a{
     .logo2{
         width: 70% !important;
     }
+    #vertical-menu2{
+        display: none !important;
+    }
 }
 @media screen and (max-width: 400px){
     .logo2{
