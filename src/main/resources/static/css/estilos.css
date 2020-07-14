@@ -696,15 +696,21 @@ footer a{
     margin-top: 16px !important;
 }
 .btn-recyp{
-    width: 20%;
-    margin: 0 40%;
+    width: 30%;
+    margin: 0 35%;
 }
 .btn-recyp2{
     width: 30%;
     margin: 0 35%;
 }
-.btn-recyp a:hover{
+.btn-recyp a:hover, .btn-recyp2 a:hover{
     color: white !important;
+}
+.fa-edit{
+    color: #55c655;
+}
+.fa-trash{
+    color: red;
 }
 
 @media screen and (max-width: 550px){
@@ -803,6 +809,9 @@ footer a{
     .btn-recyp, .btn-recyp2{
         width: 90%;
         margin: 0 5%;
+    }
+    #recypoints .tarjeta-recypoint {
+        height: auto !important;
     }
 }
 .badge-primary{

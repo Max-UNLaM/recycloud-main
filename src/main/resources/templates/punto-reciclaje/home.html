@@ -7,47 +7,44 @@
 </head>
 <body>
 <header th:replace="fragments/header"></header>
-<div class="container my-5" th:fragment="main()">
-    <div class="card-signin my-5">
-        <div class="card-body">
-            <div class="container">
-                <h2 class="text-center my-3 font-weight-bold color-verde">Puntos de reciclaje</h2>
+<div class="container my-2" th:fragment="main()">
                 <div class="row">
-                    <a class="btn btn-primary btn-recyp2 fw-600 my-3" href="/punto-reciclaje/create">
-                        Agregar punto de reciclaje</a>
-                    <div class="card-group">
-                        <div class="card" th:each="puntoReciclaje : ${data.puntosReciclaje}">
-                            <!--i class="card-img-side fas fa-7x margin-auto" th:classappend="|${categoria.icon}|"></i-->
-                            <div class="card-body">
-                                <h4 class="card-title text-center" th:text="${puntoReciclaje.pin.title}"></h4>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Categorias: <span
-                                            th:each="category : ${puntoReciclaje.pin.categories}"
-                                            th:text="${category}"
-                                            class="badge badge-primary m-1"></span>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a class="btn btn-primary"
-                                           th:href="|/punto-reciclaje/edit/${puntoReciclaje.puntoReciclaje.id}|">
-                                            Editar Punto Reciclaje</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <h2 class="text-center my-2 font-weight-bold color-verde col-12">Puntos de reciclaje</h2>
 
+                    <button class="btn btn-primary btn-recyp2 mb-3"><a href="/punto-reciclaje/create" class="blanco fw-600">Agregar punto de reciclaje</a></button>
+                <div class="col-12">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Categorias</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Borrar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="puntoReciclaje : ${data.puntosReciclaje}">
+                        <th scope="row" th:text="${puntoReciclaje.pin.title}"></th>
+                        <td><span
+                                th:each="category : ${puntoReciclaje.pin.categories}"
+                                th:text="${category}"
+                                class="badge badge-primary m-1"></span></td>
+                        <td class="text-center"><i class="fa fa-edit" aria-hidden="true"></i>
+                        </td>
+                        <td class="text-center"><i class="fa fa-trash" aria-hidden="true"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
                     </div>
-                </div>
-            </div>
-        </div>
     </div>
-    <div class="card-signin my-5" id="recypoints">
-        <div class="card-body">
-            <div class="container">
+    <div class="container mb-5 mt-2" id="recypoints">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="text-center my-3 font-weight-bold color-verde">¡Cómo dar y usar Recy Points!</h2>
-                        <div class="alert alert-success text-center fw-600" role="alert">
-                            Atrae usuarios a tus puntos de reciclaje e incrementa tus ventas con recypoints.
+                        <h2 class="text-center my-3 font-weight-bold color-verde">Cómo otorgar Recy Points</h2>
+                        <button class="btn btn-primary btn-recyp mb-1"><a th:href="@{'/punto-reciclaje/recypoints'}" class="blanco fw-600">Cargar Recy Points</a></button>
+                        <div class="alert alert-success text-center fw-600 mt-0" role="alert">
+                            Atrae usuarios a tus puntos de reciclaje e incrementa tus ventas con Recy Points.
                         </div>
                     </div>
                     <div class="col-12 col-md-3 float-left">
@@ -70,10 +67,10 @@
                             <img class="card-img-top card-scanner-img" src="/imagenes/dar-puntos.svg"
                                  alt="Card image cap">
                             <div class="card-body tarjeta-recypoint">
-                                <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Dar recypoints a un usuario</span>
+                                <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Dar Recy Points a un usuario</span>
                                 </p>
                                 <p class="card-text text-center mb-4"><strong>Premiá</strong> a los usuarios
-                                    que te lleven reciclables dándole <strong class="color-naranja">recypoints*</strong></p>
+                                    que te lleven reciclables dándole <strong class="color-naranja">Recy Points*</strong></p>
                             </div>
                         </div>
                     </div>
@@ -95,14 +92,9 @@
                     </div>
                 </div>
                 <div class="alert alert-warning text-center fw-600" role="alert">
-                    100 Recypoints equivalen a un 1% de descuento. El descuento máximo que el usuario podrá aplicar será de 500 puntos por producto.
-                </div>
-                <div class="row">
-                    <button class="btn btn-primary btn-recyp"><a th:href="@{'/punto-reciclaje/recypoints'}" class="blanco fw-600">Cargar Recypoints</a></button>
+                    100 Recy Points equivalen a un 1% de descuento. El descuento máximo que el usuario podrá aplicar será de 500 puntos por producto.
                 </div>
             </div>
-        </div>
-    </div>
 </div>
 <footer th:replace="fragments/footer"></footer>
 </body>
