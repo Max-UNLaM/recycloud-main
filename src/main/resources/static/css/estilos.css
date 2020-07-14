@@ -699,6 +699,10 @@ footer a{
     width: 20%;
     margin: 0 40%;
 }
+.btn-recyp2{
+    width: 30%;
+    margin: 0 35%;
+}
 .btn-recyp a:hover{
     color: white !important;
 }
@@ -796,10 +800,13 @@ footer a{
         right: 20px;
         bottom: 84px;
     }
-    .btn-recyp{
+    .btn-recyp, .btn-recyp2{
         width: 90%;
         margin: 0 5%;
     }
+}
+.badge-primary{
+    background-color: #f5b041;
 }
 
 @media screen and (max-width: 992px){
