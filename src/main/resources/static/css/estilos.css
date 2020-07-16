@@ -579,8 +579,6 @@ footer a{
 }
 #card-evento .card{
     padding: 0 !important;
-    min-height: 169px;
-
 }
 #card-evento .card-body a, #card-evento .card-body span, #card-evento .card-body{
     font-size: 17px;
@@ -720,6 +718,7 @@ footer a{
     }
     h3{
         text-align: center;
+        line-height: 33px;
     }
     .servicios {
         padding: 5% 0;
@@ -813,11 +812,35 @@ footer a{
     #recypoints .tarjeta-recypoint {
         height: auto !important;
     }
+    .centrarbotones{
+        width: 100%;
+    }
+    #cambiaraimagen, #cambiaravideo{
+        margin-left: 0px!important;
+        margin-bottom: 2%;
+    }
+    #avatarImage{
+        padding: 0 15px !important;
+    }
+    .ajuste-tamaño, #imagenn, .ajuste-tamaño2 {
+        width: 100% !important;
+    }
+    #listado-categorias .list-group{
+        padding-left: 15px !important;
+    }
+    #sidebar-collapse{
+        z-index: 1000;
+    }
+    .popover-title{
+        margin-bottom: 1px !important;
+    }
 }
 .badge-primary{
     background-color: #f5b041;
 }
-
+.dropdown-menu{
+    z-index: 1021 !important;
+}
 @media screen and (max-width: 992px){
     .navbar-brand{
         width: 50%;
@@ -872,13 +895,16 @@ footer a{
     cursor: pointer;
     margin: 0 auto;
 }
+.direccion span{
+    font-weight: 600 !important;
+}
 .ajuste-tamaño{
-    width:380px!important;
+    width:380px;
     height:240px;
     margin: 0 auto;
 }
 .ajuste-tamaño2{
-    width:380px!important;
+    width:380px;
     height:240px;
     background: black;
     margin: 0 auto;
@@ -887,7 +913,7 @@ footer a{
     height: 240px!important;
 }
 #avatarImage{
-    padding: 0!important;
+    padding: 0;
     text-align: center;
 }
 .bordes-adjun{
