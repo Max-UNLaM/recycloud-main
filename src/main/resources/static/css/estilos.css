@@ -834,12 +834,31 @@ footer a{
     .popover-title{
         margin-bottom: 1px !important;
     }
+    .ocultar-pasos, .mostrar-pasos {
+        top: 30px !important;
+    }
 }
 .badge-primary{
     background-color: #f5b041;
 }
 .dropdown-menu{
     z-index: 1021 !important;
+}
+.ocultar-pasos, .mostrar-pasos{
+    padding: 0;
+    font-size: 20px;
+    font-weight: 700;
+    position: relative;
+    top: 45px;
+    cursor: pointer;
+    z-index: 10;
+    width: 4%;
+    margin-left: 96%;
+}
+.contenedor-ocultar{
+    position: relative;
+    width: 100%;
+    text-align: right;
 }
 @media screen and (max-width: 992px){
     .navbar-brand{

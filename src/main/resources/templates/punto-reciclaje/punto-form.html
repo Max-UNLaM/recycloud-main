@@ -12,7 +12,7 @@
 <body>
 <div class="container" th:fragment="fullForm()" id="full-form">
     <div class="row">
-        <h2 th:text="${data.title}"></h2>
+        <h2 th:text="${data.title}" class="text-center my-2 font-weight-bold color-verde col-12"></h2>
     </div>
     <form class="form-row-wide" name="crear" action="#" th:action="@{/punto-reciclaje/} + ${data.action}"
           th:object="${form}"
@@ -20,14 +20,12 @@
         <!-- nombre y link -->
         <div class="row margin-3">
             <div class="form-label-group col-12 col-md-6">
-                <label for="title">Nombre</label>
-                <input type="text" id="title" th:field="*{title}" class="form-control" required th:value="*{title}">
+                <input type="text" id="title" th:field="*{title}" class="form-control" required th:value="*{title}" placeholder="Nombre">
                 <span class="text-danger" th:if="${#fields.hasErrors('title')}"
                       th:errors="*{title}"></span>
             </div>
             <div class="form-label-group col-12 col-md-6">
-                <label for="link">Sitio Web</label>
-                <input type="url" id="link" th:field="*{link}" class="form-control" required th:value="*{link}">
+                <input type="url" id="link" th:field="*{link}" class="form-control" required th:value="*{link}" placeholder="Sitio Web">
                 <span class="text-danger" th:if="${#fields.hasErrors('link')}"
                       th:errors="*{link}"></span>
             </div>
@@ -64,20 +62,17 @@
             <div class="col-12 col-md-6" th:switch="${data.type}">
                 <div class="row" th:case="'create'">
                     <div class="form-label-group col-12 col-md-6">
-                        <label for="address">Dirección</label>
                         <input type="text" id="address" th:field="*{address}" class="form-control" required
-                               th:value="*{title}">
+                               th:value="*{title}" placeholder="Dirección">
                         <span class="text-danger" th:if="${#fields.hasErrors('address')}"
                               th:errors="*{address}"></span>
                     </div>
                     <div class="form-label-group col-12 col-md-6">
-                        <label for="city">Localidad</label>
                         <input type="text" id="city" th:field="*{city}" class="form-control" required
-                               th:value="*{title}" placeholder="Ramos Mejía, Ciudadela, Flores...">
+                               th:value="*{title}" placeholder="Localidad: Ej Ramos Mejía, Ciudadela...">
                     </div>
                     <div class="row margin-3">
                         <div class="form-label-group col-12 col-md-6">
-                            <label for="province">Provincia</label>
                             <select class="selectpicker form-control" th:field="*{province}" id="province" required
                                     data-live-search="true" data-size="5">
                                 <option th:each="province : ${data.provinces}" th:text="${province}"
@@ -85,16 +80,15 @@
                             </select>
                         </div>
                         <div class="col-12 col-md-6 flex">
-                            <a onclick="validateLocation()" class="btn btn-secondary" id="ubicate">UBICAR EN MAPA</a>
+                            <a onclick="validateLocation()" class="btn btn-primary" id="ubicate">UBICAR EN MAPA</a>
                         </div>
                     </div>
                 </div>
                 <div class="row" th:case="'edit'">
                     <div class="form-label-group col-12">
                         <div class="form-label-group col-12">
-                            <label for="address">Dirección</label>
                             <input type="text" id="address" th:field="*{address}" class="form-control" required
-                                   th:value="*{title}">
+                                   th:value="*{title}" placeholder="Dirección">
                             <span class="text-danger" th:if="${#fields.hasErrors('address')}"
                                   th:errors="*{address}"></span>
                         </div>
@@ -109,7 +103,7 @@
                             </select>
                         </div>
                         <div class="col-12 col-md-6 flex">
-                            <a onclick="validateLocation()" class="btn btn-secondary" id="ubicate">UBICAR EN MAPA</a>
+                            <a onclick="validateLocation()" class="btn btn-primary" id="ubicate">UBICAR EN MAPA</a>
                         </div>
                     </div>
                 </div>
@@ -132,9 +126,8 @@
                 </div>
             </div>
             <div class="form-label-group col-12 col-md-6">
-                <label for="content">Descripción</label>
                 <textarea id="content" th:field="*{content}" class="form-control"
-                          rows="6" required></textarea>
+                          rows="6" required placeholder="Descripción"></textarea>
                 <span class="text-danger" th:if="${#fields.hasErrors('content')}"
                       th:errors="*{content}"></span>
             </div>
