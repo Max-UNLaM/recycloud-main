@@ -57,9 +57,25 @@
     </div>
 </section>
 <script>
+var pat = window.location.pathname;
+    function check() {
+            if (pat === "/eventos/filtro/hoy")
+            {
+                document.getElementById('hoy').checked=true;
+            }
+            if (pat === "/eventos/filtro/semana")
+            {
+                document.getElementById('semana').checked=true;
+            }
+            if (pat === "/eventos/filtro/mes")
+            {
+                document.getElementById('mes').checked=true;
+            }
+    }
 
     function hoy() {
         window.location.replace("/eventos/filtro/hoy");
+        document.getElementById('hoy').checked=true;
     }
     function semana() {
         window.location.replace("/eventos/filtro/semana");
@@ -67,6 +83,9 @@
     function mes() {
         window.location.replace("/eventos/filtro/mes");
     }
+
+    check();
+
 </script>
 <footer th:replace="fragments/footer"></footer>
 </body>
