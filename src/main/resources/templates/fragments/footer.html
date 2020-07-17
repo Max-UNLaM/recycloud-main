@@ -62,7 +62,7 @@
                           title: 'Categorías',
                           placement: 'right',
                           template: `
-<div class="popover mensaje-contenedor" role="popover">
+<div class="popover mensaje-contenedor apagar" role="popover">
     <div class="arrow"></div>
     <h5 class="popover-title recy-popover-title fw-600 text-center">¡Tienda!</h5>
     <div class="popover-text text-center">
@@ -101,6 +101,36 @@
                       activateTooltip2(menu2);
                   }
                       enableTooltip2();
+
+
+                  function getCookie(cname) {
+                      var name = cname + "=";
+                      var decodedCookie = decodeURIComponent(document.cookie);
+                      var ca = decodedCookie.split(';');
+                      for(var i = 0; i <ca.length; i++) {
+                          var c = ca[i];
+                          while (c.charAt(0) == ' ') {
+                              c = c.substring(1);
+                          }
+                          if (c.indexOf(name) == 0) {
+                              return c.substring(name.length, c.length);
+                          }
+                      }
+                      return "";
+                  }
+                  var novolver = getCookie("novolver");
+
+                  $(document).ready(function() {
+                      if (novolver != "true"){
+                          var pantalla = screen.width;
+                          if (pantalla <= 768) {
+                              $('#myModal').modal('show');
+                          }
+                          $("#novolver").click(function () {
+                              document.cookie="novolver=true";
+                          })
+                      }
+                  });
               </script>
 </body>
 </html>
