@@ -701,7 +701,11 @@ footer a{
     width: 30%;
     margin: 0 35%;
 }
-.btn-recyp a:hover, .btn-recyp2 a:hover{
+.btn-recyp3{
+    width: 50%;
+    margin: 0 25%;
+}
+.btn-recyp a:hover, .btn-recyp2 a:hover, .btn-recyp3 a:hover{
     color: white !important;
 }
 .fa-edit{
@@ -805,9 +809,13 @@ footer a{
         right: 20px;
         bottom: 84px;
     }
-    .btn-recyp, .btn-recyp2{
+    .btn-recyp, .btn-recyp2, .btn-recyp3{
         width: 90%;
         margin: 0 5%;
+    }
+    .btn-recyp3{
+        width: 100%;
+        margin: 2% 0%;
     }
     #recypoints .tarjeta-recypoint {
         height: auto !important;
@@ -837,6 +845,9 @@ footer a{
     .ocultar-pasos, .mostrar-pasos {
         top: 30px !important;
     }
+    .modal-footer .btn-secondary{
+        width: 100% !important;
+    }
 }
 .badge-primary{
     background-color: #f5b041;
@@ -853,12 +864,18 @@ footer a{
     cursor: pointer;
     z-index: 10;
     width: 4%;
-    margin-left: 96%;
+    margin-left: 90%;
 }
 .contenedor-ocultar{
     position: relative;
     width: 100%;
     text-align: right;
+}
+#beneficiarios h5{
+    font-size: 22px;
+}
+.table td, .table th {
+    font-size: 16px;
 }
 @media screen and (max-width: 992px){
     .navbar-brand{
@@ -882,14 +899,17 @@ footer a{
         margin-bottom: 5px;
     }
     .modal{
-        width: 80% !important;
-        margin: auto;
+        width: 98% !important;
+        margin: auto 1% !important;
     }
     .page-header{
         text-align: center;
     }
     .logo2{
         width: 35% !important;
+    }
+    .modal-content, .modal-dialog {
+        width: 97% !important;
     }
 }
 
@@ -1001,12 +1021,12 @@ text-align: center;
     height: auto;
 }
 .modal{
-    width: 40%;
-    margin: auto;
+    width: 50%;
+    margin: auto 25%;
 }
 .modal-content, .modal-dialog {
     max-width: 100% !important;
-    width: 100% !important;
+    padding: 2% !important;
 }
 .navbar-toggle {
     color: rgba(0,0,0,.5);

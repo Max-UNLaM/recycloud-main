@@ -12,23 +12,21 @@
         <div class="card-body">
             <div class="container">
 
-                <h2>Añadir Beneficiario</h2>
+                <h2 class="text-center my-2 font-weight-bold color-verde col-12">Añadir Beneficiario</h2>
                 <form class="form-row-wide" name="crear" action="#" th:action="@{/punto-reciclaje/recypoints}"
                       th:object="${form}" method="post">
                     <input type="hidden" class="hidden" id="provider-id" th:field="*{providerId}" th:value="*{providerId}" th:attr="data-provider_id=${providerId}">
                     <div class="row">
-                        <div class="form-label-group col-12 col-md-6">
-                            <label for="email">Email Beneficiario</label>
+                        <div class="form-label-group col-12 col-md-6 mb-3">
                             <input type="text" id="email" th:field="*{email}" class="form-control" required
-                                   th:value="*{email}">
+                                   th:value="*{email}" placeholder="Email beneficiario">
                             <span class="text-danger" th:if="${#fields.hasErrors('email')}"
                                   th:errors="*{email}"></span>
                         </div>
-                        <div class="form-label-group col-12 col-md-6">
-                            <label for="amount">Cantidad</label>
+                        <div class="form-label-group col-12 col-md-6 mb-3">
                             <input type="number" step="100" id="amount" th:field="*{amount}" class="form-control"
                                    required
-                                   th:value="*{amount}">
+                                   th:value="*{amount}" placeholder="Cantidad de Recy Points">
                             <span class="text-danger" th:if="${#fields.hasErrors('amount')}"
                                   th:errors="*{amount}"></span>
                         </div>
@@ -38,7 +36,7 @@
                     </div>
                     <div class="row margin-3">
                         <div class="col-12 col-md-6">
-                            <a class="btn btn-secondary" data-toggle="popover" id="btn-validate"
+                            <a class="btn btn btn-primary btn-recyp3" data-toggle="popover" id="btn-validate"
                                onclick="validateMail()">
                                 VALIDAR USUARIO
                             </a>
