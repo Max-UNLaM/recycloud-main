@@ -151,6 +151,11 @@ info-evento{
 .ajustee{
     padding: 2.8px!important;
 }
+.tomi-puto{
+    cursor: pointer;
+    color: darkorange!important;
+    font-weight: 600!important;
+}
 .letra{
     font-weight: 500!important;
     color: #1c1c1c!important;
@@ -348,6 +353,10 @@ a:hover {
 .bg-verde{
     background-color: rgba(85, 198, 85, 0.5) !important;
 }
+.bg-naranja{
+    background-color: #ff9d00;
+    border-color: #ff9d00;
+}
 .degradado{
     background-color: rgb(85,198,85);
     background: linear-gradient(145deg, rgba(85,198,85,1) 0%, rgba(85,198,85,0.7455357142857143) 100%) !important;
@@ -405,7 +414,7 @@ a:hover {
     width: 50%;
     margin: 5% auto;
 }
-.info-scan .card{
+.info-scan .card, #recypoints .card{
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
 .info-scan .card-body{
@@ -575,8 +584,6 @@ footer a{
 }
 #card-evento .card{
     padding: 0 !important;
-    min-height: 169px;
-
 }
 #card-evento .card-body a, #card-evento .card-body span, #card-evento .card-body{
     font-size: 17px;
@@ -685,6 +692,33 @@ footer a{
     width: 90%;
     margin: 0 5%;
 }
+#recypoints .tarjeta-recypoint{
+    height: 200px !important;
+}
+#recypoints .alert{
+    margin-top: 16px !important;
+}
+.btn-recyp{
+    width: 30%;
+    margin: 0 35%;
+}
+.btn-recyp2{
+    width: 30%;
+    margin: 0 35%;
+}
+.btn-recyp3{
+    width: 50%;
+    margin: 0 25%;
+}
+.btn-recyp a:hover, .btn-recyp2 a:hover, .btn-recyp3 a:hover{
+    color: white !important;
+}
+.fa-edit{
+    color: #55c655;
+}
+.fa-trash{
+    color: red;
+}
 
 @media screen and (max-width: 550px){
     .iconos-servicios {
@@ -693,6 +727,7 @@ footer a{
     }
     h3{
         text-align: center;
+        line-height: 33px;
     }
     .servicios {
         padding: 5% 0;
@@ -779,8 +814,99 @@ footer a{
         right: 20px;
         bottom: 84px;
     }
+    .btn-recyp, .btn-recyp2, .btn-recyp3{
+        width: 90%;
+        margin: 0 5%;
+    }
+    .btn-recyp3{
+        width: 100% !important;
+        margin: 2% 0%;
+    }
+    #recypoints .tarjeta-recypoint {
+        height: auto !important;
+    }
+    .centrarbotones{
+        width: 100%;
+    }
+    #cambiaraimagen, #cambiaravideo{
+        margin-left: 0px!important;
+        margin-bottom: 2%;
+    }
+    #avatarImage{
+        padding: 0 15px !important;
+    }
+    .ajuste-tamaño, #imagenn, .ajuste-tamaño2 {
+        width: 100% !important;
+    }
+    #listado-categorias .list-group{
+        padding-left: 15px !important;
+    }
+    #sidebar-collapse{
+        z-index: 1000;
+    }
+    .popover-title{
+        margin-bottom: 1px !important;
+    }
+    .ocultar-pasos, .mostrar-pasos {
+        top: 30px !important;
+    }
+    .modal-footer .btn-secondary{
+        width: 100% !important;
+    }
+    .filtros span{
+        font-size: 11px !important;
+    }
+    .apagar{
+        display: none !important;
+    }
+    .prender{
+        display: block !important;
+    }
 }
-
+.btn-map {
+    background-color: rgba(120, 201, 119, 1) !important;
+}
+.filtros{
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0;
+    padding-top: 0.5%;
+}
+.bg-verdesito{
+    background-color: rgba(120, 201, 119, 1) !important
+}
+.navbar-dark .navbar-toggler {
+    color: rgba(255,255,255,1) !important;
+    border-color: rgba(255,255,255,1) !important;
+}
+.badge-primary{
+    background-color: #f5b041;
+}
+.dropdown-menu{
+    z-index: 1021 !important;
+}
+.ocultar-pasos, .mostrar-pasos{
+    padding: 0;
+    font-size: 20px;
+    font-weight: 700;
+    position: relative;
+    top: 45px;
+    cursor: pointer;
+    z-index: 10;
+    width: 4%;
+    margin-left: 90%;
+}
+.contenedor-ocultar{
+    position: relative;
+    width: 100%;
+    text-align: right;
+}
+#beneficiarios h5{
+    font-size: 22px;
+}
+.table td, .table th {
+    font-size: 16px;
+}
 @media screen and (max-width: 992px){
     .navbar-brand{
         width: 50%;
@@ -803,8 +929,8 @@ footer a{
         margin-bottom: 5px;
     }
     .modal{
-        width: 80% !important;
-        margin: auto;
+        width: 98% !important;
+        margin: auto 1% !important;
     }
     .page-header{
         text-align: center;
@@ -812,11 +938,17 @@ footer a{
     .logo2{
         width: 35% !important;
     }
+    .modal-content, .modal-dialog {
+        width: 97% !important;
+    }
 }
 
 @media screen and (max-width: 650px){
     .logo2{
         width: 70% !important;
+    }
+    #vertical-menu2{
+        display: none !important;
     }
 }
 @media screen and (max-width: 400px){
@@ -832,13 +964,16 @@ footer a{
     cursor: pointer;
     margin: 0 auto;
 }
+.direccion span{
+    font-weight: 600 !important;
+}
 .ajuste-tamaño{
-    width:380px!important;
+    width:380px;
     height:240px;
     margin: 0 auto;
 }
 .ajuste-tamaño2{
-    width:380px!important;
+    width:380px;
     height:240px;
     background: black;
     margin: 0 auto;
@@ -847,7 +982,7 @@ footer a{
     height: 240px!important;
 }
 #avatarImage{
-    padding: 0!important;
+    padding: 0;
     text-align: center;
 }
 .bordes-adjun{
@@ -916,12 +1051,12 @@ text-align: center;
     height: auto;
 }
 .modal{
-    width: 40%;
-    margin: auto;
+    width: 50%;
+    margin: auto 25%;
 }
 .modal-content, .modal-dialog {
     max-width: 100% !important;
-    width: 100% !important;
+    padding: 2% !important;
 }
 .navbar-toggle {
     color: rgba(0,0,0,.5);
@@ -935,6 +1070,7 @@ text-align: center;
 .apagado{
     display: none !important;
 }
+
 .prendido{
     display: block !important;
 }
@@ -1101,10 +1237,17 @@ input[type=text], input[type=search], input[type=email], input[type=password], i
     background-color: #1877f2;
     border-radius: 5px;
 }
+.textoError {
+    text-transform: lowercase;
+}
 
-
-
-
-
-
+.textoError:first-letter {
+    text-transform: uppercase;
+}
+.eventos .card-header{
+    min-height: 55px;
+}
+.popover-title {
+    margin-bottom: 0 !important;
+}
 

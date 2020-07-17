@@ -11,11 +11,85 @@
 <div class="container my-5" th:fragment="main()">
     <div class="row">
         <div class="col-12">
-            <div class="btn-group-vertical map-menu" data-toggle="popover" role="group" aria-label="Categorías"
-                 id="vertical-menu">
-                <button th:each="categoria : ${categorias}" class="btn btn-map" th:text="${categoria.nombre}"></button>
+           
+            <div class="pos-f-t">
+                <nav class="navbar navbar-dark bg-verdesito">
+                    <button class="navbar-toggler menu-color col float-left" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <h2 class="col-md-11 col-10 float-left filtros">Filtros<span style="font-size: 12px"> (Seleccione al menos uno)</span></h2>
+                </nav>
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="p-4">
+                        <button th:each="categoria : ${categorias}" class="btn btn-map" th:text="${categoria.nombre}"></button>
+                    </div>
+                </div>
             </div>
+
             <div id="map"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="contenedor-ocultar">
+                <p class="ocultar-pasos color-naranja" data-toggle="tooltip" data-placement="top" title="Ocultar RecyPoints">▲</p>
+                <p class="mostrar-pasos color-naranja" data-toggle="tooltip" data-placement="top" title="Mostrar RecyPoints">▼</p>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-5 mt-2" id="recypoints">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center my-3 font-weight-bold color-verde">Recy Points</h2>
+                <div class="alert alert-success text-center fw-600 mt-0" role="alert">
+                    Si el punto de reciclaje vende en nuestra <a class="tomi-puto" href="https://recicommerce.exterionmu.com/" target="_blank">tienda</a> podes obtener Recy Points.
+                </div>
+            </div>
+            <div class="col-12 col-md-3 float-left ocultar-recy">
+                <div class="card my-4 py-1">
+                    <img class="card-img-top card-scanner-img" src="/imagenes/recicla.svg" alt="Card image cap">
+                    <div class="card-body tarjeta-recypoint">
+                        <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Llevá tus residuos reciclables</span>
+                        </p>
+                        <p class="card-text text-center mb-4">Separá tus residuos y llevalos a los puntos de reciclaje.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md col-12 float-left my-auto ocultar-recy">
+                <img src="/imagenes/flecha.svg" alt="flecha" class="flechas d-none d-md-block">
+                <img src="/imagenes/flecha2.svg" alt="flecha" class="flechas2 d-block d-md-none">
+            </div>
+            <div class="col-12 col-md-3 float-left ocultar-recy">
+                <div class="card my-4 py-1">
+                    <img class="card-img-top card-scanner-img" src="/imagenes/dar-puntos.svg"
+                         alt="Card image cap">
+                    <div class="card-body tarjeta-recypoint">
+                        <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Recy Points</span>
+                        </p>
+                        <p class="card-text text-center mb-4">El punto de reciclaje podrá cargar <strong class="color-naranja">Recy Points*</strong> en tu cuenta.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md col-12 float-left my-auto ocultar-recy">
+                <img src="/imagenes/flecha.svg" alt="flecha" class="flechas d-none d-md-block">
+                <img src="/imagenes/flecha2.svg" alt="flecha" class="flechas2 d-block d-md-none">
+            </div>
+            <div class="col-12 col-md-3 float-left ocultar-recy">
+                <div class="card my-4 py-1">
+                    <img class="card-img-top card-scanner-img" src="/imagenes/carrito.svg" alt="Card image cap">
+                    <div class="card-body tarjeta-recypoint">
+                        <p class="card-text text-center mb-0"><span class="font-weight-bold color-verde">Obtené descuentos</span>
+                        </p>
+                        <p class="card-text text-center">Podrás utilizar los puntos para obtener <strong>descuentos exclusivos</strong>
+                            en los productos del punto de reciclaje.</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-warning text-center fw-600 ocultar-recy" role="alert">
+            La carga de putos depende exclusivamente del punto de reciclaje. El podrá decidir si brindarlos o no.
         </div>
     </div>
 </div>
@@ -25,5 +99,18 @@
 <script th:src="@{/js/pages/map/map-menu.js}" async defer></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0lJoUoC-kiNyutxVB9ay4Oycbs35KjEg&callback=initMap"></script>
 <script th:src="@{/js/lib/richmarker.js}" async defer></script>
+<script>
+    $(".mostrar-pasos").hide();
+    $(".ocultar-pasos").click(function () {
+        $(".ocultar-recy").hide(1000);
+        $(".ocultar-pasos").hide();
+        $(".mostrar-pasos").show();
+    });
+    $(".mostrar-pasos").click(function () {
+        $(".ocultar-recy").show(1000);
+        $(".mostrar-pasos").hide();
+        $(".ocultar-pasos").show();
+    });
+</script>
 </body>
 </html>

@@ -47,8 +47,8 @@
                             <div class="col-md-8 text-center cabezera-evento float-left"><span th:text="${eventos.titulo}"></span></div>
                             <div class="col-md-4 text-center cabezera-evento float-left"><span th:text="${eventos.fecha}"></span></div>
                         </div>
-                        <div class="card-body text-center">
-                            <span class="color-verde2">13,0Km</span> - <a th:text="${eventos.direccion}"></a>, <span th:text="${eventos.localidad}"></span> <br> <span th:text="${eventos.horaInicio}" class="color-verde2"></span> a <span class="color-verde2" th:text="${eventos.horaFin}"></span></span>
+                        <div class="card-body text-center direccion">
+                            <span class="fw-600"><span th:text="${eventos.direccion}"></span>, <span th:text="${eventos.localidad}"></span> <br> <span th:text="${eventos.horaInicio}" class="color-naranja"></span> a <span class="color-naranja" th:text="${eventos.horaFin}"></span></span>
                         </div>
                     </div>
                 </div>
@@ -57,9 +57,25 @@
     </div>
 </section>
 <script>
+var pat = window.location.pathname;
+    function check() {
+            if (pat === "/eventos/filtro/hoy")
+            {
+                document.getElementById('hoy').checked=true;
+            }
+            if (pat === "/eventos/filtro/semana")
+            {
+                document.getElementById('semana').checked=true;
+            }
+            if (pat === "/eventos/filtro/mes")
+            {
+                document.getElementById('mes').checked=true;
+            }
+    }
 
     function hoy() {
         window.location.replace("/eventos/filtro/hoy");
+        document.getElementById('hoy').checked=true;
     }
     function semana() {
         window.location.replace("/eventos/filtro/semana");
@@ -67,6 +83,9 @@
     function mes() {
         window.location.replace("/eventos/filtro/mes");
     }
+
+    check();
+
 </script>
 <footer th:replace="fragments/footer"></footer>
 </body>

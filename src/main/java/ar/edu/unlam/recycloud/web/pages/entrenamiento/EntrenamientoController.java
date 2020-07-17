@@ -13,10 +13,10 @@ public class EntrenamientoController {
     public String scanner( HttpSession session) {
         Usuario l= (Usuario) session.getAttribute("usuario");
         if(l == null){
-            return ("/index");
+            return "redirect:/";
         }
         if(l.getRol() != 1){
-            return ("/index");
+            return "redirect:/";
         }
         return "/entrenamiento/entrenamiento";
     }

@@ -96,8 +96,8 @@ const bindTooltip = (element) => {
         template: `
 <div class="popover mensaje-contenedor" role="popover">
     <div class="arrow"></div>
-    <h5 class="popover-title recy-popover-title fw-600">Categorías</h5>
-    <div class="popover-text">
+    <h5 class="popover-title recy-popover-title fw-600 text-center">Categorías</h5>
+    <div class="popover-text text-center">
         <span class="text-danger">Elige la categoría por la que quieras filtrar el mapa</span>
     </div>
     <div class="margin-auto w100">

@@ -1,5 +1,8 @@
 package ar.edu.unlam.recycloud.web.pages.home;
 
+import ar.edu.unlam.recycloud.app.email.Suscriptores;
+import ar.edu.unlam.recycloud.app.email.SuscriptoresRepository;
+import ar.edu.unlam.recycloud.app.email.SuscriptoresService;
 import ar.edu.unlam.recycloud.app.usuario.Actualizar;
 import ar.edu.unlam.recycloud.app.usuario.Password;
 import ar.edu.unlam.recycloud.app.usuario.Usuario;
@@ -7,6 +10,7 @@ import ar.edu.unlam.recycloud.app.usuario.UsuarioService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,18 +23,22 @@ import javax.validation.Valid;
 @Controller
 public class HomeController {
     private final UsuarioService usuarioService;
+    private final SuscriptoresRepository suscriptoresRepository;
+    private final SuscriptoresService suscriptoresService;
 
-    public HomeController(UsuarioService usuarioService) {
+    public HomeController(UsuarioService usuarioService, SuscriptoresRepository suscriptoresRepository, SuscriptoresService suscriptoresService) {
         this.usuarioService = usuarioService;
+        this.suscriptoresRepository = suscriptoresRepository;
+        this.suscriptoresService = suscriptoresService;
     }
 
     @GetMapping("/")
-    public String home(){
+    public String home(Suscriptores suscriptores){
         return "/index";
     }
     @GetMapping("/header")
     public String index(){
-        return "/index";
+        return "redirect:/";
     }
     @GetMapping("/home/perfil")
     public ModelAndView perfil(HttpSession session,Model model){
@@ -55,6 +63,15 @@ public class HomeController {
             usuarioService.actualizarPass(pass.getNewPassword(), p);
         }
         return "redirect:/home/perfil";
+    }
+    @PostMapping(path = "/home/suscribirse")
+    public String suscribirse (HttpSession session, @Valid Suscriptores suscriptores, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return "/index";
+        } else {
+            suscriptoresService.verificarSiYaExiste(suscriptores.getEmail());
+        }
+        return "redirect:/";
     }
 
     @PostMapping(path = "/home/completar")

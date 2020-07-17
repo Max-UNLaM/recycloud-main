@@ -10,7 +10,15 @@
 
 <header th:replace="fragments/header"></header>
 
-<section class="info-scan pt-4">
+<div class="container">
+    <div class="row">
+        <div class="contenedor-ocultar">
+            <p class="ocultar-pasos color-naranja" data-toggle="tooltip" data-placement="top" title="Ocultar RecyPoints">▲</p>
+            <p class="mostrar-pasos color-naranja" data-toggle="tooltip" data-placement="top" title="Mostrar RecyPoints">▼</p>
+        </div>
+    </div>
+</div>
+<section class="info-scan pt-4 ocultar-recy">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -189,7 +197,7 @@
         const reader = new FileReader();
 
         reader.addEventListener("load", function () {
-            clasedifuminado.style.backgroundImage=" url('"+ reader.result +"')";
+            clasedifuminado.style.background="#000";
             preview.src = reader.result;
 
         }, false);
@@ -198,6 +206,19 @@
             reader.readAsDataURL(file);
         }
     }
+</script>
+<script>
+    $(".mostrar-pasos").hide();
+    $(".ocultar-pasos").click(function () {
+        $(".ocultar-recy").hide(1000);
+        $(".ocultar-pasos").hide();
+        $(".mostrar-pasos").show();
+    });
+    $(".mostrar-pasos").click(function () {
+        $(".ocultar-recy").show(1000);
+        $(".mostrar-pasos").hide();
+        $(".ocultar-pasos").show();
+    });
 </script>
 </body>
 </html>

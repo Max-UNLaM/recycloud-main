@@ -37,6 +37,7 @@
         </ul>
     </div>
 </footer>
+
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -46,5 +47,90 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+              <script>
+
+                  
+                  const enableTooltipKey2 = 'recycloud-enable-tooltip';
+                  const localStorage2 = window.localStorage;
+                  const disabled2 = 'disabled';
+
+                  const bindTooltip2 = (element) => {
+                      element.popover({
+                          trigger: 'manual',
+                          html: true,
+                          content: '',
+                          title: 'Categorías',
+                          placement: 'right',
+                          template: `
+<div class="popover mensaje-contenedor apagar" role="popover">
+    <div class="arrow"></div>
+    <h5 class="popover-title recy-popover-title fw-600 text-center">¡Tienda!</h5>
+    <div class="popover-text text-center">
+        <span class="text-danger">Aquí podrás vender y comprar productos hechos de reciclables</span>
+    </div>
+    <div class="margin-auto w100">
+        <a href="#" class="card-link fw-600" id="popover-no-volver2">No volver a mostrar</a>
+        <a href="#" class="card-link fw-600" id="popover-cerrar2">Cerrar</a>
+    </div>
+
+</div>
+</div>
+`
+                      });
+                  }
+
+                  const activateTooltip2 = (element) => {
+                      setTimeout(function () {
+                          element.popover('toggle');
+                          $('#popover-cerrar2').click(() => {
+                              element.popover('dispose');
+                          });
+                          $('#popover-no-volver2').click(() => {
+                              element.popover('dispose');
+                              localStorage2.setItem(enableTooltipKey2, disabled2);
+                          })
+                      }, 2000);
+                  }
+
+                  const enableTooltip2 = () => {
+                      if (localStorage2.getItem(enableTooltipKey2) === disabled2) {
+                          return;
+                      }
+                      const menu2 = $('#vertical-menu2');
+                      bindTooltip2(menu2);
+                      activateTooltip2(menu2);
+                  }
+                      enableTooltip2();
+
+
+                  function getCookie(cname) {
+                      var name = cname + "=";
+                      var decodedCookie = decodeURIComponent(document.cookie);
+                      var ca = decodedCookie.split(';');
+                      for(var i = 0; i <ca.length; i++) {
+                          var c = ca[i];
+                          while (c.charAt(0) == ' ') {
+                              c = c.substring(1);
+                          }
+                          if (c.indexOf(name) == 0) {
+                              return c.substring(name.length, c.length);
+                          }
+                      }
+                      return "";
+                  }
+                  var novolver = getCookie("novolver");
+
+                  $(document).ready(function() {
+                      if (novolver != "true"){
+                          var pantalla = screen.width;
+                          if (pantalla <= 768) {
+                              $('#myModal').modal('show');
+                          }
+                          $("#novolver").click(function () {
+                              document.cookie="novolver=true";
+                          })
+                      }
+                  });
+              </script>
 </body>
 </html>

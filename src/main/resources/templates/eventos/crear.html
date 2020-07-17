@@ -35,20 +35,20 @@
                     <span class="text-danger" th:if="${#fields.hasErrors('localidad')}" th:errors="*{localidad}"></span>
                 </div>
                 <div class="col-md-12 text-center mt-2">
-                    <button type="submit" class="btn btn-primary form-control col-md-12 verde-blanco" id="guardar">Crear evento</button>
+                    <button type="submit" class="btn btn-primary form-control col-md-12 verde-blanco mb-5" id="guardar">Crear evento</button>
                 </div>
             </div>
         </form>
 
             <div class="col-md-8  mb-5 float-right">
-                <div class="col-lg-12 col-12 float-left" id="card-evento" th:each="eventos : ${listaDeEventos}">
+                <div class="col-lg-12 col-12 float-left mb-3" id="card-evento" th:each="eventos : ${listaDeEventos}">
                     <div class="card text-center col-md-12  float-left">
                         <div class="card-header degradado">
                             <div class="col-md-8 text-center cabezera-evento float-left"><span th:text="${eventos.titulo}"></span></div>
                             <div class="col-md-4 text-center cabezera-evento float-left"><span th:text="${eventos.fecha}"></span></div>
                         </div>
-                        <div class="card-body text-center">
-                            <span class="color-verde2">13,0Km</span> - <a th:text="${eventos.direccion}"></a>, <span th:text="${eventos.localidad}"></span> <br> <span th:text="${eventos.horaInicio}" class="color-verde2"></span> a <span class="color-verde2" th:text="${eventos.horaFin}"></span></span>
+                        <div class="card-body text-center direccion">
+                            <span class="fw-600"><span th:text="${eventos.direccion}"></span>, <span th:text="${eventos.localidad}"></span> <br> <span th:text="${eventos.horaInicio}" class="color-naranja"></span> a <span class="color-naranja" th:text="${eventos.horaFin}"></span></span>
                         </div>
                     </div>
                 </div>

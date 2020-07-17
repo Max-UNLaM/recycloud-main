@@ -15,11 +15,12 @@
                 <div class="col-md-6 col-12 descripcion mt-5">
                     <h1 class="mt-5 mb-3 blanco"><span class="fw-600">Reciclá</span><span> y ayudá a cuidar nuestro planeta</span></h1>
                     <p class="fw-600 blanco"> Para recibir todas las novedades de RecyCloud dejanos tu E-mail</p>
-                    <form>
+                    <form action="#" th:action="@{/home/suscribirse}" th:object="${suscriptores}" method="post" >
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Ingrese su Email">
+                            <input th:field="*{email}" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Ingrese su Email">
                         </div>
-                        <button type="submit" class="btn btn-primary">Subscribirse</button>
+                        <div class="text-danger textoError mb-3" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                        <button type="submit" class="btn btn-primary">Suscribirse</button>
                     </form>
                 </div>
                 <div class="col-md-6 col-12">

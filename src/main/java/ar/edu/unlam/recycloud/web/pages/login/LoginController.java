@@ -1,5 +1,6 @@
 package ar.edu.unlam.recycloud.web.pages.login;
 
+import ar.edu.unlam.recycloud.app.email.EmailService;
 import ar.edu.unlam.recycloud.app.recycommerce.CustomerService;
 import ar.edu.unlam.recycloud.app.usuario.Login;
 import ar.edu.unlam.recycloud.app.usuario.Usuario;
@@ -16,23 +17,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-import static ar.edu.unlam.recycloud.conf.ProjectConstants.RECYCOMMERCE_SESSION_KEY;
-
 @Controller
 public class LoginController {
 
     private final CustomerService customerService;
     private final UsuarioService usuarioService;
+    private final EmailService emailService;
 
-    public LoginController(CustomerService customerService, UsuarioService usuarioService) {
+    public LoginController(CustomerService customerService, UsuarioService usuarioService, EmailService emailService) {
         this.customerService = customerService;
         this.usuarioService = usuarioService;
+        this.emailService = emailService;
     }
 
     @RequestMapping(path = "/login/cerrarSession")
     public String cerrarSession(HttpSession session) {
         session.setAttribute("usuario", null);
-        return "/index";
+        return "redirect:/";
     }
 
     @GetMapping(path = "/login")
@@ -53,7 +54,7 @@ public class LoginController {
                 return "/login/login";
             } else {
                 session.setAttribute("usuario", log);
-                return "/index";
+                return "redirect:/";
             }
         }
 
@@ -82,7 +83,8 @@ public class LoginController {
             usuarioService.registro(usuario);
             Usuario log = usuarioService.validarUsuario(usuario.getEmail());
             session.setAttribute("usuario", log);
-            return "/index";
+            emailService.sendEmail(log.getEmail(),"Registración a RecyCloud", "Gracias por registrarte a RecyCloud");
+            return "redirect:/";
         }
     }
 
@@ -105,11 +107,13 @@ public class LoginController {
             usr.setIdentificacion(2);// es por que es google o facebook
             usuarioService.registro(usr);
             session.setAttribute("usuario", usr);
+            emailService.sendEmail(request.getParameter("email"),"Registración a RecyCloud", "Gracias por registrarte a RecyCloud");
+
         } else {
             session.setAttribute("usuario", u);
         }
 
-        return "/index";
+        return "redirect:/";
 
     }
    /* @RequestMapping(...)
