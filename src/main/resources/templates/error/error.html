@@ -17,9 +17,9 @@
                 <h1 th:text="${codigo}"></h1>
             </div>
             <h2>Oops! hubo un problema al cargar la página solicitada.</h2>
-            <p th:if="${codigo} == 400">Algo ha ido mal con la petición. Prueba a refrescar la página.</p>
+            <p th:if="${codigo} == 400">Algo ha ido mal con la petición. Prueba refrescar la página.</p>
             <p th:if="${codigo} == 403">Intentas acceder a una página o recurso al que no tienes permiso.</p>
-            <p th:if="${codigo} == 404">El recurso no está disponible en el servidor. Quizá ha sido borrado o has escrito la dirección web mal.</p>
+            <p th:if="${codigo} == 404">El recurso no está disponible en el servidor. Quizá ha sido borrado o has escrito mal la dirección web.</p>
             <p th:if="${codigo} == 500">Hay un problema en el servidor. Inténtelo nuevamente más tarde.</p>
             <p th:if="${codigo} == 503">El servidor no está disponible en ese momento. Prueba de nuevo en unos minutos.</p>
         </div>
