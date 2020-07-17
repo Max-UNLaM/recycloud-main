@@ -18,7 +18,9 @@
                             <span th:text="${categoria.nombre}"></span>
                         </a>
                     <span/>
+
             </div>
+            
             <div class="list-group col-md-9 mt-5">
                 <div class="card text-center">
                     <div class="card-header items-categoria degradado">
@@ -47,15 +49,26 @@
                         </span>
                     </div>
                     <div class="card-header items-categoria degradado">
-                        <span class="blanco">¿DÓNDE RECICLAR?</span>
+                        <span class="blanco division-titulo">REFERENCIAS</span>
+                        <span class="blanco division-titulo">¿DÓNDE RECICLAR?</span>
                     </div>
                     <div class="card-body">
-                        <a th:href="@{/map?categories=__${#strings.toUpperCase(cateseleccionada.nombre)}__}">
-                            <button class="btn btn-primary" id="">
+                         <span th:each="informacion : ${informacion}" th:if ="${informacion.donde} != 'vacio'" class="text-center">
+                             <a  th:href="${informacion.donde}" class="division-titulo" target="_blank">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-link"></i> Referencia
+                                </button>
+                            </a>
+                        </span>
+
+                        <a th:href="@{/map?categories=__${#strings.toUpperCase(cateseleccionada.nombre)}__}" class="division-titulo">
+                            <button class="btn btn-primary">
                                 <i class="fas fa-map-marker-alt"></i> Ver Mapa
                             </button>
                         </a>
                     </div>
+
+
                 </div>
             </div>
         </div>

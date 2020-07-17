@@ -862,6 +862,10 @@ footer a{
     .prender{
         display: block !important;
     }
+    .division-titulo button{
+        width: 98% !important;
+        margin: 2% 1% !important;
+    }
 }
 .btn-map {
     background-color: rgba(120, 201, 119, 1) !important;
@@ -1362,6 +1366,12 @@ input[type=text], input[type=search], input[type=email], input[type=password], i
         height: 100vh;
     }
 }
+.division-titulo{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
 
 
 
