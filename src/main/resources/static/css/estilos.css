@@ -151,6 +151,11 @@ info-evento{
 .ajustee{
     padding: 2.8px!important;
 }
+.tomi-puto{
+    cursor: pointer;
+    color: darkorange!important;
+    font-weight: 600!important;
+}
 .letra{
     font-weight: 500!important;
     color: #1c1c1c!important;
@@ -851,6 +856,12 @@ footer a{
     .filtros span{
         font-size: 11px !important;
     }
+    .apagar{
+        display: none !important;
+    }
+    .prender{
+        display: block !important;
+    }
 }
 .btn-map {
     background-color: rgba(120, 201, 119, 1) !important;
@@ -1059,6 +1070,7 @@ text-align: center;
 .apagado{
     display: none !important;
 }
+
 .prendido{
     display: block !important;
 }
@@ -1238,8 +1250,4 @@ input[type=text], input[type=search], input[type=email], input[type=password], i
 .popover-title {
     margin-bottom: 0 !important;
 }
-
-
-
-
 

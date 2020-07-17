@@ -48,14 +48,14 @@
                             </div>
                         </div>
 
-                        <a  th:if="${session.usuario} != null" class="letra2 float-right mr-3" data-toggle="popover" role="group" aria-label="Categorías" id="vertical-menu2" href="/recycommerce/login">Quiero vender</a>
+                        <a  th:if="${session.usuario} != null" class="letra2 float-right mr-3" data-toggle="popover" role="group" aria-label="Categorías" id="vertical-menu2" target="_blank" href="https://recicommerce.exterionmu.com/">Quiero vender</a>
 
 
                     </li>
                     <li class="nav-item m-0 p-0">
                         <a th:if="${session.usuario} == null" class="btn-primary btn-sm float-right ml-2" href="/login">INICIAR SESIÓN</a>
                         <a th:if="${session.usuario} == null" class="btn-primary btn-sm float-right ml-2 up_case" href="/login/registrar">Regístrate</a>
-                        <a  th:if="${session.usuario} == null" class="letra2 float-right mr-3" data-toggle="popover" role="group" aria-label="Categorías" id="vertical-menu2" href="/recycommerce/login">Quiero vender</a>
+                        <a  th:if="${session.usuario} == null" class="letra2 float-right mr-3" data-toggle="popover" role="group" aria-label="Categorías" id="vertical-menu2" target="_blank" href="https://recicommerce.exterionmu.com/">Quiero vender</a>
                     </li>
                 </ul>
             </div>
@@ -104,7 +104,7 @@
                     <a class="nav-link letra" href="/login/registrar" style="padding-left: 30px;">Registro</a>
                 </li>
                 <li class="nav-item d-block d-md-none">
-                    <a class="nav-link letra" href="https://recicommerce.exterionmu.com/" style="padding-left: 30px;">Quiero vender</a>
+                    <a class="nav-link letra" href="https://recicommerce.exterionmu.com/"  target="_blank" style="padding-left: 30px;">Quiero vender</a>
                 </li>
                 <li class="nav-link d-block d-md-none perfil-responsive">
                     <div class="dropdown float-left">
@@ -128,6 +128,20 @@
         </div>
     </div>
 </nav>
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2 class="font-weight-bold color-verde text-center col-12">¡Entrá a la tienda!</h2>
+                <p class="fw-600 text-center">Podrás vender y comprar productos hechos de reciclables</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="novolver" class="btn btn-secondary">No volver a mostrar</button>
+                <button type="button" id="cerr" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 
