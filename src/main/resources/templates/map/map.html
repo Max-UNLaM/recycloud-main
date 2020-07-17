@@ -11,10 +11,21 @@
 <div class="container my-5" th:fragment="main()">
     <div class="row">
         <div class="col-12">
-            <div class="btn-group-vertical map-menu" data-toggle="popover" role="group" aria-label="Categorías"
-                 id="vertical-menu">
-                <button th:each="categoria : ${categorias}" class="btn btn-map" th:text="${categoria.nombre}"></button>
+           
+            <div class="pos-f-t">
+                <nav class="navbar navbar-dark bg-verdesito">
+                    <button class="navbar-toggler menu-color col float-left" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <h2 class="col-md-11 col-10 float-left filtros">Filtros<span style="font-size: 12px"> (Seleccione al menos uno)</span></h2>
+                </nav>
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="p-4">
+                        <button th:each="categoria : ${categorias}" class="btn btn-map" th:text="${categoria.nombre}"></button>
+                    </div>
+                </div>
             </div>
+
             <div id="map"></div>
         </div>
     </div>

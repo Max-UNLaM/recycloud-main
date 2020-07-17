@@ -64,12 +64,12 @@ const badgeTemplate = (items, badgeType) => {
 const dialogTemplate = (dialog) => {
     return `
 <div id="content">
-    <div id="siteNotice">${badgeTemplate(dialog.categories, 'primary')}</div>
-    <h1 id="firstHeading" class="firstHeading">${dialog.first_heading}</h1>
+    <div id="siteNotice" class="text-center">${badgeTemplate(dialog.categories, 'primary')}</div>
+    <h2 id="firstHeading" class="firstHeading text-center my-3 font-weight-bold color-verde">${dialog.first_heading}</h2>
     <div id="bodyContent">
         <p>${dialog.body_content}</p>
         <p>${dialog.address}</p>
-        <p><a href="${dialog.link}">Site</a></p>
+        <p><a href="${dialog.link}">Sitio/Red: </a></p>
         <p>${badgeTemplate(dialog.days, 'secondary')}</p>
         <p>${dialog.schedule}</p>
     </div>
