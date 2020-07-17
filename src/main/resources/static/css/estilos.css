@@ -1232,7 +1232,12 @@ input[type=text], input[type=search], input[type=email], input[type=password], i
 .textoError:first-letter {
     text-transform: uppercase;
 }
-
+.eventos .card-header{
+    min-height: 55px;
+}
+.popover-title {
+    margin-bottom: 0 !important;
+}
 
 
 
