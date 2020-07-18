@@ -43,4 +43,9 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
     @Query(value = "SELECT COUNT(*) FROM punto_reciclaje WHERE usuario_id = :id", nativeQuery = true)
     Integer pinesTotales(@Param ("id") Long id);
 
+    @Query(value = "SELECT COUNT(*) FROM evento WHERE usuario_id = :id AND fecha < :tiempo", nativeQuery = true)
+    Integer eventosInactivos(@Param("tiempo") String tiempo,@Param ("id") Long id);
+    @Query(value = "SELECT COUNT(*) FROM evento WHERE usuario_id = :id AND fecha >= :tiempo", nativeQuery = true)
+    Integer eventosActivos(@Param("tiempo") String tiempo,@Param ("id") Long id);
+
 }

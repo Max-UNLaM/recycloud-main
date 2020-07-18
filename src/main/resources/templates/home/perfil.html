@@ -84,10 +84,26 @@
                         <h3 class="card-title text-center mb-4" style="font-size: 30px;">Estadísticas</h3>
                         <div class="row">
                             <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+                                <div class="panel panel-orange panel-widget border-right">
+                                    <div class="row no-padding"><em class="fa fa-xl fa-map-marker color-teal w100"></em>
+                                        <div class="large w100 my-3" th:if="${estadisticaspunto.eventosTotales != null}" th:text="${estadisticaspunto.eventosTotales}"></div>
+                                        <div class="text-muted w100">Eventos totales</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+                                <div class="panel panel-red panel-widget ">
+                                    <div class="row no-padding"><em class="w100 fa fa-xl fa-check color-blue"></em>
+                                        <div class="large w100 my-3" th:if="${estadisticaspunto.eventosActivos != null}" th:text="${estadisticaspunto.eventosActivos}"></div>
+                                        <div class="text-muted w100">Eventos activos</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                                 <div class="panel panel-teal panel-widget border-right">
-                                    <div class="row no-padding"><em class="w100 fa fa-xl fa-eye color-blue"></em>
-                                        <div class="large w100 my-3">0</div>
-                                        <div class="text-muted w100">Visitas al mapa</div>
+                                    <div class="row no-padding"><em class="w100 fa fa-xl fa-ban color-red"></em>
+                                        <div class="large w100 my-3" th:if="${estadisticaspunto.eventosInactivos != null}" th:text="${estadisticaspunto.eventosInactivos}"></div>
+                                        <div class="text-muted w100">Eventos inactivos</div>
                                     </div>
                                 </div>
                             </div>
@@ -99,22 +115,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-                                <div class="panel panel-orange panel-widget border-right">
-                                    <div class="row no-padding"><em class="fa fa-xl fa-map-marker color-teal w100"></em>
-                                        <div class="large w100 my-3" th:if="${estadisticaspunto.eventosTotales != null}" th:text="${estadisticaspunto.eventosTotales}"></div>
-                                        <div class="text-muted w100">Eventos de reciclaje</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-                                <div class="panel panel-red panel-widget ">
-                                    <div class="row no-padding"><em class="w100 fa fa-xl fa-recycle color-red"></em>
-                                        <div class="large w100 my-3" >0</div>
-                                        <div class="text-muted w100">Categorías mas buscada</div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div><!--/.row-->
                     </div>
 

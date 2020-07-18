@@ -10,9 +10,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Service
 public class UsuarioService {
@@ -94,9 +94,17 @@ public class UsuarioService {
 
         return imagenesUsuarioRepository.traerEstadosDeImagenes(usuario.getId());
     }
+    public String hoy(){
+        Format formatter = new SimpleDateFormat("yyyy/MM/dd");
+        Date today = Calendar.getInstance().getTime();
+        String d = formatter.format(today);
+        return d;
+    }
     public EstadisticasPuntoReciclaje estadisticasDelPuntoDeReciclaje(Usuario usuario) {
         EstadisticasPuntoReciclaje lista = new EstadisticasPuntoReciclaje();
-        lista.setEventosTotales(usuarioRepository. eventosTotales(usuario.getId()));
+        lista.setEventosTotales(usuarioRepository.eventosTotales(usuario.getId()));
+        lista.setEventosActivos(usuarioRepository.eventosActivos(hoy(),usuario.getId()));
+        lista.setEventosInactivos(usuarioRepository.eventosInactivos(hoy(),usuario.getId()));
         lista.setPinesTotales(usuarioRepository.pinesTotales(usuario.getId()));
         return lista;
     }

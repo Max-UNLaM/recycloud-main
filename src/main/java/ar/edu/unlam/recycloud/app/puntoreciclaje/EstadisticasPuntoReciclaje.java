@@ -4,8 +4,8 @@ public class EstadisticasPuntoReciclaje {
 
     private Integer eventosTotales;
     private Integer pinesTotales;
-    private Integer pinesVisitas;
-    private String categoriaMasBuscada;
+    private Integer eventosInactivos;
+    private Integer eventosActivos;
 
     public Integer getEventosTotales() {
         return eventosTotales;
@@ -23,19 +23,19 @@ public class EstadisticasPuntoReciclaje {
         this.pinesTotales = pinesTotales;
     }
 
-    public Integer getPinesVisitas() {
-        return pinesVisitas;
+    public Integer getEventosInactivos() {
+        return eventosInactivos;
     }
 
-    public void setPinesVisitas(Integer pinesVisitas) {
-        this.pinesVisitas = pinesVisitas;
+    public void setEventosInactivos(Integer eventosInactivos) {
+        this.eventosInactivos = eventosInactivos;
     }
 
-    public String getCategoriaMasBuscada() {
-        return categoriaMasBuscada;
+    public Integer getEventosActivos() {
+        return eventosActivos;
     }
 
-    public void setCategoriaMasBuscada(String categoriaMasBuscada) {
-        this.categoriaMasBuscada = categoriaMasBuscada;
+    public void setEventosActivos(Integer eventosActivos) {
+        this.eventosActivos = eventosActivos;
     }
 }
