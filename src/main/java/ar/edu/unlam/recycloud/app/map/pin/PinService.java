@@ -5,14 +5,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class PinService {
 
     private final PinRepository<Pin> pinRepository;
+    private final PinMetric pinMetric;
 
-    PinService(PinMongoRepository pinesRepository) {
+    PinService(PinMongoRepository pinesRepository, PinMetric pinMetric) {
         this.pinRepository = pinesRepository;
+        this.pinMetric = pinMetric;
     }
 
     public List<Pin> get() {
@@ -20,6 +23,7 @@ public class PinService {
     }
 
     public List<Pin> get(Map<String, String> filters) {
+        CompletableFuture.runAsync(() -> pinMetric.meterPin(filters));
         return this.pinRepository.find(filters);
     }
 

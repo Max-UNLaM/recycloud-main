@@ -4,7 +4,6 @@ import ar.edu.unlam.recycloud.api.message.ErrorMessage;
 import ar.edu.unlam.recycloud.app.exceptions.NotFoundException;
 import ar.edu.unlam.recycloud.app.usuario.UsuarioService;
 import com.google.gson.Gson;
-import com.google.maps.errors.ApiException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

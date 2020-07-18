@@ -15,7 +15,7 @@ INSERT INTO recycloud.usuario
 (1999,'Núñez',20, 39272340,'admin@admin.com',0,'Diciembre','Tomas',NULL,'admin123', 1,NULL),
 (1995,'Morales',28, 39272340,'punto@punto.com',0,'Agosto','Nicolas',NULL,'punto123', 3,NULL),
 (1990,'Barrio Nuevo',17, 39272340,'generico@generico.com',0,'Abril','David',NULL,'generico123', 2,NULL),
-(1989, 'De Pietro', 3, 34870524, 'maximiliano.depietro@gmail.com', 0, 'Octubre', 'Maximiliano', NULL,  'maxi123', 3, NULL),
+(1989, 'De Pietro', 3, 34870524, 'maximiliano.depietro@gmail.com', 0, 'Octubre', 'Maximiliano', NULL,  'generico123', 3, NULL),
 (1940, 'Zappa', 21, 94870524, 'elwindwalker@gmail.com', 0, 'Diciembre', 'Frank', NULL,  'generico123', 3, NULL);
 
 INSERT INTO recycloud.categoria_entrenada(imagen, categoria_id)

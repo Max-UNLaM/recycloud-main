@@ -1,6 +1,5 @@
 package ar.edu.unlam.recycloud.app.map.pin;
 
-import ar.edu.unlam.recycloud.app.map.dialog.Dialog;
 import ar.edu.unlam.recycloud.app.mongo.MongoConsumer;
 import com.google.gson.Gson;
 import com.mongodb.client.model.Filters;
