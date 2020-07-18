@@ -25,27 +25,7 @@
     "link": "www.prueba.com"
   },
   {
-    "location": {
-      "type": "Point",
-      "coordinates": [
-        -34.6510276,
-        -58.6238583
-      ]
-    },
-    "categories": [
-      "ECO BOTELLAS",
-      "PLÁSTICO"
-    ],
-    "first_heading": "Llená tu Botella",
-    "body_content": "Este es un pin de prueba",
-    "days": [
-      "sábados",
-      "martes"
-    ],
-    "schedule": "de 15 a 17",
-    "link": "www.prueba.com"
-  },
-  {
+    "address": "Almirante Brown 550",
     "location": {
       "type": "Point",
       "coordinates": [
