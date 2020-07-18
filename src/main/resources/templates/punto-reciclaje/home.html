@@ -29,7 +29,8 @@
                                 th:each="category : ${puntoReciclaje.pin.categories}"
                                 th:text="${category}"
                                 class="badge badge-primary m-1"></span></td>
-                        <td class="text-center"><i class="fa fa-edit" aria-hidden="true"></i>
+                        <td class="text-center">
+                            <a th:href="@{/punto-reciclaje/edit/__${puntoReciclaje.puntoReciclaje.id}__}"><i class="fa fa-edit" aria-hidden="true"></i></a>
                         </td>
                         <td class="text-center"><i class="fa fa-trash" aria-hidden="true"></i>
                         </td>
