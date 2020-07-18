@@ -22,7 +22,7 @@
     },
     "date": 1595016254357,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -35,7 +35,7 @@
     },
     "date": 1595016257901,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -48,7 +48,7 @@
     },
     "date": 1595016341904,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -61,7 +61,7 @@
     },
     "date": 1595016344782,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 5,
     "year": 2020
   },
   {
@@ -74,7 +74,7 @@
     },
     "date": 1595016352567,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 5,
     "year": 2020
   },
   {
@@ -87,7 +87,7 @@
     },
     "date": 1595016360835,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 5,
     "year": 2020
   },
   {
@@ -100,7 +100,7 @@
     },
     "date": 1595016363489,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 5,
     "year": 2020
   },
   {
@@ -113,7 +113,7 @@
     },
     "date": 1595016375178,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 5,
     "year": 2020
   },
   {
@@ -126,7 +126,7 @@
     },
     "date": 1595016381354,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 5,
     "year": 2020
   },
   {
@@ -139,7 +139,7 @@
     },
     "date": 1595016384440,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 5,
     "year": 2020
   },
   {
@@ -152,7 +152,202 @@
     },
     "date": 1595016386406,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 5,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6835629,
+        -58.6627587
+      ],
+      "type": "Point"
+    },
+    "date": 1595016423430,
+    "metricName": "dialog_get",
+    "month": 5,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6835629,
+        -58.6627587
+      ],
+      "type": "Point"
+    },
+    "date": 1595016476724,
+    "metricName": "dialog_get",
+    "month": 5,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016487071,
+    "metricName": "dialog_get",
+    "month": 5,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6955035,
+        -58.5873922
+      ],
+      "type": "Point"
+    },
+    "date": 1595016200034,
+    "metricName": "dialog_get",
+    "month": 6,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016254357,
+    "metricName": "dialog_get",
+    "month": 5,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016257901,
+    "metricName": "dialog_get",
+    "month": 5,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016341904,
+    "metricName": "dialog_get",
+    "month": 5,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016344782,
+    "metricName": "dialog_get",
+    "month": 5,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016352567,
+    "metricName": "dialog_get",
+    "month": 5,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016360835,
+    "metricName": "dialog_get",
+    "month": 5,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6835629,
+        -58.6627587
+      ],
+      "type": "Point"
+    },
+    "date": 1595016363489,
+    "metricName": "dialog_get",
+    "month": 5,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6532363,
+        -58.6434944
+      ],
+      "type": "Point"
+    },
+    "date": 1595016375178,
+    "metricName": "dialog_get",
+    "month": 5,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6475677,
+        -58.6208252
+      ],
+      "type": "Point"
+    },
+    "date": 1595016381354,
+    "metricName": "dialog_get",
+    "month": 3,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6475677,
+        -58.6208252
+      ],
+      "type": "Point"
+    },
+    "date": 1595016384440,
+    "metricName": "dialog_get",
+    "month": 3,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6475677,
+        -58.6208252
+      ],
+      "type": "Point"
+    },
+    "date": 1595016386406,
+    "metricName": "dialog_get",
+    "month": 3,
     "year": 2020
   },
   {
@@ -204,7 +399,7 @@
     },
     "date": 1595016200034,
     "metricName": "dialog_get",
-    "month": 5,
+    "month": 6,
     "year": 2020
   },
   {
@@ -399,7 +594,72 @@
     },
     "date": 1595016200034,
     "metricName": "dialog_get",
-    "month": 5,
+    "month": 6,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016254357,
+    "metricName": "dialog_get",
+    "month": 4,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016257901,
+    "metricName": "dialog_get",
+    "month": 4,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016341904,
+    "metricName": "dialog_get",
+    "month": 4,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016344782,
+    "metricName": "dialog_get",
+    "month": 4,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6955035,
+        -58.5873922
+      ],
+      "type": "Point"
+    },
+    "date": 1595016200034,
+    "metricName": "dialog_get",
+    "month": 6,
     "year": 2020
   },
   {
@@ -594,7 +854,7 @@
     },
     "date": 1595016200034,
     "metricName": "dialog_get",
-    "month": 5,
+    "month": 6,
     "year": 2020
   },
   {
@@ -789,7 +1049,7 @@
     },
     "date": 1595016200034,
     "metricName": "dialog_get",
-    "month": 5,
+    "month": 6,
     "year": 2020
   },
   {
@@ -945,6 +1205,396 @@
     },
     "date": 1595016423430,
     "metricName": "dialog_get",
+    "month": 4,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6835629,
+        -58.6627587
+      ],
+      "type": "Point"
+    },
+    "date": 1595016476724,
+    "metricName": "dialog_get",
+    "month": 4,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016487071,
+    "metricName": "dialog_get",
+    "month": 4,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6955035,
+        -58.5873922
+      ],
+      "type": "Point"
+    },
+    "date": 1595016200034,
+    "metricName": "dialog_get",
+    "month": 6,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016254357,
+    "metricName": "dialog_get",
+    "month": 4,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016257901,
+    "metricName": "dialog_get",
+    "month": 4,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016341904,
+    "metricName": "dialog_get",
+    "month": 4,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016344782,
+    "metricName": "dialog_get",
+    "month": 4,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016352567,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016360835,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6835629,
+        -58.6627587
+      ],
+      "type": "Point"
+    },
+    "date": 1595016363489,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6532363,
+        -58.6434944
+      ],
+      "type": "Point"
+    },
+    "date": 1595016375178,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6475677,
+        -58.6208252
+      ],
+      "type": "Point"
+    },
+    "date": 1595016381354,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6475677,
+        -58.6208252
+      ],
+      "type": "Point"
+    },
+    "date": 1595016384440,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6475677,
+        -58.6208252
+      ],
+      "type": "Point"
+    },
+    "date": 1595016386406,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6835629,
+        -58.6627587
+      ],
+      "type": "Point"
+    },
+    "date": 1595016423430,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6835629,
+        -58.6627587
+      ],
+      "type": "Point"
+    },
+    "date": 1595016476724,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016487071,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6955035,
+        -58.5873922
+      ],
+      "type": "Point"
+    },
+    "date": 1595016200034,
+    "metricName": "dialog_get",
+    "month": 6,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016254357,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016257901,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016341904,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016344782,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016352567,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.689439,
+        -58.6383319
+      ],
+      "type": "Point"
+    },
+    "date": 1595016360835,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6835629,
+        -58.6627587
+      ],
+      "type": "Point"
+    },
+    "date": 1595016363489,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6532363,
+        -58.6434944
+      ],
+      "type": "Point"
+    },
+    "date": 1595016375178,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6475677,
+        -58.6208252
+      ],
+      "type": "Point"
+    },
+    "date": 1595016381354,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6475677,
+        -58.6208252
+      ],
+      "type": "Point"
+    },
+    "date": 1595016384440,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6475677,
+        -58.6208252
+      ],
+      "type": "Point"
+    },
+    "date": 1595016386406,
+    "metricName": "dialog_get",
+    "month": 0,
+    "year": 2020
+  },
+  {
+    "data": {
+      "coordinates": [
+        -34.6835629,
+        -58.6627587
+      ],
+      "type": "Point"
+    },
+    "date": 1595016423430,
+    "metricName": "dialog_get",
     "month": 6,
     "year": 2020
   },
@@ -984,7 +1634,7 @@
     },
     "date": 1595016200034,
     "metricName": "dialog_get",
-    "month": 5,
+    "month": 6,
     "year": 2020
   },
   {
@@ -1179,7 +1829,7 @@
     },
     "date": 1595016200034,
     "metricName": "dialog_get",
-    "month": 5,
+    "month": 6,
     "year": 2020
   },
   {
@@ -1374,7 +2024,7 @@
     },
     "date": 1595016200034,
     "metricName": "dialog_get",
-    "month": 5,
+    "month": 6,
     "year": 2020
   },
   {
@@ -1569,7 +2219,7 @@
     },
     "date": 1595016200034,
     "metricName": "dialog_get",
-    "month": 5,
+    "month": 6,
     "year": 2020
   },
   {
@@ -1764,7 +2414,7 @@
     },
     "date": 1595016200034,
     "metricName": "dialog_get",
-    "month": 5,
+    "month": 6,
     "year": 2020
   },
   {
@@ -1959,7 +2609,7 @@
     },
     "date": 1595016200034,
     "metricName": "dialog_get",
-    "month": 5,
+    "month": 6,
     "year": 2020
   },
   {
@@ -2154,7 +2804,7 @@
     },
     "date": 1595016200034,
     "metricName": "dialog_get",
-    "month": 5,
+    "month": 6,
     "year": 2020
   },
   {
@@ -4844,7 +5494,7 @@
     },
     "date": 1595016423430,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -4857,7 +5507,7 @@
     },
     "date": 1595016476724,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -4870,7 +5520,7 @@
     },
     "date": 1595016487071,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -4896,7 +5546,7 @@
     },
     "date": 1595016254357,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -4909,7 +5559,7 @@
     },
     "date": 1595016257901,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -4922,7 +5572,7 @@
     },
     "date": 1595016341904,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -4935,7 +5585,7 @@
     },
     "date": 1595016344782,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -4948,7 +5598,7 @@
     },
     "date": 1595016352567,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -4961,7 +5611,7 @@
     },
     "date": 1595016360835,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -4974,7 +5624,7 @@
     },
     "date": 1595016363489,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -4987,7 +5637,7 @@
     },
     "date": 1595016375178,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -5000,7 +5650,7 @@
     },
     "date": 1595016381354,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -5013,7 +5663,7 @@
     },
     "date": 1595016384440,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -5026,7 +5676,7 @@
     },
     "date": 1595016386406,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -5039,7 +5689,7 @@
     },
     "date": 1595016423430,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -5052,7 +5702,7 @@
     },
     "date": 1595016476724,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   },
   {
@@ -5065,7 +5715,7 @@
     },
     "date": 1595016487071,
     "metricName": "dialog_get",
-    "month": 4,
+    "month": 0,
     "year": 2020
   }
 ]

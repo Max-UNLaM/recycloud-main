@@ -23,12 +23,18 @@ public class DialogStatisticService {
     public List<PuntoStatistic> getTopDialogs(int year, int month) {
         List<PuntoStatistic> dialogsList = new ArrayList<>();
         this.statisticService.getTopLocation(year, month).forEach(
-                (location, count) -> dialogsList.add(
-                        new PuntoStatistic(
-                                dialogService.getDialogFromLocation(location).getAddress(),
-                                count
-                        )
-                )
+                (location, count) -> {
+                    try {
+                        dialogsList.add(
+                                new PuntoStatistic(
+                                        dialogService.getDialogFromLocation(location).getAddress(),
+                                        count
+                                )
+                        );
+                    } catch (NullPointerException npe) {
+                        System.out.println(String.format("Error al traer: %s %s", location.get(0), location.get(1)));
+                    }
+                }
         );
         return dialogsList;
     }

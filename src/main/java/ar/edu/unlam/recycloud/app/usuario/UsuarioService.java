@@ -129,4 +129,8 @@ public class UsuarioService {
         }
     }
 
+    public long getTotalAccounts() {
+        return usuarioRepository.count();
+    }
+
 }

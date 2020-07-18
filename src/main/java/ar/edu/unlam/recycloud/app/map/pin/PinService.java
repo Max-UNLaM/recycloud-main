@@ -38,4 +38,8 @@ public class PinService {
     public void update(Pin pin) {
         this.pinRepository.updatePunto(pin);
     }
+
+    public int count() {
+        return this.pinRepository.findAll().size();
+    }
 }
