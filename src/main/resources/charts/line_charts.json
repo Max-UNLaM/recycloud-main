@@ -1,0 +1,43 @@
+[
+  {
+    "fill_color": "rgba(220,220,220,0.2)",
+    "stroke_color": "rgba(220,220,220,1)",
+    "point_color": "rgba(220,220,220,1)",
+    "point_stroke_color": "#fff",
+    "point_highlight_fill": "#fff",
+    "point_highlight_stroke": "rgba(220,220,220,1)"
+  },
+  {
+    "fill_color": "rgba(48, 164, 255, 0.2)",
+    "stroke_color": "rgba(48, 164, 255, 1)",
+    "point_color": "rgba(48, 164, 255, 1)",
+    "point_stroke_color": "#fff",
+    "point_highlight_fill": "#fff",
+    "point_highlight_stroke": "rgba(48, 164, 255, 1)"
+  },
+  {
+    "fill_color": "rgba(18,55,28,0.2)",
+    "stroke_color": "#a5d6a7",
+    "point_color": "#75a478",
+    "point_stroke_color": "#fff",
+    "point_highlight_fill": "#fff",
+    "point_highlight_stroke": "rgba(48, 164, 255, 1)"
+  },
+  {
+    "fill_color": "rgba(63, 191, 178, 0.2)",
+    "stroke_color": "#ff7043",
+    "point_color": "#c63f17",
+    "point_stroke_color": "#fff",
+    "point_highlight_fill": "#fff",
+    "point_highlight_stroke": "rgba(48, 164, 255, 1)"
+  },
+  {
+    "fill_color": "rgba(191, 63, 121, 0.2)",
+    "stroke_color": "#38006b",
+    "point_color": "#6a1b9a",
+    "point_stroke_color": "#fff",
+    "point_highlight_fill": "#fff",
+    "point_highlight_stroke": "rgba(48, 164, 255, 1)"
+  }
+]
+

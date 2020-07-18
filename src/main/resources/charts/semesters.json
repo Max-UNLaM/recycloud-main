@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "index": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "names": [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio"
+    ]
+  },
+  {
+    "id": 2,
+    "index": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "names": [
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre"
+    ]
+  }
+]

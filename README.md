@@ -1,3 +1,4 @@
+
 # RecyCloud Main
 
 Este es el sistema principal de RecyCloud.
@@ -138,7 +139,10 @@ cd ./src/main/resources/mocks
 Cargar los datos a las collections, dentro de la carpeta de resources:
 ```shell script
 mongoimport --jsonArray --db recycloud --collection pin --file pines.json   
-mongoimport --jsonArray --db recycloud --collection dialog --file dialogs.json                                                                                                               1 ↵
+mongoimport --jsonArray --db recycloud --collection dialog --file dialogs.json                                                                                                            1 ↵
+mongoimport --jsonArray --db recycloud --collection locationmetric --file pointmetrics.json
+mongoimport --jsonArray --db recycloud --collection countmetric --file visitmetrics.json
+
 ```
 
 ### Poblar bases de datos

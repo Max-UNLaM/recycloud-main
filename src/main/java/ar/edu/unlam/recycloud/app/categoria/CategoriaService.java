@@ -31,4 +31,8 @@ public class CategoriaService {
         findAll().forEach(categoria -> categoriaNames.add(categoria.getNombre().toLowerCase()));
         return categoriaNames;
     }
+
+    public long getTotalCategorias() {
+        return this.categoriaRepository.count();
+    }
 }

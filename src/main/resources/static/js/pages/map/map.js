@@ -142,6 +142,7 @@ let ignite = (location) => {
 
     let map = new google.maps.Map(document.getElementById(mapId), {
         mapTypeControl: false,
+        clickableIcons: false,
         center: {
             lat: browserLat,
             lng: browserLong

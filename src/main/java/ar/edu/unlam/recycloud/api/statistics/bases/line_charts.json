@@ -1,0 +1,43 @@
+[
+  {
+    "fillColor": "rgba(220,220,220,0.2)",
+    "strokeColor": "rgba(220,220,220,1)",
+    "pointColor": "rgba(220,220,220,1)",
+    "pointStrokeColor": "#fff",
+    "pointHighlightFill": "#fff",
+    "pointHighlightStroke": "rgba(220,220,220,1)"
+  },
+  {
+    "fillColor": "rgba(48, 164, 255, 0.2)",
+    "strokeColor": "rgba(48, 164, 255, 1)",
+    "pointColor": "rgba(48, 164, 255, 1)",
+    "pointStrokeColor": "#fff",
+    "pointHighlightFill": "#fff",
+    "pointHighlightStroke": "rgba(48, 164, 255, 1)"
+  },
+  {
+    "fillColor": "rgba(18,55,28,0.2)",
+    "strokeColor": "#a5d6a7",
+    "pointColor": "#75a478",
+    "pointStrokeColor": "#fff",
+    "pointHighlightFill": "#fff",
+    "pointHighlightStroke": "rgba(48, 164, 255, 1)"
+  },
+  {
+    "fillColor": "rgba(60,18,18,0.2)",
+    "strokeColor": "#ff7043",
+    "pointColor": "#c63f17",
+    "pointStrokeColor": "#fff",
+    "pointHighlightFill": "#fff",
+    "pointHighlightStroke": "rgba(48, 164, 255, 1)"
+  },
+  {
+    "fillColor": "#9c4dcc",
+    "strokeColor": "#38006b",
+    "pointColor": "#6a1b9a",
+    "pointStrokeColor": "#fff",
+    "pointHighlightFill": "#fff",
+    "pointHighlightStroke": "rgba(48, 164, 255, 1)"
+  }
+]
+

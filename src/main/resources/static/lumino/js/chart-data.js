@@ -15,7 +15,7 @@ var randomScalingFactor = function(){ return Math.round(Math.random()*1000)};
 			},
 			{
 				label: "My Second dataset",
-				fillColor : "rgba(48, 164, 255, 0.2)",
+				fillColor : "rgba(60,18,18,0.2)",
 				strokeColor : "rgba(48, 164, 255, 1)",
 				pointColor : "rgba(48, 164, 255, 1)",
 				pointStrokeColor : "#fff",
