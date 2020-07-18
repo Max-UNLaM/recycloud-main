@@ -48,14 +48,14 @@
                             </div>
                         </div>
 
-                        <a  th:if="${session.usuario} != null" class="letra2 float-right mr-3" data-toggle="popover" role="group" aria-label="Categorías" id="vertical-menu2" target="_blank" href="/recycommerce/login">Quiero vender</a>
+                        <a  th:if="${session.usuario} != null" class="letra2 float-right mr-3" data-toggle="popover" role="group" aria-label="Categorías" id="vertical-menu2" target="_blank" href="/recycommerce/login">Tienda</a>
 
 
                     </li>
                     <li class="nav-item m-0 p-0">
                         <a th:if="${session.usuario} == null" class="btn-primary btn-sm float-right ml-2" href="/login">INICIAR SESIÓN</a>
                         <a th:if="${session.usuario} == null" class="btn-primary btn-sm float-right ml-2 up_case" href="/login/registrar">Regístrate</a>
-                        <a  th:if="${session.usuario} == null" class="letra2 float-right mr-3" data-toggle="popover" role="group" aria-label="Categorías" id="vertical-menu2" target="_blank" href="http://www.recycommerce.local/index.php?route=common/home">Quiero vender</a>
+                        <a  th:if="${session.usuario} == null" class="letra2 float-right mr-3" data-toggle="popover" role="group" aria-label="Categorías" id="vertical-menu2" target="_blank" href="http://www.recycommerce.local/index.php?route=common/home">Tienda</a>
                     </li>
                 </ul>
             </div>
@@ -104,7 +104,7 @@
                     <a class="nav-link letra" href="/login/registrar" style="padding-left: 30px;">Registro</a>
                 </li>
                 <li class="nav-item d-block d-md-none">
-                    <a class="nav-link letra" href="http://www.recycommerce.local/index.php?route=common/home"  target="_blank" style="padding-left: 30px;">Quiero vender</a>
+                    <a class="nav-link letra" href="http://www.recycommerce.local/index.php?route=common/home"  target="_blank" style="padding-left: 30px;">Tienda</a>
                 </li>
                 <li class="nav-link d-block d-md-none perfil-responsive">
                     <div class="dropdown float-left" style="width: 50%;">

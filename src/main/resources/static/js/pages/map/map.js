@@ -69,7 +69,7 @@ const dialogTemplate = (dialog) => {
     <div id="bodyContent">
         <p>${dialog.body_content}</p>
         <p>${dialog.address}</p>
-        <p><a href="${dialog.link}">Sitio/Red: </a></p>
+        <p><a target="_blank" href="${dialog.link}">Ir al sitio </a></p>
         <p>${badgeTemplate(dialog.days, 'secondary')}</p>
         <p>${dialog.schedule}</p>
     </div>

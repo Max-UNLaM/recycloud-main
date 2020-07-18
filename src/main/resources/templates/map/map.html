@@ -42,8 +42,11 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="text-center my-3 font-weight-bold color-verde">Recy Points</h2>
-                <div class="alert alert-success text-center fw-600 mt-0" role="alert">
-                    Si el punto de reciclaje vende en nuestra <a class="tomi-puto" href="https://recicommerce.exterionmu.com/" target="_blank">tienda</a> podes obtener Recy Points.
+                <div th:if="${session.usuario} != null" class="alert alert-success text-center fw-600 mt-0" role="alert">
+                    Si el punto de reciclaje vende en nuestra <a class="tomi-puto" href="/recycommerce/login" target="_blank">tienda</a> podes obtener Recy Points.
+                </div>
+                <div th:if="${session.usuario} == null" class="alert alert-success text-center fw-600 mt-0" role="alert">
+                    Si el punto de reciclaje vende en nuestra <a class="tomi-puto" href="http://www.recycommerce.local/index.php?route=common/home" target="_blank">tienda</a> podes obtener Recy Points.
                 </div>
             </div>
             <div class="col-12 col-md-3 float-left ocultar-recy">
