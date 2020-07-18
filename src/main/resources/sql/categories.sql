@@ -12,7 +12,7 @@ INSERT INTO categoria(background_color, color, icon, nombre, short_desc) VALUES
 
 INSERT INTO recycloud.usuario
 (anio, apellido, dia, dni, email, identificacion, mes, nombre, nombre_imagen, password, rol, telefono)VALUES
-(1999,'Núñez',20, 39272340,'admin@admin.com',0,'Diciembre','Tomas',NULL,'admin123', 1,NULL),
+(1999,'Núñez',20, 39272340,'test_user_34734472@testuser.com',0,'Diciembre','Tomas',NULL,'quierovender2', 1,NULL),
 (1995,'Morales',28, 39272340,'punto@punto.com',0,'Agosto','Nicolas',NULL,'punto123', 3,NULL),
 (1990,'Barrio Nuevo',17, 39272340,'generico@generico.com',0,'Abril','David',NULL,'generico123', 2,NULL),
 (1989, 'De Pietro', 3, 34870524, 'maximiliano.depietro@gmail.com', 0, 'Octubre', 'Maximiliano', NULL,  'maxi123', 3, NULL),

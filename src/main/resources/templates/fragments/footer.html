@@ -23,7 +23,8 @@
                     <li class="list-inline-item"><a href="/map">Mapa</a></li>
                     <li class="list-inline-item"><a href="/eventos">Eventos</a></li>
                     <li class="list-inline-item"><a href="/categoria">Categorías</a></li>
-                    <li class="list-inline-item"><a href="https://recicommerce.exterionmu.com/">Quiero vender</a></li>
+                    <li  th:if="${session.usuario} != null" class="list-inline-item"><a target="_blank" href="/recycommerce/login">Quiero vender</a></li>
+                    <li  th:if="${session.usuario} == null" class="list-inline-item"><a target="_blank" href="http://www.recycommerce.local/index.php?route=common/home">Quiero vender</a></li>
                 </ul>
             </div>
         </div>
@@ -128,6 +129,7 @@
                           }
                           $("#novolver").click(function () {
                               document.cookie="novolver=true";
+                              $('#myModal').modal('hide');
                           })
                       }
                   });

@@ -59,7 +59,7 @@ public class PuntoReciclajeController {
             return new ModelAndView( "redirect:/");
         }
         PuntoReciclaje pr = puntoReciclajeViewService.save(puntoReciclajeEdit, usuario.getId());
-        return new ModelAndView("redirect:/punto-reciclaje/edit/" + pr.getId());
+        return new ModelAndView("redirect:/punto-reciclaje");
     }
 
     @RequestMapping(value = EDIT_PATH + "/{puntoId}")

@@ -48,14 +48,14 @@
                             </div>
                         </div>
 
-                        <a  th:if="${session.usuario} != null" class="letra2 float-right mr-3" data-toggle="popover" role="group" aria-label="Categorías" id="vertical-menu2" target="_blank" href="https://recicommerce.exterionmu.com/">Quiero vender</a>
+                        <a  th:if="${session.usuario} != null" class="letra2 float-right mr-3" data-toggle="popover" role="group" aria-label="Categorías" id="vertical-menu2" target="_blank" href="/recycommerce/login">Quiero vender</a>
 
 
                     </li>
                     <li class="nav-item m-0 p-0">
                         <a th:if="${session.usuario} == null" class="btn-primary btn-sm float-right ml-2" href="/login">INICIAR SESIÓN</a>
                         <a th:if="${session.usuario} == null" class="btn-primary btn-sm float-right ml-2 up_case" href="/login/registrar">Regístrate</a>
-                        <a  th:if="${session.usuario} == null" class="letra2 float-right mr-3" data-toggle="popover" role="group" aria-label="Categorías" id="vertical-menu2" target="_blank" href="https://recicommerce.exterionmu.com/">Quiero vender</a>
+                        <a  th:if="${session.usuario} == null" class="letra2 float-right mr-3" data-toggle="popover" role="group" aria-label="Categorías" id="vertical-menu2" target="_blank" href="http://www.recycommerce.local/index.php?route=common/home">Quiero vender</a>
                     </li>
                 </ul>
             </div>
@@ -104,15 +104,15 @@
                     <a class="nav-link letra" href="/login/registrar" style="padding-left: 30px;">Registro</a>
                 </li>
                 <li class="nav-item d-block d-md-none">
-                    <a class="nav-link letra" href="https://recicommerce.exterionmu.com/"  target="_blank" style="padding-left: 30px;">Quiero vender</a>
+                    <a class="nav-link letra" href="http://www.recycommerce.local/index.php?route=common/home"  target="_blank" style="padding-left: 30px;">Quiero vender</a>
                 </li>
                 <li class="nav-link d-block d-md-none perfil-responsive">
-                    <div class="dropdown float-left">
-                        <a class="nav-link dropdown-toggle" th:if="${session.usuario} != null" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="nombre-usuario2"
-                                  th:text="${session.usuario.nombre}">
-                            </span>
-                        </a>
+                    <div class="dropdown float-left" style="width: 50%;">
+                        <button class="btn-sm btn-primary dropdown-toggle ajustee" th:if="${session.usuario} != null" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="nombre-usuario"
+                                      th:text="${session.usuario.nombre}">
+                                </span>
+                        </button>
                         <div class="dropdown-menu menu-responsive" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="/home/perfil">Mi perfil</a>
                             <a class="dropdown-item" href="/eventos/crear" th:if="${session.usuario} != null and ${session.usuario.rol} == 3 ">Crear evento</a>

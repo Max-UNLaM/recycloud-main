@@ -84,8 +84,17 @@
                     </a>
                 </div>
 
-                <div class="card float-left" style="width: 18rem;">
-                    <a href="https://recicommerce.exterionmu.com/">
+                <div  th:if="${session.usuario} == null" class="card float-left" style="width: 18rem;">
+                    <a target="_blank" href="http://www.recycommerce.local/index.php?route=common/home">
+                        <img class="card-img-top iconos-servicios" src="/imagenes/tienda.svg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title">Tienda</h4>
+                            <p class="card-text text-center">Utilizá la tienda para comprar o vender tus productos reciclados.</p>
+                        </div>
+                    </a>
+                </div>
+                <div  th:if="${session.usuario} != null" class="card float-left" style="width: 18rem;">
+                    <a target="_blank" href="/recycommerce/login">
                         <img class="card-img-top iconos-servicios" src="/imagenes/tienda.svg" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">Tienda</h4>

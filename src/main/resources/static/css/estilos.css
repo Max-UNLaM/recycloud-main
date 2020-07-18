@@ -1371,6 +1371,9 @@ input[type=text], input[type=search], input[type=email], input[type=password], i
     float: left;
     text-align: center;
 }
+.table .fa{
+    cursor: pointer;
+}
 
 
 
