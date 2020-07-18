@@ -117,6 +117,9 @@ public class UsuarioService {
         lista.setUsuariosTotalesRol2(usuarioRepository.totalDeUsuariosRol2());
         lista.setUsuariosTotalesRol3(usuarioRepository.totalDeUsuariosRol3());
         lista.setCategoriasTotales(categoriaRepository.totalDeCategorias());
+        lista.setActivo(categoriaRepository.activo(hoy()));
+        lista.setInactivo(categoriaRepository.inactivo(hoy()));
+        lista.setTotal(categoriaRepository.total());
         return lista;
     }
 

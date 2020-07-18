@@ -7,6 +7,33 @@ public class Estadisticas {
     private Integer usuariosTotalesRol2;
     private Integer usuariosTotalesRol3;
     private Integer categoriasTotales;
+    private Integer activo;
+    private Integer total;
+    private Integer inactivo;
+
+    public Integer getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Integer activo) {
+        this.activo = activo;
+    }
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
+
+    public Integer getInactivo() {
+        return inactivo;
+    }
+
+    public void setInactivo(Integer inactivo) {
+        this.inactivo = inactivo;
+    }
 
     public Integer getUsuariosTotales() {
         return usuariosTotales;
